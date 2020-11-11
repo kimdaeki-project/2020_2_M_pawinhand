@@ -1,5 +1,15 @@
 Manifest-Version: 1.0
-Built-By: LG
-Build-Jdk: 10.0.2
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+Built-By: 82107
+Build-Jdk: 13.0.1
+=======
+Built-By: ￬ﾡﾰ￬ﾜﾠ￭ﾘﾄ
+Build-Jdk: 1.8.0_261
+>>>>>>> 27672d8c407b484d7dc1214d1c20b8185997415a
+=======
+Built-By: 82107
+Build-Jdk: 13.0.1
+>>>>>>> Stashed changes
 Created-By: Maven Integration for Eclipse
 
