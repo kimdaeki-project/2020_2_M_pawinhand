@@ -3,8 +3,12 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<<<<<<< Updated upstream
 
 <mapper namespace="com.ph4.s1.lostReply.LostReplyDAO">
+=======
+   <mapper namespace="com.ph4.s1.lostReply.LostReplyDAO">
+>>>>>>> Stashed changes
 	
 	<select id="getList" resultType="LostReplyDTO" parameterType="LostReplyPager">
 		select * from
@@ -49,3 +53,7 @@
 	</insert>
 	
 </mapper>
+<<<<<<< Updated upstream
+=======
+   
+>>>>>>> Stashed changes
