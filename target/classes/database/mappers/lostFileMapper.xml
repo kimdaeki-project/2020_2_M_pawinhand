@@ -26,3 +26,7 @@
     	select distinct fileName from lostFile where num = #{num} 
     </select>
 </mapper>
+<<<<<<< Updated upstream
+=======
+ 
+>>>>>>> Stashed changes
