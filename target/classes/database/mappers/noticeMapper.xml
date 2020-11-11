@@ -3,10 +3,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 <mapper namespace="com.ph4.s1.board.notice.NoticeDAO">
    <update id="setUpdate" parameterType="noticeDTO">
       update board set title = #{title}, contents=#{contents} where num = #{num}
@@ -64,7 +61,4 @@
    </select>
    
 </mapper>
-<<<<<<< Updated upstream
     
-=======
->>>>>>> Stashed changes

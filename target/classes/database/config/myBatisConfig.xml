@@ -21,10 +21,7 @@
       	<typeAlias type="com.ph4.s1.board.qna.QnaDTO" alias="qnaDTO"/>
       	<typeAlias type="com.ph4.s1.util.Pager" alias="Pager"/>
       	<typeAlias type="com.ph4.s1.board.boardFile.BoardFileDTO" alias="BoardFileDTO"/>
-<<<<<<< Updated upstream
       	<typeAlias type="com.ph4.s1.board.community.CommunityDTO" alias="CommunityDTO"/>
-=======
->>>>>>> Stashed changes
   	</typeAliases>
   
   
