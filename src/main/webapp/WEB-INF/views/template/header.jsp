@@ -41,7 +41,7 @@
            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
              <ul class="navbar-nav">
                <li class="nav-item active">
-                 <a class="nav-link" href="${pageContext.request.contextPath}/notice/noticeList">포인핸드 소개</a>
+                 <a class="nav-link" href="${pageContext.request.contextPath}/intro">포인핸드 소개</a>
                </li>
                <li class="nav-item active">
                  <a class="nav-link" href="${pageContext.request.contextPath}/voluntary/voluntaryList">봉사</a>
