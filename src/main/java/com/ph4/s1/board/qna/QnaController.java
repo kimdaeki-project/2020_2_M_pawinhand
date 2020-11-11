@@ -176,9 +176,6 @@ public class QnaController {
 			System.out.println(dto.getContents());
 		}
 		
-		BoardDTO boardDTO  = ar.get(0);
-		QnaDTO qnaDTO = (QnaDTO)boardDTO;
-		System.out.println(qnaDTO.getDepth());
 		mv.addObject("board", "qna");
 		mv.addObject("lists", ar);
 		mv.addObject("pager", pager);
