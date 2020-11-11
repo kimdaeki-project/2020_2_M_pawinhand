@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ph4.s1.board.file.ShelterFileDTO;
 import com.ph4.s1.util.Pager;
+import com.ph4.s1.voluntary.file.VoluntaryFileDTO;
 
 @Controller
 @RequestMapping("/shelter/**")
@@ -28,7 +29,7 @@ public class ShelterController {
 	
 	
 	@GetMapping("shelterList")
-	public ModelAndView getList(Pager pager, ShelterDTO shelterDTO) throws Exception{
+	public ModelAndView getList(Pager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<ShelterDTO> ar = shelterSevice.getList(pager);
 		
@@ -73,26 +74,6 @@ public class ShelterController {
 		
 	}
 	
-	//=======================================================================
-	
-//	@PostMapping("imagefile")
-//	public ModelAndView imagefiles(MultipartFile file, HttpSession session) throws Exception{
-//		ModelAndView mv = new ModelAndView();
-//		System.out.println(file.getOriginalFilename());
-//		System.out.println(file.getSize());
-//		
-//		String fileName = shelterSevice.imagefile(file, session);
-//		
-//		String name = session.getServletContext().getContextPath()+File.separator;
-//		name = name+"resources"+File.separator+"upload"+File.separator;
-//		name = name+"shelter"+File.separator+fileName;
-//		System.out.println(name);
-//		
-//		mv.addObject("mag", name);
-//		mv.setViewName("common/ajaxResult");
-//		return mv;
-//	}
-	
 	
 	
 	//=======================================================================
@@ -101,10 +82,12 @@ public class ShelterController {
 	public ModelAndView getOne(ShelterDTO shelterDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		shelterDTO = shelterSevice.getOne(shelterDTO);
+		List<ShelterFileDTO> ar = shelterSevice.getFileOne(shelterDTO);
 		
 		if(shelterDTO != null) {
 			mv.setViewName("shelter/shelterSelect");
 			mv.addObject("dto", shelterDTO);
+			mv.addObject("filelist", ar);
 		}else {
 			mv.setViewName("common/result");
 			mv.addObject("msg", "데이터가 존재하지 않습니다.");

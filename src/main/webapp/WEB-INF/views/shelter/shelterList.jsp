@@ -61,12 +61,17 @@
 		<div class="listbox" OnClick="location.href ='./shelterSelect?num=${dto.num}'">
 
 			<div>
-				<img class="img" alt="" src="../resources/upload/shelter/4cf45ff1-f7a9-46ed-a95f-812ba9e53ed7_11.jpg" width="350px" height="220px">
+				<c:choose>
+					<c:when test="${not empty dto.shelterFileDTO.fileName}">
+						<img src="../resources/upload/shelter/${dto.shelterFileDTO.fileName}" width="350px" height="220px">
+					</c:when>
+					<c:otherwise>사진없음</c:otherwise>
+				</c:choose>
 			</div>
 
 			<div style="border-bottom-style: 5px solid black; width: 85%">
   				<p class="list-contents">·품   종 : [${dto.animal}] ${dto.animal_kind}</p>
-  				<p class="list-contents" id="period_1">·등록일 : ${dto.period_1}</p>
+  				<p class="list-contents">·등록일 : ${dto.period_1}</p>
   				<p class="list-contents">·지   역 : ${dto.center}</p>
   				<p class="list-contents">·구조장소 : ${dto.place_of_find}</p>
 			</div>
@@ -75,8 +80,6 @@
 			
 			</div>
 		</div>
-		
-
 		
 		</c:forEach>
   
@@ -109,7 +112,25 @@
  
  <script type="text/javascript">
  
- 	
+ 	$(document).ready(function() { 
+	    alert("로딩 완료");
+
+	       alert(${dto.period_1});
+	    
+	   var period_1 = $("#period_1").text().substring(7, 17);
+	   var today = new Date().toISOString().substring(0, 10);
+	    
+	    alert(period_1);
+	    alert(today);
+	    
+	       if(period_1 == today){
+	         var text_new = $("#text_new").html().trim();
+	         $(".new").append(text_new);
+	       }else{
+	          return false;
+	       }
+	    
+	 });
  
  
  

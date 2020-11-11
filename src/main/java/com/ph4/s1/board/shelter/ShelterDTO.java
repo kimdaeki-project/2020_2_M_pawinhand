@@ -3,8 +3,11 @@ package com.ph4.s1.board.shelter;
 import java.sql.Date;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.ph4.s1.board.file.ShelterFileDTO;
 
+@Component
 public class ShelterDTO {
 	
 	private long num;
@@ -23,10 +26,20 @@ public class ShelterDTO {
 	private String special;
 	private String center;
 	private String center_tel;
+	private ShelterFileDTO shelterFileDTO;
 	
 	List<ShelterFileDTO> shelterFileDTOs;
 	
 	
+	
+	
+	
+	public ShelterFileDTO getShelterFileDTO() {
+		return shelterFileDTO;
+	}
+	public void setShelterFileDTO(ShelterFileDTO shelterFileDTO) {
+		this.shelterFileDTO = shelterFileDTO;
+	}
 	public List<ShelterFileDTO> getShelterFileDTOs() {
 		return shelterFileDTOs;
 	}

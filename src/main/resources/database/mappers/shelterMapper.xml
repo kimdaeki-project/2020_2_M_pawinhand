@@ -30,10 +30,7 @@
          )
       </insert>
       
-      <insert id="setInsertFile" parameterType="ShelterFileDTO">
-         insert into shelterFile values(shelter_seq.nextval, #{num}, #{fileName}, #{oriName}) 
-      </insert>
-      
+
       <select id="getOne" parameterType="ShelterDTO" resultType="ShelterDTO" resultMap="getOneResult">
          select S.*, SF.* from
          shelter S left join shelterFile SF
@@ -72,9 +69,24 @@
       </delete>
       
       <update id="setUpdate" parameterType="ShelterDTO">
-         update shelter set title=#{title}, contents=#{contents} where num=#{num}
+         update shelter set animal=#{animal}, animal_kind=#{animal_kind}, sex=#{sex}, neuter=#{neuter}, 
+         color=#{color}, birth=#{birth}, kg=#{kg}, period_1=#{period_1}, period_2=#{period_2}, 
+         place_of_find=#{place_of_find}, special=#{special}, center=#{center}, center_tel=#{center_tel} 
+         where num=#{num}
       </update>
       
+      
+ <!-- ******************** file ******************** -->
+ 
+ 
+ 	  <insert id="setInsertFile" parameterType="ShelterFileDTO">
+         insert into shelterFile values(shelter_seq.nextval, #{num}, #{fileName}, #{oriName}) 
+      </insert>
+      
+      
+      <select id="getFileOne" parameterType="ShelterDTO" resultType="ShelterFileDTO">
+		select * from shelterFile where num = #{num}
+	  </select>
 
    
    </mapper>    

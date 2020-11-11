@@ -300,7 +300,7 @@
 	      var hml = "";
 	      
 	      if(animal == "개"){
-	    	 hml += "<label for='품종' class='info'>품종 </label> <select class='animal_kind_sel sel' id='animal_kind' name='animal_kind'>";
+	    	 hml += "<label for='품종' class='info'>품종 </label> <select class='s_animal_kind sel' id='animal_kind' name='animal_kind'>";
 		     hml += "<option value='전체'>전체</option>";
 		     hml += "<option value='기타'>기타</option>";
 	         hml += "<option value='골든리트리버'>골든리트리버</option>";
@@ -336,7 +336,7 @@
 	         hml += "<option value='푸들'>푸들</option>";
 	         hml += "</select>"
 	      }else if(animal == "고양이"){
-		     hml += "<label for='품종' class='info'>품종 </label> <select class='animal_kind_sel sel' id='animal_kind' name='animal_kind'>";
+		     hml += "<label for='품종' class='info'>품종 </label> <select class='s_animal_kind sel' id='animal_kind' name='animal_kind'>";
 			 hml += "<option value='전체'>전체</option>";
 	         hml += "<option value='기타'>기타</option>";
 	         hml += "<option value='노르웨이숲'>노르웨이숲</option>";
