@@ -7,6 +7,15 @@
   	<typeAliases>
   		<typeAlias type="java.lang.Long" alias="Long"/>
 		<typeAlias type="com.ph4.s1.util.Pager" alias="Pager"/>
+		<typeAlias type="com.ph4.s1.lost.LostDTO" alias="LostDTO"/>
+		<typeAlias type="com.ph4.s1.lostFile.LostFileDTO" alias="LostFileDTO"/>
+		<typeAlias type="com.ph4.s1.lostReply.LostReplyDTO" alias="LostReplyDTO"/>
+		<typeAlias type="com.ph4.s1.lostReply.LostReplyPager" alias="LostReplyPager"/>
+		<typeAlias type="com.ph4.s1.board.BoardDTO" alias="boardDTO"/>
+		<typeAlias type="com.ph4.s1.board.notice.NoticeDTO" alias="noticeDTO"/>
+		<typeAlias type="com.ph4.s1.board.qna.QnaDTO" alias="qnaDTO"/>
+		<typeAlias type="com.ph4.s1.util.Pager" alias="Pager"/>
+		<typeAlias type="com.ph4.s1.board.boardFile.BoardFileDTO" alias="BoardFileDTO"/>
   	
   	</typeAliases>
   
