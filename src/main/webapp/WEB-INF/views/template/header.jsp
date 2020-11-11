@@ -44,28 +44,24 @@
 			        <a class="nav-link" href="${pageContext.request.contextPath}/notice/noticeList">포인핸드 소개</a>
 			      </li>
 			      <li class="nav-item active">
-			        <a class="nav-link" href="#">봉사</a>
+			        <a class="nav-link" href="${pageContext.request.contextPath}/voluntary/voluntaryList">봉사</a>
 			      </li>
 			      <li class="nav-item active">
-			        <a class="nav-link" href="#">보호소</a>
+			        <a class="nav-link" href="${pageContext.request.contextPath}/shelter/shelterList">보호소</a>
 			      </li>    
 			      <li class="nav-item active">
-			        <a class="nav-link" href="#">신고/제보</a>
+			        <a class="nav-link" href="${pageContext.request.contextPath}/lost/lostList">신고제보</a>
+			      </li>
+			      <li class="nav-item active">
+			      	<a class="nav-link" href="${pageContext.request.contextPath}/product/goodsList">스토어</a>
 			      </li>
 			      <li class="nav-item dropdown active">
-			        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">커뮤니티</a>
+			        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">공지사항</a>
 			      	<div class="dropdown-menu">
-			      		<a class="dropdown-item" href="#">서브1</a>
-			      		<a class="dropdown-item" href="#">서브2</a>
-			      		<a class="dropdown-item" href="#">서브3</a>
+			      		<a class="dropdown-item" href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a>
+			      		<a class="dropdown-item" href="${pageContext.request.contextPath}/qna/qnaList">Q&A</a>
+			      		<a class="dropdown-item" href="${pageContext.request.contextPath}/community/communityList">커뮤니티</a>
 			      	</div>  
-			      </li>
-			      <li class="nav-item active">
-			      	<a class="nav-link" href="#">스토어</a>
-			      </li>
-			      </li>
-			      <li class="nav-item active">
-			        <a class="nav-link" href="#">공지사항</a>
 			      </li>
 			    </ul>
 			  </div>  
