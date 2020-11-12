@@ -22,7 +22,7 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <div class="container">
-   <div class="row">
+   <div class="row mem_title">
       
       <div class="col-12">
       <h1 class="join-title">개인 회원가입</h1>
@@ -137,13 +137,13 @@
        
        <div class="form-group">
          <label for="lname">비밀번호</label>
-           <input type="text" class="form-control" id="pw" name="pw" required="required">
+           <input type="password" class="form-control" id="pw" name="pw" required="required">
         </div>
         
 
         <div class="form-group">
            <label for="lname">비밀번호확인</label>
-           <input type="text" class="form-control" id="pw2" name="pw2" required="required">
+           <input type="password" class="form-control" id="pw2" name="pw2" required="required">
         </div>
         
       <div id="pwResult"></div>

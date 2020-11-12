@@ -11,7 +11,7 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <div class="container">
-	<div class="row" style="margin-bottom: 130px">
+	<div class="row mem_title" style="margin-bottom: 130px">
 		<div class="col-12 join">
 			<h1>포인핸드<br><strong>회원가입</strong>을 환영합니다</h1>
 		</div>

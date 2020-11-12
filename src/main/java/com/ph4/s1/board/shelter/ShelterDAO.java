@@ -8,8 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.ph4.s1.board.file.ShelterFileDTO;
 import com.ph4.s1.util.Pager;
-import com.ph4.s1.voluntary.VoluntaryDTO;
-import com.ph4.s1.voluntary.file.VoluntaryFileDTO;
 
 @Repository
 public class ShelterDAO {

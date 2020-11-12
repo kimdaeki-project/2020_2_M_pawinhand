@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import com.ph4.s1.member.MemberDTO;
 
+import oracle.net.aso.m;
+
 @Repository
 public class MemberDAO {
 	
@@ -40,6 +42,10 @@ public class MemberDAO {
 	public int setMemberUpdate(MemberDTO memberDTO) throws Exception {
 		// TODO Auto-generated method stub
 		return sqlSession.update(NAMESPACE+"setMemberUpdate", memberDTO);
+	}
+	
+	public MemberDTO getOne(MemberDTO memberDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getOne", memberDTO);
 	}
 	
 

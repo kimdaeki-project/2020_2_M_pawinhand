@@ -9,6 +9,8 @@ public class MemberDTO {
 	private String email;
 	private String phone;
 	private String address;
+	private String zipcode;
+	private long points;
 	
 	
 	public long getNum() {
@@ -53,6 +55,21 @@ public class MemberDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	public String getZipcode() {
+		return zipcode;
+	}
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+	public long getPoints() {
+		return points;
+	}
+	public void setPoints(long points) {
+		this.points = points;
+	}
+	
+	
+	
 	
 	
 

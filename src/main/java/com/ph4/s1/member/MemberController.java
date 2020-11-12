@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ph4.s1.board.shelter.ShelterDTO;
+
+
 @Controller
 @RequestMapping(value = "/member/**")
 public class MemberController {
@@ -24,7 +27,7 @@ public class MemberController {
 		return mv;
 	}
 	
-	
+//----------------------------------------------------------------------------------------------------------	
 	
 	@GetMapping("memberLogin")
 	public ModelAndView getMemberLogin()throws Exception{
@@ -56,6 +59,39 @@ public class MemberController {
 		return mv;
 	}
 	
+
+//----------------------------------------------------------------------------------------------------------	
+	
+	//getMemberLogout
+	@GetMapping("memberLogout")
+	public ModelAndView getMemberLogout(HttpSession session) throws Exception{
+		
+		//웹브라우저 종료
+		//일정시간 경과(로그인 후에 요청이 발생하면 시간이 연장)
+		//MemberDTO를 NULL로 대체
+		session.invalidate();
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("redirect:../");
+		return mv;
+	}
+
+//----------------------------------------------------------------------------------------------------------	
+	
+	//join
+		@PostMapping("memberJoin")
+		public ModelAndView setMemberJoin(MemberDTO memberDTO) throws Exception{
+			ModelAndView mv = new ModelAndView();
+			int result = memberService.setMemberJoin(memberDTO);
+			if(result>0) {
+				mv.setViewName("redirect:../");
+			}else {
+				mv.addObject("msg" , "Join Fail");
+				mv.addObject("path", "./memberJoin");
+				mv.setViewName("common/result");
+			}
+			return mv;
+		}
+	
 	@GetMapping("memberJoin")
 	public ModelAndView setMemberJoin()throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -69,4 +105,44 @@ public class MemberController {
 		mv.setViewName("member/memberJoinForm");
 		return mv;
 	}
+	
+	
+//----------------------------------------------------------------------------------------------------------
+	
+	@GetMapping("memberDeleteCheck")
+		public ModelAndView setMemberDeleteCheck() throws Exception{
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("member/memberDeleteCheck");
+			return mv;
+	}
+	
+	
+	@GetMapping("memberDelete")
+	public ModelAndView setMemberDelete(MemberDTO memberDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		memberDTO = memberService.getOne(memberDTO);
+		mv.addObject("dto",memberDTO);
+		mv.setViewName("member/memberDelete");
+		return mv;
+	}
+	
+	
+	@PostMapping("memberDelete")
+		public ModelAndView setMemberDelete(MemberDTO memberDTO, String msg) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		int result = memberService.setMemberDelete(memberDTO);
+		
+		if(result>0) {
+			msg = "회원 탈퇴가 완료되었습니다.";
+			mv.setViewName("common/result");
+			mv.addObject("msg", msg);
+			mv.addObject("path", "/");
+		}else {
+			
+		}
+		return mv;
+	}
+	
 }

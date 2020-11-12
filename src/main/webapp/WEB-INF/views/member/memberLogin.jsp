@@ -13,7 +13,7 @@
 <c:import url="../template/header.jsp"></c:import>
 
 <div class="container">
-	<div class="row">
+	<div class="row mem_title">
 		<div class="col-12 member-Login">
 		<h3>Member Login Page</h3>
 			<form action="./memberLogin" method="post">
@@ -27,7 +27,7 @@
 			    </div>
 			    <div class="checkbox member-form">
 			      <label><input type="checkbox" name="remember" value="check"> Remember me</label>
-			      <button type="submit" class="btn btn-default">Submit</button>
+			      <button type="submit" class="btn btn-default">Login</button>
 			    </div>
 		  </form>
 	  </div>

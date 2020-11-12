@@ -16,6 +16,7 @@
 			<ul class="myPage">
 				<h1>마이 페이지</h1>
 				<hr>
+				
 				<li>
 					<h2>쇼핑정보</h2>
 					<ul class="myPage-item">
@@ -30,7 +31,7 @@
 					<h2>회원정보</h2>
 					<ul class="myPage-item">
 						<li><a href="#">- 회원정보</a></li>		
-						<li><a href="./memberDeleteCheck">- 회원탈퇴</a></li>			
+						<li id="member_del"><a href="./memberDeleteCheck">- 회원탈퇴</a></li>			
 					</ul>
 				</li>
 				<li>
@@ -46,29 +47,43 @@
 		
 		</div>
 		<div class="col-12 col-md-9 member-info">
-			<h1>나의 회원정보</h1>
+			<h1>회원탈퇴</h1>
 			<hr>
 			<h2>기본정보</h2>
-			<div class="member-item">
-				<table>
-					<tr><th>아이디</th><td>***</td></tr>
-					<tr><th>비밀번호</th><td>***</td></tr>
-					<tr><th>이름</th><td>***</td></tr>
-					<tr><th>이메일</th><td><input type="text" name="email" id="email" value="***"/></td></tr>
-					<tr><th>휴대폰번호</th><td><input type="text" name="phone" id="phone" placeholder="-없이  입력하세요" value="***"/></td></tr>
-					<tr>
-						<th>주소</th>
-						<td>
-						<a href="${pageContext.request.contextPath}/member/address">도로명주소</a>
-						<input type="text" name="address" id="address" value="***"/></td>
-					</tr>
-				</table>
-			</div>
+			    <div class="member-form">
+			      <label for="id">Id:</label>
+			      <input type="text" value="${member.id}" readonly="readonly" class="form-control" id="id" name="id">
+			    </div>
+			    <div class="member-form">
+			      <label for="pw">Password:</label>
+			      <input type="password" class="form-control" id="pw" placeholder="Enter password" name="pw">
+			    </div>
+			    <div class="checkbox member-form">
+			      <label><input type="checkbox" name="remember" value="check"> Remember me</label>
+			      <button type="submit" class="btn btn-default" id="okbtn">확인</button>
+			    </div>
 		
 		</div>
 	</div>
 </div>
 
+
+<script type="text/javascript">
+
+	$("#okbtn").click(function() {
+		
+		var pw = $("#pw").val();
+		var member_pw = "${member.pw}";
+
+		if(pw == member_pw){
+			location.href="./memberDelete?id=${member.id}";
+		}else{
+			alert("비밀번호가 일치하지 않습니다.")
+		}		
+		
+	});
+
+</script>
 
 
 </body>

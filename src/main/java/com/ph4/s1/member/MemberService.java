@@ -12,6 +12,17 @@ public class MemberService {
 
 	public MemberDTO getMemberLogin(MemberDTO memberDTO) throws Exception {
 		return memberDAO.getMemberLogin(memberDTO);
-		
+	}
+	
+	public int setMemberJoin(MemberDTO memberDTO) throws Exception {
+		return memberDAO.setMemberJoin(memberDTO);
+	}
+	
+	public int setMemberDelete(MemberDTO memberDTO) throws Exception{
+		return memberDAO.setMemberDelete(memberDTO);
+	}
+	
+	public MemberDTO getOne(MemberDTO memberDTO) throws Exception{
+		return memberDAO.getOne(memberDTO);
 	}
 }
