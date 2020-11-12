@@ -21,6 +21,9 @@
       	<typeAlias type="com.ph4.s1.board.qna.QnaDTO" alias="qnaDTO"/>
       	<typeAlias type="com.ph4.s1.util.Pager" alias="Pager"/>
       	<typeAlias type="com.ph4.s1.board.boardFile.BoardFileDTO" alias="BoardFileDTO"/>
+      	<!-- 작성 이후 -->
+      	<typeAlias type="com.ph4.s1.store.product.ProductDTO" alias="ProductDTO"/>
+      	<typeAlias type="com.ph4.s1.store.storeFile.StoreFileDTO" alias="StoreFileDTO"/>
   	</typeAliases>
   
   
