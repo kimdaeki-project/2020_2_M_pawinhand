@@ -113,14 +113,11 @@
  <script type="text/javascript">
  
  	$(document).ready(function() { 
-	    alert("로딩 완료");
 
-	       alert(${dto.period_1});
+	       alert("${dto.period_1}");
 	    
-	   var period_1 = $("#period_1").text().substring(7, 17);
 	   var today = new Date().toISOString().substring(0, 10);
 	    
-	    alert(period_1);
 	    alert(today);
 	    
 	       if(period_1 == today){

@@ -29,7 +29,7 @@ public class ShelterController {
 	
 	
 	@GetMapping("shelterList")
-	public ModelAndView getList(Pager pager) throws Exception{
+	public ModelAndView getList(Pager pager, ShelterDTO shelterDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<ShelterDTO> ar = shelterSevice.getList(pager);
 		

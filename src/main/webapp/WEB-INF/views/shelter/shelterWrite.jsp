@@ -255,7 +255,7 @@
  	
  	<div class="form-group">
     	<button type="submit" class="btn btn-warning" id="wrbtn">확인</button>
-    	<a href="./shelterList"><input type="button" class="btn btn-warning" id="cancel" value="취소"></a>
+    	<input type="button" class="btn btn-warning" id="cancel" value="취소">
     </div>
   </form>
 
