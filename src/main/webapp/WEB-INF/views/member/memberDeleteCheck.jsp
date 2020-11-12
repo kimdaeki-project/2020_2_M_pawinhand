@@ -70,6 +70,8 @@
 
 <script type="text/javascript">
 
+	
+
 	$("#okbtn").click(function() {
 		
 		var pw = $("#pw").val();
