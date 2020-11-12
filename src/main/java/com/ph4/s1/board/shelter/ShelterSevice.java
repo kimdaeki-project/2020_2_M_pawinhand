@@ -38,7 +38,7 @@ public class ShelterSevice {
 	public int setInsert(ShelterDTO shelterDTO, MultipartFile [] files, HttpSession session) throws Exception{
 		
 		//파일을 HDD에 저장
-		String path = session.getServletContext().getRealPath("/resources/upload/shelter");
+		String path = session.getServletContext().getRealPath("/resources/upload/shelter/");
 		File file = new File(path);
 		System.out.println(path);
 		

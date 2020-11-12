@@ -139,6 +139,5 @@
 		select * from shelterFile where num = #{num}
 	  </select>
 	  
-	  <select id="getFile"></select>
    
    </mapper>    

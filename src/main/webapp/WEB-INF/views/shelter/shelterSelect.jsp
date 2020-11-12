@@ -33,13 +33,36 @@
   <div class="container">
   
   
-  <div id="title">
-  
-  	<div id="title_img">
-  		<c:forEach items="${dto.shelterFileDTOs}" var="file">
-  			<img alt="" src="../resources/upload/shelter/${file.fileName}" width="800" height="550"> 
-  		</c:forEach>
-	</div>
+		<c:if test="${filelist[0].fileName ne null}">
+	
+		<!-- 사진 슬라이드  -->
+		<div id="demo" class="carousel slide" data-ride="carousel">
+
+			<!-- Indicators -->
+			<ul class="carousel-indicators">
+				<li  data-target="#demo" data-slide-to="0" class="active"></li>
+				<c:if test="${filelist[1].fileName ne null}">
+					<c:forEach begin="1" end="${filelist.size()-1}" step="1" varStatus="i">
+						<li  data-target="#demo" data-slide-to="${i.count}"></li>
+					</c:forEach>
+				</c:if>	
+			</ul>
+
+			<!-- The slideshow -->
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="../resources/upload/shelter/${filelist[0].fileName}">
+				</div>
+				<c:forEach items="${filelist}" var="file">
+					<c:if test="${file.fileName ne filelist[0].fileName}">
+						<div class="carousel-item">
+							<img src="../resources/upload/shelter/${file.fileName}">
+						</div>
+					</c:if>
+				</c:forEach>
+			</div>
+		</div>
+	</c:if>
 	
 	
   
