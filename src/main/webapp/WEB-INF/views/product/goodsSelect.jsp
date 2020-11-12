@@ -29,10 +29,8 @@
 	}
 	
 	.on{
-		width: 300px;
-	}
-	
-	.on a{
+		width: 350px;
+		height: 50px;
 		margin-top: 0;
 	    padding-top: 0;
 	    color: #333;
@@ -40,6 +38,20 @@
 	    border: 1px solid #eee;
 	    border-bottom: 1px solid #eee;
 	    border-top: 1px solid #333;
+	    float: left;
+	    text-align: center;
+	    line-height: 50px;
+	}
+	
+	.menuul{
+		width: 1200px;
+		height: 50px;
+		margin-bottom: 50px;
+	}
+	
+	#menu_list{
+		margin-top: 50px;
+		height : 600px;
 	}
 </style>
 
@@ -108,10 +120,14 @@
 		
 	</div>
 	<div class="menu">
-		<ul>
-			<li class="on">
-				<a href="#">Detail</a>
+		<ul class="menuul" style="padding-left: 0px">
+			<li id="detailMenu" class="on">Detail</li>
+			<li id="ReviewMenu" class="on">Review</li>
+			<li id="QNAMenu" class="on">Q&A</li>
 		</ul>
+		<div id="menu_list">
+			
+		</div>
 	</div>
 </div>
 
@@ -119,7 +135,15 @@
 	$(".thumbnailImg").click(function(){
 		var src = $(this).attr("src");
 		$("#mainImg").attr("src",src);
-	})
+	});
+	
+	$("#ReviewMenu").click(function(){
+		$.get("../review/reviewList", function(data) {
+			alert(data);
+			$("#menu_list").html(data);
+		});
+	});
+	
 </script>
 </body>
 </html>

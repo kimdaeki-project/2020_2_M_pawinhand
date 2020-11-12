@@ -24,6 +24,8 @@
       	<!-- 작성 이후 -->
       	<typeAlias type="com.ph4.s1.store.product.ProductDTO" alias="ProductDTO"/>
       	<typeAlias type="com.ph4.s1.store.storeFile.StoreFileDTO" alias="StoreFileDTO"/>
+      	<typeAlias type="com.ph4.s1.store.product.review.ProductReviewDTO" alias="ProductReviewDTO"/>
+      	<typeAlias type="com.ph4.s1.store.product.reviewFile.ReviewFileDTO" alias="ReviewFileDTO"/>
   	</typeAliases>
   
   
