@@ -6,6 +6,6 @@
 
 <mapper namespace="com.ph4.s1.store.product.ProductDAO">
 	<select id="getOne" parameterType="ProductDTO" resultType="ProductDTO">
-		select * from product where product_num = #{productNum}
+		select * from product where product_num = #{product_num}
 	</select>
 </mapper>

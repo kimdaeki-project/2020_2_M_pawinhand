@@ -5,5 +5,7 @@
 
 
 <mapper namespace="com.ph4.s1.store.storeFile.StoreFileDAO">
-	
+	<select id="getFiles" parameterType="ProductDTO" resultType="StoreFileDTO">
+		select * from storeFile where product_num = #{product_num}
+	</select>
 </mapper>

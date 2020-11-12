@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProductDTO {
-	private long productNum;
-	private long categoryNum;
+	private long product_num;
+	private long category_num;
 	private String name;
 	private long price;
 	private long stock;
@@ -15,17 +15,18 @@ public class ProductDTO {
 	private String color;
 	private String descriptions;
 	private Date regDate;
-	public long getProductNum() {
-		return productNum;
+	
+	public long getProduct_num() {
+		return product_num;
 	}
-	public void setProductNum(long productNum) {
-		this.productNum = productNum;
+	public void setProduct_num(long product_num) {
+		this.product_num = product_num;
 	}
-	public long getCategoryNum() {
-		return categoryNum;
+	public long getCategory_num() {
+		return category_num;
 	}
-	public void setCategoryNum(long categoryNum) {
-		this.categoryNum = categoryNum;
+	public void setCategory_num(long category_num) {
+		this.category_num = category_num;
 	}
 	public String getName() {
 		return name;
