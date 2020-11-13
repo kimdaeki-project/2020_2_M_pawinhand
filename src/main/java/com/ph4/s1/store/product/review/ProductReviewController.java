@@ -22,10 +22,11 @@ public class ProductReviewController {
 	private ProductReviewService productReviewService;
 	
 	@GetMapping("reviewList")
-	public ModelAndView getList() throws Exception {
+	public ModelAndView getList(ReviewPager reviewPager) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		List<ProductReviewDTO> ar = productReviewService.getList();
+		List<ProductReviewDTO> ar = productReviewService.getList(reviewPager);
 		mv.addObject("lists", ar);
+		mv.addObject("pager", reviewPager);
 		mv.setViewName("product/review/reviewList");
 		return mv;
 	}
@@ -35,6 +36,15 @@ public class ProductReviewController {
 		ModelAndView mv = new ModelAndView();
 		productReviewDTO.setStarCount(3);
 		int result = productReviewService.setInsert(productReviewDTO, file, session);
+		long product_num = productReviewDTO.getProduct_num();
+		mv.setViewName("redirect:../product/goodsSelect?product_num="+ product_num);
+		return mv;
+	}
+	
+	@GetMapping("reviewDelete")
+	public ModelAndView setDelete(ProductReviewDTO productReviewDTO) {
+		ModelAndView mv = new ModelAndView();
+		int result = productReviewService.setDelete(productReviewDTO);
 		long product_num = productReviewDTO.getProduct_num();
 		mv.setViewName("redirect:../product/goodsSelect?product_num="+ product_num);
 		return mv;

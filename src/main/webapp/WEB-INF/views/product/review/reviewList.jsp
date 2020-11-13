@@ -29,9 +29,21 @@
 	  			<img src="../resources/img/upload/product/review/${dto.fileName}" width="270" height="270" alt="">
 	  		</div>
 	  		</c:if>
-	  		<a style="font-size: 5px" href="#">글수정</a>
-	  		<a style="font-size: 5px" href="#">글삭제</a>
+	  		<a style="font-size: 5px" href="../review/reviewDelete?review_num=${dto.review_num}&product_num=${dto.product_num}">글삭제</a>
   		</div>
   		<hr>
   	</c:forEach>
+  	
+  	<div class="pager">
+  	<c:if test="${pager.startNum gt 1}">
+  		 <span class="c1" title="${pager.startNum-1}">[이전]</span>
+    </c:if>
+  	<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+  		<span class="c1" title="${i}">${i}</span>
+  	</c:forEach>
+  	
+  	<c:if test="${pager.nextCheck}">
+  		<span class="c1" title="${pager.lastNum+1}">[다음]</span>
+  	</c:if>
+  </div>
 

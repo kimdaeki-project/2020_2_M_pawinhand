@@ -53,6 +53,10 @@
 		margin-top: 50px;
 		height : 600px;
 	}
+	
+	.c1{
+		cursor: pointer;
+	}
 </style>
 
 <title>Project</title>
@@ -132,6 +136,9 @@
 </div>
 
 <script type="text/javascript">
+	var curPage = 1;
+	reviewList();
+
 	$(".thumbnailImg").click(function(){
 		var src = $(this).attr("src");
 		$("#mainImg").attr("src",src);
@@ -146,9 +153,14 @@
 		reviewList();
 	})
 	
+	$("#menu_list").on("click", ".c1", function(){
+	    	curPage = $(this).attr("title");
+	    	alert(curPage);
+	    	reviewList();
+	});
+	
 	function reviewList(){
-		$.get("../review/reviewList", function(data) {
-			alert(data);
+		$.get("../review/reviewList?product_num=${dto.product_num}&curPage="+curPage, function(data) {
 			$("#menu_list").html(data);
 		});
 	}

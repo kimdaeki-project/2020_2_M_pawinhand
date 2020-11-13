@@ -5,8 +5,17 @@
  
  
 <mapper namespace="com.ph4.s1.store.product.review.ProductReviewDAO">
-	<select id="getList" resultType="ProductReviewDTO">
-		select * from productReview order by review_num desc
+	<select id="getList" resultType="ProductReviewDTO" parameterType="ReviewPager">
+		select * from
+		(select rownum R, N.* from
+		(select * from productReview
+		where product_num = #{product_num}
+		order by review_num desc) N)
+		where R between #{startRow} and #{lastRow}
+	</select>
+	
+	<select id="getCount" resultType="Long" parameterType="LostReplyPager">
+		select count(review_num) from productreview where product_num = #{product_num}
 	</select>
 	
 	<insert id="setInsert" parameterType="ProductReviewDTO">
@@ -15,4 +24,8 @@
    	      </selectKey>
 		insert into productreview values (#{review_num}, #{product_num}, #{id}, #{starCount}, #{contents})
 	</insert>
+	
+	<delete id="setDelete" parameterType="ProductReviewDTO">
+		delete from productreview where review_num = #{review_num}
+	</delete>
 </mapper>

@@ -1,6 +1,6 @@
-package com.ph4.s1.util;
+package com.ph4.s1.store.product.review;
 
-public class Pager {
+public class ReviewPager {
 	
 	//***** 검색
 	private String kind;
@@ -16,6 +16,7 @@ public class Pager {
 	
 	private long product_num;
 	
+	
 	//JSP에서 사용
 	private long startNum;
 	private long lastNum;
@@ -26,7 +27,7 @@ public class Pager {
 	
 	private long totalCount;
 	
-	public Pager() {
+	public ReviewPager() {
 		this.perPage=10;
 	}
 	
@@ -82,8 +83,6 @@ public class Pager {
 	
 	
 	//*** setter, getter
-	
-	
 	
 	
 	

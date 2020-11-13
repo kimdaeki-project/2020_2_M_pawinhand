@@ -25,8 +25,11 @@ public class ProductReviewService {
 	@Autowired
 	private FileSaver fileSaver;
 	
-	public List<ProductReviewDTO> getList() throws Exception{
-		List<ProductReviewDTO> ar = productReviewDAO.getList();
+	public List<ProductReviewDTO> getList(ReviewPager reviewPager) throws Exception{
+		reviewPager.makeRow();
+		reviewPager.setTotalCount(productReviewDAO.getCount(reviewPager));
+		reviewPager.makePage();
+		List<ProductReviewDTO> ar = productReviewDAO.getList(reviewPager);
 		for(ProductReviewDTO dto : ar) {
 			ReviewFileDTO reviewFileDTO = reviewFileDAO.getFile(dto);
 			if(reviewFileDTO != null) {
@@ -55,5 +58,9 @@ public class ProductReviewService {
 			result = reviewFileDAO.setInsert(reviewFileDTO);
 		}
 		return result;
+	}
+	
+	public int setDelete(ProductReviewDTO productReviewDTO) {
+		return productReviewDAO.setDelete(productReviewDTO);
 	}
 }
