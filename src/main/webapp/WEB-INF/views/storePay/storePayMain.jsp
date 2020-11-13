@@ -198,11 +198,11 @@
 		<table class="infoTable, table table-bordered">
 			<tr>
 				<td class="infoTd">* 주문하시는 분</td>
-				<td>${member.name}</td>
+				<td><input id="dname" type="text" value="${member.name}"></td>
 			</tr>
 			<tr>
 				<td class="infoTd">주소</td>
-				<td>${member.address}</td>
+				<td><input id="dsite" type="text" value="${member.address}"></td>
 			</tr>
 			<tr>
 				<td class="infoTd">전화번호</td>
@@ -210,11 +210,11 @@
 			</tr>
 			<tr>
 				<td class="infoTd">* 휴대폰 번호</td>
-				<td>${member.phone}</td>
+				<td><input id="dphone" type="text" value="${member.phone}"></td>
 			</tr>
 			<tr>
 				<td class="infoTd">* 이메일</td>
-				<td>${member.email}</td>
+				<td><input id="dphone" type="text" value="${member.email}"></td>
 			</tr>
 		</table>
 		
@@ -232,23 +232,23 @@
 			</tr>
 			<tr>
 				<td class="driveTd">* 받으실 분</td>
-				<td class="driveTd2"><input type="text" value="${member.name}"></td>
+				<td class="driveTd2"><input id="dname" type="text" value="${member.name}"></td>
 			</tr>
 			<tr>
 				<td class="driveTd">* 받으실 곳</td>
-				<td class="driveTd2"><input type="text" value="${member.name}"></td>
+				<td class="driveTd2"><input id="dsite" type="text" value="${member.address}"></td>
 			</tr>
 			<tr>
 				<td class="driveTd">전화번호</td>
-				<td class="driveTd2"></td>
+				<td class="driveTd2"><input id="dtel" type="text"></td>
 			</tr>
 			<tr>
 				<td class="driveTd">* 휴대폰 번호</td>
-				<td class="driveTd2">${member.phone}</td>
+				<td class="driveTd2"><input id="dphone" type="text" value="${member.phone}"></td>
 			</tr>
 			<tr>
 				<td class="driveTd">남기실 말씀</td>
-				<td class="driveTd2"></td>
+				<td class="driveTd2"><input id="dcomment" type="text"></td>
 			</tr>
 			
 		</table>
@@ -256,51 +256,69 @@
 </div>
 
 <script type="text/javascript">
+	
 	var totalAmount = 0;
 	var totalPrice = 0;
 	var points = 1;
 	var amountArray = [];
+	var ds = null;
+	var dname = $("#dname").val();
+	var dsite = $("#dsite").val();
+	var dtel = $("#dtel").val();
+	var dphone = $("#dphone").val();
+	var dcomment = $("#dcomment").val();
+
 	$(".ss").each(function(index, item) {
 
-		amountArray[index] = $(this).html()*1;
-		totalAmount += $(this).html()*1; 
+		amountArray[index] = $(this).html() * 1;
+		totalAmount += $(this).html() * 1;
 	});
-	
+
 	$("#nn").html(totalAmount);
-	
+
 	$(".tt").each(function() {
-		totalPrice += $(this).html()*1;
-		
+		totalPrice += $(this).html() * 1;
+
 	});
-	
+
 	$("#ttprice").html(totalPrice);
 	var ep = null;
 	var viewPoints = 0;
-	
-	$(".pp").each(function(index, item) {
-		if(amountArray[index]==1){
-			points = $(this).attr('title') * 1 *amountArray[index];
-			$(this).html(points+"p");	
-		}else{
-			ep = $(this).attr('title')*1;
-			points = ep *amountArray[index];
-			$(this).html(ep+"p  * "+amountArray[index]+" = "+points+"p");
-			
-		}
-		viewPoints += points;
-	});
-	
+
+	$(".pp").each(
+			function(index, item) {
+				if (amountArray[index] == 1) {
+					points = $(this).attr('title') * 1 * amountArray[index];
+					$(this).html(points + "p");
+				} else {
+					ep = $(this).attr('title') * 1;
+					points = ep * amountArray[index];
+					$(this).html(
+							ep + "p  * " + amountArray[index] + " = " + points+ "p");
+
+				}
+				viewPoints += points;
+			});
+
 	$("#viewPoints").html(viewPoints);
-	
-	 	 var ds = null;
-	 $(".ss").click(function() {
+
+	$(".ss").click(function() {
 		ds = $(this).val();
-		
-		if(ds==1){
-			$(".driveTd2").html("");
-			alert("직접입력");	
-			
-		}else{
+
+		if (ds == 1) {
+			$("#dname").val("");
+			$("#dsite").val("");
+			$("#dtel").val("");
+			$("#dphone").val("");
+			$("#dcomment").val("");
+			alert("직접입력");
+		} else {
+
+			$("#dname").val(dname);
+			$("#dsite").val(dsite);
+			$("#dtel").val(dtel);
+			$("#dphone").val(dphone);
+			$("#dcomment").val(dcomment);
 			alert("주문자정보와동일");
 		}
 	});
