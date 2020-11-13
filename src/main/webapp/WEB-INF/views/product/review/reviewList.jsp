@@ -34,7 +34,7 @@
   		<hr>
   	</c:forEach>
   	
-  	<div class="pager">
+  	<div style="text-align: center" class="pager">
   	<c:if test="${pager.startNum gt 1}">
   		 <span class="c1" title="${pager.startNum-1}">[이전]</span>
     </c:if>

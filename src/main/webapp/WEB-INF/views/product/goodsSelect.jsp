@@ -57,6 +57,11 @@
 	.c1{
 		cursor: pointer;
 	}
+	
+	.menuSelected{
+		background-color: black;
+		color: white;
+	}
 </style>
 
 <title>Project</title>
@@ -160,6 +165,9 @@
 	});
 	
 	function reviewList(){
+		$("#ReviewMenu").addClass("menuSelected");
+		$("#detailMenu").removeClass("menuSelected");
+		$("#QNAMenu").removeClass("menuSelected");
 		$.get("../review/reviewList?product_num=${dto.product_num}&curPage="+curPage, function(data) {
 			$("#menu_list").html(data);
 		});
