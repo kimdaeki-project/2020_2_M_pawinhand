@@ -163,23 +163,6 @@ nav {
 }
 
 
-/***** memberJoinForm *****/
-.join-title{
-	text-align: center;
-}
-
-.p1 {
-	width: 70%;
-	margin: 10px auto;
-	padding: 10px 0;
-	border-bottom: 1px solid #ffdead;
-}
-
-.p1 p {
-	font-size: 1em;
-	margin: 10px 0;
-}
-
 
 /** pwcheck style **/
 .idCheck0 {
@@ -248,7 +231,10 @@ nav {
 }
 
 #member-jb2 {
-	background-color: #FDAF33;
+	border: 1px solid #d9d9d9;
+	margin-left: 5px;
+	color: black;
+	font-weight: 400;
 }
 
 .chk {
@@ -258,16 +244,6 @@ nav {
 
 .emptyResult {
 	display: none;
-}
-
-/***** memberLogin *****/
-.member-form {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
-	margin: 20px;
-	
 }
 
 /***** goods *****/
@@ -409,8 +385,14 @@ nav {
 	text-decoration: none;
 	font-size: 0.9em;
 	font-weight: 300;
-	letter-spacing: -0.03em;	
+	letter-spacing: -0.03em;
+	color: #0d0d0d;
 }
+
+.myPage-item a:hover{
+	color: #FDC033
+}
+
 
 .member-info h1 {
 	font-size: 1.3em;
@@ -424,6 +406,13 @@ nav {
 	margin-bottom: 20px;
 }
 
+.member-info h3 {
+	font-size: 1.1em;
+	font-weight: 500;
+	margin: 50px 0 30px 0;
+	text-align: center
+}
+
 .member-item table {
 	width: 800px;
 	border-top: 1px #000 solid;
@@ -431,7 +420,19 @@ nav {
 
 .member-item tr {
 	border-bottom: 1px #ABABAB solid;
+	font-size: 1.1em;
 }
+
+.pw-check{
+	width: 45%;
+	margin-left: 3px;
+}
+
+.pw-check-label{
+	width: 100px;
+	text-align: center;
+}
+
 
 .member-item th {
 	width: 250px;
@@ -463,5 +464,95 @@ nav {
 
 .mem_title{
 	margin : 100px 0px;
-	
 }
+
+
+/**********memberLogin.jsp**********/
+
+.member-form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	margin: 20px;
+}
+
+#login_title{
+	margin : 100px 0px;
+	width: 70%;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
+.member-Login{
+	border: 1px solid #d9d9d9;
+	padding: 50px;
+	margin: 20px;
+}
+#login-d1{
+	width: 100%; 
+	display: flex;
+}
+#login-d2{
+	width: 80%
+}
+.login-input{
+	width: 88%
+}
+.login-input1{
+	margin-left: 5px;
+}
+.login-label{
+	width: 100px;
+	text-align: center;
+}
+#login-remember{
+	float: left;
+}
+#login-okbtn{
+	font-weight: 700;
+	color: white;
+	padding: 37px 35px;
+	margin-top: 18.5px;
+}
+
+
+/**********memberPage.jsp**********/
+
+#mbPage-d1{
+	border: 3px solid #e6e6e6;
+	display: flex;
+}
+.mbPage-info-1{
+	width: 31%;
+	height: 200px;
+}
+.mbPage-info{
+	width: 23%;
+	height: 200px;
+}
+
+
+
+/**********memberJoinForm.jsp**********/
+
+.join-title{
+	text-align: center;
+}
+
+.p1 {
+	width: 70%;
+	margin: 10px auto;
+	padding: 10px 0;
+	border-bottom: 1px solid #ffdead;
+}
+
+.p1 p {
+	font-size: 1em;
+	margin: 10px 0;
+}
+.resultBox{
+	margin-left: 175px;
+}
+

@@ -14,6 +14,14 @@ public class MemberService {
 		return memberDAO.getMemberLogin(memberDTO);
 	}
 	
+	public MemberDTO getOne(MemberDTO memberDTO) throws Exception{
+		return memberDAO.getOne(memberDTO);
+	}
+	
+	public MemberDTO getMemberIdCheck(MemberDTO memberDTO) throws Exception{
+		return memberDAO.getMemberIdCheck(memberDTO);
+	}
+	
 	public int setMemberJoin(MemberDTO memberDTO) throws Exception {
 		return memberDAO.setMemberJoin(memberDTO);
 	}
@@ -22,7 +30,7 @@ public class MemberService {
 		return memberDAO.setMemberDelete(memberDTO);
 	}
 	
-	public MemberDTO getOne(MemberDTO memberDTO) throws Exception{
-		return memberDAO.getOne(memberDTO);
+	public int setMemberUpdate(MemberDTO memberDTO) throws Exception{
+		return memberDAO.setMemberUpdate(memberDTO);
 	}
 }

@@ -23,37 +23,7 @@
 	<form id="frm" action="./shelterDelete" method="post" enctype="multipart/form-data">
 	<div class="row mem_title">
 		<div class="col-12 col-md-3">
-			<ul class="myPage">
-				<h1>마이 페이지</h1>
-				<hr>
-				<li>
-					<h2>쇼핑정보</h2>
-					<ul class="myPage-item">
-						<li><a href="#">- 주문목록/배송조회</a></li>		
-						<li><a href="#">- 취소/반품/교환 내역</a></li>		
-						<li><a href="#">- 환불/입금 내역</a></li>		
-						<li><a href="#">- 찜리스트</a></li>
-						<li><a href="#">- 마일리지</a></li>					
-					</ul>
-				</li>
-				<li>
-					<h2>회원정보</h2>
-					<ul class="myPage-item">
-						<li><a href="#">- 회원정보</a></li>		
-						<li id="member_del"><a href="./memberDeleteCheck">- 회원탈퇴</a></li>			
-					</ul>
-				</li>
-				<li>
-					<h2>나의 상품문의/후기</h2>
-					<ul class="myPage-item">
-						<li><a href="#">- 나의 상품문의</a></li>		
-						<li><a href="#">- 나의 상품후기</a></li>	
-						<li><a href="#">- 1:1 문의</a></li>		
-					</ul>
-				</li>
-			</ul>
-		
-		
+<c:import url="./memberPageRow.jsp"></c:import>		
 		</div>
 		<div class="col-12 col-md-9 member-info">
 			<h1>회원탈퇴</h1>
@@ -73,7 +43,7 @@
 
 			</div>
 				<div class="form-group">
-    				<button type="submit" class="btn btn-warning" id="delbtn">확인</button>
+    				<input type="button" class="btn btn-warning" id="delbtn" value="확인">
     				<input type="button" class="btn btn-warning" id="cancel" value="취소">
     			</div>
 		</div>
@@ -93,7 +63,8 @@
 
 	$("#delbtn").click(function() {
 			if (confirm("정말 탈퇴하시겠습니까?") == true){    //확인
-				alert("그동안 포인핸드를 이용해주셔서 감사합니다.")
+				alert("그동안 포인핸드를 이용해주셔서 감사합니다.");
+				location.replace("${pageContext.request.contextPath}/");
 
 			}else{   //취소
  				return false;

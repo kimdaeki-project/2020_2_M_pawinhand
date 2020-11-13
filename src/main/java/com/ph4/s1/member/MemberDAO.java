@@ -20,24 +20,20 @@ public class MemberDAO {
 		return sqlSession.selectOne(NAMESPACE+"getMemberLogin", memberDTO);
 	}
 	
-	
 	public MemberDTO getMemberIdCheck(MemberDTO memberDTO) throws Exception {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne(NAMESPACE+"getMemberIdCheck", memberDTO);
 	}
-	
 	
 	public int setMemberJoin(MemberDTO memberDTO) throws Exception {
 		// TODO Auto-generated method stub
 		return sqlSession.insert(NAMESPACE+"setMemberJoin", memberDTO);
 	}
 	
-	
 	public int setMemberDelete(MemberDTO memberDTO) throws Exception {
 		// TODO Auto-generated method stub
 		return sqlSession.delete(NAMESPACE+"setMemberDelete", memberDTO);
 	}
-	
 	
 	public int setMemberUpdate(MemberDTO memberDTO) throws Exception {
 		// TODO Auto-generated method stub

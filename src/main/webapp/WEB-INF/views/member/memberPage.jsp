@@ -10,59 +10,29 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-<div class="container">
+<div class="container" id="mbPage-container">
 	<div class="row mem_title">
 		<div class="col-12 col-md-3">
-			<ul class="myPage">
-				<h1>마이 페이지</h1>
-				<hr>
-				<li>
-					<h2>쇼핑정보</h2>
-					<ul class="myPage-item">
-						<li><a href="#">- 주문목록/배송조회</a></li>		
-						<li><a href="#">- 취소/반품/교환 내역</a></li>		
-						<li><a href="#">- 환불/입금 내역</a></li>		
-						<li><a href="#">- 찜리스트</a></li>
-						<li><a href="#">- 마일리지</a></li>					
-					</ul>
-				</li>
-				<li>
-					<h2>회원정보</h2>
-					<ul class="myPage-item">
-						<li><a href="#">- 회원정보</a></li>		
-						<li><a href="./memberDeleteCheck">- 회원탈퇴</a></li>			
-					</ul>
-				</li>
-				<li>
-					<h2>나의 상품문의/후기</h2>
-					<ul class="myPage-item">
-						<li><a href="#">- 나의 상품문의</a></li>		
-						<li><a href="#">- 나의 상품후기</a></li>	
-						<li><a href="#">- 1:1 문의</a></li>		
-					</ul>
-				</li>
-			</ul>
-		
+<c:import url="./memberPageRow.jsp"></c:import>		
 		
 		</div>
 		<div class="col-12 col-md-9 member-info">
-			<h1>나의 회원정보</h1>
-			<hr>
-			<h2>기본정보</h2>
-			<div class="member-item">
-				<table>
-					<tr><th>아이디</th><td>***</td></tr>
-					<tr><th>비밀번호</th><td>***</td></tr>
-					<tr><th>이름</th><td>***</td></tr>
-					<tr><th>이메일</th><td><input type="text" name="email" id="email" value="***"/></td></tr>
-					<tr><th>휴대폰번호</th><td><input type="text" name="phone" id="phone" placeholder="-없이  입력하세요" value="***"/></td></tr>
-					<tr>
-						<th>주소</th>
-						<td>
-						<a href="${pageContext.request.contextPath}/member/address">도로명주소</a>
-						<input type="text" name="address" id="address" value="***"/></td>
-					</tr>
-				</table>
+			<div class="member-item" id="mbPage-d1">
+				<div class="mbPage-info-1" style="background-color: red;">
+				<h1>1</h1>
+				</div>
+				
+				<div class="mbPage-info" style="background-color: orange;">
+				<h1>2</h1>
+				</div>
+				
+				<div class="mbPage-info" style="background-color: yellow;">
+				<h1>3</h1>
+				</div>
+				
+				<div class="mbPage-info" style="background-color: green;">
+				<h1>4</h1>
+				</div>
 			</div>
 		
 		</div>

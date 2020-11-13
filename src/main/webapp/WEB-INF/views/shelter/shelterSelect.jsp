@@ -31,7 +31,7 @@
 <c:import url="../template/header.jsp"></c:import>
 
   <div class="container">
-  
+  	<div id="title">
   
 		<c:if test="${filelist[0].fileName ne null}">
 	
@@ -51,12 +51,12 @@
 			<!-- The slideshow -->
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="../resources/upload/shelter/${filelist[0].fileName}">
+					<img src="../resources/upload/shelter/${filelist[0].fileName}" width="800px" height="500px">
 				</div>
 				<c:forEach items="${filelist}" var="file">
 					<c:if test="${file.fileName ne filelist[0].fileName}">
 						<div class="carousel-item">
-							<img src="../resources/upload/shelter/${file.fileName}">
+							<img src="../resources/upload/shelter/${file.fileName}" width="800px" height="500px">
 						</div>
 					</c:if>
 				</c:forEach>
@@ -65,7 +65,7 @@
 	</c:if>
 	
 	
-  
+  	<hr>
   	<span id="animal">[${dto.animal}] ${dto.animal_kind}</span>
   	
   	<h4>${dto.sex}(${dto.neuter})/${dto.color}/${dto.birth}(년생)/${dto.kg}(Kg)</h4>

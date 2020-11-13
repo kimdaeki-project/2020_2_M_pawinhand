@@ -15,13 +15,13 @@
                      <li class="sub-item">
                         <a class="sub-link" href="${pageContext.request.contextPath}/member/memberLogout">로그아웃</a>
                      </li>
-                  </c:when>
-                  <c:when test="${not empty member and member.id eq 'admin'}">
-                  	  <li class="sub-item">
-                         <a class="sub-link" href="${pageContext.request.contextPath}/admin/adminPage">
-                         <img alt="logo" src="${pageContext.request.contextPath}/resources/img/common/setting.png" width="80px">
-                         </a>
-                      </li>
+                     	<c:if test="${member.id eq 'admin'}">
+                     	 	<li class="sub-item">
+                         		<a class="sub-link" href="${pageContext.request.contextPath}/admin/adminPage">
+                         		<img alt="" src="${pageContext.request.contextPath}/resources/img/common/setting.png" width="23px" height="23px">
+                         		</a>
+                      		</li>
+                     	</c:if>
                   </c:when>
                   <c:otherwise>
                      <li class="sub-item">

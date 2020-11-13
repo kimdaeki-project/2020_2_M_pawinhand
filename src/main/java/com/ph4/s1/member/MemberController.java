@@ -51,13 +51,34 @@ public class MemberController {
 			//로그인 실패 메세지를 alert
 			//로그인 입력 폼 으로 이동
 			//foward
-			mv.addObject("msg", "Login Fail");
+			mv.addObject("msg", "아이디와 비밀번호를 확인하세요.");
 			mv.addObject("path", "./memberLogin");
 			mv.setViewName("common/result");
 		}
 		
 		return mv;
 	}
+
+//----------------------------------------------------------------------------------------------------------
+	
+	@GetMapping("memberIdCheck")
+	public ModelAndView getMemberIdCheck(MemberDTO memberDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		memberDTO = memberService.getMemberIdCheck(memberDTO);
+		
+		int result = 1; // 중복값
+		
+		if(memberDTO == null) {
+			result = 0; 
+		}
+		
+		mv.addObject("msg", result);
+		mv.setViewName("common/ajaxResult");
+			
+		return mv;
+	}
+	
 	
 
 //----------------------------------------------------------------------------------------------------------	
@@ -144,5 +165,45 @@ public class MemberController {
 		}
 		return mv;
 	}
+	
+	
+//----------------------------------------------------------------------------------------------------------
+	
+	@GetMapping("memberUpdateCheck")
+	public ModelAndView setMemberUpdateCheck() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/memberUpdateCheck");
+		return mv;
+	}
+
+
+	@GetMapping("memberUpdate")
+	public ModelAndView setMemberUpdate(MemberDTO memberDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+	
+		memberDTO = memberService.getOne(memberDTO);
+		mv.addObject("dto",memberDTO);
+		mv.setViewName("member/memberUpdate");
+		return mv;
+	}
+
+
+	@PostMapping("memberUpdate")
+		public ModelAndView setMemberUpdate(MemberDTO memberDTO, String msg) throws Exception{
+		ModelAndView mv = new ModelAndView();
+	
+		int result = memberService.setMemberUpdate(memberDTO);
+	
+		if(result>0) {
+			msg = "회원 정보가 수정되었습니다.";
+			mv.setViewName("common/result");
+			mv.addObject("msg", msg);
+			mv.addObject("path", "/");
+		}else {
+		
+		}
+		return mv;
+	}
+
 	
 }

@@ -130,30 +130,35 @@
           </div>
         </div>
    <div class="p2">     
+   		<div class="resultBox" id="idResult"></div>
       <div class="form-group">
          <label for="lname">아이디</label>
           <input type="text" class="form-control" id="id" name="id" required="required">
        </div>
+       
+       
+       <div class="resultBox" id="pwResult1"></div>
        
        <div class="form-group">
          <label for="lname">비밀번호</label>
            <input type="password" class="form-control" id="pw" name="pw" required="required">
         </div>
         
-
+		<div class="resultBox" id="pwResult2"></div>
         <div class="form-group">
            <label for="lname">비밀번호확인</label>
            <input type="password" class="form-control" id="pw2" name="pw2" required="required">
         </div>
         
-      <div id="pwResult"></div>
-        
+      	
+        <div class="emptyResult resultBox"></div>
         <div class="form-group">
            <label for="lname">이름</label>
            <input type="text" class="form-control empty" id="name" name="name" required="required">
         </div>
-        <div class="emptyResult"></div>
         
+        
+        <div class="emptyResult resultBox"></div>
         <div class="form-group">
            <label for="lname">전화번호</label>
            <div class="form-items">
@@ -169,8 +174,9 @@
               <input type="text" class="form-control empty" id="phone3" name="phone3" required="required">
            </div>
         </div>
-        <div class="emptyResult"></div>
         
+        
+        <div class="emptyResult resultBox"></div>
         <div class="form-group">
            <label for="lname">이메일</label>
            <div class="form-items">
@@ -185,7 +191,7 @@
             </select>-->
          </div>   
         </div>
-        <div class="emptyResult"></div>
+        
         
         <div class="form-group">
            <label for="lname">주소</label><br>
@@ -204,7 +210,7 @@
 
         <div class="member-jb">
     		<button type="submit" class="btn btn-warning" id="member-jb1">회원가입</button>
-    		<a href="${pageContext.request.contextPath}/"><input type="button" class="btn btn-warning" id="member-jb2" value="취소"></a>
+    		<a href="${pageContext.request.contextPath}/"><input type="button" class="btn btn-default" id="member-jb2" value="취소"></a>
         </div>
       </div>
       <input type="hidden" name="phone">
@@ -235,26 +241,92 @@
 			}
 		});
 	}
+	
+	
+	/********* id check  ********/
+	$("#id").blur(function(){
+		idCheck=false;
+		var id = $(this).val();
+		if(id!=''){
+			
+			$.ajax({
+				url : "./memberIdCheck",
+				type : "GET",
+				data : {id:id},
+				success : function(data){
+					data=data.trim();
+					var str = "중복된 ID 입니다";
+					
+					$("#idResult").removeClass("idCheck0").addClass("idCheck1");
+					if(id==''){
+						str= "ID를 입력하세요";
+					}else if(data==0){
+						str="사용 가능한 ID 입니다"
+						$("#idResult").removeClass("idCheck1").addClass("idCheck0");
+						idCheck=true;
+					}
+					
+					$("#idResult").html(str);
+					
+				}
+			});
+			
+			
+		}else{
+			$("#idResult").html("ID는 필수 항목입니다.");
+			$("#idResult").removeClass("idCheck0").addClass("idCheck1");
+		}});
+					
 
 	//**********  pw check   **********
+	
+	var str= "";
+	
+	$("#pw").blur(function() {
+		var pw = $(this).val();
+		var pw2 = $("#pw2").val();
+		
+		if(pw==''){
+		str= "패스워드를 입력하세요.";	
+			$("#pwResult1").removeClass("idCheck0").addClass("idCheck1");
+			$("#pwResult1").html(str);
+		}else if(pw2==''){
+			str= "패스워드를 확인하세요.";
+			$("#pwResult2").removeClass("idCheck0").addClass("idCheck1");
+			$("#pwResult1").html('');
+			$("#pwResult2").html(str);
+		}
+	});
+	
 
 	$("#pw2").blur(function(){
 		var pw = $("#pw").val();
 		var pw2 = $(this).val();
 		pwCheck =false;
-		var str= "패스워드가 일치하지 않습니다";
+		str= "패스워드가 일치하지 않습니다.";
 		
-		if(pw2==''){
-			str= "패스워드를 입력하세요";
-			$("#pwResult").removeClass("idCheck0").addClass("idCheck1");
+		if(pw=='' && pw2==''){
+			str= "패스워드를 입력하세요.";	
+			$("#pwResult1").html(str);
+			$("#pwResult2").html(str);
+			$("#pwResult1").removeClass("idCheck0").addClass("idCheck1");
+			$("#pwResult2").removeClass("idCheck0").addClass("idCheck1");
+		}else if(pw2==''){
+			str= "패스워드를 확인하세요.";
+			$("#pwResult2").removeClass("idCheck0").addClass("idCheck1");
+			$("#pwResult1").html('');
+			$("#pwResult2").html(str);
 		}else if(pw == pw2){
-			str= "패스워드가 일치합니다";
-			$("#pwResult").removeClass("idCheck1").addClass("idCheck0");
+			str= "패스워드가 일치합니다.";
+			$("#pwResult2").removeClass("idCheck1").addClass("idCheck0");
+			$("#pwResult2").html(str);
 			pwCheck= true;
 		}else {
-			$("#pwResult").removeClass("idCheck0").addClass("idCheck1");
+			$("#pwResult2").removeClass("idCheck0").addClass("idCheck1");
+			$("#pwResult2").html(str); 
 		}
-		$("#pwResult").html(str); 
+		
+		
 	});
 	
 	

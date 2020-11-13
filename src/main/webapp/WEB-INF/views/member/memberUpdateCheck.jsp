@@ -17,7 +17,7 @@
 		
 		</div>
 		<div class="col-12 col-md-9 member-info">
-			<h1>회원탈퇴</h1>
+			<h1>회원정보 변경</h1>
 			<hr>
 			<h3>회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인해 주세요.</h3>
 			    <div class="member-form login-input1">
@@ -41,8 +41,6 @@
 </div>
 
 
-<!-- **********Script*********************************************************************************** -->
-
 <script type="text/javascript">
 
 	
@@ -53,7 +51,7 @@
 		var member_pw = "${member.pw}";
 
 		if(pw == member_pw){
-			location.href="./memberDelete?id=${member.id}";
+			location.href="./memberUpdate?id=${member.id}";
 		}else{
 			alert("비밀번호가 일치하지 않습니다.")
 		}		
