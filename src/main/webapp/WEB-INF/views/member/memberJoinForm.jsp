@@ -290,11 +290,6 @@
 		str= "패스워드를 입력하세요.";	
 			$("#pwResult1").removeClass("idCheck0").addClass("idCheck1");
 			$("#pwResult1").html(str);
-		}else if(pw2==''){
-			str= "패스워드를 확인하세요.";
-			$("#pwResult2").removeClass("idCheck0").addClass("idCheck1");
-			$("#pwResult1").html('');
-			$("#pwResult2").html(str);
 		}
 	});
 	
