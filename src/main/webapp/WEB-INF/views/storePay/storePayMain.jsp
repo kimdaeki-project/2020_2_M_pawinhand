@@ -94,6 +94,11 @@
 	.pp{
 		font-size: 11px;
 	}
+	.infoTable{
+		margin-top : 20px;
+		width: 1000px;
+		height: auto;
+	}
 </style>
 </head>
 <body>
@@ -170,6 +175,12 @@
 	<div class="payOrderDiv">
 		주문자 정보<br>
 		
+		<table class="infoTable, table table-bordered">
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
 		
 	</div>
 </div>
@@ -200,11 +211,11 @@
 	$(".pp").each(function(index, item) {
 		if(amountArray[index]==1){
 			points = $(this).attr('title') * 1 *amountArray[index];
-			$(this).html(points+"원");	
+			$(this).html(points+"p");	
 		}else{
 			ep = $(this).attr('title')*1;
 			points = ep *amountArray[index];
-			$(this).html(ep+"원  * "+amountArray[index]+"개 ="+points+"원");
+			$(this).html(ep+"p  * "+amountArray[index]+" = "+points+"p");
 			
 		}
 		viewPoints += points;
