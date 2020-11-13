@@ -1,7 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+	
+	<div style="width: 1050px; margin-bottom: 100px">
+		<form id="reviewform" action="./reviewInsert" method="post">
+			<input type="hidden" name="id" value="wlgns">
+			<div>
+				<textarea id="reviewText" style="width:1050px;height:100px">후기를 작성하세요!</textarea>
+			</div>
+			<div>
+				<input id="reviewfile" type="file" name="fileName"><input style="float: right;" id="reviewbnt" type="button" value="리뷰등록">
+			</div>
+		</form>
+	</div>
+	
   	<c:forEach items="${lists}" var="dto">
   		<div style="margin-bottom: 20px">
   			<div style="width: 1110px;">

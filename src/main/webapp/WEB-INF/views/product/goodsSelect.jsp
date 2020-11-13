@@ -138,11 +138,20 @@
 	});
 	
 	$("#ReviewMenu").click(function(){
+		reviewList();
+	});
+	
+	$("#menu_list").on("click","#reviewbnt",function(){
+		$("#reviewform").submit();
+		reviewList();
+	})
+	
+	function reviewList(){
 		$.get("../review/reviewList", function(data) {
 			alert(data);
 			$("#menu_list").html(data);
 		});
-	});
+	}
 	
 </script>
 </body>
