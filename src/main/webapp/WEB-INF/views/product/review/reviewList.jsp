@@ -15,6 +15,8 @@
 		</form>
 	</div>
 	
+	<input type="hidden" id="tableName" value="review">
+	
   	<c:forEach items="${lists}" var="dto">
   		<div style="margin-bottom: 20px">
   			<div style="width: 1110px;">

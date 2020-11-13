@@ -62,6 +62,10 @@
 		background-color: black;
 		color: white;
 	}
+	
+	.qnatr{
+		text-align: center;
+	}
 </style>
 
 <title>Project</title>
@@ -150,6 +154,7 @@
 	});
 	
 	$("#ReviewMenu").click(function(){
+		curPage = 1;
 		reviewList();
 	});
 	
@@ -158,17 +163,36 @@
 		reviewList();
 	})
 	
-	$("#menu_list").on("click", ".c1", function(){
-	    	curPage = $(this).attr("title");
-	    	alert(curPage);
-	    	reviewList();
-	});
-	
 	function reviewList(){
 		$("#ReviewMenu").addClass("menuSelected");
 		$("#detailMenu").removeClass("menuSelected");
 		$("#QNAMenu").removeClass("menuSelected");
 		$.get("../review/reviewList?product_num=${dto.product_num}&curPage="+curPage, function(data) {
+			$("#menu_list").html(data);
+		});
+	}
+	
+	$("#QNAMenu").click(function(){
+		curPage = 1;
+		qnaList();
+	});
+	
+	$("#menu_list").on("click", ".c1", function(){
+    	curPage = $(this).attr("title");
+    	var table = $("#tableName").val();
+    	alert(table);
+    	if(table == 'review'){
+    		reviewList();
+    	}else{
+    		qnaList();
+    	}
+	});
+	
+	function qnaList(){
+		$("#ReviewMenu").removeClass("menuSelected");
+		$("#detailMenu").removeClass("menuSelected");
+		$("#QNAMenu").addClass("menuSelected");
+		$.get("../productQna/productQnaList?product_num=${dto.product_num}&curPage="+curPage, function(data) {
 			$("#menu_list").html(data);
 		});
 	}

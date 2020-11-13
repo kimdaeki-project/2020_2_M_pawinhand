@@ -27,6 +27,9 @@
       	<typeAlias type="com.ph4.s1.store.product.review.ProductReviewDTO" alias="ProductReviewDTO"/>
       	<typeAlias type="com.ph4.s1.store.product.reviewFile.ReviewFileDTO" alias="ReviewFileDTO"/>
       	<typeAlias type="com.ph4.s1.store.product.review.ReviewPager" alias="ReviewPager"/>
+      	<typeAlias type="com.ph4.s1.store.product.productQna.ProductQnaDTO" alias="ProductQnaDTO"/>
+      	<typeAlias type="com.ph4.s1.store.product.productQnaReply.ProductQnaReplyDTO" alias="ProductQnaReplyDTO"/>
+      	<typeAlias type="com.ph4.s1.store.product.productQna.QnaPager" alias="QnaPager"/>
   	</typeAliases>
   
   
