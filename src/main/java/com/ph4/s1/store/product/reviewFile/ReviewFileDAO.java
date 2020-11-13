@@ -17,4 +17,8 @@ public class ReviewFileDAO {
 		return sqlSession.selectOne(NAMESPACE+"getFile", productReviewDTO);
 	}
 	
+	public int setInsert(ReviewFileDTO reviewFileDTO) {
+		return sqlSession.insert(NAMESPACE+"setInsert", reviewFileDTO);
+	}
+	
 }

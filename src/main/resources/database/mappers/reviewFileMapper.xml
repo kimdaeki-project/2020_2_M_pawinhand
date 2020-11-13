@@ -8,4 +8,8 @@
 	<select id="getFile" resultType="ReviewFileDTO" parameterType="ProductReviewDTO">
 		select * from ReviewFile where review_num = #{review_num}
 	</select>
+	
+	<insert id="setInsert" parameterType="ReviewFileDTO">
+		insert into reviewfile values (reviewfile_seq.nextval, #{review_num}, #{fileName}, #{oriName})
+	</insert>
 </mapper>

@@ -17,4 +17,8 @@ public class ProductReviewDAO {
 		return sqlSession.selectList(NAMESPACE+"getList");
 	}
 	
+	public int setInsert(ProductReviewDTO productReviewDTO) {
+		return sqlSession.insert(NAMESPACE+"setInsert", productReviewDTO);
+	}
+	
 }
