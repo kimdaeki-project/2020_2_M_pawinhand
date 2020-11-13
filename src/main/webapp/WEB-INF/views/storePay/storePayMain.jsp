@@ -73,9 +73,8 @@
 	.payOrderDiv{
 		margin-top : 50px;
 		width: 1000px;
-		height: 500px;
+		height: auto;
 		font-size: 20px;
-		background-color: aqua;
 	}
 	.d1{
 		text-align: right;
@@ -99,6 +98,27 @@
 		width: 1000px;
 		height: auto;
 	}
+	
+	.infoTd{
+		width: 200px;
+	}
+	.payDrive{
+		margin-top: 50px;
+		width: 1000px;
+		height: auto;
+		background-color: orange;
+		font-size: 20px;
+	}
+	.driveTable{
+		margin-top : 20px;
+		width: 1000px;
+		height: auto;
+	}
+	
+	.driveTd{
+		width: 200px;
+	}
+	
 </style>
 </head>
 <body>
@@ -177,12 +197,62 @@
 		
 		<table class="infoTable, table table-bordered">
 			<tr>
+				<td class="infoTd">* 주문하시는 분</td>
+				<td>${member.name}</td>
+			</tr>
+			<tr>
+				<td class="infoTd">주소</td>
+				<td>${member.address}</td>
+			</tr>
+			<tr>
+				<td class="infoTd">전화번호</td>
 				<td></td>
-				<td></td>
+			</tr>
+			<tr>
+				<td class="infoTd">* 휴대폰 번호</td>
+				<td>${member.phone}</td>
+			</tr>
+			<tr>
+				<td class="infoTd">* 이메일</td>
+				<td>${member.email}</td>
 			</tr>
 		</table>
 		
 	</div>
+	
+	<form class="payDrive">
+		배송정보<br>
+		<table class="driveTable, table table-bordered">
+			<tr>
+				<td class="driveTd">배송지 확인</td>
+				<td>
+					<input type="radio" value="1" name="deliverySite" class="ss"> 직접입력
+					<input type="radio" value="2"  name="deliverySite" checked="checked" class="ss"> 주문자 정보와 동일
+				</td>
+			</tr>
+			<tr>
+				<td class="driveTd">* 받으실 분</td>
+				<td class="driveTd2"><input type="text" value="${member.name}"></td>
+			</tr>
+			<tr>
+				<td class="driveTd">* 받으실 곳</td>
+				<td class="driveTd2"><input type="text" value="${member.name}"></td>
+			</tr>
+			<tr>
+				<td class="driveTd">전화번호</td>
+				<td class="driveTd2"></td>
+			</tr>
+			<tr>
+				<td class="driveTd">* 휴대폰 번호</td>
+				<td class="driveTd2">${member.phone}</td>
+			</tr>
+			<tr>
+				<td class="driveTd">남기실 말씀</td>
+				<td class="driveTd2"></td>
+			</tr>
+			
+		</table>
+	</form>
 </div>
 
 <script type="text/javascript">
@@ -194,7 +264,6 @@
 
 		amountArray[index] = $(this).html()*1;
 		totalAmount += $(this).html()*1; 
-		console.log(amountArray[index]);
 	});
 	
 	$("#nn").html(totalAmount);
@@ -223,6 +292,18 @@
 	
 	$("#viewPoints").html(viewPoints);
 	
+	 	 var ds = null;
+	 $(".ss").click(function() {
+		ds = $(this).val();
+		
+		if(ds==1){
+			$(".driveTd2").html("");
+			alert("직접입력");	
+			
+		}else{
+			alert("주문자정보와동일");
+		}
+	});
 </script>
 </body>
 </html>

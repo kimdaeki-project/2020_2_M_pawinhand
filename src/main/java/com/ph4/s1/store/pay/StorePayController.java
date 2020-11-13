@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ph4.s1.member.MemberDTO;
+
 @Controller
 @RequestMapping("/storePay/**")
 public class StorePayController {
@@ -34,12 +36,17 @@ public class StorePayController {
 		cartDTO.setId("a1");
 		
 		List<CartDTO> ar = storePayService.getCartDetail(cartDTO);
+		MemberDTO memberDTO = storePayService.getMember(cartDTO);
 		
 		System.out.println(ar.get(0).getProductDTO().getColor());
 		System.out.println(ar.get(0).getAmount());
+		
+		mv.addObject("member", memberDTO);
 		mv.addObject("list", ar);
 		mv.setViewName("storePay/storePayMain");
+		
 		return mv;
 		
 	}
+	
 }

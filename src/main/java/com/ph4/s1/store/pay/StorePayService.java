@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.ls.LSInput;
 
+import com.ph4.s1.member.MemberDTO;
+
 @Service
 public class StorePayService {
 	
@@ -25,5 +27,10 @@ public class StorePayService {
 		}
 		
 		return ar;
+	}
+	
+	public MemberDTO getMember(CartDTO cartDTO) throws Exception{
+		
+		return storePayDAO.getMember(cartDTO);
 	}
 }
