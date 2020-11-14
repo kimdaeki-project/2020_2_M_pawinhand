@@ -9,8 +9,16 @@ public class ProductQnaDTO {
 	private long qna_num;
 	private long product_num;
 	private String id;
+	private String contents;
 	private String title;
 	private Date regDate;
+	
+	public String getContents() {
+		return contents;
+	}
+	public void setContents(String contents) {
+		this.contents = contents;
+	}
 	public long getQna_num() {
 		return qna_num;
 	}

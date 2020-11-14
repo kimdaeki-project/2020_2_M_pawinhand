@@ -66,6 +66,11 @@
 	.qnatr{
 		text-align: center;
 	}
+	
+	.qnacon{
+		font-size: 12px;
+		color: black;
+	}
 </style>
 
 <title>Project</title>
@@ -197,6 +202,14 @@
 		});
 	}
 	
+	$("#menu_list").on("click",".qnatitle",function(){
+		var num = $(this).attr("title");
+		var contents = $("#qnacontent"+num).attr("title");
+		var text = "<td style='padding-left : 100px' class='qnacon' colspan='5'>"+contents+"<br>";
+		text += "<a style='font-size:12px' href='../productQna/productQnaDelete?qna_num="+num+"'>삭제</a>"
+		text += "</td>";
+		$("#qnacontent"+num).html(text);
+	});
 </script>
 </body>
 </html>
