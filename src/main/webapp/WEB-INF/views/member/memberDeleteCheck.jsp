@@ -53,7 +53,7 @@
 		var member_pw = "${member.pw}";
 
 		if(pw == member_pw){
-			location.href="./memberDelete?id=${member.id}";
+			location.href="./memberDeleteInfo?id=${member.id}";
 		}else{
 			alert("비밀번호가 일치하지 않습니다.")
 		}		

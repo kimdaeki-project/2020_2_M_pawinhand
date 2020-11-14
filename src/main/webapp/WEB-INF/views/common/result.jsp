@@ -12,6 +12,8 @@
 	var path = "${path}";
 	alert(result);
 	location.href=path;
+	
+
 </script>
 
 </body>

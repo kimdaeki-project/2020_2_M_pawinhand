@@ -52,6 +52,8 @@
 	
 </div>
 
+	
+
 
 
 <!-- **********Script*********************************************************************************** -->
@@ -59,15 +61,17 @@
 
 <script type="text/javascript">
 
-	$("#delbtn").click(function() {
-			if (confirm("정말 탈퇴하시겠습니까?") == true){    //확인
-				alert("그동안 포인핸드를 이용해주셔서 감사합니다.");
-				location.replace("./memberDelete");
 
-			}else{   //취소
- 				return false;
-			}
+	$("#delbtn").click(function() {
+		if (confirm("정말 탈퇴하시겠습니까?") == true){    //확인
+ 		location.href="./memberDelete?id=${member.id}";
+
+		}else{   //취소
+ 		return false;
+		}
 	});
+
+
 
 	$("#cancel").click(function() {
  		if (confirm("이 페이지에서 나가시겠습니까?") == true){    //확인
