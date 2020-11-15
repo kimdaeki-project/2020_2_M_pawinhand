@@ -5,6 +5,8 @@
 
     
 <mapper namespace="com.ph4.s1.store.product.productQnaReply.ProductQnaReplyDAO">
-    
+    <select id="getOne" parameterType="ProductQnaDTO" resultType="ProductQnaReplyDTO"> 
+    	select * from productQnaReply where qna_num = #{qna_num}
+    </select>
 </mapper>
     

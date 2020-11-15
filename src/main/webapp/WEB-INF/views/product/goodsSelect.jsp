@@ -205,10 +205,15 @@
 	$("#menu_list").on("click",".qnatitle",function(){
 		var num = $(this).attr("title");
 		var contents = $("#qnacontent"+num).attr("title");
-		var text = "<td style='padding-left : 100px' class='qnacon' colspan='5'>"+contents+"<br>";
-		text += "<a style='font-size:12px' href='../productQna/productQnaDelete?qna_num="+num+"'>삭제</a>"
-		text += "</td>";
-		$("#qnacontent"+num).html(text);
+		var qnacontentResult = $("#qnacontent"+num).html().trim();
+		console.log(qnacontentResult);
+		var qnacontent = '';
+		if(qnacontentResult == ''){
+			qnacontent += "<td style='padding-left : 100px' class='qnacon' colspan='5'>"+contents+"<br>";
+			qnacontent += "<a style='font-size:12px' href='../productQna/productQnaDelete?qna_num="+num+"'>삭제</a>"
+			qnacontent += "</td>";
+		}
+		$("#qnacontent"+num).html(qnacontent);
 	});
 </script>
 </body>
