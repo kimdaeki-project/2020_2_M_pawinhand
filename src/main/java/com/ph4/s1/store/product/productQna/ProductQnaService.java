@@ -2,6 +2,7 @@ package com.ph4.s1.store.product.productQna;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +28,17 @@ public class ProductQnaService {
 			dto.setProductQnaReplyDTO(productQnaReplyDTO);
 		}
 		return ar;
+	}
+	
+	public int setInsert(ProductQnaDTO productQnaDTO) {
+		return productQnaDAO.setInsert(productQnaDTO);
+	}
+	
+	public int setDelete(ProductQnaDTO productQnaDTO) {
+		return productQnaDAO.setDelete(productQnaDTO);
+	}
+	
+	public int setReply(ProductQnaReplyDTO productQnaReplyDTO) {
+		return productQnaReplyDAO.setInsert(productQnaReplyDTO);
 	}
 }

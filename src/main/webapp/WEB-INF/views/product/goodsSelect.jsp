@@ -214,6 +214,11 @@
 			con2.style.display = 'none';
 		}
 	});
+	
+	$("#menu_list").on("click", "#qnaInsertbtn", function(){
+		var option = "width = 576, height = 500, top = 100, left = 200, location = no";
+		window.open("../productQna/productQnaInsert?product_num=${dto.product_num}","insert",option);
+	})
 </script>
 </body>
 </html>

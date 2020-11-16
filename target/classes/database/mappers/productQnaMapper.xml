@@ -17,5 +17,13 @@
 	<select id="getCount" resultType="Long" parameterType="QnaPager">
 		select count(qna_num) from productqna where product_num = #{product_num}
 	</select>
+	
+	<insert id="setInsert" parameterType="ProductQnaDTO">
+		insert into productqna values (productqna_seq.nextval, #{product_num}, #{id}, #{contents}, #{title}, sysdate)
+	</insert>
+	
+	<delete id="setDelete" parameterType="ProductQnaDTO">
+		delete from productqna where qna_num = #{qna_num}
+	</delete>
 </mapper>
     

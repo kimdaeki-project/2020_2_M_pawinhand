@@ -16,5 +16,9 @@ public class ProductQnaReplyDAO {
 	public ProductQnaReplyDTO getOne(ProductQnaDTO productQnaDTO) {
 		return sqlSession.selectOne(NAMESPACE+"getOne", productQnaDTO);
 	}
+	
+	public int setInsert(ProductQnaReplyDTO productQnaReplyDTO) {
+		return sqlSession.insert(NAMESPACE+"setInsert", productQnaReplyDTO);
+	}
 
 }

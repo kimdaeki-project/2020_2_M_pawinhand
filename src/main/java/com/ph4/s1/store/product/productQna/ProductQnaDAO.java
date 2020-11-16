@@ -20,4 +20,12 @@ public class ProductQnaDAO {
 	public long getCount(QnaPager qnaPager) {
 		return sqlSession.selectOne(NAMESPACE+"getCount", qnaPager);
 	}
+	
+	public int setInsert(ProductQnaDTO productQnaDTO) {
+		return sqlSession.insert(NAMESPACE+"setInsert", productQnaDTO);
+	}
+	
+	public int setDelete(ProductQnaDTO productQnaDTO) {
+		return sqlSession.delete(NAMESPACE+"setDelete", productQnaDTO);
+	}
 }

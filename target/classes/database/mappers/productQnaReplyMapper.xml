@@ -8,5 +8,9 @@
     <select id="getOne" parameterType="ProductQnaDTO" resultType="ProductQnaReplyDTO"> 
     	select * from productQnaReply where qna_num = #{qna_num}
     </select>
+    
+    <insert id="setInsert" parameterType="ProductQnaReplyDTO">
+    	insert into productQnaReply values (productQnaReply_seq.nextval, #{qna_num}, #{id}, #{contents}, sysdate)
+    </insert>
 </mapper>
     

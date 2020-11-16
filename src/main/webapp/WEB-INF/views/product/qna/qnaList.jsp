@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div style="width: 1050px; margin-bottom: 100px">
-	<input type="button" class="btn btn-dark" value="Q&A 작성하기">
+	<input id="qnaInsertbtn" type="button" class="btn btn-dark" value="Q&A 작성하기">
 	<table style="margin-top: 50px" class="tableborder table table-hover">
 		<tr class="qnatr">
 	  		<td style="color: black">번호</td>
@@ -21,14 +21,19 @@
   		<tr style="display: none;" id="qnacontent${dto.qna_num}">
   			<td style="padding-left : 100px" class="qnacon" colspan="5">
   			${dto.contents}<br>
-  			<a style="font-size:12px" href="../productQna/productQnaDelete?qna_num=${dto.qna_num}">삭제</a>
+  			<a onclick="window.open('../productQna/productQnaReplyInsert?qna_num=${dto.qna_num}','insert','width = 576, height = 373.2, top = 100, left = 200, location = no');" style="font-size:12px;color: #007bff">답글</a>
+  			|
+  			<a style="font-size:12px" href="../productQna/productQnaDelete?qna_num=${dto.qna_num}&product_num=${dto.product_num}">삭제</a>
   			</td>
   		</tr>
   		<c:if test="${dto.productQnaReplyDTO != null}">
   			<tr style="display: none;background-color: #f7f8fa;text-align: center" id="qnareplycontent${dto.qna_num}" >
   				<td style="font-size:12px;color: black;vertical-align: middle">관리자</td>
   				<td colspan="2" style="vertical-align: middle">
-  				<p style="margin-bottom:0px;font-size:12px;color: black">${dto.productQnaReplyDTO.contents}</p>
+  				<p style="margin-bottom:0px;font-size:12px;color: black">
+  					${dto.productQnaReplyDTO.contents}
+  				  	<a style="font-size:12px" href="#">삭제</a>
+  				</p>
   				</td>
   				<td style="font-size:12px;color: black;vertical-align: middle">${dto.productQnaReplyDTO.regDate}</td>
   			</tr>
