@@ -35,8 +35,19 @@
   
     <div class="form-group">
       <label for="title">제목:</label>
-      <input type="text" class="form-control" id="title" placeholder="제목을 입력하세요" name="title">
+      <input type="text" class="form-control" value="${dto.title}" id="title" name="title">
     </div>
+    
+	<c:if test="${board eq 'community'}">
+	<div class="form-group">
+		<label for="type">종류:</label>
+		  <select class="input-group-sm" id="sel1" name="type">
+		   	<option value="개">개</option>
+		    <option value="고양이">고양이</option>
+		    <option value="기타">기타</option>
+		  </select>
+	</div>
+    </c:if>
     
     <div class="form-group">
       <label for="writer">작성자:</label>
@@ -45,7 +56,8 @@
     
      <div class="form-group">
       <label for="contents">내용:</label>
-      <textarea class="form-control" rows="20" cols="30" id="contents" name="contents"></textarea>
+      <textarea class="form-control" rows="20" cols="30" id="contents" name="contents" required="required">
+      ${dto.contents}</textarea>
     </div>
     
 	<input type="button" value="FileAdd" id="fileAdd" class="btn btn-info">
@@ -53,7 +65,6 @@
 	<div id="files">
 
 	</div>  
- 
  
  	<div class="form-group">
  	<label></label>
@@ -77,7 +88,7 @@
 			 onImageUpload:function(files, editor, welEditable){
 				 var formData = new FormData();	    //가상의 from 태그 작성
 				 formData.append('file', files[0]); //파라미터 이름 file
-				 
+				 $('#contents').summernote('insertText', "${dto.contents}");
 				 $.ajax({
 				    data: formData,
 				    type: "POST",
@@ -91,7 +102,11 @@
 						 $("#contents").summernote('editor.insertImage', data);
 					 }
 				 })
+				 
+				
 			 },//upload End
+			
+			 
 			 
 			 onMediaDelete:function(files){
 				 var fileName = $(files[0]).attr("src");

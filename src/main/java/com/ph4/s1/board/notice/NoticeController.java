@@ -53,6 +53,7 @@ public class NoticeController {
 		mv.addObject("board", "notice");
 		mv.addObject("lists", ar);
 		mv.addObject("pager", pager);
+		mv.addObject("name", "공지사항");
 		System.out.println("Notice List");
 		mv.setViewName("board/boardList");
 		
@@ -121,8 +122,8 @@ public class NoticeController {
 	@PostMapping("noticeUpdate")
 	public ModelAndView setUpdate(NoticeDTO noticeDTO, MultipartFile[] files, HttpSession httpSession ) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = noticeService.setUpdate(noticeDTO, files, httpSession);
 		String msg = "업데이트가 실패하였습니다";
+		int result = noticeService.setUpdate(noticeDTO, files, httpSession);
 		if(result > 0) {
 			msg = "업데이트가 성공하였습니다";
 		}

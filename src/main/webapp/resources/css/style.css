@@ -19,12 +19,8 @@ a {
   text-decoration: none;
 }
 
-
-/***** banner *****/
-.banner {
-	position: absolute;
-	margin: 10px 0;
-	z-index:1;
+header {
+	margin-bottom: 50px;
 }
 
 /***** sub nav *****/
@@ -48,12 +44,17 @@ a {
 }
 
 /***** main nav-bar *****/
+.main-nav{
+	margin-bottom: 30px;
+}
+
 nav {
 	height: 10vh;
 	font-weight: 700;
 }
 .navbar-nav li {
-	z-index: 2;
+	z-index: 9999;
+	background-color: white;
 }
 
 .navbar-brand {
@@ -458,5 +459,196 @@ nav {
 	text-decoration: none;
 	color: #444;
 	font-weight: 500;
+}
+
+
+/***** cartList *****/
+.c1{
+	border-top: 1px #D8D8D8 solid;
+	border-bottom: 1px #D8D8D8 solid;
+	margin-bottom: 20px;
+}
+
+.cartlist h1 {
+	font-size: 1.4em;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+
+.cartlist h2 {
+	padding: 55px 0;
+	font-size: 0.9em;
+	font-weight: 300;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.goods-link{
+	text-decoration: none;
+	color: #7E7E7E;
+}
+
+.c2 {
+	border: 1px #D8D8D8 solid;
+	margin-top: 20px; 
+}
+
+.price_sum {
+	display: flex;
+	justify-content: flex-end;
+	padding: 10px 20px;
+}
+
+.price_sum dt, dl {
+	padding: 2px 10px;
+	margin: 0;
+	text-align: right
+}
+
+.fas {
+	vertical-align: center;
+}
+
+.point {
+	float:right;
+	font-size: 0.9em;
+	padding: 10px 25px;
+}
+
+
+/***** board List *****/
+ .c1 {
+ 	cursor : pointer;
+ }
+
+.board-title {
+	font-size: 1.4em;
+	font-weight: 700;
+	margin-bottom: 15px;
+}
+
+.board-table th{
+	font-size: 0.9em;
+	font-weight: 500;
+	padding: 5px;
+	text-align: center;
+}
+
+.board-table td{
+	font-size: 0.9em;
+	color: #484848;
+	font-weight: 300;
+	padding: 10px;
+	text-align: center;
+}
+
+.board-table a {
+	color: #484848;
+}
+
+.searchrow{
+ 	background-color: #e8e8e8;
+ }
+ 
+ 
+.writeIcon{
+	float: right;
+	margin: 10px;
+}
+
+.writeIcon::after {
+   content: "";
+   display: block;
+   clear: right;
+}
+
+.search-form {
+	display: flex;
+	justify-content: center;
+	padding: 5px;
+}
+
+.tableborder{
+	border-top: 1px #979797 solid;
+}
+
+.pager{
+	margin: 10px auto;
+	text-align: center;
+}
+
+
+.writeIconfocus {
+       border-color: #28a745;
+       box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+
+/***** board Select *****/
+.title-items {
+	display: flex;
+	justify-content: flex-start;
+	align-content: center;
+}
+
+.title-top {
+	display: flex;
+}
+
+.titles h1 {
+	font-size: 1.4em;
+	padding: 5px 15px 10px;;
+	margin: 0;
+}
+
+.titles p {
+	font-size: 1.4em;
+	font-weight: 500;
+}
+
+.title-items dt,dd{
+	padding: 5px 10px 10px;
+	font-size: 0.8em;
+	font-weight: 300;
+}
+
+.title-items dd {
+	margin: 0;
+}
+
+.files{
+	border-top: 1px #d3d3d3 solid;
+	border-bottom: 1px #d3d3d3 solid;
+}
+
+.fileTitle{
+	display : inline-block;
+	font-size: 0.8em;
+	font-weight: 500;
+	color: #a0a0a0;;
+	padding: 5px 5px 0 20px;
+}
+
+.fileName{
+	display : inline-block;
+	font-size: 6px;
+	
+}
+
+.contents{
+	font-size: 1.2em;
+	border-bottom: 1px #d3d3d3 solid;
+	padding: 20px 0 10px 20px; 
+}
+
+.buttons{
+	text-align: left;
+}
+
+.button{
+	float : right;
+	margin-left: 5px;
+	font-size: 1em;
 }
 

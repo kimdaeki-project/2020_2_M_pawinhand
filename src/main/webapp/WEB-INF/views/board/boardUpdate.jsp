@@ -37,7 +37,7 @@
     <input type="hidden" name="num" value="${dto.num}">
     <div class="form-group">
       <label for="title">제목:</label>
-      <input type="text" class="form-control" id="title" value="${dto.title}" placeholder="제목을 입력하세요." name="title">
+      <input type="text" class="form-control" id="title" value="${dto.title}" name="title">
     </div>
     
     <div class="form-group">
@@ -47,7 +47,7 @@
     
      <div class="form-group">
       <label for="contents">내용:</label>
-      <textarea class="form-control" rows="20" cols="30" id="contents" name="contents"></textarea>
+      <textarea class="form-control" rows="20" cols="30" id="contents" name="contents" required="required">${dto.contents}</textarea>
     </div>
     
 	<input type="button" value="FileAdd" id="fileAdd" class="btn btn-info">
@@ -55,8 +55,6 @@
 	<div id="files">
 
 	</div>  
- 
- 
  	<div class="form-group">
  	<label></label>
     <button type="submit" class="btn btn-warning form-control">작성</button>
@@ -140,6 +138,8 @@
 			alert("첨부파일은 최대 5개")			
 		}
 	});
+	
+	
 </script>
 
 

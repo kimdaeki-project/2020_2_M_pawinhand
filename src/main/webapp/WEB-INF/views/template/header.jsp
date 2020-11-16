@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
+<header>
 <div class="container">
 	<div class="row">
 		<div class="col-12">
@@ -31,7 +31,7 @@
 	
 		<div class="col-12">
 			<nav class="navbar navbar-expand-lg navbar-light">
-			  <a class="navbar-brand" href="#">
+			  <a class="navbar-brand" href="${pageContext.request.contextPath}/">
 			  	<img alt="logo" src="${pageContext.request.contextPath}/resources/img/common/logo.png" width="80px">
 			  	<p>PAWINHAND</p>
 			  </a>
@@ -69,4 +69,4 @@
 		</div>
 	</div>
 </div>
-
+</header>
