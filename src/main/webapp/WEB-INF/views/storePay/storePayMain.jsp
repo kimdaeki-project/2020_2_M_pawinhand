@@ -14,7 +14,7 @@
 
 	#payContainer{
 		width: 1000px;
-		height: 2000px;
+		height: auto;
 		margin: 50px auto 100px;
 	}
 	.payHeader{
@@ -126,18 +126,49 @@
 		width: 1000px;
 		height: auto;
 		font-size: 20px;
-		background-color: aqua;
 	}
 	.payDiv{
 		margin-top: 50px;
 		width: 1000px;
 		height: auto;
 		font-size: 20px;
-		background-color: yellow;
 	}
 	
 	#accountDiv{
 		display: none;
+	}
+	
+	#finalPriceDiv{
+		margin-top : 40px;
+		margin-bottom : 10px;
+		width: 1000px;
+		height: 100px;
+		border: 2px solid #DCDCDC;
+	}
+	#finalDiv2{
+		width: 300px;
+		height: 100px;
+		background-color: lime;
+		float: right;
+		line-height: 100px;
+	}
+	.ffcc{
+		color: orange;
+	}
+	#chDiv{
+		width: 1000px;
+		height : auto;
+		text-align: center;
+	}
+	.payBtn{
+		width: 250px;
+		height: 50px;
+		margin-left : 325px;
+		margin-top : 20px;
+		background-color: orange;
+		text-align: center;
+		color: white;
+		border: 1px solid orange;
 	}
 </style>
 </head>
@@ -243,7 +274,7 @@
 		
 	</div>
 	
-	<form class="payDrive" method="post">
+	<div class="payDrive">
 		배송정보<br>
 		
 		<table class="driveTable, table table-bordered">
@@ -282,6 +313,8 @@
 			</tr>
 			
 		</table>
+		</div>
+		
 		
 		<div class ="payInfo">
 		결제정보<br>
@@ -304,7 +337,7 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td>최종 결제 금액</td>
+					<td id="finalPrice">최종 결제 금액</td>
 					<td></td>
 				</tr>
 			</table>
@@ -330,10 +363,25 @@
 				</tr>
 			</table>
 			
+		</div>
+		
+		<div id="finalPriceDiv">
+			<div id="finalDiv2">
+				<span>최종 결제 금액   </span>
+				<span></span>
+			</div>
 		</div>	
-	</form>
+		
+		<div id="chDiv">
+		<input type="checkbox" id="finalCheck">
+			<span class="ffcc">(필수)</span> 구매하실 상품의 결제정보를 확인하였으며, 구매진행에 동의합니다.<br>
+	</div>
+	<button class="payBtn">결제하기</button>
 	
-	<div id="accountDiv">
+	
+</div>
+
+<div id="accountDiv">
 		(무통장 입금의 경우, 입금확인 후부터 배송단계가 시작됩니다.)<br>
 		입금자명     <input type="text" id="payName"><br>
 		입금은행     <select name="bank">
@@ -341,9 +389,6 @@
 					<option value="kb">국민은행 260894599649 (주)포인핸드</option>
 				</select>
 	</div>
-	
-</div>
-
 <script type="text/javascript">
 
 	var totalAmount = 0;
