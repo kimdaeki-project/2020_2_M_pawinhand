@@ -1,5 +1,7 @@
 package com.ph4.s1.member;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ph4.s1.member.MemberDTO;
-import com.ph4.s1.board.shelter.ShelterDTO;
+import com.ph4.s1.store.product.ProductDTO;
+import com.ph4.s1.store.product.ProductService;
 
 
 @Controller
@@ -19,6 +22,9 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private ProductService productService;
+
 	
 	
 	@GetMapping("memberPage")
@@ -219,11 +225,13 @@ public class MemberController {
 //----------------------------------------------------------------------------------------------------------	
 	
 	@GetMapping("adminPage")
-	public ModelAndView getadminPage() throws Exception{
+	public ModelAndView getList(ProductDTO productDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		List<ProductDTO> ar = productService.getList(productDTO);
+		
+		mv.addObject("list", ar);
+		mv.setViewName("member/adminPage");
 		
 		return mv;
 	}
-
-	
 }

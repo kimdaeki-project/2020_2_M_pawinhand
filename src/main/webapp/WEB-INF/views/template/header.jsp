@@ -17,7 +17,7 @@
                      </li>
                      	<c:if test="${member.id eq 'admin'}">
                      	 	<li class="sub-item">
-                         		<a class="sub-link" href="${pageContext.request.contextPath}/admin/adminPage">
+                         		<a class="sub-link" href="${pageContext.request.contextPath}/member/adminPage">
                          		<img alt="" src="${pageContext.request.contextPath}/resources/img/common/setting.png" width="23px" height="23px">
                          		</a>
                       		</li>

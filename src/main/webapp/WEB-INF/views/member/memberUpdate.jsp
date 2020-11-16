@@ -16,7 +16,6 @@
 	<div class="row mem_title">
 		<div class="col-12 col-md-3">
 <c:import url="./memberPageRow.jsp"></c:import>				
-		
 		</div>
 		<div class="col-12 col-md-9 member-info">
 			<h1>회원정보 변경</h1>

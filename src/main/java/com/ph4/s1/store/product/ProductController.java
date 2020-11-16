@@ -38,5 +38,12 @@ public class ProductController {
 		mv.setViewName("product/goodsList");
 		return mv;
 	}
+	
+	
+	
+//------------------------------------------------------------------------------------------------------
+	
+	
+
 
 }
