@@ -13,7 +13,7 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
-<div class="container">
+<div class="container" id="login-container">
 	<div class="row" id="login_title">
 		<h2>로그인</h2>
 		<div class="col-12 member-Login">

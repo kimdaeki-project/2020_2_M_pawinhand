@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ph4.s1.member.MemberDTO;
 import com.ph4.s1.board.shelter.ShelterDTO;
 
 
@@ -104,7 +105,9 @@ public class MemberController {
 			ModelAndView mv = new ModelAndView();
 			int result = memberService.setMemberJoin(memberDTO);
 			if(result>0) {
-				mv.setViewName("redirect:../");
+				mv.addObject("msg" , "포인핸드에 오신걸 환영합니다!");
+				mv.addObject("path", "../");
+				mv.setViewName("common/result");
 			}else {
 				mv.addObject("msg" , "Join Fail");
 				mv.addObject("path", "./memberJoin");
@@ -137,34 +140,40 @@ public class MemberController {
 			return mv;
 	}
 	
+	@GetMapping("memberDeleteInfo")
+	public ModelAndView setMemberDeleteinfo(MemberDTO memberDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		memberDTO = memberService.getOne(memberDTO);
+		mv.setViewName("member/memberDeleteInfo");
+		return mv;
+}
+	
 	
 	@GetMapping("memberDelete")
-	public ModelAndView setMemberDelete(MemberDTO memberDTO) throws Exception{
+	public ModelAndView setMemberDelete(HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		memberDTO = memberService.getOne(memberDTO);
-		mv.addObject("dto",memberDTO);
-		mv.setViewName("member/memberDelete");
-		return mv;
-	}
-	
-	
-	@PostMapping("memberDelete")
-		public ModelAndView setMemberDelete(MemberDTO memberDTO, String msg) throws Exception{
-		ModelAndView mv = new ModelAndView();
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 		
 		int result = memberService.setMemberDelete(memberDTO);
+		String msg="";
 		
 		if(result>0) {
-			msg = "회원 탈퇴가 완료되었습니다.";
+			msg = "그동안 포인핸드를 이용해주셔서 감사합니다.";
+			session.invalidate();
 			mv.setViewName("common/result");
 			mv.addObject("msg", msg);
-			mv.addObject("path", "/");
+			mv.addObject("path", "../");
 		}else {
-			
+			msg = "회원 탈퇴에 실패했습니다.";
+			mv.setViewName("common/result");			
+			mv.addObject("msg", msg);
+			mv.addObject("path", "../");
 		}
+		
 		return mv;
 	}
+	
 	
 	
 //----------------------------------------------------------------------------------------------------------
@@ -198,7 +207,7 @@ public class MemberController {
 			msg = "회원 정보가 수정되었습니다.";
 			mv.setViewName("common/result");
 			mv.addObject("msg", msg);
-			mv.addObject("path", "/");
+			mv.addObject("path", "../");
 		}else {
 		
 		}
