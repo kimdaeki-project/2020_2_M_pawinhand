@@ -213,6 +213,17 @@ public class MemberController {
 		}
 		return mv;
 	}
+	
+	
+
+//----------------------------------------------------------------------------------------------------------	
+	
+	@GetMapping("adminPage")
+	public ModelAndView getadminPage() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		return mv;
+	}
 
 	
 }
