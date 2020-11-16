@@ -49,7 +49,7 @@
 						<td>
         					<div class="form-group" style="padding-top: 20px;">
           					 <div class="address-items">
-            					<input type="text" id="sample6_postcode" placeholder="우편번호" name="zipcode" value="${member.zipcode}">
+            					<input type="text" id="sample6_postcode" placeholder="우편번호" name="zipcode" value="${member.zipCode}">
             					<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
             					<input type="text" id="sample6_address" placeholder="주소" name="address1" class="text"><br>
             					<input type="text" id="sample6_detailAddress" placeholder="상세주소" name="address2" class="text" onkeyup="address()"><br>
