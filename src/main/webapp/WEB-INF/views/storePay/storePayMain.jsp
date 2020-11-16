@@ -170,6 +170,10 @@
 		color: white;
 		border: 1px solid orange;
 	}
+	
+	.tdtd{
+		width: 200px;
+	}
 </style>
 </head>
 <body>
@@ -220,8 +224,8 @@
 				</div>
 			<div class="driveDiv">
 				<span>배송비 </span>
-				<div class="d1">
-					3000원
+				<div class="d1" id="deliveryfee">
+					
 				</div>
 			</div>
 				<div class="paydd">
@@ -231,8 +235,7 @@
 				<span>총 </span>
 				<span id="nn"></span>
 				<span>개의 상품금액</span>
-				<div class="d1">
-					3000원
+				<div class="d1" id="tp">
 				</div>
 			</div>
 			
@@ -321,24 +324,33 @@
 		
 			<table class="driveTable, table table-bordered">
 				<tr>
-					<td>상품 합계 금액</td>
-					<td></td>
+					<td class="tdtd">상품 합계 금액</td>
+					<td id="tp2"></td>
 				</tr>
 				<tr>
-					<td>배송비</td>
-					<td></td>
+					<td class="tdtd">배송비</td>
+					<td id="deliveryfee2"></td>
 				</tr>
 				<tr>
-					<td>할인 및 적립</td>
-					<td></td>
+					<td class="tdtd">할인 및 적립</td>
+					<td class="sale">
+						할인 :(-) <span id="sale"></span>원 <br>
+						적립 :(+) <span id="point"></span>p 예정<br>
+					</td>
 				</tr>
 				<tr>
-					<td>마일리지 사용</td>
-					<td></td>
+					<td class="tdtd">마일리지 사용</td>
+					<td>
+						<input type="text" id="usePoint"> p 
+						<input type="checkbox" id="allPoint" onclick="calPoint()">전액 사용하기
+							<span id="isPoint">(
+								 보유 마일리지: <span id="isPoint2">${member.points}</span> p)
+							</span>
+					</td> 
 				</tr>
 				<tr>
-					<td id="finalPrice">최종 결제 금액</td>
-					<td></td>
+					<td class="tdtd" id="finalPrice">최종 결제 금액</td>
+					<td id="ftPrice"></td>
 				</tr>
 			</table>
 		</div>
@@ -396,8 +408,8 @@
 	var points = 1;
 	var amountArray = [];
 	var ds = null;
-	
-	
+	var deliveryfee = null;
+	var finalPrice=null;
 
 	$(".ss").each(function(index, item) {
 
@@ -409,13 +421,28 @@
 
 	$(".tt").each(function() {
 		totalPrice += $(this).html() * 1;
-
+		
+		if(totalPrice > 50000){
+			deliveryfee=0;
+		}else{
+			deliveryfee=3000;
+		}	
 	});
 
-	$("#ttprice").html(totalPrice);
+	$("#tp").html(totalPrice);
+	$("#deliveryfee").html(deliveryfee);
+	$("#ttprice").html(totalPrice+deliveryfee*1);
+	
+	$("#tp2").html(totalPrice+"원");
+	$("#deliveryfee2").html(deliveryfee+"원");
+	
+	var sale = 0;
+	$("#sale").html(sale);
+	
 	var ep = null;
 	var viewPoints = 0;
-
+	
+//********************* 마일리지 계산
 	$(".pp").each(
 			function(index, item) {
 				if (amountArray[index] == 1) {
@@ -431,8 +458,24 @@
 				viewPoints += points;
 			});
 
+	
 	$("#viewPoints").html(viewPoints);
+	$("#point").html(viewPoints);
 
+	//*********사용 마일리지 넣기
+
+	function calPoint() {
+		var isPoint = $("#isPoint2").html();
+		
+	 	if($("#allPoint").prop("checked")){
+	 		$("#usePoint").val(isPoint);
+	 		
+	 	}else{
+	 		$("#usePoint").val("");
+	 	}		
+	}
+	
+	
 	$(document).on("click", ".ss",function() {
 		ds = $(this).val();
 
@@ -468,7 +511,19 @@
 		}
 	});
 	
+	/*
+	$.ajax(
+			{
+				method:"GET",
+				url:"./reserveInfo",
+				data:{resNum:num},
+				success:function(data){
+					$("#modalCon").html(data);	
+				}
+			}		
+		);
 
+	*/
 </script>
 </body>
 </html>

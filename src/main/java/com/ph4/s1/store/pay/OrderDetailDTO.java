@@ -12,6 +12,7 @@ public class OrderDetailDTO {
 	private String name;
 	private long amount;
 	private long totalPrice;
+	
 	public long getNum() {
 		return num;
 	}

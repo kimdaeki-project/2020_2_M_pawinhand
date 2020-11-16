@@ -7,59 +7,60 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderListDTO {
 
-	private String id;
 	private long order_num;
-	private long cart_num;
-	private String email;
-	private String address;
-	private String phone;
+	private String orderId;
+	private String toName;
+	private String toAddress;
+	private long toZipcode;
+	private String toPhone;
+	private String toTel;
 	private Date regDate;
+	private  long total;
 	private String doTrade;
 	private String addComment;
 	
 	
-	
-	public String getAddComment() {
-		return addComment;
-	}
-	public void setAddComment(String addComment) {
-		this.addComment = addComment;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	public long getOrder_num() {
 		return order_num;
 	}
 	public void setOrder_num(long order_num) {
 		this.order_num = order_num;
 	}
-	public long getCart_num() {
-		return cart_num;
+	public String getOrderId() {
+		return orderId;
 	}
-	public void setCart_num(long cart_num) {
-		this.cart_num = cart_num;
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
 	}
-	public String getEmail() {
-		return email;
+	public String getToName() {
+		return toName;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setToName(String toName) {
+		this.toName = toName;
 	}
-	public String getAddress() {
-		return address;
+	public String getToAddress() {
+		return toAddress;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setToAddress(String toAddress) {
+		this.toAddress = toAddress;
 	}
-	public String getPhone() {
-		return phone;
+	public long getToZipcode() {
+		return toZipcode;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setToZipcode(long toZipcode) {
+		this.toZipcode = toZipcode;
+	}
+	public String getToPhone() {
+		return toPhone;
+	}
+	public void setToPhone(String toPhone) {
+		this.toPhone = toPhone;
+	}
+	public String getToTel() {
+		return toTel;
+	}
+	public void setToTel(String toTel) {
+		this.toTel = toTel;
 	}
 	public Date getRegDate() {
 		return regDate;
@@ -67,12 +68,27 @@ public class OrderListDTO {
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
+	public long getTotal() {
+		return total;
+	}
+	public void setTotal(long total) {
+		this.total = total;
+	}
 	public String getDoTrade() {
 		return doTrade;
 	}
 	public void setDoTrade(String doTrade) {
 		this.doTrade = doTrade;
 	}
+	public String getAddComment() {
+		return addComment;
+	}
+	public void setAddComment(String addComment) {
+		this.addComment = addComment;
+	}
+	
+	
+	
 	
 	
 }
