@@ -287,12 +287,12 @@
 			</tr>
 			<tr>
 				<td class="driveTd">* 받으실 분</td>
-				<td class="driveTd2"><input id="dname" type="text" name="name"></td>
+				<td class="driveTd2"><input id="dname" type="text" name="toName"></td>
 			</tr>
 			<tr>
 				<td class="driveTd">* 받으실 곳</td>
-				<td class="driveTd2">
-					<input type="text" id="sample6_postcode" placeholder="우편번호">
+				<td class="driveTd2"> <!-- toAddess로 합쳐야됨 -->
+					<input type="text" id="sample6_postcode" placeholder="우편번호" name="toZipcode">
 				<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 				<input type="text" id="sample6_address" placeholder="주소"><br>
 				<input type="text" id="sample6_detailAddress" placeholder="상세주소"><br>
@@ -301,11 +301,11 @@
 			</tr>
 			<tr>
 				<td class="driveTd">전화번호</td>
-				<td class="driveTd2"><input id="dtel" type="text"></td>
+				<td class="driveTd2"><input id="dtel" type="text" name="toTel"></td>
 			</tr>
 			<tr>
 				<td class="driveTd">* 휴대폰 번호</td>
-				<td class="driveTd2"><input id="dphone" type="text" name="phone"></td>
+				<td class="driveTd2"><input id="dphone" type="text" name="toPhone"></td>
 			</tr>
 			<tr>
 				<td class="driveTd">남기실 말씀</td>
@@ -368,7 +368,7 @@
 		<div id="finalPriceDiv">
 			<div id="finalDiv2">
 				<span>최종 결제 금액   </span>
-				<span></span>
+				<span name="total"></span>
 			</div>
 		</div>	
 		
