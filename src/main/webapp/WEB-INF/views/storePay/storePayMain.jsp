@@ -8,11 +8,14 @@
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
 
+<c:import url="../template/address.jsp"></c:import>
+
 <style type="text/css">
+
 	#payContainer{
 		width: 1000px;
 		height: 2000px;
-		margin: 50px auto;
+		margin: 50px auto 100px;
 	}
 	.payHeader{
 		width: 1000px;
@@ -106,7 +109,6 @@
 		margin-top: 50px;
 		width: 1000px;
 		height: auto;
-		background-color: orange;
 		font-size: 20px;
 	}
 	.driveTable{
@@ -119,6 +121,24 @@
 		width: 200px;
 	}
 	
+	.payInfo{
+		margin-top: 50px;
+		width: 1000px;
+		height: auto;
+		font-size: 20px;
+		background-color: aqua;
+	}
+	.payDiv{
+		margin-top: 50px;
+		width: 1000px;
+		height: auto;
+		font-size: 20px;
+		background-color: yellow;
+	}
+	
+	#accountDiv{
+		display: none;
+	}
 </style>
 </head>
 <body>
@@ -202,7 +222,10 @@
 			</tr>
 			<tr>
 				<td class="infoTd">주소</td>
-				<td><input id="dsite1" type="text" value="${member.address}"></td>
+				<td>
+					<input type="text" id="dzipCode1" name="zipCode" value="${member.zipCode}">
+					<input id="dsite1" type="text" value="${member.address}">
+				</td>
 			</tr>
 			<tr>
 				<td class="infoTd">전화번호</td>
@@ -237,7 +260,13 @@
 			</tr>
 			<tr>
 				<td class="driveTd">* 받으실 곳</td>
-				<td class="driveTd2"><input id="dsite" type="text" name="address"></td>
+				<td class="driveTd2">
+					<input type="text" id="sample6_postcode" placeholder="우편번호">
+				<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+				<input type="text" id="sample6_address" placeholder="주소"><br>
+				<input type="text" id="sample6_detailAddress" placeholder="상세주소"><br>
+				<input type="text" id="sample6_extraAddress" placeholder="참고항목">
+				</td>
 			</tr>
 			<tr>
 				<td class="driveTd">전화번호</td>
@@ -253,7 +282,66 @@
 			</tr>
 			
 		</table>
+		
+		<div class ="payInfo">
+		결제정보<br>
+		
+			<table class="driveTable, table table-bordered">
+				<tr>
+					<td>상품 합계 금액</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>배송비</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>할인 및 적립</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>마일리지 사용</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>최종 결제 금액</td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+	
+		<div class="payDiv">
+			결제수단 선택/결제<br>
+			
+			
+			<table class="driveTable, table table-bordered">
+				<tr>
+					<td rowspan="2">결제</td>
+					<td>
+						<input type="radio" name="paySel" value="1" class="paySel">무통장 입금
+						<input type="radio" name="paySel" value="2" class="paySel">신용카드
+						<input type="radio" name="paySel" value="3" class="paySel">계좌이체
+						<input type="radio" name="paySel" value="4" class="paySel">가상계좌
+						<input type="radio" name="paySel" value="5" class="paySel">휴대폰결제 <br>
+						<div id="realAccountDiv">
+							
+						</div>
+					</td>
+				</tr>
+			</table>
+			
+		</div>	
 	</form>
+	
+	<div id="accountDiv">
+		(무통장 입금의 경우, 입금확인 후부터 배송단계가 시작됩니다.)<br>
+		입금자명     <input type="text" id="payName"><br>
+		입금은행     <select name="bank">
+					<option value="sh">신한은행 140012049753 (주)포인핸드</option>
+					<option value="kb">국민은행 260894599649 (주)포인핸드</option>
+				</select>
+	</div>
+	
 </div>
 
 <script type="text/javascript">
@@ -263,6 +351,8 @@
 	var points = 1;
 	var amountArray = [];
 	var ds = null;
+	
+	
 
 	$(".ss").each(function(index, item) {
 
@@ -303,17 +393,37 @@
 
 		if (ds == 1) {
 			$("#dname").val("");
-			$("#dsite").val("");
+			$("#sample6_address").val("");
 			$("#dtel").val("");
 			$("#dphone").val("");
 			$("#dcomment").val("");
+			$("#sample6_postcode").val("");
+			$("#sample6_detailAddress").val("");
+			$("#sample6_extraAddress").val("");
 		} else {
 			$("#dname").val(document.getElementById('dname1').value);
-			$("#dsite").val(document.getElementById('dsite1').value);
+			$("#sample6_address").val(document.getElementById('dsite1').value);
 			$("#dtel").val(document.getElementById('dtel1').value);
 			$("#dphone").val(document.getElementById('dphone1').value);
+			$("#sample6_postcode").val(document.getElementById('dzipCode1').value);
 		}
 	});
+	
+	var n = null;
+	var nn = $("#accountDiv").html().trim();
+	
+	$(document).on("click", ".paySel", function() {
+		n = $(this).val();
+		
+		if(n==1){
+			
+			$("#realAccountDiv").html(nn);
+		}else{
+			$("#realAccountDiv").html("");
+		}
+	});
+	
+
 </script>
 </body>
 </html>
