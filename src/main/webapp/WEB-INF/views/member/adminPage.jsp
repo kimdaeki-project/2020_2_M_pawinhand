@@ -59,8 +59,8 @@
 				<li>
 					<h2>나의 상품문의/후기</h2>
 					<ul class="myPage-item">
-						<li><a href="#">- 나의 상품문의</a></li>		
-						<li><a href="#">- 나의 상품후기</a></li>	
+						<li><a href="#">- 상품문의</a></li>		
+						<li><a href="#">- 상품후기</a></li>	
 						<li><a href="#">- 1:1 문의</a></li>		
 					</ul>
 				</li>
