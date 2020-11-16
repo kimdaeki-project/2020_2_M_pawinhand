@@ -334,8 +334,8 @@
 				<tr>
 					<td class="tdtd">할인 및 적립</td>
 					<td class="sale">
-						할인 :(-) <span id="sale"></span>원 <br>
-						적립 :(+) <span id="point"></span>p 예정<br>
+						할인 : (-) <span id="sale"></span>원 <br>
+						적립 : (+) <span id="point"></span>p 예정<br>
 					</td>
 				</tr>
 				<tr>
@@ -466,14 +466,18 @@
 
 	function calPoint() {
 		var isPoint = $("#isPoint2").html();
-		
+		var usePoint = 0;
 	 	if($("#allPoint").prop("checked")){
 	 		$("#usePoint").val(isPoint);
-	 		
+	 		usePoint = isPoint;	
 	 	}else{
 	 		$("#usePoint").val("");
+	 		usePoint = $("#usePoint").val();
 	 	}		
 	}
+	
+	//********** 최종 결제 금액
+	$("#ftPrice").html(totalPrice+deliveryfee-usePoint);
 	
 	
 	$(document).on("click", ".ss",function() {

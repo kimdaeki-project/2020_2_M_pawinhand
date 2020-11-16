@@ -2,6 +2,8 @@ package com.ph4.s1.store.pay;
 
 import org.springframework.stereotype.Component;
 
+import com.ph4.s1.store.product.ProductDTO;
+
 @Component
 public class CartDTO {
 
