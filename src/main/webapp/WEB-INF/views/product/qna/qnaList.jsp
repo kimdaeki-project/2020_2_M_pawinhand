@@ -32,7 +32,7 @@
   				<td colspan="2" style="vertical-align: middle">
   				<p style="margin-bottom:0px;font-size:12px;color: black">
   					${dto.productQnaReplyDTO.contents}
-  				  	<a style="font-size:12px" href="#">삭제</a>
+  				  	<a style="font-size:12px" href="../productQna/productQnaReplyDelete?qna_num=${dto.qna_num}&product_num=${dto.product_num}">삭제</a>
   				</p>
   				</td>
   				<td style="font-size:12px;color: black;vertical-align: middle">${dto.productQnaReplyDTO.regDate}</td>

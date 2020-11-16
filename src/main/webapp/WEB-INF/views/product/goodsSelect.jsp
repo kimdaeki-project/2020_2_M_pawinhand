@@ -177,6 +177,19 @@
 		});
 	}
 	
+	$("#detailMenu").click(function(){
+		detailList();
+	});
+	
+	function detailList(){
+		$("#ReviewMenu").removeClass("menuSelected");
+		$("#detailMenu").addClass("menuSelected");
+		$("#QNAMenu").removeClass("menuSelected");
+		$.get("../productDetail/productDetailList?product_num=${dto.product_num}", function(data) {
+			$("#menu_list").html(data);
+		});
+	}
+	
 	$("#QNAMenu").click(function(){
 		curPage = 1;
 		qnaList();
@@ -219,6 +232,8 @@
 		var option = "width = 576, height = 500, top = 100, left = 200, location = no";
 		window.open("../productQna/productQnaInsert?product_num=${dto.product_num}","insert",option);
 	})
+	
+	
 </script>
 </body>
 </html>
