@@ -343,8 +343,10 @@
 					<td>
 						<input type="text" id="usePoint"> p 
 						<input type="checkbox" id="allPoint" onclick="calPoint()">전액 사용하기
-							<span id="isPoint">(
-								 보유 마일리지: <span id="isPoint2">${member.points}</span> p)
+							<span id="isPoint">
+							(보유 마일리지: 
+								<span id="isPoint2">${member.points}</span> 
+							p)
 							</span>
 					</td> 
 				</tr>
@@ -380,7 +382,7 @@
 		<div id="finalPriceDiv">
 			<div id="finalDiv2">
 				<span>최종 결제 금액   </span>
-				<span name="total"></span>
+				<span name="total" id="realTP"></span>원
 			</div>
 		</div>	
 		
@@ -463,21 +465,46 @@
 	$("#point").html(viewPoints);
 
 	//*********사용 마일리지 넣기
-
-	function calPoint() {
-		var isPoint = $("#isPoint2").html();
-		var usePoint = 0;
-	 	if($("#allPoint").prop("checked")){
-	 		$("#usePoint").val(isPoint);
-	 		usePoint = isPoint;	
-	 	}else{
-	 		$("#usePoint").val("");
-	 		usePoint = $("#usePoint").val();
-	 	}		
-	}
+	var usePoint = 0;
+	var isPoint = $("#isPoint2").html()*1;
 	
 	//********** 최종 결제 금액
 	$("#ftPrice").html(totalPrice+deliveryfee-usePoint);
+	//********** 진짜 마지막 최종금액임
+	$("#realTP").html(totalPrice+deliveryfee-usePoint);
+	
+	function calPoint() {
+		
+	 	if($("#allPoint").prop("checked")){
+	 		usePoint = isPoint;	
+	 		$("#usePoint").val(isPoint);
+	 	}else{
+	 		usePoint = 0;
+	 		$("#usePoint").val(usePoint);
+	 		
+	 	}
+	 	//********** 최종 결제 금액
+		$("#ftPrice").html(totalPrice+deliveryfee-usePoint);
+		//********** 진짜 마지막 최종금액임
+		$("#realTP").html(totalPrice+deliveryfee-usePoint);
+	}
+	
+	$("#usePoint").blur(function() {
+		var aa=$("#usePoint").val()*1;
+		
+		if(aa > isPoint){
+ 			alert("보유 마일리지를 확인해주세요");
+ 			usePoint = 0;
+ 			$("#usePoint").val(usePoint);
+ 		}else{
+ 			usePoint = aa;
+ 		}
+		
+		//********** 최종 결제 금액
+		$("#ftPrice").html(totalPrice+deliveryfee-usePoint);
+		//********** 진짜 마지막 최종금액임
+		$("#realTP").html(totalPrice+deliveryfee-usePoint);
+	});
 	
 	
 	$(document).on("click", ".ss",function() {
@@ -503,15 +530,37 @@
 	
 	var n = null;
 	var nn = $("#accountDiv").html().trim();
+	var ch = false; //신용카드 결제인지 판별 - true이면 마지막 결제버튼 누른 후 신용카드 결제 창 뜨도록
 	
 	$(document).on("click", ".paySel", function() {
 		n = $(this).val();
 		
 		if(n==1){
-			
 			$("#realAccountDiv").html(nn);
+			ch = false;
+		}else if(n==2){
+			$("#realAccountDiv").html("");
+			ch=true;
 		}else{
 			$("#realAccountDiv").html("");
+			ch = false;
+		}
+	});
+	
+
+	$(".payBtn").click(function() {
+		
+		if($("#finalCheck").prop("checked")){
+		
+			if(ch){
+				window.open("./storePayment", "width=500px,height=600px");
+
+			}else{
+				alert("결제 완료 페이지로 넘어감 -> 계산은 아직 안한거임");
+			}
+				
+		}else{
+			alert("필수사항에 체크해주시기 바랍니다.");
 		}
 	});
 	

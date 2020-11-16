@@ -33,7 +33,7 @@ public class StorePayController {
 		ModelAndView mv = new ModelAndView();
 		
 		CartDTO cartDTO = new CartDTO();
-		cartDTO.setId("a1");
+		cartDTO.setId("a2");
 		
 		List<CartDTO> ar = storePayService.getCartDetail(cartDTO);
 		MemberDTO memberDTO = storePayService.getMember(cartDTO);
