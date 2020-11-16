@@ -204,16 +204,15 @@
 	
 	$("#menu_list").on("click",".qnatitle",function(){
 		var num = $(this).attr("title");
-		var contents = $("#qnacontent"+num).attr("title");
-		var qnacontentResult = $("#qnacontent"+num).html().trim();
-		console.log(qnacontentResult);
-		var qnacontent = '';
-		if(qnacontentResult == ''){
-			qnacontent += "<td style='padding-left : 100px' class='qnacon' colspan='5'>"+contents+"<br>";
-			qnacontent += "<a style='font-size:12px' href='../productQna/productQnaDelete?qna_num="+num+"'>삭제</a>"
-			qnacontent += "</td>";
+		var con = document.getElementById("qnacontent"+num);
+		var con2 = document.getElementById("qnareplycontent"+num);
+		if(con.style.display == 'none'){
+			con.style.display = 'table-row';
+			con2.style.display = 'table-row';
+		}else{
+			con.style.display = 'none';
+			con2.style.display = 'none';
 		}
-		$("#qnacontent"+num).html(qnacontent);
 	});
 </script>
 </body>

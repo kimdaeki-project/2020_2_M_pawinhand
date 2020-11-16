@@ -18,14 +18,14 @@
   			<td>${dto.id}</td>
   			<td>${dto.regDate}</td>
   		</tr>
-  		<tr id="qnacontent${dto.qna_num}">
+  		<tr style="display: none;" id="qnacontent${dto.qna_num}">
   			<td style="padding-left : 100px" class="qnacon" colspan="5">
   			${dto.contents}<br>
   			<a style="font-size:12px" href="../productQna/productQnaDelete?qna_num=${dto.qna_num}">삭제</a>
   			</td>
   		</tr>
   		<c:if test="${dto.productQnaReplyDTO != null}">
-  			<tr style="background-color: #f7f8fa;text-align: center" id="qnareplycontent${dto.qna_num}" >
+  			<tr style="display: none;background-color: #f7f8fa;text-align: center" id="qnareplycontent${dto.qna_num}" >
   				<td style="font-size:12px;color: black;vertical-align: middle">관리자</td>
   				<td colspan="2" style="vertical-align: middle">
   				<p style="margin-bottom:0px;font-size:12px;color: black">${dto.productQnaReplyDTO.contents}</p>
