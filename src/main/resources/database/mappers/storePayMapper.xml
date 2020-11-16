@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ 
+<mapper namespace="com.ph4.s1.store.pay.StorePayDAO">
+
+	<!-- 주문상세에서 필요한 테이블 조인 -->
+	<resultMap type="CartDTO" id="getCart">
+		<id column="cartNum" property="cartNum"></id>
+		<result column="id" property="id"/>
+		<result column="product_num" property="product_num"/>
+		<result column="amount" property="amount"/>
+		<result column="totalPrice" property="totalPrice"/>
+		<association property="productDTO" javaType="ProductDTO" resultMap="Product">
+		</association>
+	</resultMap>
+	
+	<resultMap type="ProductDTO" id="Product">
+			<id column="product_num" property="product_num"></id>
+			<result column="category_num" property="category_num"/>
+			<result column="name" property="name"/>
+			<result column="price" property="price"/>
+			<result column="stock" property="stock"/>
+			<result column="weight" property="weight"/>
+			<result column="color" property="color"/>
+			<result column="descriptions" property="descriptions"/>
+			<result column="regDate" property="regDate"/>
+	</resultMap>
+
+	<select id="getCartDeail" parameterType="CartDTO" resultMap="getCart">
+		select c.*, p.name, p.price, p.weight, p.color
+		from cart c
+		inner join product p on c.product_num = p.product_num 
+		where id = #{id}
+	</select>
+   
+   	<select id="getMember" parameterType="CartDTO" resultType="MemberDTO">
+   		select * from member where id = #{id}
+   	</select>
+   	
+ 
+</mapper>

@@ -2,21 +2,19 @@ package com.ph4.s1.member;
 
 public class MemberDTO {
 	
-	private long num;
 	private String id;
 	private String pw;
 	private String name;
 	private String email;
 	private String phone;
 	private String address;
+<<<<<<< HEAD
+	private String zipCode;
+=======
+	private String zipcode;
+>>>>>>> master
+	private long points;
 	
-	
-	public long getNum() {
-		return num;
-	}
-	public void setNum(long num) {
-		this.num = num;
-	}
 	public String getId() {
 		return id;
 	}
@@ -53,7 +51,32 @@ public class MemberDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+<<<<<<< HEAD
+	public String getZipCode() {
+		return zipCode;
+	}
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
+=======
+	public String getZipcode() {
+		return zipcode;
+	}
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+>>>>>>> master
+	}
+	public long getPoints() {
+		return points;
+	}
+	public void setPoints(long points) {
+		this.points = points;
+	}
+	
+<<<<<<< HEAD
+=======
 	
 	
-
+>>>>>>> master
+	
+	
 }

@@ -15,6 +15,13 @@
                      <li class="sub-item">
                         <a class="sub-link" href="${pageContext.request.contextPath}/member/memberLogout">로그아웃</a>
                      </li>
+                     	<c:if test="${member.id eq 'admin'}">
+                     	 	<li class="sub-item">
+                         		<a class="sub-link" href="${pageContext.request.contextPath}/admin/adminPage">
+                         		<img alt="" src="${pageContext.request.contextPath}/resources/img/common/setting.png" width="23px" height="23px">
+                         		</a>
+                      		</li>
+                     	</c:if>
                   </c:when>
                   <c:otherwise>
                      <li class="sub-item">
@@ -31,7 +38,7 @@
    
       <div class="col-12">
          <nav class="navbar navbar-expand-lg navbar-light">
-           <a class="navbar-brand" href="#">
+           <a class="navbar-brand" href="${pageContext.request.contextPath}/">
               <img alt="logo" src="${pageContext.request.contextPath}/resources/img/common/logo.png" width="80px">
               <p>PAWINHAND</p>
            </a>
@@ -41,7 +48,7 @@
            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
              <ul class="navbar-nav">
                <li class="nav-item active">
-                 <a class="nav-link" href="${pageContext.request.contextPath}/notice/noticeList">포인핸드 소개</a>
+                 <a class="nav-link" href="${pageContext.request.contextPath}/intro">포인핸드 소개</a>
                </li>
                <li class="nav-item active">
                  <a class="nav-link" href="${pageContext.request.contextPath}/voluntary/voluntaryList">봉사</a>

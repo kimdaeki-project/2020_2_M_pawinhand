@@ -13,6 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.ph4.s1.board.file.ShelterFileDTO;
 import com.ph4.s1.util.FileSaver;
 import com.ph4.s1.util.Pager;
+import com.ph4.s1.voluntary.VoluntaryDTO;
+import com.ph4.s1.voluntary.file.VoluntaryFileDTO;
 
 @Service
 public class ShelterSevice {
@@ -36,7 +38,7 @@ public class ShelterSevice {
 	public int setInsert(ShelterDTO shelterDTO, MultipartFile [] files, HttpSession session) throws Exception{
 		
 		//파일을 HDD에 저장
-		String path = session.getServletContext().getRealPath("/resources/upload/shelter");
+		String path = session.getServletContext().getRealPath("/resources/upload/shelter/");
 		File file = new File(path);
 		System.out.println(path);
 		
@@ -57,14 +59,6 @@ public class ShelterSevice {
 		return result;
 	}
 	
-//	public String imagefile(MultipartFile file, HttpSession session) throws Exception{
-//		//파일을 하드 디스크에 저장하고 저장된 파일명을 리턴
-//		String path = session.getServletContext().getRealPath("/resources/upload/shelter");
-//		System.out.println(path);
-//		File dest = new File(path);
-//		String fileName = fileSaver.saveCopy(dest, file);
-//		return fileName;
-//	}
 	
 	public int setDelete(ShelterDTO shelterDTO) throws Exception{
 		return shelterDAO.setDelete(shelterDTO);
@@ -72,5 +66,12 @@ public class ShelterSevice {
 	
 	public int setUpdate(ShelterDTO shelterDTO) throws Exception{
 		return shelterDAO.setUpdate(shelterDTO);
+	}
+	
+	
+//-------------------File-------------------------------------
+	
+	public List<ShelterFileDTO> getFileOne(ShelterDTO shelterDTO) throws Exception{
+		return shelterDAO.getFileOne(shelterDTO);
 	}
 }
