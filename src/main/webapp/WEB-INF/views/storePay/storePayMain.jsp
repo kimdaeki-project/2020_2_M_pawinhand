@@ -198,45 +198,46 @@
 		<table class="infoTable, table table-bordered">
 			<tr>
 				<td class="infoTd">* 주문하시는 분</td>
-				<td><input id="dname" type="text" value="${member.name}"></td>
+				<td><input id="dname1" type="text" value="${member.name}"></td>
 			</tr>
 			<tr>
 				<td class="infoTd">주소</td>
-				<td><input id="dsite" type="text" value="${member.address}"></td>
+				<td><input id="dsite1" type="text" value="${member.address}"></td>
 			</tr>
 			<tr>
 				<td class="infoTd">전화번호</td>
-				<td></td>
+				<td><input id="dtel1" type="text"></td>
 			</tr>
 			<tr>
 				<td class="infoTd">* 휴대폰 번호</td>
-				<td><input id="dphone" type="text" value="${member.phone}"></td>
+				<td><input id="dphone1" type="text" value="${member.phone}"></td>
 			</tr>
 			<tr>
 				<td class="infoTd">* 이메일</td>
-				<td><input id="dphone" type="text" value="${member.email}"></td>
+				<td><input id="demail1" type="text" value="${member.email}"></td>
 			</tr>
 		</table>
 		
 	</div>
 	
-	<form class="payDrive">
+	<form class="payDrive" method="post">
 		배송정보<br>
+		
 		<table class="driveTable, table table-bordered">
 			<tr>
 				<td class="driveTd">배송지 확인</td>
 				<td>
-					<input type="radio" value="1" name="deliverySite" class="ss"> 직접입력
-					<input type="radio" value="2"  name="deliverySite" checked="checked" class="ss"> 주문자 정보와 동일
+					<input type="radio" value="1" name="deliverySite" class="ss" checked="checked"> 직접입력
+					<input type="radio" value="2"  name="deliverySite"  class="ss"> 주문자 정보와 동일
 				</td>
 			</tr>
 			<tr>
 				<td class="driveTd">* 받으실 분</td>
-				<td class="driveTd2"><input id="dname" type="text" value="${member.name}"></td>
+				<td class="driveTd2"><input id="dname" type="text" name="name"></td>
 			</tr>
 			<tr>
 				<td class="driveTd">* 받으실 곳</td>
-				<td class="driveTd2"><input id="dsite" type="text" value="${member.address}"></td>
+				<td class="driveTd2"><input id="dsite" type="text" name="address"></td>
 			</tr>
 			<tr>
 				<td class="driveTd">전화번호</td>
@@ -244,11 +245,11 @@
 			</tr>
 			<tr>
 				<td class="driveTd">* 휴대폰 번호</td>
-				<td class="driveTd2"><input id="dphone" type="text" value="${member.phone}"></td>
+				<td class="driveTd2"><input id="dphone" type="text" name="phone"></td>
 			</tr>
 			<tr>
 				<td class="driveTd">남기실 말씀</td>
-				<td class="driveTd2"><input id="dcomment" type="text"></td>
+				<td class="driveTd2"><input id="dcomment" type="text" name="addComment"></td>
 			</tr>
 			
 		</table>
@@ -256,17 +257,12 @@
 </div>
 
 <script type="text/javascript">
-	
+
 	var totalAmount = 0;
 	var totalPrice = 0;
 	var points = 1;
 	var amountArray = [];
 	var ds = null;
-	var dname = $("#dname").val();
-	var dsite = $("#dsite").val();
-	var dtel = $("#dtel").val();
-	var dphone = $("#dphone").val();
-	var dcomment = $("#dcomment").val();
 
 	$(".ss").each(function(index, item) {
 
@@ -302,7 +298,7 @@
 
 	$("#viewPoints").html(viewPoints);
 
-	$(".ss").click(function() {
+	$(document).on("click", ".ss",function() {
 		ds = $(this).val();
 
 		if (ds == 1) {
@@ -311,15 +307,11 @@
 			$("#dtel").val("");
 			$("#dphone").val("");
 			$("#dcomment").val("");
-			alert("직접입력");
 		} else {
-
-			$("#dname").val(dname);
-			$("#dsite").val(dsite);
-			$("#dtel").val(dtel);
-			$("#dphone").val(dphone);
-			$("#dcomment").val(dcomment);
-			alert("주문자정보와동일");
+			$("#dname").val(document.getElementById('dname1').value);
+			$("#dsite").val(document.getElementById('dsite1').value);
+			$("#dtel").val(document.getElementById('dtel1').value);
+			$("#dphone").val(document.getElementById('dphone1').value);
 		}
 	});
 </script>

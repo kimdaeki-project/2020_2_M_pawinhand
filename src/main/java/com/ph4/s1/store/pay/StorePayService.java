@@ -21,6 +21,7 @@ public class StorePayService {
 		
 		List<CartDTO> ar = storePayDAO.getCartDetail(cartDTO);
 		
+		//상품별 포인트 계산해서 넣기 
 		for(int i=0; i<ar.size(); i++) {
 			points = ar.get(i).getProductDTO().getPrice()*0.02;
 			ar.get(i).setPoints(points);

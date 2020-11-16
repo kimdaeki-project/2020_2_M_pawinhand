@@ -15,7 +15,16 @@ public class OrderListDTO {
 	private String phone;
 	private Date regDate;
 	private String doTrade;
+	private String addComment;
 	
+	
+	
+	public String getAddComment() {
+		return addComment;
+	}
+	public void setAddComment(String addComment) {
+		this.addComment = addComment;
+	}
 	public String getId() {
 		return id;
 	}
