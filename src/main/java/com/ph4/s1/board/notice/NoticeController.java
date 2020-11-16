@@ -51,6 +51,7 @@ public class NoticeController {
 		List<BoardDTO> ar = noticeService.getList(pager);
 		
 		mv.addObject("board", "notice");
+		mv.addObject("title", "공지사항");
 		mv.addObject("lists", ar);
 		mv.addObject("pager", pager);
 		System.out.println("Notice List");

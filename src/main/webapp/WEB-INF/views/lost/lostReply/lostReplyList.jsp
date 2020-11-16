@@ -9,7 +9,8 @@
 			<c:catch>
 	  			<c:forEach begin="1" end="${dto.depth}">
 		  			<div class="replyEmpty">
-		  				<span>>>></span>
+		  				<span class="slash">>>></span>
+		  				
 		  			</div>
 	  			</c:forEach>
 	  		</c:catch>

@@ -48,12 +48,24 @@
         border-color: #28a745;
         box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
     }
+    
+    .topTitles{
+    	margin-bottom: 200px;
+    }
+    
+    .topTitle{
+    	font-size: 25px;
+    }
+    
 	</style>
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="main">
-  
+	<div class="topTitles">
+		<h3 class="topTitle">${title}</h3>
+		<hr width="50%" align="left">
+	</div>
   <table class="tableborder table table-hover">
   	<c:forEach items="${lists}" var="dto">
   		<tr>

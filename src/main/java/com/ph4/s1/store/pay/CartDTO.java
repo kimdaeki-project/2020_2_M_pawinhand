@@ -25,7 +25,7 @@ public class CartDTO {
 		this.points = points;
 	}
 	public ProductDTO getProductDTO() {
-		return productDTO;
+		return this.productDTO;
 	}
 	public void setProductDTO(ProductDTO productDTO) {
 		this.productDTO = productDTO;
@@ -60,6 +60,8 @@ public class CartDTO {
 	public void setTotalPrice(long totalPrice) {
 		this.totalPrice = totalPrice;
 	}
+	
+	
 	
 	
 }

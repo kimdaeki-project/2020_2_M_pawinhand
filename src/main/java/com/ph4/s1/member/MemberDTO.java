@@ -59,7 +59,4 @@ public class MemberDTO {
 	public void setPoints(long points) {
 		this.points = points;
 	}
-	
-	
-	
 }
