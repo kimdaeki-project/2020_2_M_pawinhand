@@ -29,10 +29,6 @@ public class ShelterDAO {
 		return sqlSession.insert(namespace+"setInsert", shelterDTO);
 	}
 	
-	public int setinsertFile(ShelterFileDTO shelterFileDTO) throws Exception{
-		return sqlSession.insert(namespace+"setInsertFile", shelterFileDTO);
-	}
-	
 	public ShelterDTO getOne(ShelterDTO shelterDTO) throws Exception{
 		return sqlSession.selectOne(namespace+"getOne", shelterDTO);
 	}
@@ -43,6 +39,18 @@ public class ShelterDAO {
 	
 	public int setUpdate(ShelterDTO shelterDTO) throws Exception{
 		return sqlSession.update(namespace+"setUpdate", shelterDTO);
+	}
+	
+	
+	//-------------File---------------------------------------
+	
+	public int setinsertFile(ShelterFileDTO shelterFileDTO) throws Exception{
+		return sqlSession.insert(namespace+"setInsertFile", shelterFileDTO);
+	}
+	
+	
+	public List<ShelterFileDTO> getFileOne(ShelterDTO shelterDTO)throws Exception{
+		return sqlSession.selectList(namespace+"getFileOne", shelterDTO);
 	}
 	
 }

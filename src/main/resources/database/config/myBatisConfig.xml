@@ -21,11 +21,15 @@
       	<typeAlias type="com.ph4.s1.board.qna.QnaDTO" alias="qnaDTO"/>
       	<typeAlias type="com.ph4.s1.util.Pager" alias="Pager"/>
       	<typeAlias type="com.ph4.s1.board.boardFile.BoardFileDTO" alias="BoardFileDTO"/>
+<<<<<<< HEAD
       	
       	
       	<typeAlias type="com.ph4.s1.member.MemberDTO" alias="MemberDTO"/>
       	<typeAlias type="com.ph4.s1.store.pay.CartDTO" alias="CartDTO"/>
       	<typeAlias type="com.ph4.s1.store.pay.ProductDTO" alias="ProductDTO"/>
+=======
+      	<typeAlias type="com.ph4.s1.member.MemberDTO" alias="MemberDTO"/>
+>>>>>>> master
   	</typeAliases>
   
   

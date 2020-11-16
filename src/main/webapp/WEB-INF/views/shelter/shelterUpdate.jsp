@@ -62,7 +62,7 @@
 		border: 2px solid #FDC033;
 		color: #FDC033;
 	}
-	.files{
+	.file_input_textbox{
 		display: inline;
 		width: 65%;
 		border: 1px solid #d9d9d9;
@@ -89,7 +89,7 @@
 <c:import url="../template/header.jsp"></c:import>	
 
 	<div class="container">
- 		<form id="frm" action="./shelterUpdate" method="post" enctype="multipart/form-data">
+ 		<form id="frm" action="./shelterWrite" method="post" enctype="multipart/form-data">
  		
  		<h4 class="menu" style="background-color: #ffffdb">기본 정보</h4>
   
@@ -100,8 +100,8 @@
     
     <div class="form-group">
 	  <label for="보호센터 연락처" class="info">연 락 처 </label>
-      <input type="text" class="form-control" id="center_tel" name="center_tel" 
-      placeholder="- 포함해서 입력해주세요." value="${updto.center_tel}">
+      <input type="text" class="form-control" id="center_tel" name="center_tel" value="${updto.center_tel}"
+      placeholder="- 포함해서 입력해주세요."/>
     </div>
     
     <div class="form-group">
@@ -109,11 +109,13 @@
       <input type="text" class="form-control" id="place_of_find" name="place_of_find" value="${updto.place_of_find}">
     </div>
     
+    
     <div class="form-group">
 	  <label for="공고기간1" class="info">공고기간 </label>
       <input type="date" style="background-color: white;" readonly="readonly" class="form-control period" id="period_1" name="period_1"> ~ 
-      <input type="date" class="form-control period" id="period_2" name="period_2" value="${updto.period_2}">
+      <input type="date" class="form-control period" id="period_2" name="period_2" value="${updto.period_2}" onclick="validDate()">
     </div>
+       
     
     
     <!-- ********************************************************************************************* -->
@@ -138,24 +140,24 @@
     
     <div class="form-group animal">
 	  <label for="성별" class="info">성별 </label>
-		<select name="sex" class="sel">
+		<select name="sex" class="sel" id="sex">
     		<option value="암컷">암컷</option>
     		<option value="수컷">수컷</option>
     		<option value="미확인">미확인</option>
 		</select>
 		
 	  <label for="중성화" class="info">중성화 </label>
-		<select name="neuter" class="sel">
+		<select name="neuter" class="sel" id="neuter">
 		 	<option value="중성화O">중성화O</option>
     		<option value="중성화X">중성화X</option>
-    		<option value="모름" selected="selected">모름</option>
+    		<option value="---" selected="selected">---</option>
 		</select>
     </div>
     
     
     <div class="form-group animal">
 	  <label for="출생년도" class="info">출생년도 </label>
-		<select name="birth" class="sel">
+		<select name="birth" class="sel" id="birth">
     		<option value="2010">2010</option>
     		<option value="2011">2011</option>
     		<option value="2012">2012</option>
@@ -167,11 +169,11 @@
     		<option value="2018">2018</option>
     		<option value="2019">2019</option>
     		<option value="2020">2020</option>
-    		<option value="모름" selected="selected">모름</option>
+    		<option value="---" selected="selected">---</option>
 		</select>
 		
 	  <label for="몸무게" class="info">몸무게(kg) </label>
-		<select name="kg" class="sel">
+		<select name="kg" class="sel" id="kg">
 			<option value="50.0">50.0</option>
 			<option value="49.0">49.0</option>
 			<option value="48.0">48.0</option>
@@ -223,7 +225,7 @@
 			<option value="2.0">2.0</option>
 			<option value="1.0">1.0</option>
 			<option value="1.0">1.0 이하</option>
-    		<option value="모름" selected="selected">모름</option>
+    		<option value="---" selected="selected">---</option>
 		</select>
     </div>
     
@@ -244,12 +246,11 @@
 	  
 		<div id ="fileList">
 			<div class="input-group">
-				<input id="files" type="file" class="file_input_textbox files" name="files">
+				<input id="files" type="file" class="file_input_textbox" name="files">
 			</div>		
 		</div>
 		
 		
-    
 	<hr>
  	
  	<div class="form-group">
@@ -260,7 +261,7 @@
 
 	<div id ="f">
 		<div class="input-group">
-       		<input id="files" type="file" class="file_input_textbox files" name="files">
+       		<input id="files" type="file" class="file_input_textbox" name="files">
        		<span class="input-group-addon del">X</span>
     	</div>
 	</div>
@@ -272,26 +273,55 @@
  
 
 <script type="text/javascript">
+	
+	init();
+	
+	function init(){
+		$("#animal").val("${updto.animal}").prop("selected", true);
+		$("#animal_kind").val("${updto.animal_kind}").prop("selected", true);
+		$("#kg").val("${updto.kg}").prop("selected", true);
+		$("#birth").val("${updto.birth}").prop("selected", true);
+		$("#neuter").val("${updto.neuter}").prop("selected", true);
+		$("#sex").val("${updto.sex}").prop("selected", true);
+	}
+	
+//--------------------------------------------------------------------------------------------------
+
+
 
 	document.getElementById('period_1').value = new Date().toISOString().substring(0, 10);
 	
 	
 	
+	function getInputDateFormat(date) {
+	     return date.toISOString().split('T')[0];
+	}
+
+	function validDate() {
+	     var today = new Date();
+	     var maxDate = new Date();
+	     maxDate.setDate(maxDate.getDate() + 14);
+
+	     document.getElementsByName("period_2")[0].setAttribute('min', getInputDateFormat(today));
+	     document.getElementsByName("period_2")[0].setAttribute('max', getInputDateFormat(maxDate));
+	}
+	
+	
 //--------------------------------------------------------------------------------------------------
 	
 	
-	$("#animal").click(function(){
+	 $(document).ready(function(){
 	      var animal = $("#animal option:selected").val();
 	      var hml = "";
 	      
 	      if(animal == "개"){
-	    	 hml += "<label for='품종' class='info'>품종 </label> <select class='animal_kind_sel sel' id='animal_kind' name='animal_kind'>";
+	    	 hml += "<label for='품종' class='info'>품종 </label> <select class='s_animal_kind sel' id='animal_kind' name='animal_kind'>";
 		     hml += "<option value='전체'>전체</option>";
+		     hml += "<option value='기타'>기타</option>";
 	         hml += "<option value='골든리트리버'>골든리트리버</option>";
 	         hml += "<option value='그레이하운드'>그레이하운드</option>";
 	         hml += "<option value='그레이트덴'>그레이트덴</option>";
 	         hml += "<option value='그레이트피레니즈'>그레이트피레니즈</option>";
-	         hml += "<option value='기타'>기타</option>";
 	         hml += "<option value='꼬똥드뚤레아'>꼬똥드뚤레아</option>";
 	         hml += "<option value='네오폴리탄마스티프'>네오폴리탄마스티프</option>";
 	         hml += "<option value='노리치테리어'>노리치테리어</option>";
@@ -321,9 +351,8 @@
 	         hml += "<option value='푸들'>푸들</option>";
 	         hml += "</select>"
 	      }else if(animal == "고양이"){
-		     hml += "<label for='품종' class='info'>품종 </label> <select class='animal_kind_sel sel' id='animal_kind' name='animal_kind'>";
+		     hml += "<label for='품종' class='info'>품종 </label> <select class='s_animal_kind sel' id='animal_kind' name='animal_kind'>";
 			 hml += "<option value='전체'>전체</option>";
-	         hml += "<option value='미분류'>미분류</option>";
 	         hml += "<option value='기타'>기타</option>";
 	         hml += "<option value='노르웨이숲'>노르웨이숲</option>";
 	         hml += "<option value='데본렉스'>데본렉스</option>";
@@ -364,6 +393,7 @@
 	
 	$("#wrbtn").click(function() {
 		var place_of_find = $("#place_of_find").val();
+		var period_1 = $("#period_1").val();
 		var period_2 = $("#period_2").val();
 		var animal = $("#animal").val();
 		var animal_kind = $("#animal_kind").val();

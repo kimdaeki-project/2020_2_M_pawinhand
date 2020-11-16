@@ -8,7 +8,11 @@ public class MemberDTO {
 	private String email;
 	private String phone;
 	private String address;
+<<<<<<< HEAD
 	private String zipCode;
+=======
+	private String zipcode;
+>>>>>>> master
 	private long points;
 	
 	public String getId() {
@@ -47,11 +51,19 @@ public class MemberDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+<<<<<<< HEAD
 	public String getZipCode() {
 		return zipCode;
 	}
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
+=======
+	public String getZipcode() {
+		return zipcode;
+	}
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+>>>>>>> master
 	}
 	public long getPoints() {
 		return points;
@@ -60,6 +72,11 @@ public class MemberDTO {
 		this.points = points;
 	}
 	
+<<<<<<< HEAD
+=======
+	
+	
+>>>>>>> master
 	
 	
 }
