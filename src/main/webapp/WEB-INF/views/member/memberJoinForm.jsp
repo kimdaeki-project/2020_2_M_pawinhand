@@ -162,7 +162,7 @@
         <div class="form-group">
            <label for="lname">전화번호</label>
            <div class="form-items">
-             <select name="phone1">
+            <select name="phone1" id="phone1">
                  <option value="010">010</option>
                  <option value="011">011</option>
                  <option value="016">016</option>
@@ -172,6 +172,7 @@
              </select>-
               <input type="text" class="form-control empty" id="phone2" name="phone2" required="required">-
               <input type="text" class="form-control empty" id="phone3" name="phone3" required="required">
+              <input type="hidden" name="phone" id="phone">
            </div>
         </div>
         
@@ -196,12 +197,12 @@
         <div class="form-group">
            <label for="lname">주소</label><br>
            <div class="address-items">
-              <input type="text" id="sample6_postcode" placeholder="우편번호" name="zipcode">
+            <input type="text" id="sample6_postcode" placeholder="우편번호" name="zipcode">
             <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
             <input type="text" id="sample6_address" placeholder="주소" name="address1" class="text"><br>
-            <input type="text" id="sample6_detailAddress" placeholder="상세주소" name="address2" class="text"><br>
+            <input type="text" id="sample6_detailAddress" placeholder="상세주소" name="address2" class="text" onkeyup="address()"><br>
             <input type="text" id="sample6_extraAddress" placeholder="참고항목" name="address3" class="text">
-            <input type="hidden" id="address">
+            <input type="hidden" id="address" name="address">
          </div>
         </div>
         <div class="emptyResult"></div>
@@ -213,8 +214,7 @@
     		<a href="${pageContext.request.contextPath}/"><input type="button" class="btn btn-default" id="member-jb2" value="취소"></a>
         </div>
       </div>
-      <input type="hidden" name="phone">
-      <input type="hidden" name="address">
+      
       
       </form>
       
@@ -314,6 +314,7 @@
 		}else if(pw == pw2){
 			str= "패스워드가 일치합니다.";
 			$("#pwResult2").removeClass("idCheck1").addClass("idCheck0");
+			$("#pwResult1").html('');
 			$("#pwResult2").html(str);
 			pwCheck= true;
 		}else {
@@ -361,15 +362,55 @@
 	   var ch3 = document.getElementById("chk3");
 	   
 	   
-	   document.getElementById("address").value = document.getElementById("sample6_address").value + document.getElementById("sample6_detailAddress").value + document.getElementById("sample6_extraAddress").value;
+	  // document.getElementById("address").value = document.getElementById("sample6_address").value + document.getElementById("sample6_detailAddress").value + document.getElementById("sample6_extraAddress").value;
 	   console.log(ch2);
 	   if(ch2.checked && ch3.checked){
-	   alert("OK");
+	   		alert("OK");
 	   }else {
-	   alert("필수 항목을 체크하세요");
+	  		alert("필수 항목을 체크하세요");
 	   }
 	   
 	   });
+	   
+	   
+//--------------------------------------------------------------------------------	   
+
+//		function address() {
+//			document.getElementById("address").value = document.getElementById("sample6_address").value + document.getElementById("sample6_detailAddress").value + document.getElementById("sample6_extraAddress").value;
+//		}
+
+		$(function() {
+   			$("#sample6_detailAddress").on("keyup", function() {
+        	var str = $("input[name^='address']:visible").map(function() {
+            	return $(this).val();
+        	}).get().join(" ");
+       		$("#address").val(str);
+    	});
+	});
+		
+		$(function() {
+   			$("#phone3").on("keyup", function() {
+   			var p = $("#phone1 option:selected").text();
+        	var str = $("input[name^='phone']:visible").map(function() {
+            	return $(this).val();
+        	}).get().join("-");
+       		$("#phone").val(p+"-"+str);
+    	});
+	});
+		
+
+//--------------------------------------------------------------------------------		
+
+
+
+		$("#member-jb1").click(function() {
+			var sample6_detailAddress = $("#sample6_detailAddress").val();
+			
+			if(sample6_detailAddress==''){
+				alert("상세주소는 필수항목 입니다.")
+				return false;
+			}
+		});
 	   
 	   
 		$("#member-jb2").click(function() {
