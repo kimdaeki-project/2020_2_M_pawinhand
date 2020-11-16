@@ -2,6 +2,8 @@ package com.ph4.s1.store.pay;
 
 import org.springframework.stereotype.Component;
 
+import com.ph4.s1.store.product.ProductDTO;
+
 @Component
 public class CartDTO {
 
@@ -23,7 +25,7 @@ public class CartDTO {
 		this.points = points;
 	}
 	public ProductDTO getProductDTO() {
-		return productDTO;
+		return this.productDTO;
 	}
 	public void setProductDTO(ProductDTO productDTO) {
 		this.productDTO = productDTO;
@@ -58,6 +60,8 @@ public class CartDTO {
 	public void setTotalPrice(long totalPrice) {
 		this.totalPrice = totalPrice;
 	}
+	
+	
 	
 	
 }

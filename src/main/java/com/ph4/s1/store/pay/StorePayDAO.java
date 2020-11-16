@@ -17,7 +17,7 @@ public class StorePayDAO {
 	
 	public List<CartDTO> getCartDetail(CartDTO cartDTO) throws Exception{
 		
-		return sqlSession.selectList(NAMESPACE+"getCartDeail", cartDTO);
+		return sqlSession.selectList(NAMESPACE+"getCartDetail", cartDTO);
 	}
 	
 	public MemberDTO getMember(CartDTO cartDTO) throws Exception{
