@@ -8,6 +8,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
+<style type="text/css">
+	
+</style>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
@@ -52,38 +55,26 @@
 			<input type="button" title="${dto.num}" value="삭제" id="del" class="button btn btn-light">
 		</div>
 		
-		<div class="replyTitle">
-			<h3 class="replyTitles">댓글</h3>
-			<h3 class="replyTitles">(${replyCount})</h3>
-		</div>
-		<div id="result">
-		
-		</div>
-		
-		<form action="../boardReply/boardReplyInsert" method="post">
-		  <input type="text" name="contents">
-		  <input type="hidden" value="${dto.num}" name="cmn_num">
-		  <input type="hidden" value="${dto.writer}" name="writer">
-		  <button class="btn btn-warning">댓글</button>
-		</form>
+		<c:if test="${board eq 'community'}">
+			<div class="replyTitle">
+				<h3 class="replyTitles">댓글 (${replyCount})</h3>
+			<div id="result">
+			
+			</div>
+			
+			<form action="../boardReply/boardReplyInsert" method="post">
+			  <input type="text" name="contents">
+			  <input type="hidden" value="${dto.num}" name="cmn_num">
+			  <input type="hidden" value="${dto.writer}" name="writer">
+			  <button class="btn btn-warning">댓글</button>
+			</form>
+			</div>
+		</c:if>
 		
 	</div>
 </div>
 <script type="text/javascript">
-	$("#del").click(function(){
-		var num = $("#del").attr("title");
-		location.href="./${board}Delete?num="+num;
-	});
-	
-	$("#update").click(function(){
-		var num = $("#del").attr("title");
-		location.href="./${board}Update?num="+num;
-	});
-	
-	$("#list").click(function(){
-		location.href="./${board}List"
-	});
-	
+
 	//댓글
 	var curPage = 1;
     getList();
@@ -107,10 +98,26 @@
     
 	function getList(){
 		var num = "${dto.num}";
-		$.get("../board/boardReply/boardReplyList?num="+num+"&curPage="+curPage,function(data) {
+		$.get("../boardReply/boardReplyList?cmn_num="+num+"&curPage="+curPage,function(data) {
 			$("#result").html(data);
 		});
 	}
+	
+
+	$("#del").click(function(){
+		var num = $("#del").attr("title");
+		location.href="./${board}Delete?num="+num;
+	});
+	
+	$("#update").click(function(){
+		var num = $("#del").attr("title");
+		location.href="./${board}Update?num="+num;
+	});
+	
+	$("#list").click(function(){
+		location.href="./${board}List"
+	});
+	
 	
 </script>
 </body>

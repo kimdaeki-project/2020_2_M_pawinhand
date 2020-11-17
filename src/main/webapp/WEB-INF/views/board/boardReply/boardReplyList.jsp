@@ -3,27 +3,29 @@
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<div class="replytable">
+<div class="reply-table">
 	<c:forEach items="${lists}" var="dto">
 		<div>
 			<c:catch>
 	  			<c:forEach begin="1" end="${dto.depth}">
 		  			<div class="replyEmpty">
-		  				<span>>>></span>
+		  				<span>└</span>
 		  			</div>
 	  			</c:forEach>
 	  		</c:catch>
 	  		<div class="replyContents">
-		  		<div>
-					<div class="replyWriter"><h3>${dto.writer}</h3></div> <div class="replyDate"><h3>${dto.regDate}</h3></div>
-					<div>
-						<span>${dto.contents}</span>
-					</div>
+		  		<div class="reply-title">
+						<h3>${dto.writer}  </h3>
+						<h2>${dto.regDate}</h2>
+						<div class="reply-func">
+							<div title="${dto.num}" class="del">삭제</div>
+							<div title="${dto.num}" class="reply">답글</div>
+						</div>
 				</div>
-				<div>
-					<div title="${dto.num}" class="del">삭제</div>
-					<div title="${dto.num}" class="reply">답글</div>
+				<div class="reply-contents">
+					<span>${dto.contents}</span>
 				</div>
+				
 				<div id="reply${dto.num}"></div>
 			</div>
 		</div>

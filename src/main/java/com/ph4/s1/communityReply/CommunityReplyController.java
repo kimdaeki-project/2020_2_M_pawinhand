@@ -24,6 +24,7 @@ public class CommunityReplyController {
 		mv.addObject("lists", ar);
 		mv.addObject("pager", communityReplyPager);
 		mv.setViewName("board/boardReply/boardReplyList");
+		System.out.println("boardReplyList");
 		return mv;
 	}
 	

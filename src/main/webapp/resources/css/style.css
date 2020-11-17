@@ -652,3 +652,46 @@ nav {
 	font-size: 1em;
 }
 
+/** board select reply **/
+.c1 {
+	cursor: pointer;
+}
+
+
+.reply-title {
+	display: flex;	
+	align-items: center;
+}
+
+.reply-title h3 {
+	font-size: 1em;
+	font-weight: 400;
+	margin-right: 10px;
+	
+}
+
+.reply-title h2 {
+	font-size: 0.6em;
+	font-weight: 400;
+	margin-right: 10px;
+	margin-bottom: 0;
+}
+
+.reply-contents {
+	font-size: 1em;
+	border-bottom:  1px #d3d3d3 solid;
+}
+
+.reply-func {
+	display: flex;
+	align-items: flex-end;
+}
+
+.del {
+	font-size: 0.7em;
+	margin-right: 20px;
+}
+
+.reply {
+	font-size: 0.7em;
+}

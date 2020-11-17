@@ -10,7 +10,7 @@
 		select * from
 		(select rownum R, N.* from 
 		(select * from communityreply 
-		where communityNum = #{cmn_num}
+		where cmn_num = #{cmn_num}
 		order by ref desc, step asc) N)
 		where R between #{startRow} and #{lastRow}
 	</select>
