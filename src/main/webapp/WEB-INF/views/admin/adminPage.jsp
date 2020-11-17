@@ -10,22 +10,26 @@
 
 <style type="text/css">
 
-.stocktbl table {
+.admin-tbl table {
 	text-align: center;
 }
 
-.stocktbl h1 {
+.admin-tbl h1 {
 	font-size: 1.3em;
 	font-weight: 700;
 	margin-bottom: 10px;
 	}
 
 
-.stocktbl td {
+.admin-tbl td {
 	color: #404040;
 	font-weight: 400;
 	font-size: 0.8em;
 	}
+	
+#cname td {
+	font-weight: 530;
+}
 	
 	
 </style>
@@ -36,38 +40,10 @@
 <div class="container" id="mbPage-container">
 	<div class="row mem_title">
 		<div class="col-12 col-md-3">
-			<ul class="myPage">
-				<h1>마이 페이지</h1>
-				<hr>
-				<li>
-					<h2>쇼핑정보</h2>
-					<ul class="myPage-item">
-						<li><a href="#">- 주문목록/배송조회</a></li>		
-						<li><a href="#">- 취소/반품/교환 내역</a></li>		
-						<li><a href="#">- 환불/입금 내역</a></li>		
-						<li><a href="#">- 찜리스트</a></li>
-						<li><a href="#">- 마일리지</a></li>					
-					</ul>
-				</li>
-				<li>
-					<h2>회원정보</h2>
-					<ul class="myPage-item">
-						<li><a href="./memberUpdateCheck">- 회원정보 변경</a></li>		
-						<li id="member_del"><a href="./memberDeleteCheck">- 회원탈퇴</a></li>			
-					</ul>
-				</li>
-				<li>
-					<h2>나의 상품문의/후기</h2>
-					<ul class="myPage-item">
-						<li><a href="#">- 상품문의</a></li>		
-						<li><a href="#">- 상품후기</a></li>	
-						<li><a href="#">- 1:1 문의</a></li>		
-					</ul>
-				</li>
-			</ul>
+<c:import url="./adminPageRow.jsp"></c:import>
 		</div>
 		
-	<div class="col-12 col-md-9 stocktbl">
+	<div class="col-12 col-md-9 admin-tbl">
 		<h1>재고 현황</h1>
 		<hr>
 		
@@ -81,7 +57,7 @@
 			</select>
 		</div>
 		<table class="table table-bordered">
-			<tr>
+			<tr id="cname">
 				<td>Num</td>
 				<td>카테고리</td>
 				<td>상품명</td>

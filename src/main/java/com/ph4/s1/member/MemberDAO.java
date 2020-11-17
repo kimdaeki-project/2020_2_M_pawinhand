@@ -1,10 +1,13 @@
 package com.ph4.s1.member;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ph4.s1.member.MemberDTO;
+import com.ph4.s1.util.Pager;
 
 import oracle.net.aso.m;
 
@@ -43,6 +46,19 @@ public class MemberDAO {
 	public MemberDTO getOne(MemberDTO memberDTO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getOne", memberDTO);
 	}
+	
+	public List<MemberDTO> getList(Pager pager) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getList", pager);
+	}
+	
+	public long getCount(Pager pager) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getCount", pager);
+	}
+	
+	public int setMemberUpdate_admin(MemberDTO memberDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"setMemberUpdate_admin", memberDTO);
+	}
+	
 	
 
 

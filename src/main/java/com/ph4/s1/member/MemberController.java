@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ph4.s1.member.MemberDTO;
-import com.ph4.s1.store.product.ProductDTO;
-import com.ph4.s1.store.product.ProductService;
 
 
 @Controller
@@ -22,8 +20,7 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
-	@Autowired
-	private ProductService productService;
+
 
 	
 	
@@ -208,15 +205,16 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 	
 		int result = memberService.setMemberUpdate(memberDTO);
-	
+		msg = "정보 변경 실패";
+		
 		if(result>0) {
 			msg = "회원 정보가 수정되었습니다.";
 			mv.setViewName("common/result");
 			mv.addObject("msg", msg);
-			mv.addObject("path", "../");
-		}else {
-		
+			mv.addObject("path", "./memberPage?id="+memberDTO.getId());
+			
 		}
+
 		return mv;
 	}
 	
@@ -224,14 +222,7 @@ public class MemberController {
 
 //----------------------------------------------------------------------------------------------------------	
 	
-	@GetMapping("adminPage")
-	public ModelAndView getList(ProductDTO productDTO) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		List<ProductDTO> ar = productService.getList(productDTO);
-		
-		mv.addObject("list", ar);
-		mv.setViewName("member/adminPage");
-		
-		return mv;
-	}
+
+	
+	
 }

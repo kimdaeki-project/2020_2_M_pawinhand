@@ -43,11 +43,11 @@
 						
 						<table class="table">
 							<tr style="text-align: center;">
-								<td width="25%" style="color: #404040;font-weight: bold;font-size: 0.8em;">날짜/주문번호</td>
-								<td width="30%" style="color: #404040;font-weight: bold;font-size: 0.8em;">상품명/옵션</td>
-								<td width="15%" style="color: #404040;font-weight: bold;font-size: 0.8em;">상품금액/수량</td>
-								<td width="15%" style="color: #404040;font-weight: bold;font-size: 0.8em;">주문상태</td>
-								<td width="15%" style="color: #404040;font-weight: bold;font-size: 0.8em;">확인/리뷰</td>
+								<td width="25%" style="color: #404040;font-weight: 500;font-size: 0.8em;">날짜/주문번호</td>
+								<td width="30%" style="color: #404040;font-weight: 500;font-size: 0.8em;">상품명/옵션</td>
+								<td width="15%" style="color: #404040;font-weight: 500;font-size: 0.8em;">상품금액/수량</td>
+								<td width="15%" style="color: #404040;font-weight: 500;font-size: 0.8em;">주문상태</td>
+								<td width="15%" style="color: #404040;font-weight: 500;font-size: 0.8em;">확인/리뷰</td>
 							</tr>
 							
 							

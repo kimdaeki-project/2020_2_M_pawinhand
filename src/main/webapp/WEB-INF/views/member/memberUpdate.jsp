@@ -8,11 +8,20 @@
 <c:import url="../template/bootStrap.jsp"></c:import>
 <c:import url="../template/address.jsp"></c:import>
 <title>Insert title here</title>
+
+<style type="text/css">
+	#id{
+		border: 0px;
+		color: #a6a6a6;
+	}
+</style>
+
+
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <div class="container">
-	<form id="frm" action="./shelterDelete" method="post" enctype="multipart/form-data">
+	<form id="frm" action="./memberUpdate" method="post">
 	<div class="row mem_title">
 		<div class="col-12 col-md-3">
 <c:import url="./memberPageRow.jsp"></c:import>				
@@ -23,7 +32,7 @@
 			<h2 >기본정보</h2>
 			<div class="member-item">
 				<table>
-					<tr><th>아이디</th><td>${member.id}</td></tr>
+					<tr><th>아이디</th><td><input type="text" name="id" id="id" value="${member.id}" readonly="readonly"></td></tr>
 					<tr><th>비밀번호</th><td><input type="password" name="pw" id="pw"/></td></tr>
 					<tr><th>비밀번호 확인</th><td><input type="password" name="pw2" id="pw2"/><span id="pwResult2"></span></td></tr>
 					<tr><th>이름</th><td><input type="text" name="name" id="name" value="${member.name}"/></td></tr>
@@ -48,12 +57,11 @@
 						<td>
         					<div class="form-group" style="padding-top: 20px;">
           					 <div class="address-items">
-            					<input type="text" id="sample6_postcode" placeholder="우편번호" name="zipcode" value="${member.zipCode}">
+            					<input type="text" id="sample6_postcode" placeholder="우편번호" name="zipCode" value="${member.zipCode}">
             					<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-            					<input type="text" id="sample6_address" placeholder="주소" name="address1" class="text"><br>
-            					<input type="text" id="sample6_detailAddress" placeholder="상세주소" name="address2" class="text" onkeyup="address()"><br>
-            					<input type="text" id="sample6_extraAddress" placeholder="참고항목" name="address3" class="text">
-            					<input type="hidden" id="address" name="address">
+            					<input type="text" id="sample6_address" placeholder="주소" name="address" class="text" value="${member.address}"><br>
+            					<input type="text" id="sample6_detailAddress" placeholder="상세주소" name="detailAddress" class="text" value="${member.detailAddress}"><br>
+            					<input type="text" id="sample6_extraAddress" placeholder="참고항목" name="extraAddress" class="text" value="${member.extraAddress}">
          					 </div>
        					 </div>
 						</td>
@@ -62,7 +70,7 @@
 			</div>
 			
 			    <div class="member-form">
-			      <input type="button" class="btn btn-warning" id="okbtn" value="확인" style="font-weight: 700;color: white;">
+			      <button type="submit" class="btn btn-warning" id="okbtn" style="font-weight: 700;color: white;">확인</button>
 			      <input type="button" class="btn btn-default" id="nobtn" value="취소" style="border: 1px solid #d9d9d9;margin-left: 3px;">
 			    </div>
 		
@@ -104,15 +112,7 @@
 
 //--------------------------------------------------------------------------------------
 
-
-
-	$("#okbtn").click(function() {
-		if (confirm("수정하시겠습니까?") == true){    //확인
-
-		}else{   //취소
-				return false;
-		}
-	});
+	
 
 	$("#nobtn").click(function() {
 		if (confirm("이 페이지에서 나가시겠습니까?") == true){    //확인
@@ -122,6 +122,19 @@
  		return false;
 		}
 	});
+	
+	
+	
+	
+	$(function() {
+			$("#phone3").on("keyup", function() {
+			var p = $("#phone1 option:selected").text();
+    	var str = $("input[name^='phone']:visible").map(function() {
+       	return $(this).val();
+    	}).get().join("-");
+   		$("#phone").val(p+"-"+str);
+		});
+});
 
 </script>
 

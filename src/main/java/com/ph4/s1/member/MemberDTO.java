@@ -7,9 +7,12 @@ public class MemberDTO {
 	private String name;
 	private String email;
 	private String phone;
-	private String address;
-	private String zipCode;
 	private long points;
+	private String zipCode;
+	private String address;
+	private String detailAddress;
+	private String extraAddress;
+	
 	
 	public String getId() {
 		return id;
@@ -41,11 +44,11 @@ public class MemberDTO {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getAddress() {
-		return address;
+	public long getPoints() {
+		return points;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setPoints(long points) {
+		this.points = points;
 	}
 	public String getZipCode() {
 		return zipCode;
@@ -53,10 +56,29 @@ public class MemberDTO {
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
-	public long getPoints() {
-		return points;
+	public String getAddress() {
+		return address;
 	}
-	public void setPoints(long points) {
-		this.points = points;
+	public void setAddress(String address) {
+		this.address = address;
 	}
+	public String getDetailAddress() {
+		return detailAddress;
+	}
+	public void setDetailAddress(String detailAddress) {
+		this.detailAddress = detailAddress;
+	}
+	public String getExtraAddress() {
+		return extraAddress;
+	}
+	public void setExtraAddress(String extraAddress) {
+		this.extraAddress = extraAddress;
+	}
+	
+	
+	
+
+	
+	
+
 }
