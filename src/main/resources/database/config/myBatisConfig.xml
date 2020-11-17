@@ -23,6 +23,8 @@
       	<typeAlias type="com.ph4.s1.board.boardFile.BoardFileDTO" alias="BoardFileDTO"/>
       	<typeAlias type="com.ph4.s1.cart.CartDTO" alias="CartDTO"/>
       	<typeAlias type="com.ph4.s1.board.community.CommunityDTO" alias="CommunityDTO"/>
+      	<typeAlias type="com.ph4.s1.communityReply.CommunityReplyDTO" alias="CommunityReplyDTO"/>
+      	<typeAlias type="com.ph4.s1.communityReply.CommunityReplyPager" alias="CommunityReplyPager"/>
   	</typeAliases>
   
   

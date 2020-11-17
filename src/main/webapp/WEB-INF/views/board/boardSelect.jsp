@@ -51,6 +51,22 @@
 			<input type="button" title="${dto.num}" value="갱신" id="update" class="button btn btn-light">
 			<input type="button" title="${dto.num}" value="삭제" id="del" class="button btn btn-light">
 		</div>
+		
+		<div class="replyTitle">
+			<h3 class="replyTitles">댓글</h3>
+			<h3 class="replyTitles">(${replyCount})</h3>
+		</div>
+		<div id="result">
+		
+		</div>
+		
+		<form action="../boardReply/boardReplyInsert" method="post">
+		  <input type="text" name="contents">
+		  <input type="hidden" value="${dto.num}" name="cmn_num">
+		  <input type="hidden" value="${dto.writer}" name="writer">
+		  <button class="btn btn-warning">댓글</button>
+		</form>
+		
 	</div>
 </div>
 <script type="text/javascript">
@@ -67,6 +83,35 @@
 	$("#list").click(function(){
 		location.href="./${board}List"
 	});
+	
+	//댓글
+	var curPage = 1;
+    getList();
+	
+    $("#result").on("click", ".c1", function(){
+    	curPage = $(this).attr("title");
+    	alert(curPage);
+    	getList();
+    });
+    
+    $("#result").on("click", ".reply", function(){
+    	var num = $(this).attr("title");
+    	$("#reply"+num).html("<form action='../boardReply/reply' method='get'><span>${dto.writer}</span><input type='hidden' value="+num+" name='num'><input type='hidden' value='${dto.writer}' name='writer'><input type='text' name='contents'><button>등록</button></form>");
+    });
+    
+    $("#result").on("click", ".del", function(){
+    	var num = $(this).attr("title");
+    	var cmn_Num = "${dto.num}";
+    	location.href="../boardReply/boardReplyDelete?num="+num+"&cmn_num="+cmn_Num;
+    });
+    
+	function getList(){
+		var num = "${dto.num}";
+		$.get("../board/boardReply/boardReplyList?num="+num+"&curPage="+curPage,function(data) {
+			$("#result").html(data);
+		});
+	}
+	
 </script>
 </body>
 </html>

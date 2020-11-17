@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.ph4.s1.board.BoardDTO;
 import com.ph4.s1.board.BoardService;
+import com.ph4.s1.board.boardFile.BoardFileDAO;
 import com.ph4.s1.util.Pager;
 
 import oracle.jdbc.OracleConnection.CommitOption;
@@ -21,7 +22,8 @@ public class CommunityService implements BoardService{
 
 	@Autowired
 	private CommunityDAO communityDAO;
-	
+	@Autowired
+	private BoardFileDAO boardFileDAO;
 	
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
