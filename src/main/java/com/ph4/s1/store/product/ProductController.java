@@ -44,4 +44,10 @@ public class ProductController {
 		return mv;
 	}
 
+	@GetMapping("goodsWrite")
+	public ModelAndView setInsert() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("product/goodsWrite");
+		return mv;
+	}
 }

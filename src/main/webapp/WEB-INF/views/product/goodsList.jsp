@@ -52,7 +52,19 @@
 				</div>
 			</c:forEach>
 			</div>
+			<div style="padding-bottom: 50px;text-align: right">
+				<button id="writeBtn" class="btn btn-dark">글쓰기</button>
+			</div>
 		</div>
+		
+<script type="text/javascript">
+	$("#writeBtn").click(function(){
+		location.href = "./goodsWrite";
+	})	
+
+
+</script>
+
 
 </body>
 </html>
