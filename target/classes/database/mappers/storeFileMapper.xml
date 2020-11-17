@@ -8,4 +8,8 @@
 	<select id="getFiles" parameterType="ProductDTO" resultType="StoreFileDTO">
 		select * from storeFile where product_num = #{product_num}
 	</select>
+	
+	<select id="getOne" parameterType="ProductDTO" resultType="StoreFileDTO">
+		select * from (select S.*, rownum as rnum from storeFile S where product_num = #{product_num}) where rnum = 1
+	</select>
 </mapper>

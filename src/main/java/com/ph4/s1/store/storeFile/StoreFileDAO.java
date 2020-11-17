@@ -19,4 +19,8 @@ public class StoreFileDAO {
 		return sqlSession.selectList(NAMESPACE+"getFiles",productDTO);
 	}
 	
+	public StoreFileDTO getOne(ProductDTO productDTO) {
+		return sqlSession.selectOne(NAMESPACE+"getOne", productDTO);
+	}
+	
 }

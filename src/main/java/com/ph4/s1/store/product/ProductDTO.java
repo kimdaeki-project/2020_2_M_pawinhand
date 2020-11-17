@@ -15,7 +15,14 @@ public class ProductDTO {
 	private String color;
 	private String descriptions;
 	private Date regDate;
+	private String fileName;
 	
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
 	public long getProduct_num() {
 		return product_num;
 	}

@@ -33,8 +33,13 @@ public class ProductController {
 	}
 	
 	@GetMapping("goodsList")
-	public ModelAndView getGoodsList()throws Exception{
+	public ModelAndView getGoodsList(ProductDTO productDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
+		if(productDTO.getProduct_num() == 0) {
+			productDTO.setProduct_num(1);
+		}
+		List<ProductDTO> ar = productService.getList(productDTO);
+		mv.addObject("lists", ar);
 		mv.setViewName("product/goodsList");
 		return mv;
 	}

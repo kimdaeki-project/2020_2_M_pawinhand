@@ -8,4 +8,8 @@
 	<select id="getOne" parameterType="ProductDTO" resultType="ProductDTO">
 		select * from product where product_num = #{product_num}
 	</select>
+	
+	<select id="getList" resultType="ProductDTO">
+		select * from product where category_num = #{category_num}
+	</select>
 </mapper>
