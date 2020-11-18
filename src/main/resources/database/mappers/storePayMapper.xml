@@ -66,4 +66,7 @@
    		update member set points = #{points} where id = #{id}
    	</update>
  
+ 	<update id="setProductStock" parameterType="ProductDTO">
+ 		update product set stock=#{stock} where product_num = #{product_num}
+ 	</update>
 </mapper>

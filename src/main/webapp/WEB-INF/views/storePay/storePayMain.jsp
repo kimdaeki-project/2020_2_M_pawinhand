@@ -201,7 +201,7 @@
 					<td class="ss">${list.amount}</td>
 					<td>${list.price}</td>
 					<td class="pp" title="${list.points}"></td>
-					<td class="tt">${list.price}*${list.amount}</td>
+					<td class="tt" title="${list.price}"></td>
 					
 				</tr>
 			</c:forEach>
@@ -437,8 +437,11 @@
 
 	$("#nn").html(totalAmount);
 
-	$(".tt").each(function() {
-		totalPrice += $(this).html() * 1;
+	var q =0;
+	$(".tt").each(function(index) {
+		q=$(this).attr("title")*amountArray[index];
+		$(this).html(q);
+		totalPrice += q * 1;
 		
 		if(totalPrice > 50000){
 			deliveryfee=0;

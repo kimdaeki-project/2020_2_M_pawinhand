@@ -63,6 +63,8 @@ public class StorePayController {
 			
 			productDTO = storePayService.getOrderProduct(productDTO);
 			productDTO.setAmount(amount[i]);
+			//재고빼는 코드
+			
 			ar.add(productDTO);		
 		}
 		

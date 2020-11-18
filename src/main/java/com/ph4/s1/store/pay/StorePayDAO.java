@@ -47,4 +47,8 @@ public class StorePayDAO {
 	public ProductDTO getOrderProduct(ProductDTO productDTO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getOrderProduct", productDTO);
 	}
+	
+	public int setProductStock(ProductDTO productDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"setProductStock", productDTO);
+	}
 }

@@ -116,8 +116,11 @@ public class StorePayService {
 	}
 	
 	//결제 완료되면 재고에서 빼기
-	public void setProductStock() throws Exception{
+	public void setProductStock(ProductDTO productDTO) throws Exception{
+		long amount = productDTO.getAmount();
+		productDTO.setStock(productDTO.getStock() - amount);
 		
+		int result = storePayDAO.setProductStock(productDTO);
 	}
 	
 }
