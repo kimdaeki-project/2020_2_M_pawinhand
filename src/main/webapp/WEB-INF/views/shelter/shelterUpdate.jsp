@@ -89,7 +89,7 @@
 <c:import url="../template/header.jsp"></c:import>	
 
 	<div class="container">
- 		<form id="frm" action="./shelterWrite" method="post" enctype="multipart/form-data">
+ 		<form id="frm" action="./shelterUpdate" method="post" enctype="multipart/form-data">
  		
  		<h4 class="menu" style="background-color: #ffffdb">기본 정보</h4>
   

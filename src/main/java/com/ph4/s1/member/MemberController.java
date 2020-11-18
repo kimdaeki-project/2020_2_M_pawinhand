@@ -1,5 +1,7 @@
 package com.ph4.s1.member;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ph4.s1.member.MemberDTO;
-import com.ph4.s1.board.shelter.ShelterDTO;
 
 
 @Controller
@@ -19,6 +20,8 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+
+
 	
 	
 	@GetMapping("memberPage")
@@ -202,17 +205,24 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 	
 		int result = memberService.setMemberUpdate(memberDTO);
-	
+		msg = "정보 변경 실패";
+		
 		if(result>0) {
 			msg = "회원 정보가 수정되었습니다.";
 			mv.setViewName("common/result");
 			mv.addObject("msg", msg);
-			mv.addObject("path", "../");
-		}else {
-		
+			mv.addObject("path", "./memberPage?id="+memberDTO.getId());
+			
 		}
+
 		return mv;
 	}
+	
+	
 
+//----------------------------------------------------------------------------------------------------------	
+	
+
+	
 	
 }

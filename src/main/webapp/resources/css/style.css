@@ -564,3 +564,24 @@ nav {
 	margin-left: 175px;
 }
 
+/**********adminPage.jsp**********/
+
+
+.stocktbl h1 {
+	font-size: 1.3em;
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+
+
+.stocktbl td {
+	color: #404040;
+	font-weight: bold;
+	font-size: 0.8em;
+}
+
+
+
+
+
+

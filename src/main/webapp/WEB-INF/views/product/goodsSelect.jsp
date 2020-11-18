@@ -71,6 +71,17 @@
 		font-size: 12px;
 		color: black;
 	}
+	
+	.amount {
+		padding-top: 15px;
+	}
+	
+	.amount > span{
+		font-size: 1.1em;
+   		letter-spacing: 0.02em;
+    	color: #B4B4B4;
+    	font-weight: 300;
+	}
 </style>
 
 <title>Project</title>
@@ -84,16 +95,16 @@
 			  <!-- Links -->
 			  <ul class="navbar-nav">
 			    <li class="goods-nav-item">
-			      <a class="nav-link" href="#">패션</a>
+			      <a class="nav-link" href="./goodsList?category_num=1">패션</a>
 			    </li>
 			    <li class="goods-nav-item">
-			      <a class="nav-link" href="#">악세사리</a>
+			      <a class="nav-link" href="./goodsList?category_num=2">악세사리</a>
 			    </li>
 			    <li class="goods-nav-item">
-			      <a class="nav-link" href="#">반려용품</a>
+			      <a class="nav-link" href="./goodsList?category_num=3">반려용품</a>
 			    </li>
 			    <li class="goods-nav-item">
-			      <a class="nav-link" href="#">매거진</a>
+			      <a class="nav-link" href="./goodsList?category_num=4">매거진</a>
 			    </li>
 			  </ul>
 			</nav>
@@ -106,11 +117,11 @@
 	<div class="row">	
 		<div class="col-12 col-md-6 sl goods-detail1">
 			<div class="picture">
-				<img id="mainImg" alt="pet image" src="${pageContext.request.contextPath}/resources/img/common/${files[0].fileName}" width="500px" height="500px">
+				<img id="mainImg" alt="pet image" src="${pageContext.request.contextPath}/resources/img/upload/product/${files[0].fileName}" width="500px" height="500px">
 				<ul style="padding-left: 5px">
 					<c:forEach items="${files}" var="file">
 						<li class="thumbnail">
-							<img style="width:50px; height:50px" class="thumbnailImg" alt="pet image" src="${pageContext.request.contextPath}/resources/img/common/${file.fileName}" width="50px" height="50px">
+							<img style="width:50px; height:50px" class="thumbnailImg" alt="pet image" src="${pageContext.request.contextPath}/resources/img/upload/product/${file.fileName}" width="50px" height="50px">
 						</li>
 					</c:forEach>
 				</ul>
@@ -129,11 +140,38 @@
 				<tr class="goods-items"><th>상품재고</th><td>${dto.stock}개</td></tr>
 				<tr class="goods-items"><th>색상</th><td>${dto.color}</td></tr>
 			</table>
-
-		<div class="goods-detail3">	
-			<button class="b1">장바구니</button>
-			<button class="b2">구매하기</button>
-		</div>	
+		
+		<form action="../storePay/storePayMain" method="post">
+			<input type="hidden" name="product_num" value="${dto.product_num}">
+			<div class="amount" style="height: 70px;border-top-style: solid;border-top-width: 1px;border-bottom-color: gray;">
+				<span>수량</span>
+				<select style="width: 300px;margin-left: 60px" name="amount">
+					<option value="">선택</option>
+					<option value="1">1개</option>
+					<option value="2">2개</option>
+					<option value="3">3개</option>
+					<option value="4">4개</option>
+					<option value="5">5개</option>
+					<option value="6">6개</option>
+					<option value="7">7개</option>
+					<option value="8">8개</option>
+					<option value="9">9개</option>
+					<option value="10">10개</option>
+				</select>
+			</div>
+	
+			<div class="goods-detail3">
+				<button class="b1">장바구니</button>
+				<button class="b2">구매하기</button>
+			</div>
+		</form>
+		
+		<c:if test="${member.id == 'admin'}">
+			<div>
+				<a href="./goodsUpdate?product_num=${dto.product_num}">글수정</a>
+				<a href="./goodsDelete?product_num=${dto.product_num}">글삭제</a>
+			</div>
+		</c:if>
 		</div>
 		
 	</div>
@@ -151,7 +189,7 @@
 
 <script type="text/javascript">
 	var curPage = 1;
-	reviewList();
+	detailList();
 
 	$(".thumbnailImg").click(function(){
 		var src = $(this).attr("src");
@@ -173,6 +211,28 @@
 		$("#detailMenu").removeClass("menuSelected");
 		$("#QNAMenu").removeClass("menuSelected");
 		$.get("../review/reviewList?product_num=${dto.product_num}&curPage="+curPage, function(data) {
+			$("#menu_list").html(data);
+		});
+	}
+	
+	$("#detailMenu").click(function(){
+		detailList();
+	});
+	
+	$("#menu_list").on("click", "#detailInsertBnt", function(){
+		var option = "width = 576, height = 500, top = 100, left = 200, location = no";
+		window.open("../productDetail/productDetailInsert?product_num=${dto.product_num}","insert",option);
+	});
+	
+	$("#menu_list").on("click", "#detailDeleteBnt", function(){
+		location.href = "../productDetail/productDetailDelete?product_num=${dto.product_num}";
+	});
+	
+	function detailList(){
+		$("#ReviewMenu").removeClass("menuSelected");
+		$("#detailMenu").addClass("menuSelected");
+		$("#QNAMenu").removeClass("menuSelected");
+		$.get("../productDetail/productDetailList?product_num=${dto.product_num}", function(data) {
 			$("#menu_list").html(data);
 		});
 	}

@@ -79,4 +79,13 @@ public class ProductQnaController {
 		mv.setViewName("product/qna/qnaInsertClose");
 		return mv;
 	}
+	
+	@GetMapping("productQnaReplyDelete")
+	public ModelAndView setReplyDelete(ProductQnaReplyDTO productQnaReplyDTO, long product_num) {
+		ModelAndView mv = new ModelAndView();
+		int result = productQnaService.setReplyDelete(productQnaReplyDTO);
+		mv.setViewName("redirect:../product/goodsSelect?product_num="+product_num);
+		return mv;
+	}
+	
 }

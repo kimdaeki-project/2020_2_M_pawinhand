@@ -31,12 +31,10 @@
 	}
 	
 	#payDetailTable{
-		margin-top : 20px;
 		width: 1000px;
 		height: auto;
 	}
 	.payTotalDiv{
-	
 		margin-top : 70px;
 		width: 1000px;
 		height: 130px;
@@ -194,17 +192,17 @@
 				<td>상품금액</td>
 				<td>할인/적립</td>
 				<td>합계금액</td>
-				<td>배송비</td>
+				
 			</tr>
 			
-			<c:forEach items="${list}" var="cart">
+			<c:forEach items="${list}" var="list">
 				<tr>
-					<td>${cart.productDTO.name}, ${cart.productDTO.color}, ${cart.productDTO.weight}</td>
-					<td class="ss">${cart.amount}</td>
-					<td>${cart.productDTO.price}</td>
-					<td class="pp" title="${cart.points}"></td>
-					<td class="tt">${cart.totalPrice}</td>
-					<td>3000원</td>
+					<td>${list.name}, ${list.color}, ${list.weight}</td>
+					<td class="ss">${list.amount}</td>
+					<td>${list.price}</td>
+					<td class="pp" title="${list.points}"></td>
+					<td class="tt" title="${list.price}"></td>
+					
 				</tr>
 			</c:forEach>
 			
@@ -248,7 +246,7 @@
 	
 	<div class="payOrderDiv">
 		주문자 정보<br>
-		
+	
 		<table class="infoTable, table table-bordered">
 			<tr>
 				<td class="infoTd">* 주문하시는 분</td>
@@ -277,9 +275,10 @@
 		
 	</div>
 	
-	<div class="payDrive">
+	<form class="payDrive" action="./setOrderList" method="post" onsubmit="return sub();">
 		배송정보<br>
-		
+		<input type="hidden" id="memberId" value="${member.id}" name="orderId">
+		<input type="hidden" id="memberId" value="${member.id}" name="id">
 		<table class="driveTable, table table-bordered">
 			<tr>
 				<td class="driveTd">배송지 확인</td>
@@ -296,27 +295,34 @@
 				<td class="driveTd">* 받으실 곳</td>
 				<td class="driveTd2"> <!-- toAddess로 합쳐야됨 -->
 					<input type="text" id="sample6_postcode" placeholder="우편번호" name="toZipcode">
-				<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-				<input type="text" id="sample6_address" placeholder="주소"><br>
-				<input type="text" id="sample6_detailAddress" placeholder="상세주소"><br>
-				<input type="text" id="sample6_extraAddress" placeholder="참고항목">
+					<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+					<input type="text" id="sample6_address" placeholder="주소"><br>
+					<input type="text" id="sample6_detailAddress" placeholder="상세주소"><br>
+					<input type="text" id="sample6_extraAddress" placeholder="참고항목">
+					<input type="hidden" id="fullAddr" name="toAddress">
 				</td>
 			</tr>
 			<tr>
 				<td class="driveTd">전화번호</td>
-				<td class="driveTd2"><input id="dtel" type="text" name="toTel"></td>
+				<td class="driveTd2">
+					<input id="dtel" type="text" name="toTel">
+				</td>
 			</tr>
 			<tr>
 				<td class="driveTd">* 휴대폰 번호</td>
-				<td class="driveTd2"><input id="dphone" type="text" name="toPhone"></td>
+				<td class="driveTd2">
+					<input id="dphone" type="text" name="toPhone">
+				</td>
 			</tr>
 			<tr>
 				<td class="driveTd">남기실 말씀</td>
-				<td class="driveTd2"><input id="dcomment" type="text" name="addComment"></td>
+				<td class="driveTd2">
+					<input id="dcomment" type="text" name="addComment">
+				</td>
 			</tr>
 			
 		</table>
-		</div>
+		
 		
 		
 		<div class ="payInfo">
@@ -334,17 +340,19 @@
 				<tr>
 					<td class="tdtd">할인 및 적립</td>
 					<td class="sale">
-						할인 :(-) <span id="sale"></span>원 <br>
-						적립 :(+) <span id="point"></span>p 예정<br>
+						할인 : (-) <span id="sale"></span>원 <br>
+						적립 : (+) <span id="point"></span>p 예정<br>
 					</td>
 				</tr>
 				<tr>
 					<td class="tdtd">마일리지 사용</td>
 					<td>
-						<input type="text" id="usePoint"> p 
+						<input type="text" id="usePoint" name="usePoint" value="0"> p 
 						<input type="checkbox" id="allPoint" onclick="calPoint()">전액 사용하기
-							<span id="isPoint">(
-								 보유 마일리지: <span id="isPoint2">${member.points}</span> p)
+							<span id="isPoint">
+							(보유 마일리지: 
+								<span id="isPoint2">${member.points}</span> 
+							p)
 							</span>
 					</td> 
 				</tr>
@@ -354,6 +362,7 @@
 				</tr>
 			</table>
 		</div>
+	
 	
 		<div class="payDiv">
 			결제수단 선택/결제<br>
@@ -368,9 +377,11 @@
 						<input type="radio" name="paySel" value="3" class="paySel">계좌이체
 						<input type="radio" name="paySel" value="4" class="paySel">가상계좌
 						<input type="radio" name="paySel" value="5" class="paySel">휴대폰결제 <br>
+						
 						<div id="realAccountDiv">
 							
 						</div>
+						<input type="hidden" id="payMethod" name="payMethod">
 					</td>
 				</tr>
 			</table>
@@ -380,7 +391,7 @@
 		<div id="finalPriceDiv">
 			<div id="finalDiv2">
 				<span>최종 결제 금액   </span>
-				<span name="total"></span>
+				<span name="total" id="realTP"></span>원
 			</div>
 		</div>	
 		
@@ -388,8 +399,14 @@
 		<input type="checkbox" id="finalCheck">
 			<span class="ffcc">(필수)</span> 구매하실 상품의 결제정보를 확인하였으며, 구매진행에 동의합니다.<br>
 	</div>
-	<button class="payBtn">결제하기</button>
+	<!-- post로 보낼 값들 -->
+	<input type="hidden" class="finalPrice" name="totalPrice">
+	<input type="hidden" class="finalPrice" name="total">
+	<input type="hidden" name="isPay" value="0">
+	<input type="hidden" id="addPoint" name="addPoint" value="0">
 	
+	<input type="submit" class="payBtn" value="결제하기">
+	</form>
 	
 </div>
 
@@ -410,7 +427,8 @@
 	var ds = null;
 	var deliveryfee = null;
 	var finalPrice=null;
-
+	
+	
 	$(".ss").each(function(index, item) {
 
 		amountArray[index] = $(this).html() * 1;
@@ -419,8 +437,11 @@
 
 	$("#nn").html(totalAmount);
 
-	$(".tt").each(function() {
-		totalPrice += $(this).html() * 1;
+	var q =0;
+	$(".tt").each(function(index) {
+		q=$(this).attr("title")*amountArray[index];
+		$(this).html(q);
+		totalPrice += q * 1;
 		
 		if(totalPrice > 50000){
 			deliveryfee=0;
@@ -438,10 +459,9 @@
 	
 	var sale = 0;
 	$("#sale").html(sale);
-	
 	var ep = null;
 	var viewPoints = 0;
-	
+
 //********************* 마일리지 계산
 	$(".pp").each(
 			function(index, item) {
@@ -460,32 +480,68 @@
 
 	
 	$("#viewPoints").html(viewPoints);
+	$("#addPoint").val(viewPoints);
 	$("#point").html(viewPoints);
 
 	//*********사용 마일리지 넣기
-
+	var usePoint = 0;
+	var isPoint = $("#isPoint2").html()*1;
+	
+	//********** 최종 결제 금액
+	$("#ftPrice").html(totalPrice+deliveryfee-usePoint);
+	//********** 진짜 마지막 최종금액임
+	$("#realTP").html(totalPrice+deliveryfee-usePoint);
+	finalPrice =totalPrice+deliveryfee-usePoint;
+	$(".finalPrice").val(finalPrice);
+	
 	function calPoint() {
-		var isPoint = $("#isPoint2").html();
 		
 	 	if($("#allPoint").prop("checked")){
+	 		usePoint = isPoint;	
 	 		$("#usePoint").val(isPoint);
-	 		
 	 	}else{
-	 		$("#usePoint").val("");
-	 	}		
+	 		usePoint = 0;
+	 		$("#usePoint").val(usePoint);
+	 		
+	 	}
+	 	//********** 최종 결제 금액
+		$("#ftPrice").html(totalPrice+deliveryfee-usePoint);
+		//********** 진짜 마지막 최종금액임
+		$("#realTP").html(totalPrice+deliveryfee-usePoint);
+		finalPrice =totalPrice+deliveryfee-usePoint;
+		$(".finalPrice").val(finalPrice);
 	}
+	
+	$("#usePoint").blur(function() {
+		var aa=$("#usePoint").val()*1;
+		
+		if(aa > isPoint){
+ 			alert("보유 마일리지를 확인해주세요");
+ 			usePoint = 0;
+ 			$("#usePoint").val(usePoint);
+ 		}else{
+ 			usePoint = aa;
+ 		}
+		
+		//********** 최종 결제 금액
+		$("#ftPrice").html(totalPrice+deliveryfee-usePoint);
+		//********** 진짜 마지막 최종금액임
+	    $("#realTP").html(totalPrice+deliveryfee-usePoint);
+	    finalPrice =totalPrice+deliveryfee-usePoint;
+	    $(".finalPrice").val(finalPrice);
+	});
 	
 	
 	$(document).on("click", ".ss",function() {
 		ds = $(this).val();
 
 		if (ds == 1) {
-			$("#dname").val("");
-			$("#sample6_address").val("");
+			$("#dname").val(""); 
 			$("#dtel").val("");
 			$("#dphone").val("");
 			$("#dcomment").val("");
 			$("#sample6_postcode").val("");
+			$("#sample6_address").val("");
 			$("#sample6_detailAddress").val("");
 			$("#sample6_extraAddress").val("");
 		} else {
@@ -497,33 +553,60 @@
 		}
 	});
 	
+	
 	var n = null;
 	var nn = $("#accountDiv").html().trim();
-	
+	var ch = false; //신용카드 결제인지 판별 - true이면 마지막 결제버튼 누른 후 신용카드 결제 창 뜨도록
+ 	var payMethod = null;
+
 	$(document).on("click", ".paySel", function() {
 		n = $(this).val();
 		
 		if(n==1){
-			
 			$("#realAccountDiv").html(nn);
+			ch = false;
+			payMethod = "무통장 입금";
+		}else if(n==2){
+			$("#realAccountDiv").html("");
+			ch=true;
+			payMethod = "신용카드";
 		}else{
 			$("#realAccountDiv").html("");
+			ch = false;
+			payMethod = "계좌이체/가상계좌/휴대폰결제";
 		}
+		
+		$("#payMethod").val(payMethod);
 	});
 	
-	/*
-	$.ajax(
-			{
-				method:"GET",
-				url:"./reserveInfo",
-				data:{resNum:num},
-				success:function(data){
-					$("#modalCon").html(data);	
-				}
-			}		
-		);
+	
+	//submit시 발생
+	function sub() {
+		var addr = $("#sample6_address").val();
+		var deAddr = $("#sample6_detailAddress").val();
+		var exAddr = $("#sample6_extraAddress").val();
+		
+		var fullAddr = addr+exAddr+deAddr;
+		$("#fullAddr").val(fullAddr);
+		console.log(fullAddr);
+		
+		if($("#finalCheck").prop("checked")){
+			
+			if(ch){
+				alert("신용카드 결제 페이지로 이동합니다.");
+				window.open("./storePayment", "width=500px,height=600px");
 
-	*/
+			}else{
+				return true;
+			}
+				
+		}else{
+			alert("필수사항에 체크해주시기 바랍니다.");
+			return false;
+		}
+	}
+	
+
 </script>
 </body>
 </html>

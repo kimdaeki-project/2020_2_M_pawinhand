@@ -25,6 +25,7 @@ public class ProductReviewController {
 	public ModelAndView getList(ReviewPager reviewPager) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		List<ProductReviewDTO> ar = productReviewService.getList(reviewPager);
+		mv.addObject("num", reviewPager.getProduct_num());
 		mv.addObject("lists", ar);
 		mv.addObject("pager", reviewPager);
 		mv.setViewName("product/review/reviewList");

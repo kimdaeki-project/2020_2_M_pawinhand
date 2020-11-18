@@ -261,8 +261,10 @@
 	  <button class="btn btn-warning">댓글</button>
 	</form>
 	
-	<a id="lostDelete" href="./lostDelete?num=${dto.num}">글삭제</a>
-	<a id="lostUpdate">글수정</a>
+	<c:if test="${member.id == 'admin' || member.id == dto.id}">
+		<a id="lostDelete" href="./lostDelete?num=${dto.num}">글삭제</a>
+		<a id="lostUpdate">글수정</a>
+	</c:if>
 </div>
 	
 	<script type="text/javascript">

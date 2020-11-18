@@ -48,7 +48,7 @@ public class NoticeService implements BoardService {
 		
 		int result = noticeDAO.setInsert(boardDTO);
 		
-		String path = httpSession.getServletContext().getRealPath("/resources/upload/notice");
+		String path = httpSession.getServletContext().getRealPath("/resources/img/upload/notice");
 		File file = new File(path);
 		
 		if(!file.exists()) {
@@ -77,7 +77,7 @@ public class NoticeService implements BoardService {
 		int result = noticeDAO.setUpdate(boardDTO);
 		int result2 = boardFileDAO.setDelete(boardDTO);
 		
-		String path = httpSession.getServletContext().getRealPath("/resources/upload/notice");
+		String path = httpSession.getServletContext().getRealPath("/resources/img/upload/notice");
 		File file = new File(path);
 		
 		if(!file.exists()) {
