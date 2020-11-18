@@ -135,8 +135,8 @@
 			<button class="b2">구매하기</button>
 		</div>
 		<div>
-			<a href="#">글수정</a>
-			<a href="#">글삭제</a>
+			<a href="./goodsUpdate?product_num=${dto.product_num}">글수정</a>
+			<a href="./goodsDelete?product_num=${dto.product_num}">글삭제</a>
 		</div>
 		</div>
 		

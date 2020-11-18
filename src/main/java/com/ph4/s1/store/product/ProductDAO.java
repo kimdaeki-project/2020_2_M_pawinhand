@@ -19,4 +19,16 @@ public class ProductDAO {
 	public List<ProductDTO> getList(ProductDTO productDTO){
 		return sqlSession.selectList(NAMESPACE+"getList",productDTO);
 	}
+	
+	public int setInsert(ProductDTO productDTO) {
+		return sqlSession.insert(NAMESPACE+"setInsert", productDTO);
+	}
+	
+	public int setDelete(ProductDTO productDTO) {
+		return sqlSession.delete(NAMESPACE+"setDelete", productDTO);
+	}
+	
+	public int setUpdate(ProductDTO productDTO) {
+		return sqlSession.update(NAMESPACE+"setUpdate", productDTO);
+	}
 }

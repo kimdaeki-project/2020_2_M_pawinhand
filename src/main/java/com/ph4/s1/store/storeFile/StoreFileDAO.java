@@ -23,4 +23,12 @@ public class StoreFileDAO {
 		return sqlSession.selectOne(NAMESPACE+"getOne", productDTO);
 	}
 	
+	public int setInsert(StoreFileDTO storeFileDTO) {
+		return sqlSession.insert(NAMESPACE+"setInsert", storeFileDTO);
+	}
+	
+	public int setDelete(ProductDTO productDTO) {
+		return sqlSession.delete(NAMESPACE+"setDelete", productDTO);
+	}
+	
 }
