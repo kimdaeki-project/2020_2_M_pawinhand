@@ -97,7 +97,7 @@
 		width : 35px;
 		height: 25px;
 		padding-left: 2px;
-		color: white; 
+		color: white;
 	}
 	
 	.titles{
@@ -122,6 +122,30 @@
 	
 	#lostUpdate{
 		color : blue;
+	}
+	
+	.replyId{
+		display : inline-block;
+		margin-right: 10px;
+		font-size: 12px;
+	}
+	
+	.replybtns{
+		margin-left: 10px;
+	}
+	
+	.slash{
+		color: white;
+	}
+	
+	.replyText{
+		width : 600px;
+	}
+	
+	.replyTextTable{
+		margin : 0px 5px 5px 5px;
+		border: 1px black solid;
+		padding: 2px;
 	}
 </style>
 
@@ -214,7 +238,7 @@
 	<div class="divs">
 		<span class="titles">연 락 처 :</span>
 		<span>${dto.phone}</span>
-	</div class="divs">
+	</div>
 	<hr>
 	
 	<div class="divs">
@@ -231,7 +255,7 @@
 	</div>
 	
 	<form action="../lostReply/lostReplyInsert" method="post">
-	  <input type="text" name="contents">
+	  <input placeholder="댓글을 입력하세요" class="replyText" type="text" name="contents">
 	  <input type="hidden" value="${dto.num}" name="lostNum">
 	  <input type="hidden" value="${dto.id}" name="id">
 	  <button class="btn btn-warning">댓글</button>
@@ -258,7 +282,8 @@
 	    
 	    $("#result").on("click", ".reply", function(){
 	    	var num = $(this).attr("title");
-	    	$("#reply"+num).html("<form action='../lostReply/reply' method='get'><span>${dto.id}</span><input type='hidden' value="+num+" name='num'><input type='hidden' value='${dto.id}' name='id'><input type='text' name='contents'><button>등록</button></form>");
+	    	$("#reply"+num).html("<form action='../lostReply/reply' method='get'><h3 class='replyId'>${dto.id}</h3><input type='hidden' value="+num+" name='num'><input type='hidden' value='${dto.id}' name='id'><input type='text' placeholder='답글을 입력하세요' class='replyText' name='contents'><button class='replybtns'>등록</button></form>");
+	    	$("#reply"+num).addClass("replyTextTable");
 	    });
 	    
 	    $("#result").on("click", ".del", function(){

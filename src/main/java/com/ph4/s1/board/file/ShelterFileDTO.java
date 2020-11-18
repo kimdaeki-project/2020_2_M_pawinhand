@@ -1,5 +1,8 @@
 package com.ph4.s1.board.file;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ShelterFileDTO {
 	
 	private long fileNum;
