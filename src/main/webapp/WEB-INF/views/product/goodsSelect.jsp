@@ -144,6 +144,7 @@
 		<form action="../storePay/storePayMain" method="post">
 			<input type="hidden" name="product_num" value="${dto.product_num}">
 			<div class="amount" style="height: 70px;border-top-style: solid;border-top-width: 1px;border-bottom-color: gray;">
+			<input type="hidden" name="id" value="${member.id}">
 				<span>수량</span>
 				<select style="width: 300px;margin-left: 60px" name="amount">
 					<option value="">선택</option>
