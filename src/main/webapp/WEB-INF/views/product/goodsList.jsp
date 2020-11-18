@@ -38,8 +38,8 @@
 	<div class="container">
 		<div class="row">	
 			<div class="col-12 col-md-3 sl goods">
-				<a href="#">
-					<img alt="pet image" src="${pageContext.request.contextPath}/resources/img/common/g1.jpg">
+				<a href="#">	
+					<img alt="pet image" src="${pageContext.request.contextPath}/resources/img/common/${files[0].fileName}" width="500px" height="500px">
 					<div class="goods-info">
 						<dt class="goods-name">[유기동물 후원] A.A.A.F. 강아지 고양이 그립톡 스마트톡 (주문제작)</dt>
 						<dt>10,000원</dt>

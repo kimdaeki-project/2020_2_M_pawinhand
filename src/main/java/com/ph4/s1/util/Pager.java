@@ -16,6 +16,7 @@ public class Pager {
 	
 	private int perPage;
 	
+	private long product_num;
 	
 	//JSP에서 사용
 	private long startNum;
@@ -108,8 +109,20 @@ public class Pager {
 		this.tsearch = tsearch;
 	}
 	
+	
+	
 	public long getStartNum() {
 		return startNum;
+	}
+
+
+	public long getProduct_num() {
+		return product_num;
+	}
+
+
+	public void setProduct_num(long product_num) {
+		this.product_num = product_num;
 	}
 
 

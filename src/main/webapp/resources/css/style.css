@@ -19,8 +19,12 @@ a {
   text-decoration: none;
 }
 
-header {
-	margin-bottom: 50px;
+
+/***** banner *****/
+.banner {
+	position: absolute;
+	margin: 10px 0;
+	z-index:1;
 }
 
 /***** sub nav *****/
@@ -44,17 +48,12 @@ header {
 }
 
 /***** main nav-bar *****/
-.main-nav{
-	margin-bottom: 30px;
-}
-
 nav {
 	height: 10vh;
 	font-weight: 700;
 }
 .navbar-nav li {
-	z-index: 9999;
-	background-color: white;
+	z-index: 2;
 }
 
 .navbar-brand {
@@ -164,23 +163,6 @@ nav {
 }
 
 
-/***** memberJoinForm *****/
-.join-title{
-	text-align: center;
-}
-
-.p1 {
-	width: 70%;
-	margin: 10px auto;
-	padding: 10px 0;
-	border-bottom: 1px solid #ffdead;
-}
-
-.p1 p {
-	font-size: 1em;
-	margin: 10px 0;
-}
-
 
 /** pwcheck style **/
 .idCheck0 {
@@ -249,7 +231,10 @@ nav {
 }
 
 #member-jb2 {
-	background-color: #FDAF33;
+	border: 1px solid #d9d9d9;
+	margin-left: 5px;
+	color: black;
+	font-weight: 400;
 }
 
 .chk {
@@ -259,16 +244,6 @@ nav {
 
 .emptyResult {
 	display: none;
-}
-
-/***** memberLogin *****/
-.member-form {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
-	margin: 20px;
-	
 }
 
 /***** goods *****/
@@ -410,8 +385,14 @@ nav {
 	text-decoration: none;
 	font-size: 0.9em;
 	font-weight: 300;
-	letter-spacing: -0.03em;	
+	letter-spacing: -0.03em;
+	color: #0d0d0d;
 }
+
+.myPage-item a:hover{
+	color: #FDC033
+}
+
 
 .member-info h1 {
 	font-size: 1.3em;
@@ -425,6 +406,13 @@ nav {
 	margin-bottom: 20px;
 }
 
+.member-info h3 {
+	font-size: 1.1em;
+	font-weight: 500;
+	margin: 50px 0 30px 0;
+	text-align: center
+}
+
 .member-item table {
 	width: 800px;
 	border-top: 1px #000 solid;
@@ -432,7 +420,19 @@ nav {
 
 .member-item tr {
 	border-bottom: 1px #ABABAB solid;
+	font-size: 1.1em;
 }
+
+.pw-check{
+	width: 45%;
+	margin-left: 3px;
+}
+
+.pw-check-label{
+	width: 100px;
+	text-align: center;
+}
+
 
 .member-item th {
 	width: 250px;
@@ -445,6 +445,7 @@ nav {
 .member-item td {
 	font-size: 0.8em;
 	font-weight: 400;
+	color : #a6a6a6;
 }
 
 
@@ -461,296 +462,105 @@ nav {
 	font-weight: 500;
 }
 
-
-/***** cartList *****/
-.cart{
-	border-top: 1px #D8D8D8 solid;
-	border-bottom: 1px #D8D8D8 solid;
-	margin-bottom: 20px;
+.mem_title{
+	margin : 100px 0px;
 }
 
-.cartlist h1 {
-	font-size: 1.4em;
-	font-weight: 600;
-	margin-bottom: 20px;
-}
 
-.cartlist h2 {
-	padding: 55px 0;
-	font-size: 0.9em;
-	font-weight: 300;
+/**********memberLogin.jsp**********/
+
+.member-form {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	align-content: center;
+	margin: 20px;
 }
 
-.goods-link{
-	text-decoration: none;
-	color: #7E7E7E;
-}
-
-.c2 {
-	border: 1px #D8D8D8 solid;
-	margin-top: 20px; 
-}
-
-.price_sum {
-	display: flex;
-	justify-content: flex-end;
-	padding: 10px 20px;
-}
-
-.price_sum dt, dl {
-	padding: 2px 10px;
-	margin: 0;
-	text-align: right
-}
-
-.fas {
-	vertical-align: center;
-}
-
-.point {
-	float:right;
-	font-size: 0.9em;
-	padding: 10px 25px;
-}
-
-
-/***** board List *****/
- .c1 {
- 	cursor : pointer;
- }
-
-.board-title {
-	font-size: 1.4em;
-	font-weight: 700;
-	margin-bottom: 15px;
-}
-
-.board-table th{
-	font-size: 0.9em;
-	font-weight: 500;
-	padding: 5px;
-	text-align: center;
-}
-
-.board-table td{
-	font-size: 0.9em;
-	color: #484848;
-	font-weight: 300;
-	padding: 10px;
-	text-align: center;
-}
-
-.board-table a {
-	color: #484848;
-}
-
-.searchrow{
- 	background-color: #e8e8e8;
- }
- 
- 
-.writeIcon{
-	float: right;
-	margin: 10px;
-}
-
-.writeIcon::after {
-   content: "";
-   display: block;
-   clear: right;
-}
-
-.search-form {
+#login_title{
+	margin : 100px 0px;
+	width: 70%;
 	display: flex;
 	justify-content: center;
-	padding: 5px;
-}
-
-.tableborder{
-	border-top: 1px #979797 solid;
-}
-
-.pager{
-	margin: 10px auto;
-	text-align: center;
-}
-
-
-.writeIconfocus {
-       border-color: #28a745;
-       box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
-}
-
-
-/***** board Select *****/
-.reply-select {
-	padding-left: 20px; 
-}
-
-.title-items {
-	display: flex;
-	justify-content: flex-start;
 	align-content: center;
 }
 
-.title-top {
+.member-Login{
+	border: 1px solid #d9d9d9;
+	padding: 50px;
+	margin: 20px;
+}
+#login-d1{
+	width: 100%; 
 	display: flex;
 }
-
-.titles h1 {
-	font-size: 1.4em;
-	padding: 5px 15px 10px;;
-	margin: 0;
+#login-d2{
+	width: 80%
 }
-
-.titles p {
-	font-size: 1.4em;
-	font-weight: 500;
+.login-input{
+	width: 88%
 }
-
-.title-items dt,dd{
-	padding: 5px 10px 10px;
-	font-size: 0.8em;
-	font-weight: 300;
-}
-
-.title-items dd {
-	margin: 0;
-}
-
-.files{
-	border-top: 1px #d3d3d3 solid;
-	border-bottom: 1px #d3d3d3 solid;
-}
-
-.fileTitle{
-	display : inline-block;
-	font-size: 0.8em;
-	font-weight: 500;
-	color: #a0a0a0;;
-	padding: 5px 5px 0 20px;
-}
-
-.fileName{
-	display : inline-block;
-	font-size: 6px;
-	
-}
-
-.contents{
-	font-size: 1.2em;
-	border-bottom: 1px #d3d3d3 solid;
-	padding: 10px 0 10px 20px; 
-}
-
-.buttons{
-	text-align: left;
-}
-
-.button{
-	float : right;
+.login-input1{
 	margin-left: 5px;
-	font-size: 1em;
+}
+.login-label{
+	width: 100px;
+	text-align: center;
+}
+#login-remember{
+	float: left;
+}
+#login-okbtn{
+	font-weight: 700;
+	color: white;
+	padding: 37px 35px;
+	margin-top: 18.5px;
 }
 
-/** board select reply **/
-.community-reply {
-	padding-left: 20px;
-}
 
-.c1 {
-	cursor: pointer;
-	margin-right: 10px; 
-}
+/**********memberPage.jsp**********/
 
-.buttons {
-	height: 6vh;
+#mbPage-d1{
+	border: 3px solid #e6e6e6;
+	display : flex;
+	text-align: center;
 }
-
-.community-reply h1 {
-	font-size: 1em;
-	font-weight: 400;
-	padding: 0 10px 5px 0;
-	margin: 0;
+.mbPage-info-1{
+	width: 31%;
+	height: 200px;
+	background-color: #cccccc;
 }
-
-.reply-title {
-	display: flex;	
-	align-items: center;
+.mbPage-info{
+	width: 23%;
+	height: 200px;
+	text-align: center;
 }
-
-.reply-title h3 {
-	font-size: 0.9em;
-	font-weight: 400;
-	padding-right: 10px;
-	margin: 0;
-}
-
-.reply-title h2 {
-	font-size: 0.6em;
-	font-weight: 400;
-	padding-right: 10px;
-	margin: 0;
-}
-
-.replyContents {
-	padding: 5px 0;
-	border-bottom:  1px #d3d3d3 solid;
-}
-
-.reply-title {
-	padding-bottom: 5px;
-}
-
-.reply-contents {
+.member-item2 td{
+	color: #1a1a1a;
+	font-weight: bold;
 	font-size: 0.8em;
-	font-weight: 300;
-}
-
-.reply-func {
-	display: flex;
-	align-items: flex-end;
-}
-
-.del {
-	font-size: 0.7em;
-	margin-right: 20px;
-}
-
-.reply {
-	font-size: 0.7em;
-}
-
-.reply-pager {
-	display: flex;
-	justify-content: center;
 }
 
 
-/***** board Write *****/
-#f {
-	display: none;
-}
-.board-write{
-	display: flex;
-	justify-content: center;
-	align-items: center;
+
+/**********memberJoinForm.jsp**********/
+
+.join-title{
+	text-align: center;
 }
 
-.bw-item{
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 10px;
+.p1 {
+	width: 70%;
+	margin: 10px auto;
+	padding: 10px 0;
+	border-bottom: 1px solid #ffdead;
 }
 
-.bw-item label{
-	width: 10vh;
+.p1 p {
+	font-size: 1em;
+	margin: 10px 0;
 }
-
-.bw-item input{
-	width: 80vh;
+.resultBox{
+	margin-left: 175px;
 }
 
