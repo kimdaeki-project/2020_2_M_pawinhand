@@ -15,15 +15,6 @@ public class CartDTO {
 	private ProductDTO productDTO;
 	
 	
-	//자바스크립트에서 쓸 변수
-	private double points;
-	
-	public double getPoints() {
-		return points;
-	}
-	public void setPoints(double points) {
-		this.points = points;
-	}
 	public ProductDTO getProductDTO() {
 		return productDTO;
 	}

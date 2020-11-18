@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ph4.s1.member.MemberDTO;
 import com.ph4.s1.util.Pager;
 import com.ph4.s1.voluntary.file.VoluntaryFileDTO;
 import com.ph4.s1.voluntary.reserve.VoluntaryReserveDTO;

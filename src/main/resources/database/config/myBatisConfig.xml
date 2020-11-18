@@ -26,6 +26,9 @@
       	<typeAlias type="com.ph4.s1.store.pay.CartDTO" alias="CartDTO"/>
       	<typeAlias type="com.ph4.s1.store.product.ProductDTO" alias="ProductDTO"/>
 
+
+		<typeAlias type="com.ph4.s1.store.pay.OrderListDTO" alias="OrderListDTO"/>
+		<typeAlias type="com.ph4.s1.store.pay.PayInfoDTO" alias="PayInfoDTO"/>
   	</typeAliases>
   
   

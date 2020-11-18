@@ -16,6 +16,25 @@ public class ProductDTO {
 	private String descriptions;
 	private Date regDate;
 
+	//자바스크립트에서 쓸 변수
+		private double points;
+		private long amount;
+		
+		
+		
+		public long getAmount() {
+			return amount;
+		}
+		public void setAmount(long amount) {
+			this.amount = amount;
+		}
+		public double getPoints() {
+			return points;
+		}
+		public void setPoints(double points) {
+			this.points = points;
+		}
+		
 	public long getProduct_num() {
 		return product_num;
 	}

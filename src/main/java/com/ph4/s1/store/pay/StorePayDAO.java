@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ph4.s1.member.MemberDTO;
+import com.ph4.s1.store.product.ProductDTO;
 
 @Repository
 public class StorePayDAO {
@@ -23,5 +24,27 @@ public class StorePayDAO {
 	public MemberDTO getMember(CartDTO cartDTO) throws Exception{
 		
 		return sqlSession.selectOne(NAMESPACE+"getMember", cartDTO);
+	}
+	
+	public int setOrderList(OrderListDTO orderListDTO) throws Exception{
+		
+		return sqlSession.insert(NAMESPACE+"setOrderList", orderListDTO);
+	}
+	
+	public int setPayInfo(PayInfoDTO payInfoDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"setPayInfo", payInfoDTO);
+	}
+	
+	public MemberDTO memberOne(MemberDTO memberDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"memberOne", memberDTO);
+				
+	}
+	
+	public int setPoint(MemberDTO memberDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"setPoint", memberDTO);
+	}
+	
+	public ProductDTO getOrderProduct(ProductDTO productDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getOrderProduct", productDTO);
 	}
 }
