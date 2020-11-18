@@ -6,8 +6,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.ph4.s1.util.Pager;
-
 @Repository
 public class ProductDAO {
 	@Autowired
@@ -18,16 +16,19 @@ public class ProductDAO {
 		return sqlSession.selectOne(NAMESPACE+"getOne", productDTO);
 	}
 	
-	public List<ProductDTO> getList(ProductPager productPager) throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getList", productPager);
+	public List<ProductDTO> getList(ProductDTO productDTO){
+		return sqlSession.selectList(NAMESPACE+"getList",productDTO);
 	}
 	
-	public long getCount(ProductPager productPager) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"getCount", productPager);
+	public int setInsert(ProductDTO productDTO) {
+		return sqlSession.insert(NAMESPACE+"setInsert", productDTO);
 	}
 	
-	public int setUpdate_admin(ProductDTO productDTO) throws Exception{
-		return sqlSession.update(NAMESPACE+"setUpdate_admin", productDTO);
+	public int setDelete(ProductDTO productDTO) {
+		return sqlSession.delete(NAMESPACE+"setDelete", productDTO);
 	}
-
+	
+	public int setUpdate(ProductDTO productDTO) {
+		return sqlSession.update(NAMESPACE+"setUpdate", productDTO);
+	}
 }

@@ -33,7 +33,7 @@
       	
       	<typeAlias type="com.ph4.s1.member.MemberDTO" alias="MemberDTO"/>
       	<typeAlias type="com.ph4.s1.store.pay.CartDTO" alias="CartDTO"/>
-      	<typeAlias type="com.ph4.s1.store.product.ProductPager" alias="ProductPager"/>
+      	<typeAlias type="com.ph4.s1.store.product.productDetail.ProductDetailDTO" alias="ProductDetailDTO"/>
   	</typeAliases>
   
   

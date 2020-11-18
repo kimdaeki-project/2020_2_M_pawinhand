@@ -22,9 +22,13 @@
   		<tr style="display: none;" id="qnacontent${dto.qna_num}">
   			<td style="padding-left : 100px" class="qnacon" colspan="5">
   			${dto.contents}<br>
-  			<a onclick="window.open('../productQna/productQnaReplyInsert?qna_num=${dto.qna_num}','insert','width = 576, height = 373.2, top = 100, left = 200, location = no');" style="font-size:12px;color: #007bff">답글</a>
-  			|
-  			<a style="font-size:12px" href="../productQna/productQnaDelete?qna_num=${dto.qna_num}&product_num=${dto.product_num}">삭제</a>
+  			<c:if test="${member.id == 'admin'}">
+	  			<a onclick="window.open('../productQna/productQnaReplyInsert?qna_num=${dto.qna_num}','insert','width = 576, height = 373.2, top = 100, left = 200, location = no');" style="font-size:12px;color: #007bff">답글</a>
+	  			|
+  			</c:if>
+  			<c:if test="${member.id == 'admin' || member.id == dto.id}">
+  				<a style="font-size:12px" href="../productQna/productQnaDelete?qna_num=${dto.qna_num}&product_num=${dto.product_num}">삭제</a>
+  			</c:if>
   			</td>
   		</tr>
   		<c:if test="${dto.productQnaReplyDTO != null}">
@@ -33,7 +37,9 @@
   				<td colspan="2" style="vertical-align: middle">
   				<p style="margin-bottom:0px;font-size:12px;color: black">
   					${dto.productQnaReplyDTO.contents}
-  				  	<a style="font-size:12px" href="#">삭제</a>
+  					<c:if test="${member.id == 'admin'}">
+  				  		<a style="font-size:12px" href="../productQna/productQnaReplyDelete?qna_num=${dto.qna_num}&product_num=${dto.product_num}">삭제</a>
+  				  	</c:if>
   				</p>
   				</td>
   				<td style="font-size:12px;color: black;vertical-align: middle">${dto.productQnaReplyDTO.regDate}</td>

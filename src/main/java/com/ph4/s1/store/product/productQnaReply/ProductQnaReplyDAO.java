@@ -20,5 +20,9 @@ public class ProductQnaReplyDAO {
 	public int setInsert(ProductQnaReplyDTO productQnaReplyDTO) {
 		return sqlSession.insert(NAMESPACE+"setInsert", productQnaReplyDTO);
 	}
+	
+	public int setDelete(ProductQnaReplyDTO productQnaReplyDTO) {
+		return sqlSession.delete(NAMESPACE+"setDelete", productQnaReplyDTO);
+	}
 
 }

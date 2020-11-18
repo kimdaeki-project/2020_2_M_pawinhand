@@ -12,5 +12,9 @@
     <insert id="setInsert" parameterType="ProductQnaReplyDTO">
     	insert into productQnaReply values (productQnaReply_seq.nextval, #{qna_num}, #{id}, #{contents}, sysdate)
     </insert>
+    
+    <delete id="setDelete" parameterType="ProductQnaReplyDTO">
+    	delete from productQnaReply where qna_num = #{qna_num}
+    </delete>
 </mapper>
     
