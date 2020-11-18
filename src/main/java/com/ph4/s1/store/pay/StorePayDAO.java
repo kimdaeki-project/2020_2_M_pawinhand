@@ -15,7 +15,7 @@ public class StorePayDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.ph4.s1.store.pay.StorePayDAO.";
-	
+	/*
 	public List<CartDTO> getCartDetail(CartDTO cartDTO) throws Exception{
 		
 		return sqlSession.selectList(NAMESPACE+"getCartDeail", cartDTO);
@@ -25,7 +25,7 @@ public class StorePayDAO {
 		
 		return sqlSession.selectOne(NAMESPACE+"getMember", cartDTO);
 	}
-	
+	*/
 	public int setOrderList(OrderListDTO orderListDTO) throws Exception{
 		
 		return sqlSession.insert(NAMESPACE+"setOrderList", orderListDTO);

@@ -23,7 +23,6 @@
       	<typeAlias type="com.ph4.s1.board.boardFile.BoardFileDTO" alias="BoardFileDTO"/>
     	
       	<typeAlias type="com.ph4.s1.member.MemberDTO" alias="MemberDTO"/>
-      	<typeAlias type="com.ph4.s1.store.pay.CartDTO" alias="CartDTO"/>
       	<typeAlias type="com.ph4.s1.store.product.ProductDTO" alias="ProductDTO"/>
 
 

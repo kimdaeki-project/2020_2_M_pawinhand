@@ -33,11 +33,12 @@ public class StorePayService {
 		
 		return ar;
 	}
-	*/
+	
 	
 	public MemberDTO getMember(CartDTO cartDTO) throws Exception{
 		return storePayDAO.getMember(cartDTO);
 	}
+	*/
 	public MemberDTO memberOne(MemberDTO memberDTO) throws Exception{
 		return storePayDAO.memberOne(memberDTO);
 	}
@@ -71,6 +72,7 @@ public class StorePayService {
 			payInfoDTO.setIsPay(1);
 			storePayService.setUsePoints(usePoint,id);
 			storePayService.setAddPoints(addPoint, id);
+			//storePayService.setProductStock();
 		}
 		
 		int payInfoResult = storePayDAO.setPayInfo(payInfoDTO);
@@ -121,6 +123,8 @@ public class StorePayService {
 		productDTO.setStock(productDTO.getStock() - amount);
 		
 		int result = storePayDAO.setProductStock(productDTO);
+		System.out.println("재고수정 결과 : "+result);
 	}
 	
+
 }
