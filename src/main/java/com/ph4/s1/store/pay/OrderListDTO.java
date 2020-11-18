@@ -16,7 +16,6 @@ public class OrderListDTO {
 	private String toTel;
 	private Date regDate;
 	private  long total;
-	private String doTrade;
 	private String addComment;
 	
 	
@@ -74,12 +73,7 @@ public class OrderListDTO {
 	public void setTotal(long total) {
 		this.total = total;
 	}
-	public String getDoTrade() {
-		return doTrade;
-	}
-	public void setDoTrade(String doTrade) {
-		this.doTrade = doTrade;
-	}
+
 	public String getAddComment() {
 		return addComment;
 	}
