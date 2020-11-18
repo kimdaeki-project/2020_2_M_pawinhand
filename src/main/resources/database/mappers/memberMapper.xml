@@ -18,7 +18,7 @@
 	</select>
 
 	<insert id="setMemberJoin" parameterType="MemberDTO">
-      	insert into member values(#{id}, #{pw}, #{name}, #{email}, #{phone}, #{address}, #{zipcode}, 0)
+      	insert into member values(#{id}, #{pw}, #{name}, #{email}, #{phone}, #{zipCode}, #{address}, #{detailAddress}, #{extraAddress})
 	</insert>
 	
 	<delete id="setMemberDelete" parameterType="MemberDTO">
@@ -26,7 +26,7 @@
 	</delete>
 	
 	<update id="setMemberUpdate" parameterType="MemberDTO">
-		update member set name=#{name}, email=#{email}, phone=#{phone}, address=#{address}, zipcode=#{zipcode}
+		update member set name=#{name}, email=#{email}, phone=#{phone}, address=#{address}, zipCode=#{zipCode}
 	</update>
 
 </mapper>

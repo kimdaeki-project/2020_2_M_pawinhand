@@ -25,7 +25,7 @@ public class QnaService implements BoardService {
 	private FileSaver fileSaver;
 	
 	public boolean summernoteDelete(String file, HttpSession session)throws Exception{
-		String path = session.getServletContext().getRealPath("/resources/upload/qna");
+		String path = session.getServletContext().getRealPath("/resources/img/upload/qna");
 		File file2 = new File(path, file);
 		boolean result = false;
 		if(file2.exists()) {
@@ -48,7 +48,7 @@ public class QnaService implements BoardService {
 		int result = qnaDAO.setReplyUpdate(boardDTO);
 		result = qnaDAO.setReply(boardDTO);
 		
-		String path = session.getServletContext().getRealPath("/resources/upload/qna/");
+		String path = session.getServletContext().getRealPath("/resources/img/upload/qna/");
 		File file = new File(path);
 		
 		for(int i=0;i<files.length;i++) {
@@ -102,7 +102,7 @@ public class QnaService implements BoardService {
 		
 		List<BoardFileDTO> ar = boardDTO.getBoardFileDTOs();
 		
-		String path = session.getServletContext().getRealPath("/resources/upload/qna/");
+		String path = session.getServletContext().getRealPath("/resources/img/upload/qna/");
 		File file = new File(path);
 		
 		for(int i=0;i<files.length;i++) {

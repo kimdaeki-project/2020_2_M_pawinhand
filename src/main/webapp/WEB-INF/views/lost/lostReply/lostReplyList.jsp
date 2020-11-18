@@ -9,7 +9,8 @@
 			<c:catch>
 	  			<c:forEach begin="1" end="${dto.depth}">
 		  			<div class="replyEmpty">
-		  				<span>>>></span>
+		  				<span class="slash">>>></span>
+		  				
 		  			</div>
 	  			</c:forEach>
 	  		</c:catch>
@@ -21,8 +22,12 @@
 					</div>
 				</div>
 				<div>
-					<div title="${dto.num}" class="del">삭제</div>
-					<div title="${dto.num}" class="reply">답글</div>
+					<c:if test="${member.id == dto.id || member.id == 'admin'}">
+						<div title="${dto.num}" class="del">삭제</div>
+					</c:if>
+					<c:if test="${member != null}">
+						<div title="${dto.num}" class="reply">답글</div>
+					</c:if>
 				</div>
 				<div id="reply${dto.num}"></div>
 			</div>

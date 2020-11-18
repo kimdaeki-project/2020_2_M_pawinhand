@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ph4.s1.board.BoardDTO;
 import com.ph4.s1.board.boardFile.BoardFileDTO;
 import com.ph4.s1.board.boardFile.BoardFileService;
+import com.ph4.s1.member.MemberDTO;
 import com.ph4.s1.util.Pager;
 
 @Controller
@@ -46,13 +47,16 @@ public class NoticeController {
 	}
 	
 	@GetMapping("noticeList")
-	public ModelAndView getList(Pager pager) throws Exception{
+	public ModelAndView getList(Pager pager, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 		List<BoardDTO> ar = noticeService.getList(pager);
 		
 		mv.addObject("board", "notice");
+		mv.addObject("title", "공지사항");
 		mv.addObject("lists", ar);
 		mv.addObject("pager", pager);
+		mv.addObject("member", memberDTO);
 		System.out.println("Notice List");
 		mv.setViewName("board/boardList");
 		
