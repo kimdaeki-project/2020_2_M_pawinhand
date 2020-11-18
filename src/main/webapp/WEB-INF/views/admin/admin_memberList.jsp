@@ -31,6 +31,30 @@
 	font-weight: 530;
 }
 
+#adpage-sel{
+	height: 26px;
+	border-radius: 0;
+	border-color:#595959
+}
+
+#adpage-search-div{
+	 margin: 0 10px 10px 0;
+	 font-size: 0.9em;
+	 float: right;
+	 display: flex;
+}
+
+#adpage-search{
+	margin: 0 2px;
+	height: 26px;
+	border-radius: 0;
+	border-color: #595959;
+}
+
+#searchbtn{
+	padding: 0px;
+}
+
 .admin-tbl a {
 	text-decoration: none;
 	letter-spacing: -0.03em;
@@ -61,6 +85,20 @@
 	<div class="col-12 col-md-9 admin-tbl">
 		<h1>회원 관리</h1>
 		<hr>
+		<form action="./admin_memberList">
+		<div id="adpage-search-div">
+			<select id="adpage-sel" name="kind">
+				<option>--전체--</option>
+				<option value="id">ID</option>
+				<option value="name">이름</option>
+			</select>
+			<input id="adpage-search" type="text" class="form-control" name="search">
+    		<div class="input-group-btn">
+    			<button type="submit" class="btn btn-default" id="searchbtn"><img alt="" src="../resources/img/common/search111.png" width="20px" height="20px"></button>
+    		</div>
+		</div>
+		</form>
+		
 		
 		<table class="table table-bordered">
 			<tr id="cname">
@@ -90,22 +128,22 @@
 				<td>${dto.name}</td>
 				<td>${dto.email}</td>
 				<td>${dto.phone}</td>
-				<td>[${dto.zipCode}]${dto.address} <br>${dto.detailAddress} ${dto.extraAddress}</td>
+				<td>[${dto.zipCode}] ${dto.address} <br>${dto.detailAddress} ${dto.extraAddress}</td>
 				<td>${dto.points}
 			</tr>
 			</c:forEach>
 		</table>
 		
 		  	<c:if test="${pager.beforeCheck}">
-  				<a href="./admin_memberList?curPage=${pager.startNum-1}">[이전]</a>
+  				<a href="./admin_memberList?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${search}">[이전]</a>
   			</c:if>
   
   			<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-  				<a href="./admin_memberList?curPage=${i}">${i}</a>
+  				<a href="./admin_memberList?curPage=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a>
   			</c:forEach>
   	
   			<c:if test="${pager.nextCheck}">
-  				<a href="./admin_memberList?curPage=${pager.lastNum+1}">[다음]</a>
+  				<a href="./admin_memberList?curPage=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">[다음]</a>
   			</c:if>
 		
 		

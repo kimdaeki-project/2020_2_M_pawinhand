@@ -19,6 +19,17 @@
 	
 	<select id="getCount" resultType="Long" parameterType="Pager">
 		select count(id) from member
+		where 
+		<choose>
+			<when test="kind == 'id'">
+				id
+			</when>	
+			
+			<otherwise>
+				name
+			</otherwise>			
+		</choose>
+		like '%' || #{search} || '%'
 	</select>
 
 	<insert id="setMemberJoin" parameterType="MemberDTO">
@@ -42,7 +53,17 @@
 	<select id="getList" parameterType="Pager" resultType="MemberDTO">
 		select * from 
 		(select rownum R, M.* from 
-		(select * from member where not id='admin' order by name asc) M)
+		(select * from (select * from member where not id='admin' order by name asc) where 
+		<choose>
+			<when test="kind == 'id'">
+				id
+			</when>	
+			
+			<otherwise>
+				name
+			</otherwise>
+		</choose>
+		like '%'||#{search}||'%') M)
 		where R between #{startRow} and #{lastRow}
 	</select>
 	

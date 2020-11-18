@@ -20,7 +20,6 @@
 	margin-bottom: 10px;
 	}
 
-
 .admin-tbl td {
 	color: #404040;
 	font-weight: 400;
@@ -30,6 +29,41 @@
 #cname td {
 	font-weight: 530;
 }
+
+#adpage-sel{
+	height: 26px;
+	border-radius: 0;
+	border-color:#595959
+}
+
+#adpage-search-div{
+	 margin: 0 10px 10px 0;
+	 font-size: 0.9em;
+	 float: right;
+	 display: flex;
+}
+
+#adpage-search{
+	margin: 0 2px;
+	height: 26px;
+	border-radius: 0;
+	border-color: #595959;
+}
+
+#searchbtn{
+	padding: 0px;
+}
+
+.admin-tbl a {
+	text-decoration: none;
+	letter-spacing: -0.03em;
+	color: #404040;
+}
+
+.admin-tbl a:hover{
+	color: #FDC033;
+}
+
 	
 	
 </style>
@@ -46,16 +80,21 @@
 	<div class="col-12 col-md-9 admin-tbl">
 		<h1>재고 현황</h1>
 		<hr>
-		
-		<div style="margin: 0 10px 10px 0;font-size: 0.9em;float: right;">
-			<select>
+	<form action="./adminPage">
+		<div id="adpage-search-div">
+			<select id="adpage-sel" name="kind">
 				<option>--전체--</option>
-				<option>패션</option>
-				<option>악세사리</option>
-				<option>반려용품</option>
-				<option>매거진</option>
+				<option value="category">카테고리</option>
+				<option value="name">상품명</option>
+				<option value="color">색상</option>
 			</select>
+			<input id="adpage-search" type="text" class="form-control" name="search">
+    		<div class="input-group-btn">
+    			<button type="submit" class="btn btn-default" id="searchbtn"><img alt="" src="../resources/img/common/search111.png" width="20px" height="20px"></button>
+    		</div>
 		</div>
+		</form>
+		
 		<table class="table table-bordered">
 			<tr id="cname">
 				<td>Num</td>
@@ -91,7 +130,7 @@
   			 </c:otherwise>
   			
   			</c:choose>
-  			<td>${dto.name}</td>
+  			<td><a href="./admin_stockUpdate?num=${dto.product_num}">${dto.name}</a></td>
   			<td>${dto.price}</td>
   			<td style="color: #ffa31a;font-weight: 600;">${dto.stock}</td>
 			<td>${dto.weight}</td>
@@ -100,6 +139,19 @@
   		 </tr>
   		</c:forEach>
 		</table>
+		
+			<c:if test="${pager.beforeCheck}">
+  				<a href="./adminPage?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${search}">[이전]</a>
+  			</c:if>
+  
+  			<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+  				<a href="./adminPage?curPage=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a>
+  			</c:forEach>
+  	
+  			<c:if test="${pager.nextCheck}">
+  				<a href="./adminPage?curPage=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">[다음]</a>
+  			</c:if>
+  			
 	</div>
 		
 			

@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
 <div style="width: 1050px; margin-bottom: 100px">
 	<input id="qnaInsertbtn" type="button" class="btn btn-dark" value="Q&A 작성하기">
 	<table style="margin-top: 50px" class="tableborder table table-hover">

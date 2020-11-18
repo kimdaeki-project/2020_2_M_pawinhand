@@ -12,7 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ph4.s1.member.MemberDTO;
 import com.ph4.s1.member.MemberService;
 import com.ph4.s1.store.product.ProductDTO;
+import com.ph4.s1.store.product.ProductPager;
 import com.ph4.s1.store.product.ProductService;
+import com.ph4.s1.store.product.productQna.ProductQnaDTO;
+import com.ph4.s1.store.product.productQna.ProductQnaService;
+import com.ph4.s1.store.product.productQna.QnaPager;
 import com.ph4.s1.util.Pager;
 
 
@@ -24,14 +28,17 @@ public class AdminController {
 	private ProductService productService;
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private ProductQnaService productQnaService;
 	
 	
 	@GetMapping("adminPage")
-	public ModelAndView getList(ProductDTO productDTO) throws Exception{
+	public ModelAndView getList(ProductPager productPager) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		List<ProductDTO> ar = productService.getList(productDTO);
+		List<ProductDTO> ar = productService.getList(productPager);
 		
 		mv.addObject("list", ar);
+		mv.addObject("pager", productPager);
 		mv.setViewName("admin/adminPage");
 		
 		return mv;
@@ -86,11 +93,45 @@ public class AdminController {
 		if(result>0) {
 			msg = "수정 완료";
 			mv.addObject("msg", msg);
-			mv.addObject("path", "./admin_memberList");
+			mv.addObject("path", "./admin_memberSelect?id="+memberDTO.getId());
 			mv.setViewName("common/result");
 		}
 		
 		return mv;
 	}
+	
+	
+//--------------------------------------------------------------------------------------------	
+	
+	@GetMapping("admin_qnaList")
+	public ModelAndView getList(QnaPager qnaPager) {
+		ModelAndView mv = new ModelAndView();
+		List<ProductQnaDTO> ar = productQnaService.getList(qnaPager);
+		mv.addObject("lists", ar);
+		mv.addObject("pager", qnaPager);
+		mv.setViewName("admin/admin_qnaList");
+		return mv;
+	}
+	
+	
+//--------------------------------------------------------------------------------------------
+	
+	@GetMapping("admin_stockUpdate")
+	public ModelAndView setUpdate_admin(ProductDTO productDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		productDTO = productService.getOne(productDTO);
+		
+		mv.addObject("dto", productDTO);
+		mv.setViewName("admin/admin_stockUpdate");
+		
+		return mv;
+	}
+	
+	@PostMapping("admin_stockUpdate")
+	public ModelAndView setUpdate_admin(ProductDTO productDTO, String msg) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		return mv;
+	}
+	
 
 }
