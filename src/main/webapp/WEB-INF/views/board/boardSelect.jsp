@@ -45,9 +45,15 @@
 		</div>
 		<div class="buttons">
 				<input type="button" value="목록" id="list" class="button btn btn-light">
-				<c:if test="${board != 'notice'}">
-				<a href="./${board}Reply?num=${dto.num}" class="button btn btn-light">답글</a>
-				</c:if>
+				<c:choose>
+					<c:when test="${board eq 'qna'}">
+					<a href="./${board}Reply?num=${dto.num}" class="button btn btn-light">답글</a>
+					</c:when>
+					<c:when test="${board eq 'community'}">
+					<a href="./${board}Reply?num=${dto.num}"> </a>
+					</c:when>
+					<c:otherwise></c:otherwise>
+				</c:choose>
 				<input type="button" title="${dto.num}" value="갱신" id="update" class="button btn btn-light">
 				<input type="button" title="${dto.num}" value="삭제" id="del" class="button btn btn-light">
 		</div>
