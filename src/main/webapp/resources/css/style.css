@@ -463,7 +463,7 @@ nav {
 
 
 /***** cartList *****/
-.c1{
+.cart{
 	border-top: 1px #D8D8D8 solid;
 	border-bottom: 1px #D8D8D8 solid;
 	margin-bottom: 20px;
@@ -586,6 +586,10 @@ nav {
 
 
 /***** board Select *****/
+.reply-select {
+	padding-left: 20px; 
+}
+
 .title-items {
 	display: flex;
 	justify-content: flex-start;
@@ -639,7 +643,7 @@ nav {
 .contents{
 	font-size: 1.2em;
 	border-bottom: 1px #d3d3d3 solid;
-	padding: 20px 0 10px 20px; 
+	padding: 10px 0 10px 20px; 
 }
 
 .buttons{
@@ -653,10 +657,25 @@ nav {
 }
 
 /** board select reply **/
-.c1 {
-	cursor: pointer;
+.community-reply {
+	padding-left: 20px;
 }
 
+.c1 {
+	cursor: pointer;
+	margin-right: 10px; 
+}
+
+.buttons {
+	height: 6vh;
+}
+
+.community-reply h1 {
+	font-size: 1em;
+	font-weight: 400;
+	padding: 0 10px 5px 0;
+	margin: 0;
+}
 
 .reply-title {
 	display: flex;	
@@ -664,22 +683,31 @@ nav {
 }
 
 .reply-title h3 {
-	font-size: 1em;
+	font-size: 0.9em;
 	font-weight: 400;
-	margin-right: 10px;
-	
+	padding-right: 10px;
+	margin: 0;
 }
 
 .reply-title h2 {
 	font-size: 0.6em;
 	font-weight: 400;
-	margin-right: 10px;
-	margin-bottom: 0;
+	padding-right: 10px;
+	margin: 0;
+}
+
+.replyContents {
+	padding: 5px 0;
+	border-bottom:  1px #d3d3d3 solid;
+}
+
+.reply-title {
+	padding-bottom: 5px;
 }
 
 .reply-contents {
-	font-size: 1em;
-	border-bottom:  1px #d3d3d3 solid;
+	font-size: 0.8em;
+	font-weight: 300;
 }
 
 .reply-func {
@@ -695,3 +723,34 @@ nav {
 .reply {
 	font-size: 0.7em;
 }
+
+.reply-pager {
+	display: flex;
+	justify-content: center;
+}
+
+
+/***** board Write *****/
+#f {
+	display: none;
+}
+.board-write{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.bw-item{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.bw-item label{
+	width: 10vh;
+}
+
+.bw-item input{
+	width: 80vh;
+}
+

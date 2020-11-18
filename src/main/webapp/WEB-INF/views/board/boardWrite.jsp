@@ -10,75 +10,71 @@
 <!-- include summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-
 <style type="text/css">
-	#f {
-		display: none;
-	}
-	.del {
-		color: red;
-		font-weight: bold;
-		cursor: pointer;
-	}
-	.main{
-	 	width: 1000px;
-	 	height : 1200px;
-	 	margin: 100px auto 0px;
-	 }
+.del {
+	color: red;
+	font-weight: bold;
+	cursor: pointer;
+}
 </style>
-
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-<div class="main">
-  <form id="frm" action="./${board}Write" method="post" enctype="multipart/form-data">
-  
-    <div class="form-group">
-      <label for="title">제목:</label>
-      <input type="text" class="form-control" value="${dto.title}" id="title" name="title">
-    </div>
-    
-	<c:if test="${board eq 'community'}">
-	<div class="form-group">
-		<label for="type">종류:</label>
-		  <select class="input-group-sm" id="sel1" name="type">
-		   	<option value="개">개</option>
-		    <option value="고양이">고양이</option>
-		    <option value="기타">기타</option>
-		  </select>
-	</div>
-    </c:if>
-    
-    <div class="form-group">
-      <label for="writer">작성자:</label>
-      <input type="text" class="form-control"  value="${member.id}" id="writer" name="writer">
-    </div> 
-    
-     <div class="form-group">
-      <label for="contents">내용:</label>
-      <textarea class="form-control" rows="20" cols="30" id="contents" name="contents" required="required">
-      ${dto.contents}</textarea>
-    </div>
-    
-	<input type="button" value="FileAdd" id="fileAdd" class="btn btn-info">
-
-	<div id="files">
-
-	</div>  
- 
- 	<div class="form-group">
- 	<label></label>
-    <button type="submit" class="btn btn-warning form-control">Write</button>
-    </div>
-  </form>
-  
-  <div id="f">
-  	  <div class="input-group">
-        <input id="files" type="file" class="form-control" name="files">
-        <span class="input-group-addon del">DEL</span>
-      </div>
+<div class="container">
+	<div class="col-12">
+	<h1 class="board-title">${board} Write Form</h1>
+	<div class="board-write">
+	  <form id="frm" action="./${board}Write" method="post" enctype="multipart/form-data">
+	  
+	  <c:if test="${board eq 'community'}">
+		<div class="bw-item">
+			<label for="type">종류:</label>
+			  <select class="input-group-sm" id="sel1" name="type">
+			   	<option value="개">개</option>
+			    <option value="고양이">고양이</option>
+			    <option value="기타">기타</option>
+			  </select>
+		</div>
+	    </c:if>
+	  
+	    <div class="bw-item">
+	      <label for="title">제목:</label>
+	      <input type="text" class="form-control" value="${dto.title}" id="title" name="title">
+	    </div>
+	    
+		
+	    
+	    <div class="bw-item">
+	      <label for="writer">작성자:</label>
+	      <input type="text" class="form-control"  value="${member.id}" id="writer" name="writer">
+	    </div> 
+	    
+	     <div class="bw-item">
+	      <label for="contents">내용:</label>
+	      <textarea class="form-control" rows="20" cols="40" id="contents" name="contents" required="required">
+	      ${dto.contents}</textarea>
+	    </div>
+	    
+		<input type="button" value="FileAdd" id="fileAdd" class="btn btn-info">
+	
+		<div id="files">
+	
+		</div>  
+	 
+	 	<div class="bw-item">
+	 	<label></label>
+	    <button type="submit" class="btn btn-warning form-control">Write</button>
+	    </div>
+	  </form>
+	  
+	  <div id="f">
+	  	  <div class="input-group">
+	        <input id="files" type="file" class="form-control" name="files">
+	        <span class="input-group-addon del">DEL</span>
+	      </div>
+	  </div>
+  	</div>
   </div>
-  
 </div>
 <script type="text/javascript">
 	var count=0;

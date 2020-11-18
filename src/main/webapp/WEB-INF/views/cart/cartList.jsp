@@ -14,7 +14,7 @@
 		<div class="row">
 			<div class="col-12 cartlist">
 				<h1>장바구니</h1>
-				<div class="c1">
+				<div class="cart">
 				<c:choose>
 					<c:when test="${not cart}">
 						<h2>장바구니에 담겨있는 상품이 없습니다.</h2>

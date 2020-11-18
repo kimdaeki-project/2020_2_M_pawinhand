@@ -37,7 +37,7 @@ public class CommunityService implements BoardService{
 
 	@Transactional(isolation = Isolation.READ_COMMITTED)
 	@Override
-	public BoardDTO getOne(BoardDTO boardDTO) throws Exception {
+	public CommunityDTO getOne(BoardDTO boardDTO) throws Exception {
 		//communityDAO.setHit(boardDTO.getNum());
 		return communityDAO.getOne(boardDTO);
 	}

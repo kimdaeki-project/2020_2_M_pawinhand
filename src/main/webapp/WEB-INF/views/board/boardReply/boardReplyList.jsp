@@ -31,14 +31,16 @@
 		</div>
 	</c:forEach>
 </div>
-<c:if test="${pager.startNum gt 1}">
-  	<span class="c1" title="${pager.startNum-1}">[이전]</span>
-</c:if>
-
-<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-  	<span class="c1" title="${i}">${i}</span>
-</c:forEach>
-  	
-<c:if test="${pager.nextCheck}">
-  	<span class="c1" title="${pager.lastNum+1}">[다음]</span>
-</c:if>
+<div class="reply-pager">
+	<c:if test="${pager.startNum gt 1}">
+	  	<span class="c1" title="${pager.startNum-1}">[이전]</span>
+	</c:if>
+	
+	<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+	  	<span class="c1" title="${i}">${i}</span>
+	</c:forEach>
+	  	
+	<c:if test="${pager.nextCheck}">
+	  	<span class="c1" title="${pager.lastNum+1}">[다음]</span>
+	</c:if>
+</div>

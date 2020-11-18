@@ -40,6 +40,18 @@
       <input type="text" class="form-control" id="title" value="${dto.title}" name="title">
     </div>
     
+    
+    <c:if test="${board eq 'community'}">
+	<div class="form-group">
+		<label for="type">종류:</label>
+		  <select class="input-group-sm" id="sel1" name="type">
+		   	<option value="개">개</option>
+		    <option value="고양이">고양이</option>
+		    <option value="기타">기타</option>
+		  </select>
+	</div>
+    </c:if>
+    
     <div class="form-group">
       <label for="writer">작성자:</label>
       <input type="text" class="form-control"  value="${dto.writer}" id="writer" name="writer" readonly="readonly">

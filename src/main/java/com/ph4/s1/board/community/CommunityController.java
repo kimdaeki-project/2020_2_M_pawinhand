@@ -62,8 +62,12 @@ public class CommunityController {
 	
 	
 	@GetMapping("communityUpdate")
-	public ModelAndView setUpdate()throws Exception{
+	public ModelAndView setUpdate(long num)throws Exception{
 		ModelAndView mv = new ModelAndView();
+		BoardDTO boardDTO = new BoardDTO();
+		boardDTO.setNum(num);
+		CommunityDTO communityDTO =communityService.getOne(boardDTO);
+		mv.addObject("dto", communityDTO);
 		mv.setViewName("board/boardUpdate");
 		mv.addObject("board", "community");
 		
