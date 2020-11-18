@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
 <div style="width: 1050px; margin-bottom: 100px">
 	<input id="qnaInsertbtn" type="button" class="btn btn-dark" value="Q&A 작성하기">
 	<table style="margin-top: 50px" class="tableborder table table-hover">
@@ -22,13 +21,9 @@
   		<tr style="display: none;" id="qnacontent${dto.qna_num}">
   			<td style="padding-left : 100px" class="qnacon" colspan="5">
   			${dto.contents}<br>
-  			<c:if test="${member.id == 'admin'}">
-	  			<a onclick="window.open('../productQna/productQnaReplyInsert?qna_num=${dto.qna_num}','insert','width = 576, height = 373.2, top = 100, left = 200, location = no');" style="font-size:12px;color: #007bff">답글</a>
-	  			|
-  			</c:if>
-  			<c:if test="${member.id == 'admin' || member.id == dto.id}">
-  				<a style="font-size:12px" href="../productQna/productQnaDelete?qna_num=${dto.qna_num}&product_num=${dto.product_num}">삭제</a>
-  			</c:if>
+  			<a onclick="window.open('../productQna/productQnaReplyInsert?qna_num=${dto.qna_num}','insert','width = 576, height = 373.2, top = 100, left = 200, location = no');" style="font-size:12px;color: #007bff">답글</a>
+  			|
+  			<a style="font-size:12px" href="../productQna/productQnaDelete?qna_num=${dto.qna_num}&product_num=${dto.product_num}">삭제</a>
   			</td>
   		</tr>
   		<c:if test="${dto.productQnaReplyDTO != null}">
@@ -37,9 +32,7 @@
   				<td colspan="2" style="vertical-align: middle">
   				<p style="margin-bottom:0px;font-size:12px;color: black">
   					${dto.productQnaReplyDTO.contents}
-  					<c:if test="${member.id == 'admin'}">
-  				  		<a style="font-size:12px" href="../productQna/productQnaReplyDelete?qna_num=${dto.qna_num}&product_num=${dto.product_num}">삭제</a>
-  				  	</c:if>
+  				  	<a style="font-size:12px" href="#">삭제</a>
   				</p>
   				</td>
   				<td style="font-size:12px;color: black;vertical-align: middle">${dto.productQnaReplyDTO.regDate}</td>

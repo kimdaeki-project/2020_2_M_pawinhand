@@ -57,6 +57,16 @@
 		}		
 		
 	});
+	
+	
+	$("#nobtn").click(function() {
+	 	if (confirm("이 페이지에서 나가시겠습니까?") == true){    //확인
+	     	location.href="./memberPage";
+
+	 	}else{   //취소
+	     	return false;
+	 	}
+	});
 
 </script>
 

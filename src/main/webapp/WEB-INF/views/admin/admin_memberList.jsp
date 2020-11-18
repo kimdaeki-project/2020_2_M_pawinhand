@@ -20,6 +20,7 @@
 	margin-bottom: 10px;
 	}
 
+
 .admin-tbl td {
 	color: #404040;
 	font-weight: 400;
@@ -64,7 +65,11 @@
 	color: #FDC033;
 }
 
-	
+.admin-ml-tr td {
+	height: 60px;
+	text-align: center;
+	vertical-align: middle;
+}
 	
 </style>
 
@@ -78,15 +83,14 @@
 		</div>
 		
 	<div class="col-12 col-md-9 admin-tbl">
-		<h1>재고 현황</h1>
+		<h1>회원 관리</h1>
 		<hr>
-	<form action="./adminPage">
+		<form action="./admin_memberList">
 		<div id="adpage-search-div">
 			<select id="adpage-sel" name="kind">
 				<option>--전체--</option>
-				<option value="category">카테고리</option>
-				<option value="name">상품명</option>
-				<option value="color">색상</option>
+				<option value="id">ID</option>
+				<option value="name">이름</option>
 			</select>
 			<input id="adpage-search" type="text" class="form-control" name="search">
     		<div class="input-group-btn">
@@ -95,76 +99,66 @@
 		</div>
 		</form>
 		
+		
 		<table class="table table-bordered">
 			<tr id="cname">
-				<td>Num</td>
-				<td>카테고리</td>
-				<td>상품명</td>
-				<td>상품가격</td>
-				<td>재고</td>
-				<td>사이즈</td>
-				<td>색상</td>
-				<td>등록일</td>
+				<td>ID</td>
+				<td>이름</td>
+				<td>Email</td>
+				<td>연락처</td>
+				<td>주소</td>
+				<td>적립금</td>
 			</tr>
+		<c:choose>
+		  <c:when test="${pager.curPage eq 1}">
+			<tr class="admin-ml-tr" style="background-color: #fff7eb">
+				<td><a href="./admin_memberSelect?id=${member.id}">${member.id}</a></td>
+				<td>${member.name}</td>
+				<td>${member.email}</td>
+				<td>${member.phone}</td>
+				<td>${member.address}</td>
+				<td>${member.points}</td>
+			</tr>
+		  </c:when>
+		</c:choose>
 			
-		<c:forEach items="${list}" var="dto" varStatus="vs">
-  		 <tr>
-  			<td>${dto.product_num}</td>
-  			
-  			<c:choose>
-  			
-  			 <c:when test="${dto.category_num eq 1}">
-  				<td>패션</td>
-  			 </c:when>
-  			
-  			 <c:when test="${dto.category_num eq 2}">
-  				<td>악세사리</td>
-  			 </c:when>
-  			
-  			 <c:when test="${dto.category_num eq 3}">
-  				<td>반려용품</td>
-  			 </c:when>
-  			
-  			 <c:otherwise>
-  				<td>매거진</td>
-  			 </c:otherwise>
-  			
-  			</c:choose>
-  			<td><a href="./admin_stockUpdate?num=${dto.product_num}">${dto.name}</a></td>
-  			<td>${dto.price}</td>
-  			<td style="color: #ffa31a;font-weight: 600;">${dto.stock}</td>
-			<td>${dto.weight}</td>
-			<td>${dto.color}</td>
-			<td>${dto.regDate}</td>
-  		 </tr>
-  		</c:forEach>
+			<c:forEach items="${list}" var="dto" varStatus="vs">
+			<tr class="admin-ml-tr">
+				<td><a href="./admin_memberSelect?id=${dto.id}">${dto.id}</a></td>
+				<td>${dto.name}</td>
+				<td>${dto.email}</td>
+				<td>${dto.phone}</td>
+				<td>[${dto.zipCode}] ${dto.address} <br>${dto.detailAddress} ${dto.extraAddress}</td>
+				<td>${dto.points}
+			</tr>
+			</c:forEach>
 		</table>
 		
-			<c:if test="${pager.beforeCheck}">
-  				<a href="./adminPage?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${search}">[이전]</a>
+		  	<c:if test="${pager.beforeCheck}">
+  				<a href="./admin_memberList?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${search}">[이전]</a>
   			</c:if>
   
   			<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-  				<a href="./adminPage?curPage=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a>
+  				<a href="./admin_memberList?curPage=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a>
   			</c:forEach>
   	
   			<c:if test="${pager.nextCheck}">
-  				<a href="./adminPage?curPage=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">[다음]</a>
+  				<a href="./admin_memberList?curPage=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">[다음]</a>
   			</c:if>
-  			
+		
+		
+		
 	</div>
 		
-			
 	</div>
 </div>
 
 
-<!-- **********Script*********************************************************************************** -->
-
 <script type="text/javascript">
 
 
-
 </script>
+
+
 </body>
 </html>
