@@ -33,9 +33,9 @@ public class AdminController {
 	
 	
 	@GetMapping("adminPage")
-	public ModelAndView getList(ProductPager productPager) throws Exception{
+	public ModelAndView getList_admin(ProductPager productPager) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		List<ProductDTO> ar = productService.getList(productPager);
+		List<ProductDTO> ar = productService.getList_admin(productPager);
 		
 		mv.addObject("list", ar);
 		mv.addObject("pager", productPager);
@@ -130,6 +130,7 @@ public class AdminController {
 	@PostMapping("admin_stockUpdate")
 	public ModelAndView setUpdate_admin(ProductDTO productDTO, String msg) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
 		return mv;
 	}
 	

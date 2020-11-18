@@ -31,4 +31,23 @@ public class ProductDAO {
 	public int setUpdate(ProductDTO productDTO) {
 		return sqlSession.update(NAMESPACE+"setUpdate", productDTO);
 	}
+	
+	
+	
+	public List<ProductDTO> getList_admin(ProductPager productPager) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getList_admin", productPager);
+	}
+	
+	public long getCount(ProductPager productPager) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getCount", productPager);
+	}
+	
+	public int setUpdate_admin(ProductDTO productDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"setUpdate_admin", productDTO);
+	}
+	
+	
+
+
+	
 }

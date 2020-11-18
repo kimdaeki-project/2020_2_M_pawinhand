@@ -91,4 +91,17 @@ public class ProductService {
 		
 		return result;
 	}
+	
+	
+	public List<ProductDTO> getList_admin(ProductPager productPager)throws Exception{
+		productPager.makeRow();
+		productPager.setTotalCount(productDAO.getCount(productPager));
+		productPager.makePage();
+		return productDAO.getList_admin(productPager);
+	}
+	
+	public int setUpdate(ProductDTO productDTO) throws Exception{
+		return productDAO.setUpdate_admin(productDTO);
+	}
+	
 }

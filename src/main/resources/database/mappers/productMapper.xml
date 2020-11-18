@@ -28,4 +28,51 @@
 		update product set category_num = #{category_num}, name = #{name}, price = #{price}, stock = #{stock}, weight = #{weight}, color = #{color}, descriptions = #{descriptions} where product_num = #{product_num}
 	</update>
 	
+	
+	
+	
+	<select id="getList_admin" parameterType="ProductPager" resultType="ProductDTO">
+		select * from 
+		(select rownum R, P.* from 
+		(select * from product where 
+		<choose>
+			<when test="kind == 'category'">
+				category_num
+			</when>	
+			
+			<when test="kind == 'name'">
+				name
+			</when>	
+			
+			<otherwise>
+				color
+			</otherwise>
+		</choose>
+		like '%'||#{search}||'%') P)
+		where R between #{startRow} and #{lastRow}
+	</select>
+	
+	<select id="getCount" resultType="Long" parameterType="ProductPager">
+		select count(product_num) from product
+		where 
+		<choose>
+			<when test="kind == 'category'">
+				category_num
+			</when>	
+			
+			<when test="kind == 'name'">
+				name
+			</when>	
+			
+			<otherwise>
+				color
+			</otherwise>
+		</choose>
+		like '%' || #{search} || '%'
+	</select>
+	
+	<update id="setUpdate_admin" parameterType="ProductDTO">
+		update product set price=#{price}, stock=#{stock} where product_num=#{product_num}
+	</update>
+	
 </mapper>
