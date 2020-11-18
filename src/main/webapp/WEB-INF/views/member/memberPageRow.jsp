@@ -10,7 +10,7 @@
 						<li><a href="#">- 취소/반품/교환 내역</a></li>		
 						<li><a href="#">- 환불/입금 내역</a></li>		
 						<li><a href="#">- 찜리스트</a></li>
-						<li><a href="#">- 마일리지</a></li>					
+						<li><a href="#">- 적립금</a></li>					
 					</ul>
 				</li>
 				<li>
@@ -25,7 +25,6 @@
 					<ul class="myPage-item">
 						<li><a href="#">- 나의 상품문의</a></li>		
 						<li><a href="#">- 나의 상품후기</a></li>	
-						<li><a href="#">- 1:1 문의</a></li>		
 					</ul>
 				</li>
 			</ul>

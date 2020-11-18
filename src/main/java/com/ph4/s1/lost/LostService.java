@@ -45,7 +45,7 @@ public class LostService {
 	public int setDelete(LostDTO lostDTO, HttpSession httpSession) {
 		
 		List<LostFileDTO> files = lostFileDAO.getFiles(lostDTO);
-		String path = httpSession.getServletContext().getRealPath("/resources/upload/lost/");
+		String path = httpSession.getServletContext().getRealPath("/resources/img/upload/lost/");
 		File dest = new File(path);
 		
 		for(LostFileDTO dto : files) {
@@ -66,7 +66,7 @@ public class LostService {
 	}
 	
 	public String fileSave(LostFileDTO lostFileDTO, MultipartFile file, HttpSession session) throws Exception{
-		String path = session.getServletContext().getRealPath("/resources/upload/lost/");
+		String path = session.getServletContext().getRealPath("/resources/img/upload/lost/");
 		System.out.println(path);
 		File file2 = new File(path);
 		String fileName = "";

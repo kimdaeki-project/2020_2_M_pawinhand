@@ -9,6 +9,7 @@
 	<c:import url="../template/bootStrap.jsp"></c:import>
 </head>
 <body>
+
 <c:import url="../template/header.jsp"></c:import>
 <div class="container">
 	<div class="col-12">
@@ -102,6 +103,7 @@
 		  </div>
 		  <img class="writeIcon" src="../resources/img/lost/write.png" tabindex=0 width="50" height="50" alt="">
 	  </div>
+
 </div>
 </div>
 <script type="text/javascript">

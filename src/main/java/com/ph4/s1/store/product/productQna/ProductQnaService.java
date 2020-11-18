@@ -41,4 +41,8 @@ public class ProductQnaService {
 	public int setReply(ProductQnaReplyDTO productQnaReplyDTO) {
 		return productQnaReplyDAO.setInsert(productQnaReplyDTO);
 	}
+	
+	public int setReplyDelete(ProductQnaReplyDTO productQnaReplyDTO) {
+		return productQnaReplyDAO.setDelete(productQnaReplyDTO);
+	}
 }

@@ -11,6 +11,7 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
+
 <div class="container">
 	<div class="col-12">
 		<div class="titles">
@@ -75,6 +76,7 @@
 		</c:if>
 		
 	</div>
+
 </div>
 <script type="text/javascript">
 
