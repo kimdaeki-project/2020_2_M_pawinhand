@@ -62,26 +62,26 @@ public class CommunityController {
 	
 	
 	@GetMapping("communityUpdate")
-	public ModelAndView setUpdate(CommunityDTO communityDTO)throws Exception{
+	public ModelAndView setUpdate()throws Exception{
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("board/boardUpdate");
 		mv.addObject("board", "community");
+		
 		return mv;
 	}
 	
 	@PostMapping("communityUpdate")
-	public ModelAndView setUpdate(CommunityDTO communityDTO,String msg) throws Exception{
+	public ModelAndView setUpdate(CommunityDTO communityDTO, MultipartFile[] files, HttpSession httpSession) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = communityService.setUpdate(communityDTO);
+		int result = communityService.setUpdate(communityDTO, files, httpSession);
 		
 		if(result!=0) {
-			mv.setViewName("common/result");
+			
 			mv.addObject("msg", "Update Success");
-			mv.addObject("path","./communityList");
-		}else {
-			mv.setViewName("redirect:../");
 		}
 		
+		mv.addObject("path","./communityList");
+		mv.setViewName("common/result");
 		return mv;
 		
 		

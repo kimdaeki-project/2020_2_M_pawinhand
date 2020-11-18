@@ -1,5 +1,6 @@
  package com.ph4.s1.board.community;
 
+import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -13,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.ph4.s1.board.BoardDTO;
 import com.ph4.s1.board.BoardService;
 import com.ph4.s1.board.boardFile.BoardFileDAO;
+import com.ph4.s1.board.boardFile.BoardFileDTO;
 import com.ph4.s1.util.Pager;
 
 import oracle.jdbc.OracleConnection.CommitOption;
@@ -45,8 +47,11 @@ public class CommunityService implements BoardService{
 	}
 
 	
-	public int setUpdate(CommunityDTO communityDTO) throws Exception {
-		return communityDAO.setUpdate(communityDTO);
+	public int setUpdate(CommunityDTO communityDTO, MultipartFile[] files, HttpSession httpSession) throws Exception {
+		int result = communityDAO.setUpdate(communityDTO);
+	
+
+		return result;
 	}
 
 	@Override

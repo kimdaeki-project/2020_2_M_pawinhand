@@ -2,9 +2,12 @@ package com.ph4.s1.board.community;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ph4.s1.board.BoardDAO;
 import com.ph4.s1.board.BoardDTO;
