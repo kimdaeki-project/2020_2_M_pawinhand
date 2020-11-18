@@ -71,6 +71,17 @@
 		font-size: 12px;
 		color: black;
 	}
+	
+	.amount {
+		padding-top: 15px;
+	}
+	
+	.amount > span{
+		font-size: 1.1em;
+   		letter-spacing: 0.02em;
+    	color: #B4B4B4;
+    	font-weight: 300;
+	}
 </style>
 
 <title>Project</title>
@@ -129,11 +140,32 @@
 				<tr class="goods-items"><th>상품재고</th><td>${dto.stock}개</td></tr>
 				<tr class="goods-items"><th>색상</th><td>${dto.color}</td></tr>
 			</table>
-
-		<div class="goods-detail3">
-			<button class="b1">장바구니</button>
-			<button class="b2">구매하기</button>
-		</div>
+		
+		<form action="../storePay/storePayMain" method="post">
+			<input type="hidden" name="product_num" value="${dto.product_num}">
+			<div class="amount" style="height: 70px;border-top-style: solid;border-top-width: 1px;border-bottom-color: gray;">
+				<span>수량</span>
+				<select style="width: 300px;margin-left: 60px" name="amount">
+					<option value="">선택</option>
+					<option value="1">1개</option>
+					<option value="2">2개</option>
+					<option value="3">3개</option>
+					<option value="4">4개</option>
+					<option value="5">5개</option>
+					<option value="6">6개</option>
+					<option value="7">7개</option>
+					<option value="8">8개</option>
+					<option value="9">9개</option>
+					<option value="10">10개</option>
+				</select>
+			</div>
+	
+			<div class="goods-detail3">
+				<button class="b1">장바구니</button>
+				<button class="b2">구매하기</button>
+			</div>
+		</form>
+		
 		<c:if test="${member.id == 'admin'}">
 			<div>
 				<a href="./goodsUpdate?product_num=${dto.product_num}">글수정</a>
@@ -247,12 +279,6 @@
 		var option = "width = 576, height = 500, top = 100, left = 200, location = no";
 		window.open("../productQna/productQnaInsert?product_num=${dto.product_num}","insert",option);
 	})
-	
-	$(".b2").click(function(){
-		
-	});
-	
-	
 </script>
 </body>
 </html>
