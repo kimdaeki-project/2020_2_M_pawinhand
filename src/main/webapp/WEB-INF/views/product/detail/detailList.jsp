@@ -7,6 +7,8 @@
 	<img id="mainImg" alt="pet image" src="${pageContext.request.contextPath}/resources/img/upload/product/detail/${dto.fileName}">
 	<hr style="background-color: white">
 	</c:forEach>
-	<button id="detailInsertBnt" class="btn btn-dark">세부사항 입력</button>
-	<button id="detailDeleteBnt" class="btn btn-dark">세부사항 삭제</button>
+	<c:if test="${member.id == 'admin'}">
+		<button id="detailInsertBnt" class="btn btn-dark">세부사항 입력</button>
+		<button id="detailDeleteBnt" class="btn btn-dark">세부사항 삭제</button>
+	</c:if>
 </div>

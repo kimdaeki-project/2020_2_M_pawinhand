@@ -134,10 +134,12 @@
 			<button class="b1">장바구니</button>
 			<button class="b2">구매하기</button>
 		</div>
-		<div>
-			<a href="./goodsUpdate?product_num=${dto.product_num}">글수정</a>
-			<a href="./goodsDelete?product_num=${dto.product_num}">글삭제</a>
-		</div>
+		<c:if test="${member.id == 'admin'}">
+			<div>
+				<a href="./goodsUpdate?product_num=${dto.product_num}">글수정</a>
+				<a href="./goodsDelete?product_num=${dto.product_num}">글삭제</a>
+			</div>
+		</c:if>
 		</div>
 		
 	</div>
@@ -245,6 +247,10 @@
 		var option = "width = 576, height = 500, top = 100, left = 200, location = no";
 		window.open("../productQna/productQnaInsert?product_num=${dto.product_num}","insert",option);
 	})
+	
+	$(".b2").click(function(){
+		
+	});
 	
 	
 </script>

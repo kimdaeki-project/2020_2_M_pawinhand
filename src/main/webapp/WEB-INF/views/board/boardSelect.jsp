@@ -119,8 +119,10 @@
   	  <c:if test="${board != 'notice'}">
 	  	<a href="./${board}Reply?num=${dto.num}" class="button btn btn-light">답글</a>
 	  </c:if>
-	  <input type="button" title="${dto.num}" value="갱신" id="update" class="button btn btn-light">
-	  <input type="button" title="${dto.num}" value="삭제" id="del" class="button btn btn-light">
+	  <c:if test="${member.id == 'admin' || member.id == dto.writer}">
+	  	<input type="button" title="${dto.num}" value="갱신" id="update" class="button btn btn-light">
+	  	<input type="button" title="${dto.num}" value="삭제" id="del" class="button btn btn-light">
+	  </c:if>
   </div>
 </div>
 

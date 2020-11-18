@@ -119,7 +119,9 @@
   </div>
   </div>
   
-  <img class="writeIcon" src="../resources/img/lost/write.png" tabindex=0 width="100" height="100" alt="">
+  <c:if test="${member != null}">
+  	<img class="writeIcon" src="../resources/img/lost/write.png" tabindex=0 width="100" height="100" alt="">
+  </c:if>
 </div>
 
 	<script type="text/javascript">

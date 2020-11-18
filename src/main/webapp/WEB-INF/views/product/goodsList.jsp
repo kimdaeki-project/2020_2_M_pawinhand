@@ -52,9 +52,11 @@
 				</div>
 			</c:forEach>
 			</div>
-			<div style="padding-bottom: 50px;text-align: right">
-				<button id="writeBtn" class="btn btn-dark">글쓰기</button>
-			</div>
+			<c:if test="${member.id == 'admin'}">
+				<div style="padding-bottom: 50px;text-align: right">
+					<button id="writeBtn" class="btn btn-dark">글쓰기</button>
+				</div>
+			</c:if>
 		</div>
 		
 <script type="text/javascript">

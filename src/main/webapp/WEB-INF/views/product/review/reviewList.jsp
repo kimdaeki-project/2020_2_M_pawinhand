@@ -31,7 +31,9 @@
 	  			<img src="../resources/img/upload/product/review/${dto.fileName}" width="270" height="270" alt="">
 	  		</div>
 	  		</c:if>
-	  		<a style="font-size: 5px" href="../review/reviewDelete?review_num=${dto.review_num}&product_num=${dto.product_num}">글삭제</a>
+	  		<c:if test="${member.id == 'admin' || member.id == dto.id}">
+	  			<a style="font-size: 5px" href="../review/reviewDelete?review_num=${dto.review_num}&product_num=${dto.product_num}">글삭제</a>
+	  		</c:if>
   		</div>
   		<hr>
   	</c:forEach>
