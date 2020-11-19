@@ -9,13 +9,13 @@
 			<c:catch>
 	  			<c:forEach begin="1" end="${dto.depth}">
 		  			<div class="replyEmpty">
-		  				<span>└</span>
+		  				<span class="slash">>></span>
 		  			</div>
 	  			</c:forEach>
 	  		</c:catch>
 	  		<div class="replyContents">
 		  		<div class="reply-title">
-						<h3>${dto.writer}  </h3>
+						<h3>${dto.writer} </h3>
 						<h2>${dto.regDate}</h2>
 						<div class="reply-func">
 							<div title="${dto.num}" class="del">삭제</div>

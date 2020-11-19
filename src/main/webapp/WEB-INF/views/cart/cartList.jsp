@@ -12,7 +12,11 @@
 <c:import url="../template/header.jsp"></c:import>	
 	<div class="container">
 		<div class="row">
-			<div class="col-12 cartlist">
+			<div class="col-12 col-md-3">
+			<c:import url="../member/memberPageRow.jsp"></c:import>		
+			</div>
+	
+			<div class="col-12 col-md-9 cartlist">
 				<h1>장바구니</h1>
 				<div class="cart">
 				<c:choose>

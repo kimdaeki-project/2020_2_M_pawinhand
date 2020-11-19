@@ -9,7 +9,11 @@ public class CartDAO {
 
 	@Autowired
 	private SqlSession sqlSession;
-	private final String namespace = "com.ph4.s1.cart.CartDAO.";
+	private final String NAMESPACE = "com.ph4.s1.cart.CartDAO.";
+	
+	public int setCartInsert(CartVO cartDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"setCartInsert", cartDTO);
+	}
 	
 	
 }

@@ -361,12 +361,12 @@ nav {
 	border-style: none;
 }
 
-.goods-detail3 .b1{
+.cart-btn{
 	background-color: #FDC033;
 	color: #fff;
 }
 
-.goods-detail3 .b2{
+.pay-btn{
 	background-color: #FDAF33;
 	color: #fff;
 }
@@ -774,7 +774,9 @@ nav {
 .community-reply {
 	padding-left: 20px;
 }
-
+.replyEmpty {
+	display: inline-block;
+}
 .c1 {
 	cursor: pointer;
 	margin-right: 10px; 
@@ -796,6 +798,13 @@ nav {
 	align-items: center;
 }
 
+.reply-title h3 {
+	font-size: 0.7em;
+	font-weight: 500;
+	padding-right: 10px;
+	margin: 0;
+}
+
 .reply-title h2 {
 	font-size: 0.6em;
 	font-weight: 400;
@@ -804,6 +813,7 @@ nav {
 }
 
 .replyContents {
+	display: inline-block;
 	padding: 5px 0;
 	border-bottom:  1px #d3d3d3 solid;
 }
@@ -836,6 +846,9 @@ nav {
 	justify-content: center;
 }
 
+.slash {
+	color: white;
+}
 
 /***** board Write *****/
 #f {

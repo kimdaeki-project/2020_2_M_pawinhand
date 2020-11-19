@@ -51,7 +51,7 @@
 					<a href="./${board}Reply?num=${dto.num}" class="button btn btn-light">답글</a>
 					</c:when>
 					<c:when test="${board eq 'community'}">
-					<a href="./${board}Reply?num=${dto.num}"> </a>
+					<a href="./${board}Reply?num=${dto.num}"></a>
 					</c:when>
 					<c:otherwise></c:otherwise>
 				</c:choose>

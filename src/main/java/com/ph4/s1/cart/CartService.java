@@ -9,4 +9,8 @@ public class CartService {
 	@Autowired
 	private CartDAO cartDAO;
 
+	
+	public int setCartInsert(CartVO cartDTO) throws Exception {
+		return cartDAO.setCartInsert(cartDTO);
+	}
 }

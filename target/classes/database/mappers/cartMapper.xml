@@ -6,11 +6,18 @@
     
 <mapper namespace="com.ph4.s1.cart.CartDAO">
 
-<select id="getCartList" resultType="cartDTO" parameterType="Pager">
+<select id="getCartList" resultType="CartVO" parameterType="Pager">
      select * from
     (select rownum R, N.* from 
-    (select * from board order by num desc N)
+    (select * from cart order by cartnum desc N)
     where R between #{startRow} and #{lastRow}
-   </select>
+</select>
+
+<insert id="setCartInsert" parameterType="CartVO" >
+	<selectKey keyProperty="cartNum" resultType="Long" order="BEFORE">
+			select cart_seq.nextval from dual
+	</selectKey>
+	insert into cart values(#{id}, #{cartNum}, #{product_num}, #{amount}, #{totalPrice})
+</insert>
 
 </mapper>
