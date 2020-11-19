@@ -22,7 +22,7 @@
 				<li>
 					<h2>상품문의/후기</h2>
 					<ul class="myPage-item">
-						<li><a href="../qna/qnaList">- 상품문의</a></li>		
+						<li><a href="./admin_qnaList">- 상품문의</a></li>		
 						<li><a href="../review/reviewList">- 상품후기</a></li>	
 					</ul>
 				</li>
