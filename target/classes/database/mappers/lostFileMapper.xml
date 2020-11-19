@@ -23,6 +23,6 @@
 	</select>
 	
 	<select id="getMain" parameterType="LostDTO" resultType="LostFileDTO">
-    	select distinct fileName from lostFile where num = #{num} 
+    	select fileName from (select S.*, rownum as rnum from lostFile S where num = #{num}) where rnum = 1 
     </select>
 </mapper>

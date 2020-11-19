@@ -169,11 +169,11 @@
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-       <img src="../resources/upload/lost/${files[0].fileName}" style="width:100%;">
+       <img src="../resources/img/upload/lost/${files[0].fileName}" style="width:100%;">
     </div>
     <c:forEach items="${files}" var="file">
 	  	<div class="carousel-item">
-        	<img src="../resources/upload/lost/${file.fileName}" style="width:100%;">
+        	<img src="../resources/img/upload/lost/${file.fileName}" style="width:100%;">
       	</div>
 	 </c:forEach>
   </div>
