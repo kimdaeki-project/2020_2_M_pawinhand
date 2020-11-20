@@ -213,6 +213,13 @@ public class MemberController {
 		}
 		return mv;
 	}
+	
+	@PostMapping("kakaoLogin")
+		public ModelAndView kakaoLogin(MemberDTO memberDTO, HttpSession httpSession){
+			ModelAndView mv = new ModelAndView();
+			httpSession.setAttribute("member", memberDTO);
+			return mv;
+		}
 
 	
 }
