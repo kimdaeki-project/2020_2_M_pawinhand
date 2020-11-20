@@ -72,7 +72,7 @@
 	</select>
 	
 	<update id="setUpdate_admin" parameterType="ProductDTO">
-		update product set price=#{price}, stock=#{stock} where product_num=#{product_num}
+		update product set name=#{name}, price=#{price}, stock=#{stock} where product_num=#{product_num}
 	</update>
 	
 </mapper>

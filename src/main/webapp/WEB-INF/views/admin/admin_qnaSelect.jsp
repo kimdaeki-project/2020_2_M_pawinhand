@@ -24,6 +24,46 @@
 	font-weight: 400;
 }
 
+#ad-qna-sel p{
+	margin-left: 10px;
+}
+
+#ad-qna-sel_p1{
+	color: #737373;
+	margin-bottom: -8px;
+}
+
+#ad-qna-sel_p2{
+	font-size: 1.3em;
+}
+
+#ad-qna-sel_p3{
+	font-size: 1em;
+	margin-top: -10px;
+}
+
+#ad-qna-sel_p3 span{
+	font-size: 0.8em;
+	margin-left: 5px;
+}
+
+#ad-qna-sel_d1{
+	width: 80%;
+	border-top : 1px solid #d9d9d9;
+	border-bottom : 1px solid #d9d9d9;
+	padding: 10px 10px 150px 10px;
+}
+
+#ad-qna-sel_btn{
+	border: 2px solid #FDC033;
+	color: #FDC033;
+	font-size: 0.88em;
+	font-weight: 500;
+	float: right;
+	margin: 10px 20% 0 0;
+}
+
+
 
 	
 </style>
@@ -40,15 +80,21 @@
 	<div class="col-12 col-md-9 admin-tbl">
 		<h1>QnA</h1>
 		<hr>
-		
+	<div id="ad-qna-sel_all">	
 		<div id="ad-qna-sel">
-			<p>제목 : ${dto.title}</p>
-			<p>작성자 : ${dto.id}</p>
-			<hr>
-			<p></p>
+			<p id="ad-qna-sel_p1">${dto.productDTO.name} - ${dto.productDTO.color}</p>
+			<hr width="40%">
+			<p id="ad-qna-sel_p2">${dto.title}</p>
+			<p id="ad-qna-sel_p3">${dto.id} <span>${dto.regDate}</span></p>
+			<div id="ad-qna-sel_d1">
+				${dto.contents}
+			</div>
 		</div>
 		
+		<a onclick="window.open('../productQna/productQnaReplyInsert?qna_num=${dto.qna_num}','insert','width = 576, height = 373.2, top = 100, left = 200, location = no');">
+		<button id="ad-qna-sel_btn" class="btn btn-default">답글</button></a>
 		
+	</div>
 	</div>
 		
 	</div>

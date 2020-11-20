@@ -49,7 +49,7 @@ public class AdminController {
 		ModelAndView mv = new ModelAndView();
 		productDTO = productService.getOne(productDTO);
 		
-		mv.addObject("dto", productDTO);
+		mv.addObject("updto", productDTO);
 		mv.setViewName("admin/admin_stockUpdate");
 		
 		return mv;
@@ -58,6 +58,16 @@ public class AdminController {
 	@PostMapping("admin_stockUpdate")
 	public ModelAndView setUpdate_admin(ProductDTO productDTO, String msg) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		int result = productService.setUpdate_admin(productDTO);
+		msg = "수정 실패";
+		
+		if(result>0) {
+			msg="수정 완료";
+		}
+		
+		mv.addObject("msg", msg);
+		mv.addObject("path", "./admin_stockUpdate?product_num="+productDTO.getProduct_num());
+		mv.setViewName("common/result");
 		
 		return mv;
 	}

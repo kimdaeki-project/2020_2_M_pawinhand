@@ -7,6 +7,31 @@
 <meta charset="UTF-8">
 <c:import url="../template/bootStrap.jsp"></c:import>
 <title>Insert title here</title>
+
+<style type="text/css">
+#mbPage-d1{
+	border: 3px solid #e6e6e6;
+	display : flex;
+	text-align: center;
+}
+.mbPage-info-1{
+	width: 31%;
+	height: 200px;
+	background-color: #f2f2f2;
+}
+.mbPage-info{
+	width: 23%;
+	height: 200px;
+	text-align: center;
+}
+.member-item2 td{
+	color: #1a1a1a;
+	font-weight: bold;
+	font-size: 0.8em;
+}
+
+
+</style>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
@@ -17,8 +42,8 @@
 		</div>
 			
 			<div class="col-12 col-md-9 member-info">
-				<div class="member-item" id="mbPage-d1" style="text-align: center;">
-					<div class="mbPage-info-1" style="background-color: #f2f2f2;">
+				<div class="member-item" id="mbPage-d1">
+					<div class="mbPage-info-1">
 						<p>${member.name}님의 <br>
 						회원등급은 일반회원등급 입니다.</p>
 					</div>

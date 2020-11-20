@@ -127,7 +127,7 @@
 			<c:forEach items="${list}" var="dto" varStatus="vs">
 			<tr class="admin-ml-tr">
 				<td>${dto.qna_num}</td>
-				<td><a href="./admin_qnaSelect?num=${dto.qna_num}">${dto.productDTO.name} [${dto.productDTO.color}]</a></td>
+				<td><a href="./admin_qnaSelect?qna_num=${dto.qna_num}">${dto.productDTO.name} [${dto.productDTO.color}]</a></td>
 				<td>${dto.id}</td>
 				<td><div id="ad-ql-contents">[제목] ${dto.title}<br> [내용] ${dto.contents}</div></td>
 				<td>${dto.regDate}</td>

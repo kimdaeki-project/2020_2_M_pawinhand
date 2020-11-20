@@ -12,7 +12,7 @@
 		display: block;
 	    padding: 15px 30px;
 	    margin : 0px 0px;
-	    background-color: #353b4c;
+	    background-color: #737373;
 	    font-size: 18px;
 	    letter-spacing: -1px;
 	    color: #ffffff;
@@ -38,6 +38,14 @@
 	    color: #222222;
 	    resize: none;
 	}
+	
+	#qna-Re-addbtn{
+		border: 1.5px solid #737373;
+		color: #737373;
+		font-size: 0.88em;
+		font-weight: 500;
+		float: right;
+	}
 </style>
 </head>
 <body>
@@ -51,7 +59,7 @@
 		<div style="padding: 18px 18px;margin-bottom: 70px;border: 1px solid #cfcfcf">
 			<textarea name="contents" class="insertText" placeholder="답글을 입력하세요." maxlength="1000"></textarea>
 		</div>
-		<button class="btn btn-dark">등록</button>
+		<button id="qna-Re-addbtn" class="btn btn-default">등록</button>
 	</div>
 	</form>
 </body>

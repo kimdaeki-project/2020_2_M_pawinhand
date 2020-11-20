@@ -130,7 +130,7 @@
   			 </c:otherwise>
   			
   			</c:choose>
-  			<td><a href="./admin_stockUpdate?num=${dto.product_num}">${dto.name}</a></td>
+  			<td><a href="./admin_stockUpdate?product_num=${dto.product_num}">${dto.name}</a></td>
   			<td>${dto.price}</td>
   			<td style="color: #ffa31a;font-weight: 600;">${dto.stock}</td>
 			<td>${dto.weight}</td>

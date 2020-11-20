@@ -100,7 +100,7 @@ public class ProductService {
 		return productDAO.getList_admin(productPager);
 	}
 	
-	public int setUpdate(ProductDTO productDTO) throws Exception{
+	public int setUpdate_admin(ProductDTO productDTO) throws Exception{
 		return productDAO.setUpdate_admin(productDTO);
 	}
 	

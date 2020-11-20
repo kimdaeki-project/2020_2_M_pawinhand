@@ -68,28 +68,13 @@
 		select count(qna_num) from productqna
 	</select>
 	
-	<select id="getOne_admin" parameterType="ProductQnaDTO" resultType="ProductQnaDTO" resultMap="getProductOne">
+	<select id="getOne_admin" parameterType="ProductQnaDTO" resultType="ProductQnaDTO" resultMap="getProductList">
 		select PQ.*, P.name, P.color from 
         productqna PQ left join product P
         on PQ.product_num = P.product_num
         where PQ.qna_num = #{qna_num}
 	</select>
 	
-	<resultMap type="ProductQnaDTO" id="getProductOne">
-         <result column="qna_num" property="qna_num"/>
-         <result column="product_num" property="product_num"/>
-         <result column="id" property="id"/>
-         <result column="contents" property="contents"/>
-         <result column="title" property="title"/>
-         <result column="regDate" property="regDate"/>
-         <association property="productDTO" javaType="ProductDTO" resultMap="ProductOne">
-		 </association>
-	</resultMap>
 	
-	<resultMap type="ProductDTO" id="ProductOne">
-			<id column="product_num" property="product_num"></id>
-			<result column="name" property="name"/>
-			<result column="color" property="color"/>
-	</resultMap>
 </mapper>
     

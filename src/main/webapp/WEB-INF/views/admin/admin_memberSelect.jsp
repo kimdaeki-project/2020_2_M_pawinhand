@@ -32,7 +32,7 @@
 		<div class="col-12 col-md-9 member-info">
 			<h1>회원관리 - [${dto.id}]</h1>
 			<hr>
-			<h2 >기본정보</h2>
+			<h2>기본정보</h2>
 			<div class="member-item">
 				<table>
 					<tr><th>아이디</th><td><input type="text" name="id" id="id" value="${dto.id}" class="adminsel-ro" readonly="readonly"></td></tr>
