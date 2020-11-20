@@ -64,7 +64,7 @@ public class StorePayController {
 			productDTO = storePayService.getOrderProduct(productDTO);
 			productDTO.setAmount(amount[i]);
 			
-		
+			
 			
 			ar.add(productDTO);		
 		}
@@ -87,12 +87,12 @@ public class StorePayController {
 	}
 	
 	@PostMapping("setOrderList")
-	public ModelAndView setOrderList(OrderListDTO orderListDTO, PayInfoDTO payInfoDTO, long usePoint, long addPoint) throws Exception{
+	public ModelAndView setOrderList(OrderListDTO orderListDTO, PayInfoDTO payInfoDTO, OrderDetailDTO [] orderDetailDTO,long usePoint, long addPoint) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		System.out.println("사용포인트:"+usePoint);
 		
-		int result = storePayService.setOrderList(orderListDTO,payInfoDTO, usePoint, addPoint);
+		int result = storePayService.setOrderList(orderListDTO,payInfoDTO,orderDetailDTO,usePoint, addPoint);
 		
 		if(result > 0) {
 			mv.addObject("msg", "주문이 정상적으로 완료되었습니다.");

@@ -58,7 +58,7 @@ public class StorePayService {
 		return productDTO;
 	} 
 	
-	public int setOrderList(OrderListDTO orderListDTO, PayInfoDTO payInfoDTO, long usePoint, long addPoint) throws Exception{
+	public int setOrderList(OrderListDTO orderListDTO, PayInfoDTO payInfoDTO, OrderDetailDTO [] orderDetailDTO,long usePoint, long addPoint) throws Exception{
 		
 		String payMethod = payInfoDTO.getPayMethod();
 		String id =  orderListDTO.getOrderId();
@@ -66,6 +66,16 @@ public class StorePayService {
 		int result =  storePayDAO.setOrderList(orderListDTO);
 		
 		payInfoDTO.setOrder_num(orderListDTO.getOrder_num());
+		
+		//orderDetail셋팅
+		for(int i=0; i<orderDetailDTO.length; i++) {
+			orderDetailDTO[i].setOrder_num(orderListDTO.getOrder_num());
+			//orderDetailDTO[i].setPtotal();
+			//orderDetailDTO[i].setName();
+			int orderDetailResult = storePayDAO.setOrderDetail(orderDetailDTO[i]);
+			System.out.println("orderDetail 들어갔는지 : "+orderDetailResult);
+		}
+		
 		
 		//payMethod가 신용카드로 잘 넘어온것은, 이미 결제가 완료되었다는 뜻임!!!
 		if(payMethod.equals("신용카드")) {

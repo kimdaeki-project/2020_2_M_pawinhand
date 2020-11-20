@@ -71,4 +71,7 @@
  		update product set stock=#{stock} where product_num = #{product_num}
  	</update>
  
+ 	<insert id="setOrderDetail" parameterType="OrderDetailDTO">
+ 		insert into orderDetail values(od_seq.nextval, #{id}, #{order_num},#{product_num},#{name},#{amount},#{ptotal})
+ 	</insert>
 </mapper>

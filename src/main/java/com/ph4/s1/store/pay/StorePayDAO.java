@@ -51,4 +51,8 @@ public class StorePayDAO {
 	public int setProductStock(ProductDTO productDTO) throws Exception{
 		return sqlSession.update(NAMESPACE+"setProductStock", productDTO);
 	}
+	
+	public int setOrderDetail(OrderDetailDTO orderDetailDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"setOrderDetail", orderDetailDTO);
+	}
 }

@@ -4,15 +4,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class OrderDetailDTO {
-	
 	private long num;
 	private String id;
 	private long order_num;
 	private long product_num;
 	private String name;
 	private long amount;
-	private long totalPrice;
-	
+	private long ptotal;
 	public long getNum() {
 		return num;
 	}
@@ -49,11 +47,11 @@ public class OrderDetailDTO {
 	public void setAmount(long amount) {
 		this.amount = amount;
 	}
-	public long getTotalPrice() {
-		return totalPrice;
+	public long getPtotal() {
+		return ptotal;
 	}
-	public void setTotalPrice(long totalPrice) {
-		this.totalPrice = totalPrice;
+	public void setPtotal(long ptotal) {
+		this.ptotal = ptotal;
 	}
 	
 	

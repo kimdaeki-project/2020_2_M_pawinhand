@@ -197,12 +197,13 @@
 			
 			<c:forEach items="${list}" var="list">
 				<tr>
-					<td>${list.name}, ${list.color}, ${list.weight}</td>
+					<td class="setOrderDetail" title="${list.product_num}">
+						${list.name}, ${list.color}, ${list.weight}
+					</td>
 					<td class="ss">${list.amount}</td>
 					<td>${list.price}</td>
 					<td class="pp" title="${list.points}"></td>
 					<td class="tt" title="${list.price}"></td>
-					
 				</tr>
 			</c:forEach>
 			
@@ -404,6 +405,12 @@
 	<input type="hidden" class="finalPrice" name="total">
 	<input type="hidden" name="isPay" value="0">
 	<input type="hidden" id="addPoint" name="addPoint" value="0">
+	<input type="hidden" name="name" value="0">
+	<input type="hidden" name="ptotal" value="0">
+	<div id="odDiv1">
+	</div>
+	<div id="odDiv2">
+	</div>
 	
 	<input type="submit" class="payBtn" value="결제하기">
 	</form>
@@ -441,6 +448,7 @@
 	$(".tt").each(function(index) {
 		q=$(this).attr("title")*amountArray[index];
 		$(this).html(q);
+		$("#ptotal").val(q);
 		totalPrice += q * 1;
 		
 		if(totalPrice > 50000){
@@ -462,19 +470,25 @@
 	var ep = null;
 	var viewPoints = 0;
 
-//********************* 마일리지 계산
+//********************* 마일리지 계산 
+	var tag2=null;
 	$(".pp").each(
 			function(index, item) {
 				if (amountArray[index] == 1) {
 					points = $(this).attr('title') * 1 * amountArray[index];
 					$(this).html(points + "p");
+					
+					tag2 += '<input type="hidden" name="amount" value="'+amountArray[index]+'">';
+					
+					
 				} else {
 					ep = $(this).attr('title') * 1;
 					points = ep * amountArray[index];
-					$(this).html(
-							ep + "p  * " + amountArray[index] + " = " + points+ "p");
+					$(this).html(ep + "p  * " + amountArray[index] + " = " + points+ "p");
+					tag2 += '<input type="hidden" name="amount" value="'+amountArray[index]+'">';
 
 				}
+				$("#odDiv1").html(tag2);
 				viewPoints += points;
 			});
 
@@ -493,6 +507,17 @@
 	$("#realTP").html(totalPrice+deliveryfee-usePoint);
 	finalPrice =totalPrice+deliveryfee-usePoint;
 	$(".finalPrice").val(finalPrice);
+	
+	
+	var pnum =[];
+	var tag = null;
+	//orderDetail 셋팅
+	$(".setOrderDetail").each(function(index) {
+		pnum[index]=$(this).attr('title');
+		tag += '<input type="hidden" name="product_num" value="'+pnum[index]+'">';
+		$("#odDiv2").html(tag);
+	});
+	
 	
 	function calPoint() {
 		
