@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class OrderDetailDTO {
+	
 	private long num;
 	private String id;
 	private long order_num;
@@ -11,6 +12,8 @@ public class OrderDetailDTO {
 	private String name;
 	private long amount;
 	private long ptotal;
+	
+	
 	public long getNum() {
 		return num;
 	}
