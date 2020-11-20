@@ -237,7 +237,7 @@
 		<c:forEach items="${lists}" var="list" varStatus="i">
 			<li class="lostList" title="${list.num}">
 				<div class="lostImage">
-					<img src="../resources/upload/lost/${list.fileName}" width="270" height="270" alt="">
+					<img src="../resources/img/upload/lost/${list.fileName}" width="270" height="270" alt="">
 					<div class="lostMain">
 						<div class="detailSpecies">
 							<h3>${list.detailSpecies}</h3>
