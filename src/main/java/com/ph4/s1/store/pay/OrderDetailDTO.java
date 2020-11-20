@@ -1,6 +1,9 @@
 package com.ph4.s1.store.pay;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.ph4.s1.store.product.ProductDTO;
 
 @Component
 public class OrderDetailDTO {
@@ -13,7 +16,15 @@ public class OrderDetailDTO {
 	private long amount;
 	private long ptotal;
 	
+	private ProductDTO productDTO;
 	
+	
+	public ProductDTO getProductDTO() {
+		return productDTO;
+	}
+	public void setProductDTO(ProductDTO productDTO) {
+		this.productDTO = productDTO;
+	}
 	public long getNum() {
 		return num;
 	}

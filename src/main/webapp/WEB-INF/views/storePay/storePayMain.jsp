@@ -172,6 +172,9 @@
 	.tdtd{
 		width: 200px;
 	}
+	#odDiv1 , #odDiv2{
+	display: none;
+	}
 </style>
 </head>
 <body>
@@ -225,7 +228,7 @@
 				<span>배송비 </span>
 				<div class="d1" id="deliveryfee">
 					
-				</div>
+				</div> 원
 			</div>
 				<div class="paydd">
 					<div class="cc">+</div>
@@ -235,7 +238,7 @@
 				<span id="nn"></span>
 				<span>개의 상품금액</span>
 				<div class="d1" id="tp">
-				</div>
+				</div> 원
 			</div>
 			
 			<div class="pointsdiv">
@@ -374,9 +377,7 @@
 					<td rowspan="2">결제</td>
 					<td>
 						<input type="radio" name="paySel" value="1" class="paySel">무통장 입금
-						<input type="radio" name="paySel" value="2" class="paySel">신용카드
-						<input type="radio" name="paySel" value="3" class="paySel">계좌이체
-						<input type="radio" name="paySel" value="4" class="paySel">가상계좌
+						<input type="radio" name="paySel" value="2" class="paySel">신용카드/네이버페이/카카오페이
 						<input type="radio" name="paySel" value="5" class="paySel">휴대폰결제 <br>
 						
 						<div id="realAccountDiv">
@@ -405,8 +406,7 @@
 	<input type="hidden" class="finalPrice" name="total">
 	<input type="hidden" name="isPay" value="0">
 	<input type="hidden" id="addPoint" name="addPoint" value="0">
-	<input type="hidden" name="name" value="0">
-	<input type="hidden" name="ptotal" value="0">
+	
 	<div id="odDiv1">
 	</div>
 	<div id="odDiv2">
@@ -478,14 +478,14 @@
 					points = $(this).attr('title') * 1 * amountArray[index];
 					$(this).html(points + "p");
 					
-					tag2 += '<input type="hidden" name="amount" value="'+amountArray[index]+'">';
+					tag2 += '<input type="hidden" name="detailAmount" value="'+amountArray[index]+'">';
 					
 					
 				} else {
 					ep = $(this).attr('title') * 1;
 					points = ep * amountArray[index];
 					$(this).html(ep + "p  * " + amountArray[index] + " = " + points+ "p");
-					tag2 += '<input type="hidden" name="amount" value="'+amountArray[index]+'">';
+					tag2 += '<input type="hidden" name="detailAmount" value="'+amountArray[index]+'">';
 
 				}
 				$("#odDiv1").html(tag2);
@@ -514,7 +514,7 @@
 	//orderDetail 셋팅
 	$(".setOrderDetail").each(function(index) {
 		pnum[index]=$(this).attr('title');
-		tag += '<input type="hidden" name="product_num" value="'+pnum[index]+'">';
+		tag += '<input type="hidden" name="detailNum" value="'+pnum[index]+'">';
 		$("#odDiv2").html(tag);
 	});
 	

@@ -79,20 +79,27 @@ public class StorePayController {
 	
 	
 	@GetMapping("storePayInfo")
-	public ModelAndView getPayInfo() throws Exception{
+	public ModelAndView getPayInfo(OrderListDTO orderListDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
+		orderListDTO = storePayService.getOrderList(orderListDTO);
+		PayInfoDTO payInfoDTO = storePayService.getPayInfo(orderListDTO);
+		List<OrderDetailDTO> ar = storePayService.getOrderDetail(orderListDTO);
+		
+		mv.addObject("ar", ar);
+		mv.addObject("pay", payInfoDTO);
+		mv.addObject("list", orderListDTO);
 		mv.setViewName("storePay/storePayInfo");
 		return mv;
 	}
 	
 	@PostMapping("setOrderList")
-	public ModelAndView setOrderList(OrderListDTO orderListDTO, PayInfoDTO payInfoDTO, OrderDetailDTO [] orderDetailDTO,long usePoint, long addPoint) throws Exception{
+	public ModelAndView setOrderList(OrderListDTO orderListDTO, PayInfoDTO payInfoDTO, long [] detailNum, long [] detailAmount ,long usePoint, long addPoint) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		System.out.println("사용포인트:"+usePoint);
 		
-		int result = storePayService.setOrderList(orderListDTO,payInfoDTO,orderDetailDTO,usePoint, addPoint);
+		int result = storePayService.setOrderList(orderListDTO,payInfoDTO, detailNum, detailAmount,usePoint, addPoint);
 		
 		if(result > 0) {
 			mv.addObject("msg", "주문이 정상적으로 완료되었습니다.");
@@ -101,7 +108,7 @@ public class StorePayController {
 			mv.addObject("msg", "주문이 실패되었습니다.");
 		}
 		
-		mv.setViewName("/storePay/storePayInfo");
+		mv.setViewName("/storePay/storePayInfo?order_num="+orderListDTO.getOrder_num());
 		
 		return mv;
 	}
