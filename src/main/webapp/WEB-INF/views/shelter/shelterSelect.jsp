@@ -9,9 +9,11 @@
 <c:import url="../template/bootStrap.jsp"></c:import>
 
 <style type="text/css">
-	.btn{
-		color:white;
-		font-weight: 700;
+	.shelter-Sel-btn{
+		border: 2px solid #FDC033;
+		color: #FDC033;
+		font-size: 0.88em;
+		font-weight: 500;
 		margin-bottom: 100px;
 	}
 	#title{
@@ -77,15 +79,17 @@
  		<h3>·공고기간 : ${dto.period_1} ~ ${dto.period_2}</h3>
   		<h3>·발견장소 : ${dto.place_of_find}</h3>
   		<h3>·특이사항 : ${dto.special}</h3>
-  		<h3>·보호센터 : ${dto.center} (Tel: ${dto.center_tel})</h3>
+  		<h3>·보호센터 : ${dto.center} (Tel: ${dto.center_tel}) 
+  		<a onclick="window.open('./shelterMap','insert','width = 576, height = 373.2, top = 100, left = 200, location = no');">
+  		<img alt="" src="../resources/img/common/map.png" width="27px" height="27px"></a></h3> 
   	</div>	
   		
   	<hr>
   
   
-  <input type="button" class="btn btn-warning" value="목록" id="list">
-  <input type="button" class="btn btn-warning" value="삭제" id="del">
-  <input type="button" class="btn btn-warning" value="수정" id="update">
+  <input type="button" class="btn btn-default shelter-Sel-btn" value="목록" id="list">
+  <input type="button" class="btn btn-default shelter-Sel-btn" value="삭제" id="del">
+  <input type="button" class="btn btn-default shelter-Sel-btn" value="수정" id="update">
   
   
   <script type="text/javascript">
@@ -103,6 +107,8 @@
 	});
 	
 	
+	
+
 
 </script>
 
