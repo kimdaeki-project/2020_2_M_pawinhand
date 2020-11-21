@@ -9,8 +9,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+	
 
-	<div id="map" style="width:500px;height:400px;"></div>
+	<div id="map" style="width:576px;height:400px;">
+	
+	</div>
 	
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=77ada44fb21a0d6d306bd35a06eb2496&libraries=services"></script>	
 	<script>

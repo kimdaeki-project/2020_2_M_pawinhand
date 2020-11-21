@@ -54,11 +54,11 @@
 		margin-bottom : 100px;
 		float: inherit;
 	}
-	#shelterList-container{
+	#shelter-container{
 		margin-top: 100px;
 	}
 	
-	#shelterList-container a {
+	#shelter-container a {
 		text-decoration: none;
 		letter-spacing: -0.03em;
 		color: #404040;
@@ -75,7 +75,7 @@
 <c:import url="../template/header.jsp"></c:import>	
 
 	
-	<div class="container" id="shelterList-container">
+	<div class="container" id="shelter-container">
 	
 	 <div class="row">
 	 	<div class="col-12 col-md-3 myPage">
