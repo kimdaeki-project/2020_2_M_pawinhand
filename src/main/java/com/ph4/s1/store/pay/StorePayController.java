@@ -99,16 +99,22 @@ public class StorePayController {
 		
 		System.out.println("사용포인트:"+usePoint);
 		
-		int result = storePayService.setOrderList(orderListDTO,payInfoDTO, detailNum, detailAmount,usePoint, addPoint);
+		//return 값은 order_num 임
+		long result = storePayService.setOrderList(orderListDTO,payInfoDTO, detailNum, detailAmount,usePoint, addPoint);
+
+		
+		System.out.println("order_num="+result);
 		
 		if(result > 0) {
 			mv.addObject("msg", "주문이 정상적으로 완료되었습니다.");
+			mv.addObject("path", "./storePayInfo?order_num="+result);
 			
 		}else {
-			mv.addObject("msg", "주문이 실패되었습니다.");
+			mv.addObject("msg", "다시 시도해주세요.");
+			mv.addObject("path", "../product/goodList");
 		}
-		
-		mv.setViewName("/storePay/storePayInfo?order_num="+orderListDTO.getOrder_num());
+			
+		mv.setViewName("common/result");
 		
 		return mv;
 	}

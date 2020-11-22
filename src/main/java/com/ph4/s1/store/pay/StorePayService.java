@@ -58,12 +58,13 @@ public class StorePayService {
 		return productDTO;
 	} 
 	
-	public int setOrderList(OrderListDTO orderListDTO, PayInfoDTO payInfoDTO, long [] detailNum, long [] detailAmount, long usePoint, long addPoint) throws Exception{
+	public long setOrderList(OrderListDTO orderListDTO, PayInfoDTO payInfoDTO, long [] detailNum, long [] detailAmount, long usePoint, long addPoint) throws Exception{
 		
 		String payMethod = payInfoDTO.getPayMethod();
 		String id =  orderListDTO.getOrderId();
 		
 		int result =  storePayDAO.setOrderList(orderListDTO);
+		long num = orderListDTO.getOrder_num();
 		
 		payInfoDTO.setOrder_num(orderListDTO.getOrder_num());
 		
@@ -100,7 +101,9 @@ public class StorePayService {
 		int payInfoResult = storePayDAO.setPayInfo(payInfoDTO);
 		
 		System.out.println("결제정보 들어갔는지 : "+payInfoResult);
-		return result;
+		
+		//orderList의 order_num을 return 해줌!!!!
+		return num;
 	}
 	
 	//사용 포인트 빼기
@@ -166,6 +169,7 @@ public class StorePayService {
 	public List<OrderDetailDTO> getOrderDetail(OrderListDTO orderListDTO) throws Exception{
 		return storePayDAO.getOrderDetail(orderListDTO);
 	}
+	
 	
 
 }

@@ -57,10 +57,17 @@
 
 .td1 {
 	width: 150px;
-	background-color: #DCDCDC;
+	background-color: #FFEFD5;
 	color: black;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
 }
-
+.td2{
+	color: #696969;
+	font-size: 13px;
+	
+}
 #payInfoBtn {
 	width: 250px;
 	height: 50px;
@@ -72,13 +79,25 @@
 	border: 1px solid orange;
 	
 }
+.table-bordered{
+	border-left-color : white;
+	border-right-color: white;
+}
+#total{
+	font-size: 19px;
+	color: #D2691E;
+	font-weight: bold;
+}
+#isPaySpan{
+	font-weight: bold;
+}
 </style>
 </head>
 
 <body>
 
 <c:import url="../template/header.jsp"></c:import>
-${msg}
+
 <div id="payInfoContainer">
 	<div class="payHeader">
 		주문완료
@@ -100,23 +119,24 @@ ${msg}
 			
 			<tr>
 				<td class="td1">결제수단</td>
-				<td>
+				<td class="td2">
 					${pay.payMethod}<br>
 					결제금액 : ${pay.totalPrice}<br>
-					결제상태 :
+					결제상태 : <span id="isPaySpan"></span>
+					<input type="hidden" id="isPay" value="${pay.isPay}">
 				</td>
 			</tr>
 			<tr>
 				<td class="td1">주문번호</td>
-				<td>${list.order_num}</td>
+				<td class="td2">${list.order_num}</td>
 			</tr>
 			<tr>
 				<td class="td1">주문일자</td>
-				<td>${list.regDate}</td>
+				<td class="td2">${list.regDate}</td>
 			</tr>
 			<tr>
 				<td class="td1">주문상품</td>
-				<td>
+				<td class="td2">
 					<c:forEach items="${ar}" var="detail">
 						상품명 : <span>${detail.name}</span><br>
 						(색상 : <span>${detail.productDTO.color}</span>,
@@ -129,29 +149,35 @@ ${msg}
 			</tr>
 			<tr>
 				<td class="td1">주문자명</td>
-				<td>${list.toName}</td>
+				<td class="td2">${list.toName}</td>
 			</tr>
 			<tr>
 				<td class="td1">배송정보</td>
-				<td>${list.toAddress}<br>
-					${list.addComment}
+				<td class="td2">
+					받으실 곳 : <span>${list.toAddress}<span><br>
+					배송메시지 : <span>${list.addComment}<span><br>
 				</td>
 			</tr>
 			<tr>
 				<td class="td1">상품금액</td>
-				<td id="tdPtotal"></td>
+				<td id="tdPtotal" class="td2"></td>
 			</tr>
 			<tr>
 				<td class="td1">배송비</td>
-				<td id="dFee"></td>
+				<td id="dFee" class="td2"></td>
 			</tr>
 			<tr>
 				<td class="td1">할인 및 적립</td>
-				<td></td>
+				<td class="td2">
+					할인 : (-) <span id="usePoint"></span>원 <br>
+					적립 : (+) <span id="addPoint"></span>p 예정<br>
+				</td>
 			</tr>
 			<tr>
 				<td class="td1">총 결제금액</td>
-				<td>${list.total}원</td>
+				<td class="td2">
+				<span id="total">${list.total}</span> 원
+				</td>
 			</tr>
 		</table>
 		
@@ -160,6 +186,15 @@ ${msg}
 </div>
 
 <script type="text/javascript">
+
+	//결제여부
+	$("#isPaySpan").html(function() {
+		if($("#isPay").val()==0){
+			$(this).html("결제 대기중");
+		}else{
+			$(this).html("결제완료");
+		}
+	});
 	
 	//상품합계금액 계산
 	var sum=0;
@@ -168,13 +203,30 @@ ${msg}
 	});
 	$("#tdPtotal").html(sum+"원");
 	
-	//배송비 설정
+	var total=$("#total").html()*1;
+	
+	//배송비 , 할인적립 설정
 	$("#dFee").html(function() {
 		if(sum> 50000){
 			$("#dFee").html("0원");
+			if(sum != total){
+				$("#usePoint").html(sum - total);
+			}else{
+				$("#usePoint").html("0");
+			}
 		}else{
 			$("#dFee").html("3000원");
-		}	
+			if(sum != total-3000){
+				$("#usePoint").html(sum - (total-3000));
+				console.log(sum);
+				console.log(total);
+				console.log(sum - (total-3000));
+			}else{
+				$("#usePoint").html("0");
+			}
+		}
+		
+		$("#addPoint").html(sum*0.02);
 	});
 	
 </script>
