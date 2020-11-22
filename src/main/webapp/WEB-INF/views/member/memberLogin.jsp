@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
 <script src="../resources/js/kakao.js"></script>
+	<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<script type="text/javascript">
 		Kakao.init('');
@@ -44,8 +45,22 @@
 			      	로그인</button>
 			    </div>
 			 </div>
-			 <a id="kakao-login-btn"></a>
+		  </form>
+		  <a id="kakao-login-btn"></a>
+		  <div style="display: inline-block;height: 49px;margin-left: 5px" id="naverIdLogin"></div>
 <script type="text/javascript">
+	var naverLogin = new naver.LoginWithNaverId(
+		{
+			clientId: "",
+			callbackUrl: "http://localhost/s1/member/naverLogin",
+			isPopup: false, /* 팝업을 통한 연동처리 여부 */
+			loginButton: {color: "green", type: 3, height: 49} /* 로그인 버튼의 타입을 지정 */
+		}
+	);
+	
+	/* 설정정보를 초기화하고 연동을 준비 */
+	naverLogin.init();
+	
   Kakao.Auth.createLoginButton({
     container: '#kakao-login-btn',
     success: function(authObj) {
@@ -72,8 +87,6 @@
     },
   })
 </script>
-
-		  </form>
 	  </div>
   </div>
 </div>

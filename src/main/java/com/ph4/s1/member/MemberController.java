@@ -1,5 +1,7 @@
 package com.ph4.s1.member;
 
+import java.lang.reflect.Member;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -217,9 +219,26 @@ public class MemberController {
 	@PostMapping("kakaoLogin")
 		public ModelAndView kakaoLogin(MemberDTO memberDTO, HttpSession httpSession){
 			ModelAndView mv = new ModelAndView();
+			String id = "kakao_"+memberDTO.getId();
+			memberDTO.setId(id);
 			httpSession.setAttribute("member", memberDTO);
 			return mv;
 		}
-
+	
+	@GetMapping("naverLogin")
+	public ModelAndView naverLogin() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/member/memberLoginNaver");
+		return mv;
+	}
+	
+	@PostMapping("naverLogin")
+	public ModelAndView naverLogin(HttpSession session, MemberDTO memberDTO) {
+		ModelAndView mv = new ModelAndView();
+		String id = "naver_"+memberDTO.getId();
+		memberDTO.setId(id);
+		session.setAttribute("member", memberDTO);
+		return mv;
+	}
 	
 }
