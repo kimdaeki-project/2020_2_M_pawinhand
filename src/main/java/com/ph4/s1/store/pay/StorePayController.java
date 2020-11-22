@@ -85,9 +85,14 @@ public class StorePayController {
 		orderListDTO = storePayService.getOrderList(orderListDTO);
 		PayInfoDTO payInfoDTO = storePayService.getPayInfo(orderListDTO);
 		List<OrderDetailDTO> ar = storePayService.getOrderDetail(orderListDTO);
-		DepositInfoDTO depositInfoDTO2 = storePayService.getDepositInfo(orderListDTO);
 		
-		mv.addObject("deposit", depositInfoDTO2);
+		String method= payInfoDTO.getPayMethod().trim();
+		if(method.equals("무통장 입금")) {
+			DepositInfoDTO depositInfoDTO2 = storePayService.getDepositInfo(orderListDTO);
+			mv.addObject("deposit", depositInfoDTO2);
+		}
+		
+		
 		mv.addObject("ar", ar);
 		mv.addObject("pay", payInfoDTO);
 		mv.addObject("list", orderListDTO);

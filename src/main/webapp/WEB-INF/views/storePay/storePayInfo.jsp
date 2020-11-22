@@ -121,6 +121,17 @@
 				<td class="td1">결제수단</td>
 				<td class="td2">
 					${pay.payMethod}<br>
+					<c:if test="${pay.payMethod eq '무통장 입금'}">
+						입금자명 : <c:out value="${deposit.depositName}" /><br>
+						<c:choose>
+							<c:when test="${deposit.depositAccount eq 'kb'}">
+								입금 계좌 : 국민은행 260894599649 (주)포인핸드<br>
+							</c:when>
+							<c:otherwise>
+								입금 계좌 : 신한은행 140012049753 (주)포인핸드<br>
+							</c:otherwise>
+						</c:choose>
+					</c:if>
 					결제금액 : ${pay.totalPrice}<br>
 					결제상태 : <span id="isPaySpan">
 					<c:choose>
@@ -228,6 +239,9 @@
 		$("#addPoint").html(sum*0.02);
 	});
 	
+	$("#payInfoBtn").click(function() {
+		location.href="redirect:../product/goodList";
+	});
 </script>
 </body>
 </html>
