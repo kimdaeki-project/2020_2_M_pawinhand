@@ -6,11 +6,6 @@
  
 <mapper namespace="com.ph4.s1.store.pay.StorePayDAO">
 
-   
-   	<select id="getMember" parameterType="CartDTO" resultType="MemberDTO">
-   		select * from member where id = #{id}
-   	</select>
- 	
  	
  	<!-- 상품은 그냥 상품 id랑 수량으로 가져오기 -->
    	<select id="getOrderProduct" parameterType="ProductDTO" resultType="ProductDTO">
