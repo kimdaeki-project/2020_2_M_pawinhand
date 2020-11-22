@@ -240,7 +240,7 @@
 	});
 	
 	$("#payInfoBtn").click(function() {
-		location.href="redirect:../product/goodList";
+		location.href="..//product/goodsList";
 	});
 </script>
 </body>
