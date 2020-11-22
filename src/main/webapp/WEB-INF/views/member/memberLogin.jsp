@@ -7,6 +7,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
+<script src="../resources/js/kakao.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script type="text/javascript">
+		Kakao.init('');
+		Kakao.isInitialized();
+	</script>
 
 </head>
 
@@ -38,6 +44,34 @@
 			      	로그인</button>
 			    </div>
 			 </div>
+			 <a id="kakao-login-btn"></a>
+<script type="text/javascript">
+  Kakao.Auth.createLoginButton({
+    container: '#kakao-login-btn',
+    success: function(authObj) {
+      Kakao.API.request({
+        url: '/v2/user/me',
+        success: function(res) {
+          const json = JSON.stringify(res);
+          const obj = JSON.parse(json);
+          $.post("./kakaoLogin",{id:obj.id},function(data){
+        	 
+          })
+          location.href="../"
+        },
+        fail: function(error) {
+          alert(
+            'login success, but failed to request user information: ' +
+              JSON.stringify(error)
+          )
+        },
+      })
+    },
+    fail: function(err) {
+      alert('failed to login: ' + JSON.stringify(err))
+    },
+  })
+</script>
 
 		  </form>
 	  </div>
