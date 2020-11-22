@@ -60,7 +60,7 @@ public class StorePayService {
 	
 	public long setOrderList(OrderListDTO orderListDTO, PayInfoDTO payInfoDTO, long [] detailNum, long [] detailAmount, long usePoint, long addPoint) throws Exception{
 		
-		String payMethod = payInfoDTO.getPayMethod();
+		String payMethod = payInfoDTO.getPayMethod().trim();
 		String id =  orderListDTO.getOrderId();
 		
 		int result =  storePayDAO.setOrderList(orderListDTO);

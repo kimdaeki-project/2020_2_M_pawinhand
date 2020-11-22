@@ -420,7 +420,7 @@
 					<td rowspan="2" class = "tdtd">결제</td>
 					<td class="tdPaySel">
 						<input type="radio" name="paySel" value="1" class="paySel">무통장 입금
-						<input type="radio" name="paySel" value="2" class="paySel">신용카드/네이버페이/카카오페이
+						<input type="radio" name="paySel" value="2" class="paySel">신용카드/카카오페이/네이버페이
 						<input type="radio" name="paySel" value="5" class="paySel">휴대폰결제 <br>
 						
 						<div id="realAccountDiv">
