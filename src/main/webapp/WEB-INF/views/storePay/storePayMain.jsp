@@ -220,6 +220,15 @@
 		color: black;
 		font-size: 16px;
 	}
+	#zipBtn{
+		background-color: #FFF8DC;
+		font-size: 15px;
+		border: 1px solid;
+		border-radius: 5px;
+	}
+	#chDiv{
+		font-size: 17px;
+	}
 </style>
 </head>
 <body>
@@ -343,7 +352,7 @@
 				<td class="driveTd">* 받으실 곳</td>
 				<td class="driveTd2"> <!-- toAddess로 합쳐야됨 -->
 					<input type="text" id="sample6_postcode" placeholder="우편번호" name="toZipcode">
-					<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+					<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="zipBtn"><br>
 					<input type="text" id="sample6_address" placeholder="주소"><br>
 					<input type="text" id="sample6_detailAddress" placeholder="상세주소"><br>
 					<input type="text" id="sample6_extraAddress" placeholder="참고항목">
@@ -420,8 +429,8 @@
 					<td rowspan="2" class = "tdtd">결제</td>
 					<td class="tdPaySel">
 						<input type="radio" name="paySel" value="1" class="paySel">무통장 입금
-						<input type="radio" name="paySel" value="2" class="paySel">신용카드/네이버페이/카카오페이
-						<input type="radio" name="paySel" value="5" class="paySel">휴대폰결제 <br>
+						<input type="radio" name="paySel" value="2" class="paySel">신용카드/카카오페이/네이버페이
+						<input type="radio" name="paySel" value="3" class="paySel">휴대폰결제 <br>
 						
 						<div id="realAccountDiv">
 							
