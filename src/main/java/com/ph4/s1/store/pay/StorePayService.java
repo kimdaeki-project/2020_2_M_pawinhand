@@ -87,6 +87,7 @@ public class StorePayService {
 			System.out.println("오더 디테일 셋팅 결과:"+r);
 		}
 		
+		System.out.println(payMethod);
 		
 		//payMethod가 신용카드로 잘 넘어온것은, 이미 결제가 완료되었다는 뜻임!!!
 		//결제된애만 포인트, 재고 작업해주기
