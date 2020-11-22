@@ -85,7 +85,9 @@ public class StorePayController {
 		orderListDTO = storePayService.getOrderList(orderListDTO);
 		PayInfoDTO payInfoDTO = storePayService.getPayInfo(orderListDTO);
 		List<OrderDetailDTO> ar = storePayService.getOrderDetail(orderListDTO);
+		DepositInfoDTO depositInfoDTO2 = storePayService.getDepositInfo(orderListDTO);
 		
+		mv.addObject("deposit", depositInfoDTO2);
 		mv.addObject("ar", ar);
 		mv.addObject("pay", payInfoDTO);
 		mv.addObject("list", orderListDTO);
@@ -94,14 +96,14 @@ public class StorePayController {
 	}
 	
 	@PostMapping("setOrderList")
-	public ModelAndView setOrderList(OrderListDTO orderListDTO, PayInfoDTO payInfoDTO, long [] detailNum, long [] detailAmount ,long usePoint, long addPoint) throws Exception{
+	public ModelAndView setOrderList(OrderListDTO orderListDTO, PayInfoDTO payInfoDTO, DepositInfoDTO depositInfoDTO,long [] detailNum, long [] detailAmount ,long usePoint, long addPoint) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		System.out.println("사용포인트:"+usePoint);
+		System.out.println("입금자명:"+depositInfoDTO.getDepositName());
 		
 		//return 값은 order_num 임
-		long result = storePayService.setOrderList(orderListDTO,payInfoDTO, detailNum, detailAmount,usePoint, addPoint);
-
+		long result = storePayService.setOrderList(orderListDTO,payInfoDTO, depositInfoDTO,detailNum, detailAmount,usePoint, addPoint);
 		
 		System.out.println("order_num="+result);
 		

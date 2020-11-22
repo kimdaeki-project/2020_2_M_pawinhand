@@ -122,7 +122,7 @@
 				<td class="td2">
 					${pay.payMethod}<br>
 					결제금액 : ${pay.totalPrice}<br>
-					결제상태 : <span id="isPaySpan"></span>
+					결제상태 : <span id="isPaySpan">
 					<c:choose>
 						<c:when test="${pay.isPay eq 1}">
 							결제완료
@@ -131,6 +131,7 @@
 							결제 대기중
 						</c:otherwise>
 					</c:choose>
+					</span>
 				</td>
 			</tr>
 			<tr>
@@ -193,15 +194,6 @@
 </div>
 
 <script type="text/javascript">
-
-	//결제여부
-	$("#isPaySpan").html(function() {
-		if($("#isPay").val()==0){
-			$(this).html("결제 대기중");
-		}else{
-			$(this).html("결제완료");
-		}
-	});
 	
 	//상품합계금액 계산
 	var sum=0;
