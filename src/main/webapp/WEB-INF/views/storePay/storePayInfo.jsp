@@ -123,7 +123,14 @@
 					${pay.payMethod}<br>
 					결제금액 : ${pay.totalPrice}<br>
 					결제상태 : <span id="isPaySpan"></span>
-					<input type="hidden" id="isPay" value="${pay.isPay}">
+					<c:choose>
+						<c:when test="${pay.isPay eq 1}">
+							결제완료
+						</c:when>
+						<c:otherwise>
+							결제 대기중
+						</c:otherwise>
+					</c:choose>
 				</td>
 			</tr>
 			<tr>

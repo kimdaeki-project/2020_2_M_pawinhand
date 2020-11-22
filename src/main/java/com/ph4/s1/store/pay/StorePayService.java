@@ -90,7 +90,7 @@ public class StorePayService {
 		
 		//payMethod가 신용카드로 잘 넘어온것은, 이미 결제가 완료되었다는 뜻임!!!
 		//결제된애만 포인트, 재고 작업해주기
-		if(payMethod.equals("신용카드")) {
+		if(payMethod.equals("신용카드/카카오페이/네이버페이")) {
 			payInfoDTO.setIsPay(1);
 			storePayService.setUsePoints(usePoint,id);
 			storePayService.setAddPoints(addPoint, id);
