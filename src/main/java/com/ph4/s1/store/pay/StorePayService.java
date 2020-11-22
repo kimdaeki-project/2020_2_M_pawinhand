@@ -58,27 +58,52 @@ public class StorePayService {
 		return productDTO;
 	} 
 	
-	public int setOrderList(OrderListDTO orderListDTO, PayInfoDTO payInfoDTO, long usePoint, long addPoint) throws Exception{
+	public long setOrderList(OrderListDTO orderListDTO, PayInfoDTO payInfoDTO, long [] detailNum, long [] detailAmount, long usePoint, long addPoint) throws Exception{
 		
 		String payMethod = payInfoDTO.getPayMethod();
 		String id =  orderListDTO.getOrderId();
 		
 		int result =  storePayDAO.setOrderList(orderListDTO);
+		long num = orderListDTO.getOrder_num();
 		
 		payInfoDTO.setOrder_num(orderListDTO.getOrder_num());
 		
+		
+		//orderDetail에 넣는 작업
+		for(int i=0; i<detailNum.length; i++) {
+			ProductDTO dto = new ProductDTO();
+			dto.setProduct_num(detailNum[i]);
+			dto = storePayDAO.getOrderProduct(dto);
+			
+			OrderDetailDTO orderDetailDTO = new OrderDetailDTO();
+			orderDetailDTO.setId(id);
+			orderDetailDTO.setOrder_num(orderListDTO.getOrder_num());
+			orderDetailDTO.setProduct_num(dto.getProduct_num());
+			orderDetailDTO.setName(dto.getName());
+			orderDetailDTO.setAmount(detailAmount[i]);
+			orderDetailDTO.setPtotal(dto.getPrice()*detailAmount[i]);
+			
+			int r = storePayDAO.setOrderDetail(orderDetailDTO);
+			System.out.println("오더 디테일 셋팅 결과:"+r);
+		}
+		
+		
 		//payMethod가 신용카드로 잘 넘어온것은, 이미 결제가 완료되었다는 뜻임!!!
+		//결제된애만 포인트, 재고 작업해주기
 		if(payMethod.equals("신용카드")) {
 			payInfoDTO.setIsPay(1);
 			storePayService.setUsePoints(usePoint,id);
 			storePayService.setAddPoints(addPoint, id);
-			//storePayService.setProductStock();
+			storePayService.setProductStock(detailNum, detailAmount);
+			
 		}
 		
 		int payInfoResult = storePayDAO.setPayInfo(payInfoDTO);
 		
 		System.out.println("결제정보 들어갔는지 : "+payInfoResult);
-		return result;
+		
+		//orderList의 order_num을 return 해줌!!!!
+		return num;
 	}
 	
 	//사용 포인트 빼기
@@ -118,13 +143,33 @@ public class StorePayService {
 	}
 	
 	//결제 완료되면 재고에서 빼기
-	public void setProductStock(ProductDTO productDTO) throws Exception{
-		long amount = productDTO.getAmount();
-		productDTO.setStock(productDTO.getStock() - amount);
+	public void setProductStock(long [] detailNum, long [] detailAmount) throws Exception{
 		
-		int result = storePayDAO.setProductStock(productDTO);
-		System.out.println("재고수정 결과 : "+result);
+		for(int i =0; i<detailNum.length; i++) {
+			ProductDTO productDTO = new ProductDTO();
+			productDTO.setProduct_num(detailNum[i]);
+			productDTO = storePayDAO.getOrderProduct(productDTO);
+			
+			long amount = detailAmount[i];
+			productDTO.setStock(productDTO.getStock() - amount);
+
+			int result = storePayDAO.setProductStock(productDTO);
+			System.out.println("재고수정 결과 : "+result);
+		}
+		
 	}
+	
+	public OrderListDTO getOrderList(OrderListDTO orderListDTO) throws Exception{
+		return storePayDAO.getOrderList(orderListDTO);
+	}
+	public PayInfoDTO getPayInfo(OrderListDTO orderListDTO) throws Exception{
+		return storePayDAO.getPayInfo(orderListDTO);
+	}
+	
+	public List<OrderDetailDTO> getOrderDetail(OrderListDTO orderListDTO) throws Exception{
+		return storePayDAO.getOrderDetail(orderListDTO);
+	}
+	
 	
 
 }

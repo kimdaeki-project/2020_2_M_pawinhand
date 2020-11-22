@@ -51,4 +51,19 @@ public class StorePayDAO {
 	public int setProductStock(ProductDTO productDTO) throws Exception{
 		return sqlSession.update(NAMESPACE+"setProductStock", productDTO);
 	}
+	
+	public int setOrderDetail(OrderDetailDTO orderDetailDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"setOrderDetail", orderDetailDTO);
+	}
+	
+	public OrderListDTO getOrderList(OrderListDTO orderListDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getOrderList", orderListDTO);
+	}
+	public PayInfoDTO getPayInfo(OrderListDTO orderListDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getPayInfo", orderListDTO);
+	}
+	
+	public List<OrderDetailDTO> getOrderDetail(OrderListDTO orderListDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getOrderDetail", orderListDTO);
+	}
 }
