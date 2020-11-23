@@ -13,10 +13,12 @@
 .cal_top {
 	text-align: center;
 	font-size: 17px;
+	font-weight: bold;
 }
 
 .cal {
 	text-align: center;
+	font-weight: bold;
 }
 
 table.calendar {
@@ -53,6 +55,7 @@ table.calendar td {
 	margin-bottom: 2px;
 	background-color: #FFEBCD;
 	color: #2F4F4F;
+	font-weight: bold;
 }
 .topCon{
 	font-size: 13px;
@@ -77,6 +80,7 @@ table.calendar td {
 	font-size: 11px;
 	border-radius: 5px;
 	padding: 5px;
+	font-weight: bold;
 }
 </style>
 </head>

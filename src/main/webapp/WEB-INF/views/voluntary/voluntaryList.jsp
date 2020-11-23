@@ -71,7 +71,7 @@
 
 .volUl li #volDiv2 {
 	float: left;
-	width: 400px;
+	width: 500px;
 	height: 120px;
 	margin-left: 20px;
 	text-align: left;
@@ -88,7 +88,7 @@
 	float: left;
 	width: 100px;
 	height: 120px;
-	margin-left: 320px;
+	margin-left: 220px;
 	margin-top: 15px;
 }
 

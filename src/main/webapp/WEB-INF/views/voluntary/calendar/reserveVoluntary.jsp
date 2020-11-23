@@ -17,11 +17,14 @@
 	.resDiv1{
 		width: 600px;
 		text-align :center;
-		font-size: 20px;
+		font-size: 22px;
+		font-weight: bold;
+		margin-bottom: 15px;
 		
 	}
 	.form-group{
-		font-size: 15px;
+		font-size: 16px;
+		font-weight: bold;
 	}
 	
 	.btnDiv{
@@ -30,15 +33,16 @@
 	}
 	
 	#btn{
-		width: 70px;
+		width: 80px;
 		background-color: #FFE4B5;
 		border: 2px solid #FFE4B5;
-		font-size: 13px;
+		font-size: 15px;
 		border-radius: 5px;
 		padding: 5px;
+		font-weight: bold;
 	}
 	.form-control{
-		
+		width: 500px;
 	}
 </style>
 </head>

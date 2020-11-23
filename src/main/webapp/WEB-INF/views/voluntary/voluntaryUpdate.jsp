@@ -12,31 +12,32 @@
 
 .volUpContainer{
 	margin : 50px auto 50px;
-	width :800px;
+	width :1000px;
 	height: 1000px;
 }
 
 .form-group{
-	font-size: 15px;
+	font-size: 18px;
 }
 .btnDiv{
 	margin-top : 20px;
-	width: 800px;
+	width: 1000px;
 	height: auto;
 	text-align: right;
 }
 
 .btnDiv > #update{
-	width: 80px;
+	width: 100px;
 	background-color: #FFE4B5;
 	border: 2px solid #FFE4B5;
-	font-size: 13px;
+	font-size: 15px;
 	border-radius: 5px;
 	padding: 5px;
+	font-weight: bold;
 }
 
 .form-group > textarea{
-	width: 800px;
+	width: 1000px;
 	height : 200px;
 }
 
@@ -49,6 +50,7 @@
 	border-radius: 5px;
 	padding: 5px;
 	margin-bottom: 10px;
+	font-weight: bold;
 }
 
 .del{
@@ -121,7 +123,16 @@
 #hiddenName{
 	display: none;
 }
-
+.volUpHeader{
+		width: 1000px;
+		height: 70px;
+		border-bottom: 1px solid #DCDCDC;
+		font-size: 30px;
+		margin-bottom: 50px;
+	}
+.form-control{
+	width: 920px;
+}
 </style>
 
 </head>
@@ -129,6 +140,10 @@
 <c:import url="../template/header.jsp"></c:import>
 
 <div class="volUpContainer">
+	<div class="volUpHeader">
+			이동 봉사 글 수정하기
+		</div>
+
 	<form action="./voluntaryUpdate" method="post"  enctype="multipart/form-data">
 		
 		<input type="hidden" class="form-control" name="num" value="${dto.num}">
