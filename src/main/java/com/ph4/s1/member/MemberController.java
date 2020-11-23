@@ -1,6 +1,6 @@
 package com.ph4.s1.member;
 
-import java.util.List;
+import java.lang.reflect.Member;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ph4.s1.member.MemberDTO;
+import com.ph4.s1.board.shelter.ShelterDTO;
 
 
 @Controller
@@ -20,8 +21,6 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
-
-
 	
 	
 	@GetMapping("memberPage")
@@ -205,24 +204,41 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 	
 		int result = memberService.setMemberUpdate(memberDTO);
-		msg = "정보 변경 실패";
-		
+	
 		if(result>0) {
 			msg = "회원 정보가 수정되었습니다.";
 			mv.setViewName("common/result");
 			mv.addObject("msg", msg);
-			mv.addObject("path", "./memberPage?id="+memberDTO.getId());
-			
+			mv.addObject("path", "../");
+		}else {
+		
 		}
-
 		return mv;
 	}
 	
+	@PostMapping("kakaoLogin")
+		public ModelAndView kakaoLogin(MemberDTO memberDTO, HttpSession httpSession){
+			ModelAndView mv = new ModelAndView();
+			String id = "kakao_"+memberDTO.getId();
+			memberDTO.setId(id);
+			httpSession.setAttribute("member", memberDTO);
+			return mv;
+		}
 	
-
-//----------------------------------------------------------------------------------------------------------	
+	@GetMapping("naverLogin")
+	public ModelAndView naverLogin() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/member/memberLoginNaver");
+		return mv;
+	}
 	
-
-	
+	@PostMapping("naverLogin")
+	public ModelAndView naverLogin(HttpSession session, MemberDTO memberDTO) {
+		ModelAndView mv = new ModelAndView();
+		String id = "naver_"+memberDTO.getId();
+		memberDTO.setId(id);
+		session.setAttribute("member", memberDTO);
+		return mv;
+	}
 	
 }

@@ -40,7 +40,7 @@
     
     <div class="form-group">
       <label for="writer">작성자:</label>
-      <input type="text" class="form-control"  value="${member.id}" id="writer" name="writer">
+      <input type="text" class="form-control"  value="${member.id}" id="writer" name="writer" readonly="readonly">
     </div> 
     
      <div class="form-group">

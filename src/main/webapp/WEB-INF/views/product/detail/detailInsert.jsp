@@ -46,7 +46,7 @@
 	</div>
 	<form action="./productDetailInsert" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="product_num" value="${dto.product_num}">
-	<input type="hidden" name="id" value="wlgns">
+	<input type="hidden" name="id" value="admin">
 	<div style="padding: 30px 30px">
 		<input type="button" value="FileAdd" id="fileAdd" class="btn btn-info">
 

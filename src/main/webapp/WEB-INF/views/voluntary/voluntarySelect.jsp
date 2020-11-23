@@ -86,25 +86,26 @@
 	height: auto;
 	text-align: right;
 	margin-bottom: 10px;
-	
+
 	
 }
 #btnDiv > .btn {
 	width: 60px;
 	background-color: #FFE4B5;
 	border: 2px solid #FFE4B5;
-	font-size: 11px;
+	font-size: 13px;
 	border-radius: 5px;
 	padding: 5px;
 }
 #btnDiv > .btn1 {
-	width: 110px;
-	background-color: #FFE4B5;
-	border: 2px solid #FFE4B5;
-	font-size: 11px;
+	width: 118px;
+	background-color: #FF6347;
+	border: 2px solid #FF6347;
+	font-size: 13px;
 	border-radius: 5px;
 	padding: 5px;
 	font-weight: bold;
+	color: white;
 }
 </style>
 </head>

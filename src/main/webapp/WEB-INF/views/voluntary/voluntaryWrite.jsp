@@ -11,31 +11,33 @@
 
 .volWrContainer{
 	margin : 50px auto 50px;
-	width :800px;
+	width :1000px;
 	height: 1000px;
 }
 
 .form-group{
-	font-size: 15px;
+	font-size: 18px;
 }
 .btnDiv{
 	margin-top : 20px;
-	width: 800px;
+	width: 1000px;
 	height: auto;
 	text-align: right;
+	
 }
 
 .btnDiv > #btn{
-	width: 80px;
+	width: 100px;
 	background-color: #FFE4B5;
 	border: 2px solid #FFE4B5;
-	font-size: 13px;
+	font-size: 15px;
 	border-radius: 5px;
 	padding: 5px;
+	font-weight: bold;
 }
 
 .form-group > textarea{
-	width: 800px;
+	width: 1000px;
 	height : 200px;
 }
 #fileAdd{
@@ -46,6 +48,7 @@
 	border-radius: 5px;
 	padding: 5px;
 	margin-bottom: 10px;
+	font-weight: bold;
 }
 
 .del{
@@ -74,12 +77,25 @@
       display:none;
    }
 
+.form-control{
+	width: 920px;
+}
+.volWriteHeader{
+		width: 1000px;
+		height: 70px;
+		border-bottom: 1px solid #DCDCDC;
+		font-size: 30px;
+		margin-bottom: 50px;
+	}
 </style>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
 <div class="volWrContainer">
+	<div class="volWriteHeader">
+			이동 봉사 글쓰기
+		</div>
 	<form method="post" action="./voluntaryWrite" enctype="multipart/form-data">
 		<div class="form-group">
 			제목  <input type="text" class="form-control" name="title">

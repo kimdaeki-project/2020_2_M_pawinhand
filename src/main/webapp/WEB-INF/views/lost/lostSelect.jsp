@@ -169,11 +169,11 @@
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-       <img src="../resources/upload/lost/${files[0].fileName}" style="width:100%;">
+       <img src="../resources/img/upload/lost/${files[0].fileName}" style="width:100%;">
     </div>
     <c:forEach items="${files}" var="file">
 	  	<div class="carousel-item">
-        	<img src="../resources/upload/lost/${file.fileName}" style="width:100%;">
+        	<img src="../resources/img/upload/lost/${file.fileName}" style="width:100%;">
       	</div>
 	 </c:forEach>
   </div>
@@ -257,7 +257,7 @@
 	<form action="../lostReply/lostReplyInsert" method="post">
 	  <input placeholder="댓글을 입력하세요" class="replyText" type="text" name="contents">
 	  <input type="hidden" value="${dto.num}" name="lostNum">
-	  <input type="hidden" value="${dto.id}" name="id">
+	  <input type="hidden" value="${member.id}" name="id">
 	  <button class="btn btn-warning">댓글</button>
 	</form>
 	
@@ -284,7 +284,7 @@
 	    
 	    $("#result").on("click", ".reply", function(){
 	    	var num = $(this).attr("title");
-	    	$("#reply"+num).html("<form action='../lostReply/reply' method='get'><h3 class='replyId'>${dto.id}</h3><input type='hidden' value="+num+" name='num'><input type='hidden' value='${dto.id}' name='id'><input type='text' placeholder='답글을 입력하세요' class='replyText' name='contents'><button class='replybtns'>등록</button></form>");
+	    	$("#reply"+num).html("<form action='../lostReply/reply' method='get'><h3 class='replyId'>${member.id}</h3><input type='hidden' value="+num+" name='num'><input type='hidden' value='${member.id}' name='id'><input type='text' placeholder='답글을 입력하세요' class='replyText' name='contents'><button class='replybtns'>등록</button></form>");
 	    	$("#reply"+num).addClass("replyTextTable");
 	    });
 	    
