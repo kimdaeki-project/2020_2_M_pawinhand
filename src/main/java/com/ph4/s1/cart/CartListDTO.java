@@ -5,29 +5,50 @@ import org.springframework.stereotype.Component;
 import com.ph4.s1.store.product.ProductDTO;
 
 @Component
-public class CartVO {
+public class CartListDTO {
 
 	private String id;
 	private long cartNum;
 	private long product_num;
 	private long amount;
 	private long totalPrice;
-	private ProductDTO productDTO;
 	
-	//자바스크립트에서 쓸 변수
-	private double points;
+	private long price;
+	private String name;
+	private String color;
+	private String weight;
+	private String fileName;
+
 	
-	public double getPoints() {
-		return points;
+	public long getPrice() {
+		return price;
 	}
-	public void setPoints(double points) {
-		this.points = points;
+	public void setPrice(long price) {
+		this.price = price;
 	}
-	public ProductDTO getProductDTO() {
-		return this.productDTO;
+	public String getName() {
+		return name;
 	}
-	public void setProductDTO(ProductDTO productDTO) {
-		this.productDTO = productDTO;
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public String getWeight() {
+		return weight;
+	}
+	public void setWeight(String weight) {
+		this.weight = weight;
+	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 	public String getId() {
 		return id;
