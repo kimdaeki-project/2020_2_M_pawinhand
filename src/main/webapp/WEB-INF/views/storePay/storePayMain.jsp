@@ -458,7 +458,7 @@
 	<input type="hidden" class="finalPrice" name="total">
 	<input type="hidden" name="isPay" value="0">
 	<input type="hidden" id="addPoint" name="addPoint" value="0">
-	
+	<input type="hidden" name="depositAccount" id="depositAccount" value="sh">
 	<div id="odDiv1">
 	</div>
 	<div id="odDiv2">
@@ -472,8 +472,8 @@
 <div id="accountDiv">
 		<hr>
 		(무통장 입금의 경우, 입금확인 후부터 배송단계가 시작됩니다.)<br>
-		입금자명     <input type="text" id="payName"><br>
-		입금은행     <select name="bank">
+		입금자명     <input type="text" id="payName" name="depositName"><br>
+		입금은행     <select id="bank">
 					<option value="sh">신한은행 140012049753 (주)포인핸드</option>
 					<option value="kb">국민은행 260894599649 (주)포인핸드</option>
 				</select>
@@ -657,6 +657,11 @@
 		$("#payMethod").val(payMethod);
 	});
 	
+	//무통장 입금시 post보낼 val값 설정
+	$(document).on("change","#bank" ,function(){
+		
+		$("#depositAccount").val($(this).val());
+	});
 	
 	//submit시 발생
 	function sub() {

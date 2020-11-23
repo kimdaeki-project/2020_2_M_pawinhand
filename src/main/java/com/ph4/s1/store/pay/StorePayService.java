@@ -58,7 +58,7 @@ public class StorePayService {
 		return productDTO;
 	} 
 	
-	public long setOrderList(OrderListDTO orderListDTO, PayInfoDTO payInfoDTO, long [] detailNum, long [] detailAmount, long usePoint, long addPoint) throws Exception{
+	public long setOrderList(OrderListDTO orderListDTO, PayInfoDTO payInfoDTO, DepositInfoDTO depositInfoDTO,long [] detailNum, long [] detailAmount, long usePoint, long addPoint) throws Exception{
 		
 		String payMethod = payInfoDTO.getPayMethod().trim();
 		String id =  orderListDTO.getOrderId();
@@ -68,6 +68,12 @@ public class StorePayService {
 		
 		payInfoDTO.setOrder_num(orderListDTO.getOrder_num());
 		
+		//무통장 입금시 디비 넣기
+		if(depositInfoDTO.getDepositName()!= null) {
+			depositInfoDTO.setOrder_num(orderListDTO.getOrder_num());
+			int e = storePayService.setDepositInfo(depositInfoDTO);
+			System.out.println(e);
+		}
 		
 		//orderDetail에 넣는 작업
 		for(int i=0; i<detailNum.length; i++) {
@@ -171,6 +177,11 @@ public class StorePayService {
 		return storePayDAO.getOrderDetail(orderListDTO);
 	}
 	
-	
+	public int setDepositInfo(DepositInfoDTO depositInfoDTO) throws Exception{
+		return storePayDAO.setDepositInfo(depositInfoDTO);
+	}
+	public DepositInfoDTO getDepositInfo(OrderListDTO orderListDTO) throws Exception{
+		return storePayDAO.getDepositInfo(orderListDTO);
+	}
 
 }

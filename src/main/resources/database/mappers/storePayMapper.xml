@@ -5,12 +5,6 @@
  
  
 <mapper namespace="com.ph4.s1.store.pay.StorePayDAO">
-
-   
-   	<select id="getMember" parameterType="CartDTO" resultType="MemberDTO">
-   		select * from member where id = #{id}
-   	</select>
- 	
  	
  	<!-- 상품은 그냥 상품 id랑 수량으로 가져오기 -->
    	<select id="getOrderProduct" parameterType="ProductDTO" resultType="ProductDTO">
@@ -86,4 +80,12 @@
 		inner join product p on o.product_num = p.product_num
 		where order_num = #{order_num}
  	</select>
+
+	<insert id="setDepositInfo" parameterType="DepositInfoDTO">
+		insert into depositInfo values (#{order_num}, #{depositName}, #{depositAccount})
+	</insert>
+	
+	<select id="getDepositInfo" parameterType="OrderListDTO" resultType="DepositInfoDTO">
+		select * from depositInfo where order_num=#{order_num}
+	</select>
 </mapper>

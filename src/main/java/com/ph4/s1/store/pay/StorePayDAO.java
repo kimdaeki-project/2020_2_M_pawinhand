@@ -66,4 +66,12 @@ public class StorePayDAO {
 	public List<OrderDetailDTO> getOrderDetail(OrderListDTO orderListDTO) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getOrderDetail", orderListDTO);
 	}
+	
+	public int setDepositInfo(DepositInfoDTO depositInfoDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"setDepositInfo", depositInfoDTO);
+	}
+	
+	public DepositInfoDTO getDepositInfo(OrderListDTO orderListDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getDepositInfo", orderListDTO);
+	} 
 }
