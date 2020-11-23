@@ -64,13 +64,18 @@
 				  			<button class="cart-update" formaction="../cart/cartUpdate?cartNum=${dto.cartNum}" formmethod="post">수정</button>
 				  			</td>
 				  		</tr>
+				  		<input type="hidden" name="id" value="${dto.id}"/>
 				  		<input type="hidden" name="cartNum" value="${dto.cartNum}"/>
-				  		<input type="hidden" name="producNum" value="${dto.product_num}"/>
+				  		<input type="hidden" name="produc_num" value="${dto.product_num}"/>
 				  		<input type="hidden" value="${dto.price}" name="price" id="price" />
 				  		<input type="hidden" value="${dto.totalPrice}" name="totalPrice" id="totalPrice" />
 				  		</c:forEach>
+				  		
 				  	</table>
+				  	<button formaction="../storePay/storePayMain" formmethod="post">주문하기</button>
 				  	</form>
+				  	
+				  	
 					</c:otherwise>
 					</c:choose>
 				</div>
@@ -97,7 +102,7 @@
 						<h3 class="point"></h3>
 				</div>
 				
-				<button formaction="../storePay/storePayMain" formmethod="post">주문하기</button>
+				
 			</div>
 		</div>
 	</div>
