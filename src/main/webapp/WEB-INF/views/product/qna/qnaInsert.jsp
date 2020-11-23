@@ -46,7 +46,7 @@
 	</div>
 	<form action="./productQnaInsert" method="post">
 	<input type="hidden" name="product_num" value="${dto.product_num}">
-	<input type="hidden" name="id" value="wlgns">
+	<input type="hidden" name="id" value="${member.id}">
 	<div style="padding: 30px 30px">
 		<div style="padding: 5px 18px; border: 1px solid #cfcfcf; margin-bottom: 20px">
 			<textarea  name="title" class="insertTitle" placeholder="제목을 입력하세요" maxlength="100"></textarea>

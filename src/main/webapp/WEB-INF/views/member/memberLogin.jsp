@@ -20,24 +20,23 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
-<div class="container" id="login-container">
-	<div class="row" id="login_title">
-		<h2>로그인</h2>
-		<div class="col-12 member-Login">
+<div style="min-width: 900px" class="container" id="login-container">
+	<div style="margin: 100px auto 0px;padding: 30px" class="row" id="login_title">
+		<div style="margin: 0px auto" class="col-12 member-Login">
 		<h5>회원 로그인</h5>
 			<form action="./memberLogin" method="post">
 			<div id="login-d1">
 				<div id="login-d2">
 			    <div class="member-form login-input">
-			      <label for="id" class="login-label">ID </label>
-			      <input type="text" class="form-control login-input1" placeholder="Enter ID" id="id" name="id">
+			      <label for="id" class="login-label">아이디 </label>
+			      <input type="text" class="form-control login-input1" placeholder="아이디를 입력하세요" id="id" name="id">
 			    </div>
 			    <div class="member-form login-input">
-			      <label for="pw" class="login-label">Password </label>
-			      <input type="password" class="form-control login-input1" placeholder="Enter password" id="pw" name="pw">
+			      <label for="pw" class="login-label">비밀번호 </label>
+			      <input type="password" class="form-control login-input1" placeholder="비밀번호를 입력하세요" id="pw" name="pw">
 			    </div>
 			    <div class="checkbox member-form" id="login-remember">
-			      <label><input type="checkbox" name="remember" value="check" > Remember me</label>
+			      <label><input type="checkbox" name="remember" value="check" > 아이디 저장</label>
 				</div>
 			 </div>
 				 <div>
@@ -46,8 +45,10 @@
 			    </div>
 			 </div>
 		  </form>
-		  <a id="kakao-login-btn"></a>
-		  <div style="display: inline-block;height: 49px;margin-left: 5px" id="naverIdLogin"></div>
+		  <div style="margin: 0px auto;width: 500px;height: 49px;">
+			  <a style="float: left;" id="kakao-login-btn"></a>
+			  <div style="float:left; inline-block;height: 49px;margin-left: 20px" id="naverIdLogin"></div>
+		  </div>
 <script type="text/javascript">
 	var naverLogin = new naver.LoginWithNaverId(
 		{

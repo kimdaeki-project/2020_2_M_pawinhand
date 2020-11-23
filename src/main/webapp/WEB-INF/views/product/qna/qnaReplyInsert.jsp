@@ -46,7 +46,7 @@
 	</div>
 	<form action="./productQnaReplyInsert" method="post">
 	<input type="hidden" name="qna_num" value="${dto.qna_num}">
-	<input type="hidden" name="id" value="wlgns">
+	<input type="hidden" name="id" value="admin">
 	<div style="padding: 30px 30px">
 		<div style="padding: 18px 18px;margin-bottom: 70px;border: 1px solid #cfcfcf">
 			<textarea name="contents" class="insertText" placeholder="답글을 입력하세요." maxlength="1000"></textarea>
