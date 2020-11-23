@@ -66,7 +66,7 @@
 				  		</tr>
 				  		<input type="hidden" name="id" value="${dto.id}"/>
 				  		<input type="hidden" name="cartNum" value="${dto.cartNum}"/>
-				  		<input type="hidden" name="produc_num" value="${dto.product_num}"/>
+				  		<input type="hidden" name="product_num" value="${dto.product_num}"/>
 				  		<input type="hidden" value="${dto.price}" name="price" id="price" />
 				  		<input type="hidden" value="${dto.totalPrice}" name="totalPrice" id="totalPrice" />
 				  		</c:forEach>

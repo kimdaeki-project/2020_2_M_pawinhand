@@ -18,8 +18,8 @@
    </select>
 
    <insert id="setMemberJoin" parameterType="MemberDTO">
-         insert into member values(#{id}, #{pw}, #{name}, #{email}, #{phone}, 
-         #{zipCode}, #{address}, #{detailAddress}, #{extraAddress})
+         insert into member values(#{id}, #{pw}, #{name}, #{email}, #{phone}, 0,
+         #{zipCode}, #{address}, #{detailAddress}, #{extraAddress}, #{member_type})
    </insert>
    
    <delete id="setMemberDelete" parameterType="MemberDTO">
