@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.ph4.s1.store.product.productQnaReply.ProductQnaReplyDTO;
 import com.ph4.s1.store.product.reviewFile.ReviewFileDAO;
 import com.ph4.s1.store.product.reviewFile.ReviewFileDTO;
 import com.ph4.s1.util.FileSaver;
+import com.ph4.s1.util.Pager;
 
 @Service
 public class ProductReviewService {
@@ -62,5 +64,26 @@ public class ProductReviewService {
 	
 	public int setDelete(ProductReviewDTO productReviewDTO) {
 		return productReviewDAO.setDelete(productReviewDTO);
+	}
+	
+	
+	//------------------admin-----------------------------------------------------------
+	
+	public List<ProductReviewDTO> getReviewList_admin(Pager pager) throws Exception{
+		pager.makeRow();
+		pager.setTotalCount(productReviewDAO.getCount_admin(pager));
+		pager.makePage();
+		List<ProductReviewDTO> ar = productReviewDAO.getReviewList_admin(pager);
+		for(ProductReviewDTO dto : ar) {
+			ReviewFileDTO reviewFileDTO = reviewFileDAO.getFile(dto);
+			if(reviewFileDTO != null) {
+				dto.setFileName(reviewFileDTO.getFileName());
+			}
+		}
+		return ar;
+	}
+	
+	public ProductReviewDTO getReviewOne_admin(ProductReviewDTO productReviewDTO) throws Exception{
+		return productReviewDAO.getReviewOne_admin(productReviewDTO);
 	}
 }

@@ -1,5 +1,7 @@
 package com.ph4.s1.store.product.review;
 
+import com.ph4.s1.store.product.ProductDTO;
+
 public class ProductReviewDTO {
 	
 	private long review_num;
@@ -9,6 +11,15 @@ public class ProductReviewDTO {
 	private String contents;
 	private String fileName;
 	
+	private ProductDTO productDTO;
+	
+	
+	public ProductDTO getProductDTO() {
+		return productDTO;
+	}
+	public void setProductDTO(ProductDTO productDTO) {
+		this.productDTO = productDTO;
+	}
 	
 	
 	public String getFileName() {

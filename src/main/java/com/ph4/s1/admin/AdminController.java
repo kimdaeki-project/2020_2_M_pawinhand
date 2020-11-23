@@ -16,7 +16,8 @@ import com.ph4.s1.store.product.ProductPager;
 import com.ph4.s1.store.product.ProductService;
 import com.ph4.s1.store.product.productQna.ProductQnaDTO;
 import com.ph4.s1.store.product.productQna.ProductQnaService;
-import com.ph4.s1.store.product.productQna.QnaPager;
+import com.ph4.s1.store.product.review.ProductReviewDTO;
+import com.ph4.s1.store.product.review.ProductReviewService;
 import com.ph4.s1.util.Pager;
 
 
@@ -30,6 +31,8 @@ public class AdminController {
 	private MemberService memberService;
 	@Autowired
 	private ProductQnaService productQnaService;
+	@Autowired
+	private ProductReviewService productReviewService;
 	
 	
 	@GetMapping("adminPage")
@@ -43,6 +46,36 @@ public class AdminController {
 		
 		return mv;
 	}
+	
+	
+	@GetMapping("admin_stockUpdate")
+	public ModelAndView setUpdate_admin(ProductDTO productDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		productDTO = productService.getOne(productDTO);
+		
+		mv.addObject("updto", productDTO);
+		mv.setViewName("admin/admin_stockUpdate");
+		
+		return mv;
+	}
+	
+	@PostMapping("admin_stockUpdate")
+	public ModelAndView setUpdate_admin(ProductDTO productDTO, String msg) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = productService.setUpdate_admin(productDTO);
+		msg = "수정 실패";
+		
+		if(result>0) {
+			msg="수정 완료";
+		}
+		
+		mv.addObject("msg", msg);
+		mv.addObject("path", "./admin_stockUpdate?product_num="+productDTO.getProduct_num());
+		mv.setViewName("common/result");
+		
+		return mv;
+	}
+	
 	
 	
 //--------------------------------------------------------------------------------------------
@@ -60,7 +93,6 @@ public class AdminController {
 		return mv;
 	}
 	
-//--------------------------------------------------------------------------------------------	
 	
 	
 	@GetMapping("admin_memberSelect")
@@ -74,7 +106,6 @@ public class AdminController {
 }
 	
 	
-//--------------------------------------------------------------------------------------------
 	
 	@GetMapping("admin_memberUpdate")
 	public ModelAndView setMemberUpdate_admin() throws Exception{
@@ -104,35 +135,42 @@ public class AdminController {
 //--------------------------------------------------------------------------------------------	
 	
 	@GetMapping("admin_qnaList")
-	public ModelAndView getList(QnaPager qnaPager) {
+	public ModelAndView getList_admin(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		List<ProductQnaDTO> ar = productQnaService.getList(qnaPager);
-		mv.addObject("lists", ar);
-		mv.addObject("pager", qnaPager);
+		List<ProductQnaDTO> ar = productQnaService.getList_admin(pager);
+		mv.addObject("list", ar);
+		mv.addObject("pager", pager);
 		mv.setViewName("admin/admin_qnaList");
+		return mv;
+	}
+	
+	
+	@GetMapping("admin_qnaSelect")
+	public ModelAndView getOne_admin(ProductQnaDTO productQnaDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		productQnaDTO = productQnaService.getOne_admin(productQnaDTO);
+		
+		mv.addObject("dto", productQnaDTO);
+		mv.setViewName("admin/admin_qnaSelect");
+		
 		return mv;
 	}
 	
 	
 //--------------------------------------------------------------------------------------------
 	
-	@GetMapping("admin_stockUpdate")
-	public ModelAndView setUpdate_admin(ProductDTO productDTO) throws Exception{
+	@GetMapping("admin_reviewList")
+	public ModelAndView getReviewList_admin(Pager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		productDTO = productService.getOne(productDTO);
+		List<ProductReviewDTO> ar = productReviewService.getReviewList_admin(pager);
 		
-		mv.addObject("dto", productDTO);
-		mv.setViewName("admin/admin_stockUpdate");
-		
+		mv.addObject("list", ar);
+		mv.addObject("pager", pager);
+		mv.setViewName("admin/admin_reviewList");
 		return mv;
 	}
 	
-	@PostMapping("admin_stockUpdate")
-	public ModelAndView setUpdate_admin(ProductDTO productDTO, String msg) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		
-		return mv;
-	}
+	
 	
 
 }

@@ -10,6 +10,10 @@ body {
 
 }
 
+header {
+	margin-bottom: 50px;
+}
+
 ul {
 	list-style-type: none;
 	
@@ -31,7 +35,7 @@ a {
 
 .sub-nav {
 	margin: 5px 0;
-	height: 3vh;
+	height: 30px;
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-end;
@@ -48,12 +52,18 @@ a {
 }
 
 /***** main nav-bar *****/
+.main-nav{
+	margin-bottom: 30px;
+}
+
+
 nav {
 	height: 10vh;
 	font-weight: 700;
 }
 .navbar-nav li {
-	z-index: 2;
+	z-index: 9999;
+	background-color: white;
 }
 
 .navbar-brand {
@@ -351,12 +361,12 @@ nav {
 	border-style: none;
 }
 
-.goods-detail3 .b1{
+.cart-btn{
 	background-color: #FDC033;
 	color: #fff;
 }
 
-.goods-detail3 .b2{
+.pay-btn{
 	background-color: #FDAF33;
 	color: #fff;
 }
@@ -520,26 +530,7 @@ nav {
 
 /**********memberPage.jsp**********/
 
-#mbPage-d1{
-	border: 3px solid #e6e6e6;
-	display : flex;
-	text-align: center;
-}
-.mbPage-info-1{
-	width: 31%;
-	height: 200px;
-	background-color: #cccccc;
-}
-.mbPage-info{
-	width: 23%;
-	height: 200px;
-	text-align: center;
-}
-.member-item2 td{
-	color: #1a1a1a;
-	font-weight: bold;
-	font-size: 0.8em;
-}
+
 
 
 
@@ -564,24 +555,368 @@ nav {
 	margin-left: 175px;
 }
 
-/**********adminPage.jsp**********/
+
+/***** cartList *****/
+.cart{
+	border-top: 1px #D8D8D8 solid;
+	border-bottom: 1px #D8D8D8 solid;
+	margin-bottom: 20px;
+}
+
+.cartlist h1 {
+	font-size: 1.4em;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+
+.cartlist h2 {
+	padding: 55px 0;
+	font-size: 0.9em;
+	font-weight: 300;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.goods-link{
+	text-decoration: none;
+	color: #7E7E7E;
+}
+
+.c2 {
+	border: 1px #D8D8D8 solid;
+	margin: 20px 0;  
+}
+
+.price_sum {
+	display: flex;
+	justify-content: flex-end;
+	padding: 10px 20px;
+}
+
+.price_sum dt, dl {
+	padding: 2px 10px;
+	margin: 0;
+	text-align: right
+}
+
+.fas {
+	vertical-align: center;
+}
 
 
-.stocktbl h1 {
-	font-size: 1.3em;
+.point {
+	float:right;
+	font-size: 0.9em;
+	padding: 10px 25px;
+}
+
+
+/***** board List *****/
+ .c1 {
+ 	cursor : pointer;
+ }
+
+.board-title {
+	font-size: 1.4em;
 	font-weight: 700;
+	margin-bottom: 15px;
+}
+
+.board-table th{
+	font-size: 0.9em;
+	font-weight: 500;
+	padding: 5px;
+	text-align: center;
+}
+
+.board-table td{
+	font-size: 0.9em;
+	color: #484848;
+	font-weight: 300;
+	padding: 10px;
+	text-align: center;
+}
+
+.board-table a {
+	color: #484848;
+}
+
+.searchrow{
+ 	background-color: #e8e8e8;
+ }
+ 
+ 
+.writeIcon{
+	float: right;
+	margin: 10px;
+}
+
+.writeIcon::after {
+   content: "";
+   display: block;
+   clear: right;
+}
+
+.search-form {
+	display: flex;
+	justify-content: center;
+	padding: 5px;
+}
+
+.tableborder{
+	border-top: 1px #979797 solid;
+}
+
+.pager{
+	margin: 10px auto;
+	text-align: center;
+}
+
+
+.writeIconfocus {
+       border-color: #28a745;
+       box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+
+/***** board Select *****/
+.reply-select {
+	padding-left: 20px; 
+}
+
+.title-items {
+	display: flex;
+	justify-content: flex-start;
+	align-content: center;
+}
+
+.title-top {
+	display: flex;
+}
+
+.titles h1 {
+	font-size: 1.4em;
+	padding: 5px 15px 10px;;
+	margin: 0;
+}
+
+.titles p {
+	font-size: 1.4em;
+	font-weight: 500;
+}
+
+.title-items dt,dd{
+	padding: 5px 10px 10px;
+	font-size: 0.8em;
+	font-weight: 300;
+}
+
+.title-items dd {
+	margin: 0;
+}
+
+.files{
+	border-top: 1px #d3d3d3 solid;
+	border-bottom: 1px #d3d3d3 solid;
+}
+
+.fileTitle{
+	display : inline-block;
+	font-size: 0.8em;
+	font-weight: 500;
+	color: #a0a0a0;;
+	padding: 5px 5px 0 20px;
+}
+
+.fileName{
+	display : inline-block;
+	font-size: 6px;
+	
+}
+
+.contents{
+	font-size: 1.2em;
+	border-bottom: 1px #d3d3d3 solid;
+	padding: 20px 0 10px 20px; 
+}
+
+.buttons{
+	text-align: left;
+}
+
+.button{
+	float : right;
+	margin-left: 5px;
+	font-size: 1em;
+}
+
+-/** board select reply **/
+.community-reply {
+	padding-left: 20px;
+}
+.replyEmpty {
+	display: inline-block;
+}
+.c1 {
+	cursor: pointer;
+	margin-right: 10px; 
+}
+
+.buttons {
+	height: 6vh;
+}
+
+.community-reply h1 {
+	font-size: 1em;
+	font-weight: 400;
+	padding: 0 10px 5px 0;
+	margin: 0;
+	}
+
+.reply-title {
+	display: flex;	
+	align-items: center;
+}
+
+.reply-title h3 {
+	font-size: 0.7em;
+	font-weight: 500;
+	padding-right: 10px;
+	margin: 0;
+}
+
+.reply-title h2 {
+	font-size: 0.6em;
+	font-weight: 400;
+	padding-right: 10px;
+	margin: 0;
+}
+
+.replyContents {
+	display: inline-block;
+	padding: 5px 0;
+	border-bottom:  1px #d3d3d3 solid;
+}
+
+.reply-title {
+	padding-bottom: 5px;
+}
+
+.reply-contents {
+	font-size: 0.8em;
+	font-weight: 300;
+}
+
+.reply-func {
+	display: flex;
+	align-items: flex-end;
+}
+
+.del {
+	font-size: 0.7em;
+	margin-right: 20px;
+}
+
+.reply {
+	font-size: 0.7em;
+}
+
+.reply-pager {
+	display: flex;
+	justify-content: center;
+}
+
+.slash {
+	color: white;
+}
+
+/***** board Write *****/
+#f {
+	display: none;
+}
+.board-write{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.bw-item{
+	display: flex;
+	justify-content: space-between;
 	margin-bottom: 10px;
 }
 
-
-.stocktbl td {
-	color: #404040;
-	font-weight: bold;
-	font-size: 0.8em;
+.bw-item label{
+	width: 10vh;
 }
 
+.bw-item input{
+	width: 80vh;
+}	
+/***** cartList *****/
+.cart-table { 
+	margin: 0;
+}
+.cart-table th {
+	font-size: 0.8em;
+	text-align: center;
+	font-weight: 400;
+}
 
+.cart-table td {
+	font-size: 0.7em;
+	color: #000;
+	text-align: center;
+}
 
+.option {
+	width: 15%;
+}
 
+.cart-item input{
+	width: 30px;
+}
 
+.cart-item1 {
+	width: 10%;
+}
 
+.combo-box #minus-button {
+  border-radius: 6px 0 0 6px;
+  background-image: url("../img/common/icon-minus.svg");
+}
+
+.combo-box #plus-button {
+  border-radius: 0 6px 6px 0;
+  background-image: url("../img/common/icon-plus.svg");
+}
+
+.combo-box {
+  display: flex;
+}
+
+.combo-box button,
+.combo-box input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.combo-box button {
+  border: 1px solid #e4e4e4;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 18px auto;
+  background-color: #fff;
+  width: 20px;
+  height: 20px;
+  transition: opacity 250ms ease-in;
+}
+
+#totalPrice {
+	border: none;
+	width: 60%;
+	text-align: right;
+}

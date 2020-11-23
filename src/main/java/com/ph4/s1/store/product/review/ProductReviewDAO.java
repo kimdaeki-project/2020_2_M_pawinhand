@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ph4.s1.util.Pager;
+
 @Repository
 public class ProductReviewDAO {
 	
@@ -29,4 +31,17 @@ public class ProductReviewDAO {
 		return sqlSession.selectOne(NAMESPACE+"getCount", reviewPager);
 	}
 	
+	//----------------------admin--------------------------------------------------
+	
+	public List<ProductReviewDTO> getReviewList_admin(Pager pager) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getReviewList_admin", pager);
+	}
+	
+	public long getCount_admin(Pager pager) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getCount_admin", pager);
+	}
+	
+	public ProductReviewDTO getReviewOne_admin(ProductReviewDTO productReviewDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getReviewOne_admin", productReviewDTO);
+	}
 }

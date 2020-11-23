@@ -5,6 +5,8 @@ public class Pager {
 	//***** 검색
 	private String kind;
 	private String search;
+	private String type;
+	private String tsearch;
 	
 	
 	private Integer curPage;
@@ -85,6 +87,27 @@ public class Pager {
 	
 	
 	
+	public String getType() {
+		return type;
+	}
+
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+
+	public String getTsearch() {
+		if(tsearch == null) {
+			tsearch = "";
+		}
+		return tsearch;
+	}
+
+
+	public void setTsearch(String tsearch) {
+		this.tsearch = tsearch;
+	}
 	
 	
 	

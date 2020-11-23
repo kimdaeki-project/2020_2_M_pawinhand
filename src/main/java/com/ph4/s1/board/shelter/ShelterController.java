@@ -97,6 +97,16 @@ public class ShelterController {
 		return mv;
 	}
 	
+	
+	@GetMapping("shelterMap")
+	public ModelAndView kakaoMap(ShelterDTO shelterDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		shelterDTO = shelterSevice.getOne(shelterDTO);
+		mv.addObject("dto", shelterDTO);
+		mv.setViewName("shelter/shelterMap");
+		return mv;
+	}
+	
 	//=======================================================================
 	
 	@GetMapping("shelterDelete")

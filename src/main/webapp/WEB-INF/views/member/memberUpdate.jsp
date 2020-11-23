@@ -24,7 +24,15 @@
 	<form id="frm" action="./memberUpdate" method="post">
 	<div class="row mem_title">
 		<div class="col-12 col-md-3">
-<c:import url="./memberPageRow.jsp"></c:import>				
+<c:choose>
+	<c:when test="${member.id eq 'admin'}">
+		<c:import url="../admin/adminPageRow.jsp"></c:import>
+	</c:when>
+	
+	<c:otherwise>
+		<c:import url="./memberPageRow.jsp"></c:import>	
+	</c:otherwise>
+</c:choose>			
 		</div>
 		<div class="col-12 col-md-9 member-info">
 			<h1>회원정보 변경</h1>

@@ -101,7 +101,7 @@
     <div class="form-group">
 	  <label for="보호센터 연락처" class="info">연 락 처 </label>
       <input type="text" class="form-control" id="center_tel" name="center_tel" 
-      placeholder="- 포함해서 입력해주세요."/>
+      placeholder="- 포함해서 입력해주세요." value="${member.phone}"/>
     </div>
     
     <div class="form-group">
