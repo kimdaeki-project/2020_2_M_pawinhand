@@ -62,7 +62,7 @@ public class ProductQnaService {
 	}
 	
 	public ProductQnaDTO getOne_admin(ProductQnaDTO productQnaDTO) throws Exception{
-		return productQnaDAO.getOne_admin(productQnaDTO);
+		return productQnaDAO.getReviewOne_admin(productQnaDTO);
 	}
 	
 }

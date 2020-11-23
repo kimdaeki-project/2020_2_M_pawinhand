@@ -16,6 +16,8 @@ import com.ph4.s1.store.product.ProductPager;
 import com.ph4.s1.store.product.ProductService;
 import com.ph4.s1.store.product.productQna.ProductQnaDTO;
 import com.ph4.s1.store.product.productQna.ProductQnaService;
+import com.ph4.s1.store.product.review.ProductReviewDTO;
+import com.ph4.s1.store.product.review.ProductReviewService;
 import com.ph4.s1.util.Pager;
 
 
@@ -29,6 +31,8 @@ public class AdminController {
 	private MemberService memberService;
 	@Autowired
 	private ProductQnaService productQnaService;
+	@Autowired
+	private ProductReviewService productReviewService;
 	
 	
 	@GetMapping("adminPage")
@@ -155,7 +159,16 @@ public class AdminController {
 	
 //--------------------------------------------------------------------------------------------
 	
-
+	@GetMapping("admin_reviewList")
+	public ModelAndView getReviewList_admin(Pager pager) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<ProductReviewDTO> ar = productReviewService.getReviewList_admin(pager);
+		
+		mv.addObject("list", ar);
+		mv.addObject("pager", pager);
+		mv.setViewName("admin/admin_reviewList");
+		return mv;
+	}
 	
 	
 	

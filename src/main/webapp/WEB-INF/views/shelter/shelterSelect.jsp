@@ -104,7 +104,7 @@
   		<h3>·특이사항 : ${dto.special}</h3>
   		<h3>·보호센터 : ${dto.center} (Tel: ${dto.center_tel}) 
   		<a onclick="window.open('./shelterMap?num=${dto.num}','insert','width = 576, height = 400, top = 100, left = 200, location = no');">
-  		<img id="shelter-sel-map" alt="" src="../resources/img/common/map.png" width="27px" height="27px"></a></h3> 
+  		<img id="shelter-sel-map" alt="" src="../resources/img/common/map.png" width="25px" height="25px"></a></h3> 
   	</div>	
   		
   	<hr>

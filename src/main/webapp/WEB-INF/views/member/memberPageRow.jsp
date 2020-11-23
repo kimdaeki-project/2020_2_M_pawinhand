@@ -16,8 +16,8 @@
 				<li>
 					<h2>회원정보</h2>
 					<ul class="myPage-item">
-						<li><a href="./memberUpdateCheck">- 회원정보 변경</a></li>		
-						<li id="member_del"><a href="./memberDeleteCheck">- 회원탈퇴</a></li>			
+						<li><a href="${pageContext.request.contextPath}/member/memberUpdateCheck">- 회원정보 변경</a></li>		
+						<li id="member_del"><a href="${pageContext.request.contextPath}/member/memberDeleteCheck">- 회원탈퇴</a></li>			
 					</ul>
 				</li>
 				<li>

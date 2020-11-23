@@ -11,11 +11,11 @@
 <style type="text/css">
 	
 	#wrbtn{
-		border: 2px solid #FDC033;
+		border: 1.5px solid #a6a6a6;
 		color: #FDC033;
-		font-size: 0.88em;
+		font-size: 0.8em;
 		font-weight: 500;
-		float: right;
+		float: left;
 		margin-bottom: 15px;
 		border-radius: 0.15em;
 		padding: 5px 8px;
@@ -24,7 +24,7 @@
 		width: 100%;
 		height: 230px;
 		line-height: inherit;
-		border: 2px solid #8c8c8c;
+		border: 2px solid #a6a6a6;
 		border-radius: 0.15em;
 		padding: 8px;
 		margin: 20px 0;
@@ -67,6 +67,31 @@
 	#shelterList-container a:hover{
 		color: #FDC033;
 	}
+	.shelList-sel{
+		height: 26px;
+		border-radius: 0;
+		border-color:#595959;
+		margin-right: 2px;
+	}
+
+	#shelList-search-div{
+	 	margin: 0 10px 10px 0;
+		font-size: 0.9em;
+	 	float: right;
+	 	display: flex;
+	}
+
+	#shelList-search{
+		height: 26px;
+		border-radius: 0;
+		border-color: #595959;
+	}
+
+	#searchbtn{
+		padding: 0px;
+		margin-left: 3px;
+	}
+	
 
 </style>
 
@@ -84,6 +109,22 @@
 		</div>
 		<div class="col-12 col-md-9">
     <a href="./shelterWrite"><input type="button" class="btn btn-default" id="wrbtn" value="글쓰기"></a>
+    	<form action="./shelterList">
+			<div id="shelList-search-div">
+					<select class="shelList-sel" id="shelList-sel_id" name="kind">
+						<option>--전체--</option>
+						<option value="animal">품종</option>
+						<option value="place_of_find">발견장소</option>
+					</select>
+				<div class="shelList_kind_sel">
+				
+				</div>
+
+    			<div class="input-group-btn">
+    				<button type="submit" class="btn btn-default" id="searchbtn"><img alt="" src="../resources/img/common/search111.png" width="20px" height="20px"></button>
+    			</div>
+		</div>
+		</form>
     <div id="shelterList-div1">
   	<c:forEach items="${list}" var="dto" varStatus="vs">  
 		<div class="listbox" OnClick="location.href ='./shelterSelect?num=${dto.num}'">
@@ -186,9 +227,30 @@
 	       }
 	    
 	 });
- 
+ 	
+//--------------------------------------------------------------------------------------------------
+ 	
+	$("#shelList-sel_id").click(function(){
+	      var shelterList_search = $("#shelList-sel_id option:selected").val();
+	      var hml = "";
+	      
+	      if(shelterList_search == "animal"){
+	    	 hml += "<select class='shelList-sel' id='animal_kind' name='search'>";
+	    	 hml += "<option>---</option>";
+		     hml += "<option value='개'>개</option>";
+		     hml += "<option value='고양이'>고양이</option>";
+		     hml += "<option value='기타'>기타</option>";
+	      }else if(shelterList_search == "place_of_find"){
+	    	  hml += "<input id='shelList-search' type='text' class='form-control' name='search'>";
+	      }
+	
+      $(".shelList_kind_sel").html(hml);
+      
+   });
+   
+//--------------------------------------------------------------------------------------------------   
+	
 
- 
  </script>
   
   

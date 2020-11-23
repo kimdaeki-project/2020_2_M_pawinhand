@@ -54,13 +54,13 @@
 	padding: 10px 10px 150px 10px;
 }
 
-#ad-qna-sel_btn{
+.ad-qna-sel_btn{
 	border: 2px solid #FDC033;
 	color: #FDC033;
-	font-size: 0.88em;
+	font-size: 0.8em;
 	font-weight: 500;
 	float: right;
-	margin: 10px 20% 0 0;
+	margin: 10px 3px 0 0;
 }
 
 
@@ -91,8 +91,9 @@
 			</div>
 		</div>
 		
+		<a href="./admin_qnaList"><button class="btn btn-default ad-qna-sel_btn" style="margin-right: 20%;">목록</button></a>
 		<a onclick="window.open('../productQna/productQnaReplyInsert?qna_num=${dto.qna_num}','insert','width = 576, height = 373.2, top = 100, left = 200, location = no');">
-		<button id="ad-qna-sel_btn" class="btn btn-default">답글</button></a>
+		<button class="btn btn-default ad-qna-sel_btn">답글</button></a>
 		
 	</div>
 	</div>
