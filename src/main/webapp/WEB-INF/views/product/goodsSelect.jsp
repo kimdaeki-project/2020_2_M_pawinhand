@@ -141,12 +141,15 @@
 				<tr class="goods-items"><th>색상</th><td>${dto.color}</td></tr>
 			</table>
 		
-		<form action="../storePay/storePayMain" method="post">
+		<form name="goodsSelect-frm" method="post">
+			<input type="hidden" name="id" value="${member.id}">
 			<input type="hidden" name="product_num" value="${dto.product_num}">
+			<input type="hidden" name="price" value="${dto.price}" id="price">
+			
 			<div class="amount" style="height: 70px;border-top-style: solid;border-top-width: 1px;border-bottom-color: gray;">
 			<input type="hidden" name="id" value="${member.id}">
 				<span>수량</span>
-				<select style="width: 300px;margin-left: 60px" name="amount">
+				<select style="width: 300px;margin-left: 60px" name="amount" id="amount">
 					<option value="">선택</option>
 					<option value="1">1개</option>
 					<option value="2">2개</option>
@@ -160,11 +163,11 @@
 					<option value="10">10개</option>
 				</select>
 			</div>
-	
 			<div class="goods-detail3">
-				<button class="b1">장바구니</button>
-				<button class="b2">구매하기</button>
+				<button class="cart-btn" formaction="../cart/cartInsert">장바구니</button>
+				<button class="pay-btn"  formaction="../storePay/storePayMain">구매하기</button>
 			</div>
+			<input type="hidden" name="totalPrice" id="totalPrice" value="0">
 		</form>
 		
 		<c:if test="${member.id == 'admin'}">
@@ -280,6 +283,16 @@
 		var option = "width = 576, height = 500, top = 100, left = 200, location = no";
 		window.open("../productQna/productQnaInsert?product_num=${dto.product_num}","insert",option);
 	})
+	
+	//totalPrice
+	$("#amount").change(function(){ 
+	var price= ${dto.price}; 
+	var amount=document.getElementById("amount").value;  
+	var result= parseInt(price)*parseInt(amount); 
+	document.getElementById("totalPrice").value=result;
+	
+	});
+
 </script>
 </body>
 </html>
