@@ -920,3 +920,157 @@ nav {
 	width: 60%;
 	text-align: right;
 }
+
+/***** lostList *****/
+.main{
+	margin : 110px auto 0px;
+	min-width : 700px;
+	width : 1100px;
+	height : 2000px;
+	padding-left: 30px;
+}
+
+.lostList{
+	width : 270px;
+	height : 420px;
+	margin : 0px 50px 50px 0px;
+	float: left;
+	border: 1px gray solid;
+	cursor: pointer;
+}
+
+.lostImage{
+	display : inline-block;
+	width : 270px;
+	height : 275px;
+}
+
+.lostMain{
+	margin-top: 15px;
+	margin-left: 10px;
+	width : 260px;
+	height : 60px;
+}
+
+.detailSpecies{
+}
+
+.detailSpecies > h3{
+	display : inline-block;
+	font-size: 18px;
+}
+
+.shortInfo{
+
+}
+
+.shortInfo > h3{
+	font-size: 12px;
+}
+
+.lostSub{
+	width : 270px;
+	height: 55px;
+	border-top-width : 1px;
+	border-top-color : gray;
+	border-top-style : solid; 
+	padding-top: 7px;
+	padding-left: 10px;
+}
+
+.lostSub > div > h3{
+	display : inline-block;
+	font-size: 12px;
+}
+
+.dropdowns{
+	margin-bottom: 100px;
+	margin-left: 30px;
+}
+
+.drops {
+	width: 930px;
+	height : 38px;
+	padding-right: 110px;
+}
+
+.dropdown-menu {
+	width: 930px;
+}
+
+.dropContents{
+	display: inline-block;
+	width: 900px;
+	height : 24px;
+	background-color: white;
+}
+
+.dropSearch{
+	display: inline-block;
+	width: 900px;
+	height: 24px;
+	font-size: 11px;
+	letter-spacing: 2px;
+	color: #ffc107;
+}
+
+.selectForm{
+	margin-left: 10px;
+}
+
+.lostProvince{
+	display: inline-block;
+	margin-top : 15px;
+	width: 840px;
+	height: 60px;
+}
+
+.state{
+	display: inline-block;
+	margin-right: 10px;
+	width : 37px;
+	height: 25px;
+	padding-left: 2px;
+	color: white;
+	font-size: 13px;
+	background-color: #ffc107;
+}
+
+.lostProvinceTitle, .animalSpeciesTitle, .dates{
+	display: inline-block;
+	font-size: 15px;
+	margin-right: 3px;
+}
+
+.animalSpecies{
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+.writeIcon{
+	position: fixed;
+	bottom: 20px;
+	right : 250px;
+	cursor: pointer;
+}
+
+.writeIconfocus {
+       border-color: #28a745;
+       box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+   }
+   
+   .radio2{
+   	margin-left: 43px;
+   }
+   
+   .lostdate{
+   	margin-top: 15px;
+   }
+   
+   .dropdownmenu{
+   	background-color: #ffffe6;
+   }
+   
+    
+
+	
