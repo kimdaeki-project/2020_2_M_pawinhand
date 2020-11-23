@@ -95,7 +95,7 @@
   
     <div class="form-group">
 	  <label for="보호센터" class="info">보호센터 </label>
-      <input type="text" class="form-control" id="center" name="center">
+      <input type="text" class="form-control" value="${member.name}" id="center" name="center">
     </div>
     
     <div class="form-group">
@@ -103,6 +103,9 @@
       <input type="text" class="form-control" id="center_tel" name="center_tel" 
       placeholder="- 포함해서 입력해주세요." value="${member.phone}"/>
     </div>
+    
+    	<input type="hidden" value="${member.address}" id="center_address" name="center_address">
+    	<input type="hidden" value="${member.id}" id="id" name="id">
     
     <div class="form-group">
 	  <label for="발견장소" class="info">발견장소 </label>

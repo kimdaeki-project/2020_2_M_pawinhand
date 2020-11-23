@@ -98,6 +98,11 @@
       <input type="text" class="form-control" id="center" name="center" value="${updto.center}" readonly="readonly">
     </div>
     
+    <input type="hidden" name="center_address" value="${updto.center_address}">
+    <input type="hidden" name="num" value="${updto.num}">
+    <input type="hidden" name="regDate" value="${updto.regDate}">
+    <input type="hidden" name="hit" value="${updto.hit}">
+    
     <div class="form-group">
 	  <label for="보호센터 연락처" class="info">연 락 처 </label>
       <input type="text" class="form-control" id="center_tel" name="center_tel" value="${updto.center_tel}"

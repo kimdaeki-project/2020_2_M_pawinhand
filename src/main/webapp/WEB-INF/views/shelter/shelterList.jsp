@@ -108,7 +108,9 @@
 				<hr>
 		</div>
 		<div class="col-12 col-md-9">
+		<c:if test="${member.member_type eq 1}">
     <a href="./shelterWrite"><input type="button" class="btn btn-default" id="wrbtn" value="글쓰기"></a>
+   		</c:if>
     	<form action="./shelterList">
 			<div id="shelList-search-div">
 					<select class="shelList-sel" id="shelList-sel_id" name="kind">
