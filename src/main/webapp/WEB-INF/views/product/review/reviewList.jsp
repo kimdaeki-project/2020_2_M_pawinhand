@@ -4,7 +4,7 @@
 	
 	<div style="width: 1050px; margin-bottom: 100px">
 		<form id="reviewform" action="../review/reviewInsert" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="id" value="wlgns">
+			<input type="hidden" name="id" value="${member.id}">
 			<input type="hidden" name="product_num" value="${num}">
 			<div>
 				<textarea name="contents" id="reviewText" style="width:1050px;height:100px">후기를 작성하세요!</textarea>

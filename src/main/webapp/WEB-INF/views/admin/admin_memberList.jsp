@@ -65,6 +65,10 @@
 	color: #FDC033;
 }
 
+.admin-ml-tr{
+	cursor: pointer;
+}
+
 .admin-ml-tr td {
 	height: 60px;
 	text-align: center;
@@ -111,8 +115,8 @@
 			</tr>
 		<c:choose>
 		  <c:when test="${pager.curPage eq 1}">
-			<tr class="admin-ml-tr" style="background-color: #fff7eb">
-				<td><a href="./admin_memberSelect?id=${member.id}">${member.id}</a></td>
+			<tr class="admin-ml-tr" onclick="location.href ='./admin_memberSelect?id=${dto.id}'" style="background-color: #fff7eb">
+				<td>${member.id}</td>
 				<td>${member.name}</td>
 				<td>${member.email}</td>
 				<td>${member.phone}</td>
@@ -123,8 +127,8 @@
 		</c:choose>
 			
 			<c:forEach items="${list}" var="dto" varStatus="vs">
-			<tr class="admin-ml-tr">
-				<td><a href="./admin_memberSelect?id=${dto.id}">${dto.id}</a></td>
+			<tr class="admin-ml-tr" onclick="location.href ='./admin_memberSelect?id=${dto.id}'">
+				<td>${dto.id}</td>
 				<td>${dto.name}</td>
 				<td>${dto.email}</td>
 				<td>${dto.phone}</td>

@@ -233,7 +233,7 @@
     
     <hr>
     
-    <input type="hidden" value="wlgns" name="id">
+    <input type="hidden" value="${member.id}" name="id">
     <div class="files">
     	<label class="input-file-button" for="file">업로드</label>
     	<input type="file" id="file" name="file" onchange="fileUpload(this)"><br/>

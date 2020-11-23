@@ -37,7 +37,7 @@
    
       <select id="getList" parameterType="Pager" resultMap="getFileList">
           select * from
-         (select rownum as R, N.* from
+         (select rownum as R, SS.* from
             (select sf.* from 
 			(select s.* , f.fileName
 			from shelter s
@@ -49,15 +49,11 @@
 				animal
 			</when>
 
-			<when test="kind == 'center'">
-				center
-			</when>
-
 			<otherwise>
 				place_of_find
 			</otherwise>
 		</choose>
-		like '%'||#{search}||'%' order by num desc) N)
+		like '%'||#{search}||'%' order by num desc) SS)
 		where R between
 		#{startRow} and #{lastRow}
       </select>

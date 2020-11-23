@@ -530,26 +530,7 @@ nav {
 
 /**********memberPage.jsp**********/
 
-#mbPage-d1{
-	border: 3px solid #e6e6e6;
-	display : flex;
-	text-align: center;
-}
-.mbPage-info-1{
-	width: 31%;
-	height: 200px;
-	background-color: #cccccc;
-}
-.mbPage-info{
-	width: 23%;
-	height: 200px;
-	text-align: center;
-}
-.member-item2 td{
-	color: #1a1a1a;
-	font-weight: bold;
-	font-size: 0.8em;
-}
+
 
 
 

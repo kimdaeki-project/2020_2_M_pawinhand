@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import org.springframework.stereotype.Component;
 
+import com.ph4.s1.store.product.ProductDTO;
 import com.ph4.s1.store.product.productQnaReply.ProductQnaReplyDTO;
 
 @Component
@@ -15,7 +16,15 @@ public class ProductQnaDTO {
 	private String title;
 	private Date regDate;
 	private ProductQnaReplyDTO productQnaReplyDTO;
+	private ProductDTO productDTO;
 	
+	
+	public ProductDTO getProductDTO() {
+		return productDTO;
+	}
+	public void setProductDTO(ProductDTO productDTO) {
+		this.productDTO = productDTO;
+	}
 	
 	
 	public ProductQnaReplyDTO getProductQnaReplyDTO() {

@@ -9,19 +9,36 @@
 <c:import url="../template/bootStrap.jsp"></c:import>
 
 <style type="text/css">
-	.btn{
-		color:white;
-		font-weight: 700;
-		margin-bottom: 100px;
+	.shelter-Sel-btn{
+		border: 2px solid #FDC033;
+		color: #FDC033;
+		font-size: 0.88em;
+		font-weight: 500;
+		margin: 0 0 100px 3px;
+		float: right;
 	}
 	#title{
-		margin-top: 80px;
 		text-align: center;
 	}
+	
+	#title h4{
+		font-size: 1.43em;
+		margin-top: 3px;
+	}
 	#animal{
-		font-size: 24pt;
+		font-size: 1.8em;
 		font-weight: 550;
 		background-color: #ffffdb;
+	}
+	#shelter-sel-map{
+		cursor: pointer;
+	}
+	#shelter-container{
+		margin-top: 100px;
+	}
+	#shelter-sel-contents h3{
+		font-size: 1.3em;
+		margin-left: 30px;
 	}
 </style>
 
@@ -30,7 +47,15 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
-  <div class="container">
+  <div class="container" id="shelter-container">
+  
+  	 <div class="row">
+	 	<div class="col-12 col-md-3 myPage">
+				<h1>보호소</h1>
+				<hr>
+		</div>
+		<div class="col-12 col-md-9">
+		
   	<div id="title">
   
 		<c:if test="${filelist[0].fileName ne null}">
@@ -51,12 +76,12 @@
 			<!-- The slideshow -->
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="../resources/upload/shelter/${filelist[0].fileName}" width="800px" height="500px">
+					<img src="../resources/upload/shelter/${filelist[0].fileName}" width="500px" height="300px">
 				</div>
 				<c:forEach items="${filelist}" var="file">
 					<c:if test="${file.fileName ne filelist[0].fileName}">
 						<div class="carousel-item">
-							<img src="../resources/upload/shelter/${file.fileName}" width="800px" height="500px">
+							<img src="../resources/upload/shelter/${file.fileName}" width="500px" height="300px">
 						</div>
 					</c:if>
 				</c:forEach>
@@ -68,26 +93,28 @@
   	<hr>
   	<span id="animal">[${dto.animal}] ${dto.animal_kind}</span>
   	
-  	<h4>${dto.sex}(${dto.neuter})/${dto.color}/${dto.birth}(년생)/${dto.kg}(Kg)</h4>
+  	<h4>${dto.sex}(${dto.neuter}) | ${dto.color} | ${dto.birth}(년생) | ${dto.kg}(Kg)</h4>
   </div>
   	<hr>
   	
-  	<div id="contents">
+  	<div id="shelter-sel-contents">
 	  	<h3>·공고번호 : ${dto.num}</h3>
  		<h3>·공고기간 : ${dto.period_1} ~ ${dto.period_2}</h3>
   		<h3>·발견장소 : ${dto.place_of_find}</h3>
   		<h3>·특이사항 : ${dto.special}</h3>
-  		<h3>·보호센터 : ${dto.center} (Tel: ${dto.center_tel})</h3>
+  		<h3>·보호센터 : ${dto.center} (Tel: ${dto.center_tel}) 
+  		<a onclick="window.open('./shelterMap?num=${dto.num}','insert','width = 576, height = 400, top = 100, left = 200, location = no');">
+  		<img id="shelter-sel-map" alt="" src="../resources/img/common/map.png" width="25px" height="25px"></a></h3> 
   	</div>	
   		
   	<hr>
   
   
-  <input type="button" class="btn btn-warning" value="목록" id="list">
-  <input type="button" class="btn btn-warning" value="삭제" id="del">
-  <input type="button" class="btn btn-warning" value="수정" id="update">
+  <input type="button" class="btn btn-default shelter-Sel-btn" value="목록" id="list">
+  <input type="button" class="btn btn-default shelter-Sel-btn" value="삭제" id="del">
+  <input type="button" class="btn btn-default shelter-Sel-btn" value="수정" id="update">
   
-  
+  </div>
   <script type="text/javascript">
   
   	$("#list").click(function() {
@@ -103,9 +130,12 @@
 	});
 	
 	
+	
+
 
 </script>
 
+</div>
 </div>
 
 </body>

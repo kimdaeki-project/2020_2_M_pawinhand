@@ -35,7 +35,7 @@
 		height: auto;
 	}
 	.payTotalDiv{
-		margin-top : 70px;
+		margin-top : 50px;
 		width: 1000px;
 		height: 130px;
 		border: 2px solid #DCDCDC;
@@ -43,33 +43,40 @@
 	}
 	.priceDiv{
 		width : 140px;
-		height: 100px;
-		background-color: olive;
+		height: 80px;
+		text-align :center;
 		float: right;
+		font-size: 16px;
+		margin-top : 15px;
 	}
 	.driveDiv{
 		width : 140px;
-		height: 100px;
-		background-color: fuchsia;
+		height: 80px;
+		text-align :center;
 		float: right;
+		font-size: 16px;
+		margin-top : 15px;
 	}
 	.totalDiv{
 		width : 140px;
-		height: 100px;
-		background-color: orange;
+		height: 80px;
+		text-align :center;
 		float: right;
+		font-size: 16px;
+		margin-top : 15px;
 	}
 	.paydd{
 		width : 20px;
 		height: 100px;
 		float: right;
+		
 	}
 	.pointsdiv{
-		width: 1000px;
+		width: 965px;
 		height: 30px;
-		background-color: red;
 		float: left;
 		text-align: right;
+		font-size: 15px;
 	}
 	.payOrderDiv{
 		margin-top : 50px;
@@ -77,8 +84,13 @@
 		height: auto;
 		font-size: 20px;
 	}
-	.d1{
-		text-align: right;
+	.Pd1{
+		display : inline-block;
+		width : 140px;
+		text-align: center;
+		color: orange;
+		font-weight: bold;
+		font-size: 20px;
 	}
 	.cc{
 		width: 20px;
@@ -146,9 +158,16 @@
 	#finalDiv2{
 		width: 300px;
 		height: 100px;
-		background-color: lime;
 		float: right;
 		line-height: 100px;
+		text-align: right;
+		margin-right: 10px;
+		font-size: 17px;
+	}
+	#realTP{
+		font-size: 25px;
+		color: orange;
+		font-weight: bold;
 	}
 	.ffcc{
 		color: orange;
@@ -172,6 +191,44 @@
 	.tdtd{
 		width: 200px;
 	}
+	#odDiv1 , #odDiv2{
+	display: none;
+	}
+	#viewPoints{
+		font-weight: bold;
+		font-size: 16px;
+	}
+	.ptd5, .infoTd, .driveTd, .tdtd{
+		background-color: #FFEBCD;
+		font-size: 16px;
+		text-align: center;
+		font-weight: bold;
+		color: black;
+	}
+	.setOrderDetail, .ss, .pp, .tt, .ptd6{
+		text-align: center;
+		color: black;
+		font-size: 14px;
+	}
+	.infoTd2, .driveTd2 ,.tdtd2, .sale, .tdPaySel{
+	font-size: 16px;
+	color: #2F4F4F;
+	}
+	
+	#goCart{
+		text-decoration: underline;
+		color: black;
+		font-size: 16px;
+	}
+	#zipBtn{
+		background-color: #FFF8DC;
+		font-size: 15px;
+		border: 1px solid;
+		border-radius: 5px;
+	}
+	#chDiv{
+		font-size: 17px;
+	}
 </style>
 </head>
 <body>
@@ -187,43 +244,43 @@
 		
 		<table id="payDetailTable" class="table table-bordered" >
 			<tr>
-				<td>상품/옵션 정보</td>
-				<td>수량</td>
-				<td>상품금액</td>
-				<td>할인/적립</td>
-				<td>합계금액</td>
+				<td class="ptd5">상품/옵션 정보</td>
+				<td class="ptd5">수량</td>
+				<td class="ptd5">상품금액</td>
+				<td class="ptd5">할인/적립</td>
+				<td class="ptd5">합계금액</td>
 				
 			</tr>
 			
 			<c:forEach items="${list}" var="list">
 				<tr>
-					<td>${list.name}, ${list.color}, ${list.weight}</td>
+					<td class="setOrderDetail" title="${list.product_num}">
+						${list.name}, ${list.color}, ${list.weight}
+					</td>
 					<td class="ss">${list.amount}</td>
-					<td>${list.price}</td>
+					<td class="ptd6">${list.price}</td>
 					<td class="pp" title="${list.points}"></td>
 					<td class="tt" title="${list.price}"></td>
-					
 				</tr>
 			</c:forEach>
 			
 		</table>
 		
-		<a href="#"> < 장바구니 가기</a>
+		<a href="#" id="goCart"> < 장바구니 가기</a>
 	</div>
 	
 	
 		<div class="payTotalDiv">
 			<div class="priceDiv">
 				<span>합계 </span>
-				<div id = "ttprice"></div> 원
+				<div id = "ttprice" class="Pd1"></div>
 			</div>
 				<div class="paydd">
 					<div class="cc">=</div>
 				</div>
 			<div class="driveDiv">
 				<span>배송비 </span>
-				<div class="d1" id="deliveryfee">
-					
+				<div class="Pd1" id="deliveryfee">
 				</div>
 			</div>
 				<div class="paydd">
@@ -233,13 +290,13 @@
 				<span>총 </span>
 				<span id="nn"></span>
 				<span>개의 상품금액</span>
-				<div class="d1" id="tp">
+				<div class="Pd1" id="tp">
 				</div>
 			</div>
 			
 			<div class="pointsdiv">
 				적립예정 마일리지 : 
-				<span id="viewPoints"></span> 원
+				<span id="viewPoints"></span>
 			</div>
 		</div>
 	
@@ -250,26 +307,26 @@
 		<table class="infoTable, table table-bordered">
 			<tr>
 				<td class="infoTd">* 주문하시는 분</td>
-				<td><input id="dname1" type="text" value="${member.name}"></td>
+				<td class="infoTd2"><input id="dname1" type="text" value="${member.name}"></td>
 			</tr>
 			<tr>
 				<td class="infoTd">주소</td>
-				<td>
-					<input type="text" id="dzipCode1" name="zipCode" value="${member.zipCode}">
-					<input id="dsite1" type="text" value="${member.address}">
+				<td class="infoTd2">
+					<input type="text" id="dzipCode1" name="zipCode" value="${member.zipCode}" placeholder="우편번호"><br>
+					<input id="dsite1" type="text" value="${member.address}" placeholder="주소">
 				</td>
 			</tr>
 			<tr>
 				<td class="infoTd">전화번호</td>
-				<td><input id="dtel1" type="text"></td>
+				<td class="infoTd2"><input id="dtel1" type="text"></td>
 			</tr>
 			<tr>
 				<td class="infoTd">* 휴대폰 번호</td>
-				<td><input id="dphone1" type="text" value="${member.phone}"></td>
+				<td class="infoTd2"><input id="dphone1" type="text" value="${member.phone}"></td>
 			</tr>
 			<tr>
 				<td class="infoTd">* 이메일</td>
-				<td><input id="demail1" type="text" value="${member.email}"></td>
+				<td class="infoTd2"><input id="demail1" type="text" value="${member.email}"></td>
 			</tr>
 		</table>
 		
@@ -282,7 +339,7 @@
 		<table class="driveTable, table table-bordered">
 			<tr>
 				<td class="driveTd">배송지 확인</td>
-				<td>
+				<td class="infoTd2">
 					<input type="radio" value="1" name="deliverySite" class="ss" checked="checked"> 직접입력
 					<input type="radio" value="2"  name="deliverySite"  class="ss"> 주문자 정보와 동일
 				</td>
@@ -295,7 +352,7 @@
 				<td class="driveTd">* 받으실 곳</td>
 				<td class="driveTd2"> <!-- toAddess로 합쳐야됨 -->
 					<input type="text" id="sample6_postcode" placeholder="우편번호" name="toZipcode">
-					<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+					<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="zipBtn"><br>
 					<input type="text" id="sample6_address" placeholder="주소"><br>
 					<input type="text" id="sample6_detailAddress" placeholder="상세주소"><br>
 					<input type="text" id="sample6_extraAddress" placeholder="참고항목">
@@ -331,11 +388,11 @@
 			<table class="driveTable, table table-bordered">
 				<tr>
 					<td class="tdtd">상품 합계 금액</td>
-					<td id="tp2"></td>
+					<td id="tp2" class="tdtd2"></td>
 				</tr>
 				<tr>
 					<td class="tdtd">배송비</td>
-					<td id="deliveryfee2"></td>
+					<td class="tdtd2" id="deliveryfee2"></td>
 				</tr>
 				<tr>
 					<td class="tdtd">할인 및 적립</td>
@@ -346,19 +403,18 @@
 				</tr>
 				<tr>
 					<td class="tdtd">마일리지 사용</td>
-					<td>
+					<td class="tdtd2">
 						<input type="text" id="usePoint" name="usePoint" value="0"> p 
 						<input type="checkbox" id="allPoint" onclick="calPoint()">전액 사용하기
 							<span id="isPoint">
 							(보유 마일리지: 
-								<span id="isPoint2">${member.points}</span> 
-							p)
+								<span id="isPoint2">${member.points}</span>p)
 							</span>
 					</td> 
 				</tr>
 				<tr>
 					<td class="tdtd" id="finalPrice">최종 결제 금액</td>
-					<td id="ftPrice"></td>
+					<td class="tdtd2" id="ftPrice"></td>
 				</tr>
 			</table>
 		</div>
@@ -370,13 +426,11 @@
 			
 			<table class="driveTable, table table-bordered">
 				<tr>
-					<td rowspan="2">결제</td>
-					<td>
+					<td rowspan="2" class = "tdtd">결제</td>
+					<td class="tdPaySel">
 						<input type="radio" name="paySel" value="1" class="paySel">무통장 입금
-						<input type="radio" name="paySel" value="2" class="paySel">신용카드
-						<input type="radio" name="paySel" value="3" class="paySel">계좌이체
-						<input type="radio" name="paySel" value="4" class="paySel">가상계좌
-						<input type="radio" name="paySel" value="5" class="paySel">휴대폰결제 <br>
+						<input type="radio" name="paySel" value="2" class="paySel">신용카드/카카오페이/네이버페이
+						<input type="radio" name="paySel" value="3" class="paySel">휴대폰결제 <br>
 						
 						<div id="realAccountDiv">
 							
@@ -404,6 +458,11 @@
 	<input type="hidden" class="finalPrice" name="total">
 	<input type="hidden" name="isPay" value="0">
 	<input type="hidden" id="addPoint" name="addPoint" value="0">
+	<input type="hidden" name="depositAccount" id="depositAccount" value="sh">
+	<div id="odDiv1">
+	</div>
+	<div id="odDiv2">
+	</div>
 	
 	<input type="submit" class="payBtn" value="결제하기">
 	</form>
@@ -411,9 +470,10 @@
 </div>
 
 <div id="accountDiv">
+		<hr>
 		(무통장 입금의 경우, 입금확인 후부터 배송단계가 시작됩니다.)<br>
-		입금자명     <input type="text" id="payName"><br>
-		입금은행     <select name="bank">
+		입금자명     <input type="text" id="payName" name="depositName"><br>
+		입금은행     <select id="bank">
 					<option value="sh">신한은행 140012049753 (주)포인핸드</option>
 					<option value="kb">국민은행 260894599649 (주)포인핸드</option>
 				</select>
@@ -441,6 +501,7 @@
 	$(".tt").each(function(index) {
 		q=$(this).attr("title")*amountArray[index];
 		$(this).html(q);
+		$("#ptotal").val(q);
 		totalPrice += q * 1;
 		
 		if(totalPrice > 50000){
@@ -450,9 +511,9 @@
 		}	
 	});
 
-	$("#tp").html(totalPrice);
-	$("#deliveryfee").html(deliveryfee);
-	$("#ttprice").html(totalPrice+deliveryfee*1);
+	$("#tp").html(totalPrice+"원");
+	$("#deliveryfee").html(deliveryfee+"원");
+	$("#ttprice").html(totalPrice+deliveryfee*1+"원");
 	
 	$("#tp2").html(totalPrice+"원");
 	$("#deliveryfee2").html(deliveryfee+"원");
@@ -462,24 +523,30 @@
 	var ep = null;
 	var viewPoints = 0;
 
-//********************* 마일리지 계산
+//********************* 마일리지 계산 
+	var tag2=null;
 	$(".pp").each(
 			function(index, item) {
 				if (amountArray[index] == 1) {
 					points = $(this).attr('title') * 1 * amountArray[index];
 					$(this).html(points + "p");
+					
+					tag2 += '<input type="hidden" name="detailAmount" value="'+amountArray[index]+'">';
+					
+					
 				} else {
 					ep = $(this).attr('title') * 1;
 					points = ep * amountArray[index];
-					$(this).html(
-							ep + "p  * " + amountArray[index] + " = " + points+ "p");
+					$(this).html(ep + "p * " + amountArray[index] + " = " + points+ "p");
+					tag2 += '<input type="hidden" name="detailAmount" value="'+amountArray[index]+'">';
 
 				}
+				$("#odDiv1").html(tag2);
 				viewPoints += points;
 			});
 
 	
-	$("#viewPoints").html(viewPoints);
+	$("#viewPoints").html(viewPoints+"p");
 	$("#addPoint").val(viewPoints);
 	$("#point").html(viewPoints);
 
@@ -488,11 +555,22 @@
 	var isPoint = $("#isPoint2").html()*1;
 	
 	//********** 최종 결제 금액
-	$("#ftPrice").html(totalPrice+deliveryfee-usePoint);
+	$("#ftPrice").html(totalPrice+deliveryfee-usePoint+"원");
 	//********** 진짜 마지막 최종금액임
 	$("#realTP").html(totalPrice+deliveryfee-usePoint);
 	finalPrice =totalPrice+deliveryfee-usePoint;
 	$(".finalPrice").val(finalPrice);
+	
+	
+	var pnum =[];
+	var tag = null;
+	//orderDetail 셋팅
+	$(".setOrderDetail").each(function(index) {
+		pnum[index]=$(this).attr('title');
+		tag += '<input type="hidden" name="detailNum" value="'+pnum[index]+'">';
+		$("#odDiv2").html(tag);
+	});
+	
 	
 	function calPoint() {
 		
@@ -569,16 +647,21 @@
 		}else if(n==2){
 			$("#realAccountDiv").html("");
 			ch=true;
-			payMethod = "신용카드";
+			payMethod = "신용카드/카카오페이/네이버페이";
 		}else{
 			$("#realAccountDiv").html("");
 			ch = false;
-			payMethod = "계좌이체/가상계좌/휴대폰결제";
+			payMethod = "휴대폰결제";
 		}
 		
 		$("#payMethod").val(payMethod);
 	});
 	
+	//무통장 입금시 post보낼 val값 설정
+	$(document).on("change","#bank" ,function(){
+		
+		$("#depositAccount").val($(this).val());
+	});
 	
 	//submit시 발생
 	function sub() {

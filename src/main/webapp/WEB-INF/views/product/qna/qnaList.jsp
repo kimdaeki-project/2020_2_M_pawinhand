@@ -23,7 +23,8 @@
   			<td style="padding-left : 100px" class="qnacon" colspan="5">
   			${dto.contents}<br>
   			<c:if test="${member.id == 'admin'}">
-	  			<a onclick="window.open('../productQna/productQnaReplyInsert?qna_num=${dto.qna_num}','insert','width = 576, height = 373.2, top = 100, left = 200, location = no');" style="font-size:12px;color: #007bff">답글</a>
+	  			<a onclick="window.open('../productQna/productQnaReplyInsert?qna_num=${dto.qna_num}','insert','width = 576, height = 373.2, top = 100, left = 200, location = no');" 
+	  			style="font-size:12px;color: #007bff;cursor: pointer;">답글</a>
 	  			|
   			</c:if>
   			<c:if test="${member.id == 'admin' || member.id == dto.id}">

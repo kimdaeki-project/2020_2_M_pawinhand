@@ -11,25 +11,33 @@
 
 <style type="text/css">
 .Volcontainer {
-	width: 702px;
+	width: 1000px;
 	margin: 50px auto 0px;
 }
 
+.volHeader{
+		width: 1000px;
+		height: 70px;
+		border-bottom: 1px solid #DCDCDC;
+		font-size: 30px;
+		margin-bottom: 50px;
+	}
+
 #btnDiv {
-	width: 700px;
+	width: 1000px;
 	height: 30px;
 	text-align: right;
 	margin-bottom: 10px;
-	color: aqua;
 }
 
 #btn {
-	width: 60px;
+	width: 80px;
 	background-color: #FFE4B5;
 	border: 2px solid #FFE4B5;
-	font-size: 11px;
+	font-size: 13px;
 	border-radius: 5px;
 	padding: 5px;
+	font-weight: bold; 
 }
 
 .volUl img {
@@ -38,12 +46,12 @@
 }
 
 .volUl {
-	width: 700px;
+	width: 1000px;
 	padding: 0px;
 }
 
 .volUl li {
-	width: 700px;
+	width: 1000px;
 	height: 150px;
 	border: 2px solid #FFE4B5;
 	margin-bottom: 15px;
@@ -63,7 +71,7 @@
 
 .volUl li #volDiv2 {
 	float: left;
-	width: 400px;
+	width: 500px;
 	height: 120px;
 	margin-left: 20px;
 	text-align: left;
@@ -72,7 +80,7 @@
 
 #volDiv2 a {
 	font-weight: bold;
-	font-size: 17px;
+	font-size: 20px;
 	color: #FFA500;
 }
 
@@ -80,7 +88,7 @@
 	float: left;
 	width: 100px;
 	height: 120px;
-	margin-left: 20px;
+	margin-left: 220px;
 	margin-top: 15px;
 }
 
@@ -96,7 +104,7 @@
 #volDiv2 #a > pre{
 	font-family: "Noto Sans KR", sans-serif;
   	letter-spacing: -0.01em;
-	font-size: 11px;
+	font-size: 13px;
 	color: gray;
 }
 .pageDiv {
@@ -108,6 +116,10 @@
 
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="Volcontainer">
+		<div class="volHeader">
+			이동 봉사
+		</div>
+	
 		<div id="btnDiv">
 			<input type="button" value="글쓰기" id="btn">
 		</div>
