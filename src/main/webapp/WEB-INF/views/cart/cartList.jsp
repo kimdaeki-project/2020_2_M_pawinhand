@@ -65,11 +65,13 @@
 				  			</td>
 				  		</tr>
 				  		<input type="hidden" name="cartNum" value="${dto.cartNum}"/>
-				  		<input type="hidden" name="producNum" value="${dto.product_num}"/>
+				  		<input type="hidden" name="product_num" value="${dto.product_num}"/>
 				  		<input type="hidden" value="${dto.price}" name="price" id="price" />
 				  		<input type="hidden" value="${dto.totalPrice}" name="totalPrice" id="totalPrice" />
 				  		</c:forEach>
 				  	</table>
+				  	<button formaction="../storePay/storePayMain" formmethod="post">주문하기</button>
+				  	<input type="hidden" name="id" value="${dto.id}">
 				  	</form>
 					</c:otherwise>
 					</c:choose>
@@ -97,7 +99,7 @@
 						<h3 class="point"></h3>
 				</div>
 				
-				<button formaction="../storePay/storePayMain" formmethod="post">주문하기</button>
+				
 			</div>
 		</div>
 	</div>

@@ -147,8 +147,7 @@
 			<input type="hidden" name="price" value="${dto.price}" id="price">
 			
 			<div class="amount" style="height: 70px;border-top-style: solid;border-top-width: 1px;border-bottom-color: gray;">
-			<input type="hidden" name="id" value="${member.id}">
-				<span>수량</span>
+			<span>수량</span>
 				<select style="width: 300px;margin-left: 60px" name="amount" id="amount">
 					<option value="">선택</option>
 					<option value="1">1개</option>
