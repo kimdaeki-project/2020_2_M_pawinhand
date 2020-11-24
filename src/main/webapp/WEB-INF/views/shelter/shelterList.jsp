@@ -91,6 +91,14 @@
 		padding: 0px;
 		margin-left: 3px;
 	}
+	#sList-listbox-contents{
+		border-bottom-style: 5px solid black; 
+		width: 85%;
+		height: 210px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;		 
+	}
 	
 
 </style>
@@ -140,7 +148,7 @@
 				</c:choose>
 			</div>
 
-			<div style="border-bottom-style: 5px solid black; width: 85%">
+			<div id="sList-listbox-contents">
 				<p class="list-contents">
 					<c:choose>
 						<c:when test="${dto.animal eq '개'}">
@@ -171,9 +179,9 @@
 					</c:choose>
 				</p>
   				<p class="list-contents">·품   종 : [${dto.animal}] ${dto.animal_kind}</p>
-  				<p class="list-contents">·등록일 : ${dto.period_1}</p>
+  				<p class="list-contents">·공고기간 : ${dto.period_1} - ${dto.period_2}</p>
+  				<p class="list-contents" id="shelList-pof">·구조장소 : ${dto.place_of_find}</p>
   				<p class="list-contents">·지   역 : ${dto.center}</p>
-  				<p class="list-contents">·구조장소 : ${dto.place_of_find}</p>
 			</div>
 			
 			<div class="new" style="width: 20%; height: 20%">

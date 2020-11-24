@@ -171,6 +171,18 @@ public class AdminController {
 	}
 	
 	
+	@GetMapping("admin_reviewSelect")
+	public ModelAndView getReviewOne_admin(ProductReviewDTO productReviewDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		productReviewDTO = productReviewService.getReviewOne_admin(productReviewDTO);
+		
+		mv.addObject("dto", productReviewDTO);
+		mv.setViewName("admin/admin_reviewSelect");
+		
+		return mv;
+	}
+	
+	
 	
 
 }
