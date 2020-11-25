@@ -128,8 +128,10 @@
 		</div>
 	
 		<div id="btnDiv">
-		
+		<c:if test="${member != null}">
 			<input type="button" value="글쓰기" id="wrbtn">
+		</c:if>
+		
 		</div>
 		<ul class="volUl">
 			<c:forEach items="${dto}" var="dto" varStatus="vs">
@@ -175,7 +177,7 @@
 
 
 		<script type="text/javascript">
-			$("#btn").click(function() {
+			$("#wrbtn").click(function() {
 				location.href="./voluntaryWrite";
 			});
 		</script>
