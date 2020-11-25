@@ -11,13 +11,12 @@
 <style type="text/css">
 	
 	#wrbtn{
-		border: 1.5px solid #a6a6a6;
+		border: 1.5px solid #FDC033;
 		color: #FDC033;
 		font-size: 0.8em;
 		font-weight: 500;
 		float: left;
 		margin-bottom: 15px;
-		border-radius: 0.15em;
 		padding: 5px 8px;
 	}
 	.listbox{
@@ -54,11 +53,11 @@
 		margin-bottom : 100px;
 		float: inherit;
 	}
-	#shelter-container{
+	.shelter-container{
 		margin-top: 100px;
 	}
 	
-	#shelter-container a {
+	.shelter-container a {
 		text-decoration: none;
 		letter-spacing: -0.03em;
 		color: #404040;
@@ -91,6 +90,14 @@
 		padding: 0px;
 		margin-left: 3px;
 	}
+	#sList-listbox-contents{
+		border-bottom-style: 5px solid black; 
+		width: 85%;
+		height: 210px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;		 
+	}
 	
 
 </style>
@@ -100,15 +107,15 @@
 <c:import url="../template/header.jsp"></c:import>	
 
 	
-	<div class="container" id="shelter-container">
+	<div class="container shelter-container">
 	
 	 <div class="row">
-	 	<div class="col-12 col-md-3 myPage">
-				<h1>보호소</h1>
-				<hr>
-		</div>
+		<c:import url="./shelterRow.jsp"></c:import>
+		
 		<div class="col-12 col-md-9">
+		<c:if test="${member.member_type eq 1}">
     <a href="./shelterWrite"><input type="button" class="btn btn-default" id="wrbtn" value="글쓰기"></a>
+   		</c:if>
     	<form action="./shelterList">
 			<div id="shelList-search-div">
 					<select class="shelList-sel" id="shelList-sel_id" name="kind">
@@ -138,7 +145,7 @@
 				</c:choose>
 			</div>
 
-			<div style="border-bottom-style: 5px solid black; width: 85%">
+			<div id="sList-listbox-contents">
 				<p class="list-contents">
 					<c:choose>
 						<c:when test="${dto.animal eq '개'}">
@@ -169,9 +176,9 @@
 					</c:choose>
 				</p>
   				<p class="list-contents">·품   종 : [${dto.animal}] ${dto.animal_kind}</p>
-  				<p class="list-contents">·등록일 : ${dto.period_1}</p>
+  				<p class="list-contents">·공고기간 : ${dto.period_1} - ${dto.period_2}</p>
+  				<p class="list-contents" id="shelList-pof">·구조장소 : ${dto.place_of_find}</p>
   				<p class="list-contents">·지   역 : ${dto.center}</p>
-  				<p class="list-contents">·구조장소 : ${dto.place_of_find}</p>
 			</div>
 			
 			<div class="new" style="width: 20%; height: 20%">

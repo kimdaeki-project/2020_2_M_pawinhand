@@ -101,8 +101,6 @@
 						</div>
 						<h3 class="point"></h3>
 				</div>
-				
-				
 			</div>
 		</div>
 	</div>
@@ -139,7 +137,7 @@
        $("#num").html(num+"개의 상품금액");
        $("#total_sum").html(sum+" 원");
        $("#sum").html(sum+3000+ " 원");
-       $(".point").html("적립예상 포인트 : " + (sum-3000)*0.01 + "원");
+       $(".point").html("적립예상 포인트 : " + (sum-3000)*0.02 + "원");
     }     
  
  //btn

@@ -130,6 +130,7 @@
           </div>
         </div>
    <div class="p2">     
+   		<input type="hidden" value="0" id="member_type" name="member_type">
    		<div class="resultBox" id="idResult"></div>
       <div class="form-group">
          <label for="lname">아이디</label>
@@ -415,7 +416,7 @@
 	   
 		$("#member-jb2").click(function() {
 		 	if (confirm("이 페이지에서 나가시겠습니까?") == true){    //확인
-		     	location.href="${pageContext.request.contextPath}/";
+		     	location.href="${pageContext.request.contextPath}/member/memberJoin";
 
 		 	}else{   //취소
 		     	return false;

@@ -53,7 +53,7 @@
 .volUl li {
 	width: 1000px;
 	height: 150px;
-	border: 2px solid #FFE4B5;
+	border: 2px solid black;
 	margin-bottom: 15px;
 	border-radius: 5px;
 	font-size: 8px;
@@ -110,6 +110,13 @@
 .pageDiv {
 	text-align: center;
 }
+   #wrbtn{
+      border: 1.5px solid #FDC033;
+      color: #FDC033;
+      font-size: 0.8em;
+      font-weight: 500;
+      padding: 5px 8px;
+   }
 </style>
 </head>
 <body>
@@ -121,7 +128,8 @@
 		</div>
 	
 		<div id="btnDiv">
-			<input type="button" value="글쓰기" id="btn">
+		
+			<input type="button" value="글쓰기" id="wrbtn">
 		</div>
 		<ul class="volUl">
 			<c:forEach items="${dto}" var="dto" varStatus="vs">
