@@ -30,7 +30,7 @@
 </select>
 
 <update id="setCartUpdate" parameterType="CartVO">
-	update cart set amount = #{amount}, totalPrice = #{totalPrice} where cartNum = #{cartNum}
+	update cart set amount = amount + #{amount}, totalPrice = totalPrice + #{totalPrice} where id=#{id} and cartNum = #{cartNum} 
 </update>
 
 <delete id="setCartDelete" parameterType="CartVO">

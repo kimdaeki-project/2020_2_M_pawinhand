@@ -24,6 +24,19 @@ a {
 }
 
 
+.okbtn{
+   border: 1.5px solid #FDC033;
+   color: #FDC033;
+   font-size: 0.88em;
+   font-weight: 500;
+}
+
+.nobtn{
+    border: 1px solid #d9d9d9;
+    margin-left: 3px;
+    font-size: 0.9em;
+}
+
 /***** banner *****/
 .banner {
 	position: absolute;
@@ -328,15 +341,13 @@ nav {
 	border: 1px #F0F0F0 solid;
 }
 
-
 .goods-detail2 {
 	border-top: 2px #000 solid;
-	border-bottom: 2px #000 solid;
 }
 
 .goods-sname {
 	font-size: 1.3em;
-	padding: 30px 0;
+	padding: 15px 0;
 }
 
 .goods-items th {
@@ -344,32 +355,35 @@ nav {
 }
 
 .goods-items th,td{
-	font-size: 1.1em;
+	font-size: 1.0em;
 	letter-spacing: 0.02em;	
-	color: #B4B4B4;
+	color: #000;
 	font-weight: 300;
 }
 
 .goods-detail3{
 	display: flex;
 	justify-content: space-between;
+	border-bottom: 2px #000 solid;
 }
 
 .goods-detail3 button{
 	padding: 10px 90px;
 	margin: 5px 0;
-	border-style: none;
+	background-color: #fff;
 }
 
-.cart-btn{
-	background-color: #FDC033;
-	color: #fff;
+.amount {
+	display: flex;
+	justify-content:space-evenly;
+	height: 30px;
 }
 
-.pay-btn{
-	background-color: #FDAF33;
-	color: #fff;
+.amount > .combo-box button{
+	width: 35px;
+ 	height: 35px;
 }
+
 
 /***** mypage nav *****/
 .myPage h1 {
@@ -1066,7 +1080,6 @@ nav {
 	color: white;
 	font-size: 1em;
 	opacity: 0.7;
-	background-color: #fd7e14;
 }
 
 
@@ -1095,6 +1108,6 @@ nav {
  
   .ls-item span {
   	margin-left: 15px;
-  	}
+}
  
  

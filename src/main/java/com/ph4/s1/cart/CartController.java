@@ -37,6 +37,8 @@ public class CartController {
 	@PostMapping("cartInsert")
 	public ModelAndView setCartInsert(CartVO cartDTO, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		long Pnum = cartDTO.getProduct_num();
+		System.out.println(Pnum);
 		int result = cartService.setCartInsert(cartDTO);
 		mv.setViewName("redirect:./cartList");
 		return mv;
@@ -52,9 +54,11 @@ public class CartController {
 	}
 	
 	@GetMapping("cartUpdate")
-	public ModelAndView setCartUpdate(long num) throws Exception {
+	public ModelAndView setCartUpdate(long num, HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 		CartVO cartDTO = new CartVO();
+		cartDTO.setId(memberDTO.getId());
 		cartDTO.setCartNum(num);
 		mv.addObject("dto", cartDTO);
 		mv.setViewName("cart/cartUpdate");
