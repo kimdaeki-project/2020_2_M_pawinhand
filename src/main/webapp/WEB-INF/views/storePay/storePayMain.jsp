@@ -266,7 +266,7 @@
 			
 		</table>
 		
-		<a href="#" id="goCart"> < 장바구니 가기</a>
+		<a href="../cart/cartList" id="goCart"> < 장바구니 가기</a>
 	</div>
 	
 	
