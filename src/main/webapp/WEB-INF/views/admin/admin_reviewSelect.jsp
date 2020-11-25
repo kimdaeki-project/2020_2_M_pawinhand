@@ -39,12 +39,6 @@
 
 #ad-product-sel_p3{
 	font-size: 1em;
-	margin-top: -10px;
-}
-
-#ad-product-sel_p3 span{
-	font-size: 0.8em;
-	margin-left: 5px;
 }
 
 #ad-product-sel_d1{
@@ -78,21 +72,20 @@
 		</div>
 		
 	<div class="col-12 col-md-9 admin-tbl">
-		<h1>QnA</h1>
+		<h1>Review</h1>
 		<hr>
 	<div id="ad-product-sel_all">	
 		<div id="ad-product-sel">
 			<p id="ad-product-sel_p1">${dto.productDTO.name} - ${dto.productDTO.color}</p>
 			<hr width="40%">
-			<p id="ad-product-sel_p2">${dto.title}</p>
-			<p id="ad-product-sel_p3">${dto.id} <span>${dto.regDate}</span></p>
+			<p id="ad-product-sel_p3">작성자 : ${dto.id}</p>
 			<div id="ad-product-sel_d1">
 				${dto.contents}
 			</div>
 		</div>
 		
-		<a href="./admin_qnaList"><button class="btn btn-default ad-product-sel_btn" style="margin-right: 20%;">목록</button></a>
-		<a onclick="window.open('../productQna/productQnaReplyInsert?qna_num=${dto.qna_num}','insert','width = 576, height = 373.2, top = 100, left = 200, location = no');">
+		<a href="./admin_reviewList"><button class="btn btn-default ad-product-sel_btn" style="margin-right: 20%;">목록</button></a>
+		<a onclick="window.open('../productQna/productQnaReplyInsert?review_num=${dto.review_num}','insert','width = 576, height = 373.2, top = 100, left = 200, location = no');">
 		<button class="btn btn-default ad-product-sel_btn">답글</button></a>
 		
 	</div>

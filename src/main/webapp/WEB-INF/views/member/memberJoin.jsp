@@ -30,7 +30,7 @@
 				<div class="join-item">
 					<h2>보호소 동물을 등록하고 <br>관리해주세요.</h2>
 					<img alt="join-image1" src="${pageContext.request.contextPath}/resources/img/common/join_2.jpg">
-					<a href="${pageContext.request.contextPath}/member/memberJoinForm">
+					<a href="${pageContext.request.contextPath}/member/memberJoinForm_shelter">
 						<button class="join-button b2">보호소 회원가입</button>
 					</a>
 				</div>

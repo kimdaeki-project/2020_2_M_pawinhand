@@ -12,6 +12,7 @@ public class MemberDTO {
    private String address;
    private String detailAddress;
    private String extraAddress;
+   private long member_type;
    
    
    public String getId() {
@@ -74,5 +75,12 @@ public class MemberDTO {
    public void setExtraAddress(String extraAddress) {
       this.extraAddress = extraAddress;
    }
+   public long getMember_type() {
+	   return member_type;
+   }
+   public void setMember_type(long member_type) {
+	   this.member_type = member_type;
+   }
+   
    
 }

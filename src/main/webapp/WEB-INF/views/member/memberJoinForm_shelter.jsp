@@ -25,7 +25,7 @@
    <div class="row mem_title">
       
       <div class="col-12">
-      <h1 class="join-title">개인 회원가입</h1>
+      <h1 class="join-title">보호소 회원가입</h1>
       <form action="./memberJoin" method="post" id="join-form">
       <div class="p1">
          <div class="panel-group" id="accordion">
@@ -129,8 +129,8 @@
             </div>
           </div>
         </div>
-   <div class="p2">     
-   		<input type="hidden" value="0" id="member_type" name="member_type">
+   <div class="p2">
+   <input type="hidden" value="1" id="member_type" name="member_type">
    		<div class="resultBox" id="idResult"></div>
       <div class="form-group">
          <label for="lname">아이디</label>
@@ -154,7 +154,7 @@
       	
         <div class="emptyResult resultBox"></div>
         <div class="form-group">
-           <label for="lname">이름</label>
+           <label for="lname">보호소 이름</label>
            <input type="text" class="form-control empty" id="name" name="name" required="required">
         </div>
         
