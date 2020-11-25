@@ -175,14 +175,12 @@ table.calendar td {
 						data:{resNum:num},
 						success:function(data){
 						var mbtn= data.substring(data.indexOf(":")+1, data.indexOf("<"));
-							alert(mbtn.trim());
 							
 							if(mid == mbtn.trim()){
 								$("#resDel").show();
 							}else{
 								$("#resDel").hide();
 							}
-							alert(mid);
 							$("#modalCon").html(data);
 							
 							
