@@ -796,7 +796,6 @@ nav {
 .replyContents {
 	display: inline-block;
 	padding: 5px 0;
-	border-bottom:  1px #d3d3d3 solid;
 }
 
 .reply-title {
@@ -922,135 +921,164 @@ nav {
 }
 
 /***** lostList *****/
-.main{
-	margin : 110px auto 0px;
-	min-width : 700px;
-	width : 1100px;
-	height : 2000px;
-	padding-left: 30px;
+.lost-list {
+	padding: 0;
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
 .lostList{
 	width : 270px;
-	height : 420px;
-	margin : 0px 50px 50px 0px;
-	float: left;
+	height : 360px;
+	margin-bottom: 30px;
 	border: 1px gray solid;
 	cursor: pointer;
 }
 
-.lostImage{
-	display : inline-block;
-	width : 270px;
-	height : 275px;
-}
-
-.lostMain{
-	margin-top: 15px;
-	margin-left: 10px;
-	width : 260px;
-	height : 60px;
-}
-
-.detailSpecies{
-}
-
-.detailSpecies > h3{
-	display : inline-block;
-	font-size: 18px;
-}
-
-.shortInfo{
-
-}
-
-.shortInfo > h3{
-	font-size: 12px;
-}
-
-.lostSub{
-	width : 270px;
-	height: 55px;
-	border-top-width : 1px;
-	border-top-color : gray;
-	border-top-style : solid; 
-	padding-top: 7px;
+.state-link {
 	padding-left: 10px;
+}
+
+.state-link li{
+	margin-bottom: 10px;
+}
+
+
+.lost-header h1 {
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.lost-link {
+    text-decoration: none;
+	font-size: 1.1em;
+	font-weight: 300;
+	letter-spacing: 0.01em;
+	color: #0d0d0d;
+	margin-bottom: 10px;
+}
+
+.lost-link:hover {
+	color: #FDC033;
+} 
+
+.lostImage{
+	position: absolute;
+	width : 270px;
+	height : 270px;
+}
+
+.lost-detail{
+	display:block;
+	width: 250px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	position: relative;
+	bottom: 15px;
+	left: 10px;
+}
+
+.detailSpecies > h3,
+.shortInfo > h3 {
+	font-size: 0.9em;
+	margin: 0 10px 5px 0;
+	
+}
+
+.shortInfo > h3 {
+	font-weight: 400;
+}
+
+.lostMain {
+	display: flex;
+	
 }
 
 .lostSub > div > h3{
 	display : inline-block;
-	font-size: 12px;
+	font-size: 0.8em;
+	font-weight: 300;
 }
 
-.dropdowns{
-	margin-bottom: 100px;
-	margin-left: 30px;
+.dropdowns {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 30px;
 }
 
 .drops {
-	width: 930px;
-	height : 38px;
-	padding-right: 110px;
-}
-
-.dropdown-menu {
-	width: 930px;
+	margin: 0 auto;
+	border: 1px solid #FDC033;
 }
 
 .dropContents{
 	display: inline-block;
-	width: 900px;
+	width: 800px;
 	height : 24px;
-	background-color: white;
+}
+
+.dropdownmenu{
+	width: 850px;
 }
 
 .dropSearch{
 	display: inline-block;
-	width: 900px;
-	height: 24px;
-	font-size: 11px;
-	letter-spacing: 2px;
-	color: #ffc107;
+	font-size: 0.9em;
+	letter-spacing: 0.02em;
+	color: #F98C44;
+
 }
 
 .selectForm{
 	margin-left: 10px;
 }
 
-.lostProvince{
-	display: inline-block;
-	margin-top : 15px;
-	width: 840px;
-	height: 60px;
-}
-
-.state{
-	display: inline-block;
-	margin-right: 10px;
-	width : 37px;
-	height: 25px;
-	padding-left: 2px;
-	color: white;
-	font-size: 13px;
-	background-color: #ffc107;
+.lostProvince > input,.radio2 > input,
+.animalSpecies > input, .lostdate > input{
+	margin: 3px;
 }
 
 .lostProvinceTitle, .animalSpeciesTitle, .dates{
 	display: inline-block;
-	font-size: 15px;
-	margin-right: 3px;
+	font-size: 1em;
+	margin-right: 5px;
 }
 
-.animalSpecies{
-	margin-top: 10px;
-	margin-bottom: 15px;
+.lostdate, .lostProvince, .animalSpecies{
+	display: inline-block;
+	margin-top : 10px;
+	font-size: 0.9em;
+	font-weight: 400;
+	
+}
+
+.state{
+	position: relative;
+	margin-right: 10px;
+	width : 270px;
+	height: 25px;
+	bottom: 25px;
+	text-align: center;
+	color: white;
+	font-size: 1em;
+	opacity: 0.7;
+	background-color: #fd7e14;
+}
+
+
+.lost-location {
+	display: flex;
+	flex-wrap: nowrap;
 }
 
 .writeIcon{
 	position: fixed;
+	right: 150px;
 	bottom: 20px;
-	right : 250px;
 	cursor: pointer;
 }
 
@@ -1059,18 +1087,14 @@ nav {
        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
    }
    
-   .radio2{
-   	margin-left: 43px;
-   }
-   
-   .lostdate{
-   	margin-top: 15px;
-   }
-   
-   .dropdownmenu{
-   	background-color: #ffffe6;
-   }
-   
-    
-
-	
+ /***** lost Select *****/
+ .ls-item {
+ 	display: flex;
+ 	margin-bottom: 10px;
+ }  
+ 
+  .ls-item span {
+  	margin-left: 15px;
+  	}
+ 
+ 
