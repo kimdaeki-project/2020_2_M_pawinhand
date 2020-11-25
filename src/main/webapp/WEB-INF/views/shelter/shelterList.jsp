@@ -114,7 +114,7 @@
 		
 		<div class="col-12 col-md-9">
 		<c:if test="${member.member_type eq 1}">
-    <a href="./shelterWrite"><input type="button" class="btn btn-default" id="wrbtn" value="글쓰기"></a>
+    <a href="./shelterWrite"><input type="button" class="btn btn-default" id="wrbtn" value="글쓰기111"></a>
    		</c:if>
     	<form action="./shelterList">
 			<div id="shelList-search-div">
