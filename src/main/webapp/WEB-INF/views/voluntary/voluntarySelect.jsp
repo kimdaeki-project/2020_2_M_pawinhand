@@ -22,7 +22,7 @@
     height: 100%;
   }
 #volSelcontainer{
-	border : 2px solid #FFE4B5;
+	border : 2px solid black;
 	margin: 50px auto 50px;
 	width: 800px;
 	height:auto;
