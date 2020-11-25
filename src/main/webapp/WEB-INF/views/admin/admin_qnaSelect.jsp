@@ -94,7 +94,6 @@
 		<a href="./admin_qnaList"><button class="btn btn-default ad-product-sel_btn" style="margin-right: 20%;">목록</button></a>
 		<a onclick="window.open('../productQna/productQnaReplyInsert?qna_num=${dto.qna_num}','insert','width = 576, height = 373.2, top = 100, left = 200, location = no');">
 		<button class="btn btn-default ad-product-sel_btn">답글</button></a>
-		
 	</div>
 	</div>
 		

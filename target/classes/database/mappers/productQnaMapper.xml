@@ -69,9 +69,15 @@
 	</select>
 	
 	<select id="getOne_admin" parameterType="ProductQnaDTO" resultType="ProductQnaDTO" resultMap="getProductList">
-		select PQ.*, P.name, P.color from 
-        productqna PQ left join product P
-        on PQ.product_num = P.product_num
+        select PQ.*, P.name, P.color, PQR.* 
+        
+      	from 
+      	productqna PQ left join product P
+        on PQ.product_num = P.product_num 
+        
+        left join productqnareply PQR 
+        on PQ.qna_num = PQR.qna_num
+        
         where PQ.qna_num = #{qna_num}
 	</select>
 	
