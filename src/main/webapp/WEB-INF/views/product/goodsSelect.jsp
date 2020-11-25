@@ -144,7 +144,7 @@
 		<form name="goodsSelect-frm" method="post">
 			<input type="hidden" name="product_num" value="${dto.product_num}">
 			<input type="hidden" name="price" value="${dto.price}" id="price">
-			
+			<input type="hidden" name="id" value="${member.id}" id="id">
 			<div class="amount" style="height: 70px;border-top-style: solid;border-top-width: 1px;border-bottom-color: gray;">
 			<span>수량</span>
 				<select style="width: 300px;margin-left: 60px" name="amount" id="amount">
