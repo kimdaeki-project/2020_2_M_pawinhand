@@ -11,13 +11,12 @@
 <style type="text/css">
 	
 	#wrbtn{
-		border: 1.5px solid #a6a6a6;
+		border: 1.5px solid #FDC033;
 		color: #FDC033;
 		font-size: 0.8em;
 		font-weight: 500;
 		float: left;
 		margin-bottom: 15px;
-		border-radius: 0.15em;
 		padding: 5px 8px;
 	}
 	.listbox{
@@ -54,11 +53,11 @@
 		margin-bottom : 100px;
 		float: inherit;
 	}
-	#shelter-container{
+	.shelter-container{
 		margin-top: 100px;
 	}
 	
-	#shelter-container a {
+	.shelter-container a {
 		text-decoration: none;
 		letter-spacing: -0.03em;
 		color: #404040;
@@ -108,13 +107,11 @@
 <c:import url="../template/header.jsp"></c:import>	
 
 	
-	<div class="container" id="shelter-container">
+	<div class="container shelter-container">
 	
 	 <div class="row">
-	 	<div class="col-12 col-md-3 myPage">
-				<h1>보호소</h1>
-				<hr>
-		</div>
+		<c:import url="./shelterRow.jsp"></c:import>
+		
 		<div class="col-12 col-md-9">
 		<c:if test="${member.member_type eq 1}">
     <a href="./shelterWrite"><input type="button" class="btn btn-default" id="wrbtn" value="글쓰기"></a>

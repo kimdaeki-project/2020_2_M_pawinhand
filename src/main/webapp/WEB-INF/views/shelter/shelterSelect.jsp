@@ -17,6 +17,9 @@
 		margin: 0 0 100px 3px;
 		float: right;
 	}
+	.shelter-container{
+		margin-top: 100px;
+	}
 	#title{
 		text-align: center;
 	}
@@ -47,13 +50,10 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
-  <div class="container" id="shelter-container">
+  <div class="container shelter-container">
   
   	 <div class="row">
-	 	<div class="col-12 col-md-3 myPage">
-				<h1>보호소</h1>
-				<hr>
-		</div>
+		<c:import url="./shelterRow.jsp"></c:import>
 		<div class="col-12 col-md-9">
 		
   	<div id="title">
