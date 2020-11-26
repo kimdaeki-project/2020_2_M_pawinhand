@@ -65,4 +65,5 @@ public class ProductQnaService {
 		return productQnaDAO.getOne_admin(productQnaOneDTO);
 	}
 	
+	
 }
