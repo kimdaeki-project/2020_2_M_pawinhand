@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <c:import url="../template/bootStrap.jsp"></c:import>
 
 <c:import url="../template/address.jsp"></c:import>
@@ -454,7 +455,7 @@
 			<span class="ffcc">(필수)</span> 구매하실 상품의 결제정보를 확인하였으며, 구매진행에 동의합니다.<br>
 	</div>
 	<!-- post로 보낼 값들 -->
-	<input type="hidden" class="finalPrice" name="totalPrice">
+	<input type="hidden" class="finalPrice" id="www" name="totalPrice">
 	<input type="hidden" class="finalPrice" name="total">
 	<input type="hidden" name="isPay" value="0">
 	<input type="hidden" id="addPoint" name="addPoint" value="0">
@@ -487,6 +488,8 @@
 	var ds = null;
 	var deliveryfee = null;
 	var finalPrice=null;
+	
+	
 	
 	
 	$(".ss").each(function(index, item) {
@@ -663,6 +666,10 @@
 		$("#depositAccount").val($(this).val());
 	});
 	
+	
+		
+	
+	
 	//submit시 발생
 	function sub() {
 		var addr = $("#sample6_address").val();
@@ -673,11 +680,13 @@
 		$("#fullAddr").val(fullAddr);
 		console.log(fullAddr);
 		
+		
 		if($("#finalCheck").prop("checked")){
-			
+
 			if(ch){
 				alert("신용카드 결제 페이지로 이동합니다.");
-				window.open("./storePayment", "width=500px,height=600px");
+				window.open("./stroePayment");      
+				alert(data);
 
 			}else{
 				return true;

@@ -126,4 +126,13 @@ public class StorePayController {
 		return mv;
 	}
 	
+	
+	@PostMapping("setOrderListCard")
+	public ModelAndView setOrderListCard() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println("카드메소드 들어옴");
+		mv.setViewName("storePay/storePayment");
+		
+		return mv;
+	}
 }
