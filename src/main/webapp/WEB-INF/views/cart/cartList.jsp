@@ -163,26 +163,26 @@
 	 $("#totalPrice").val(totalPrice);
  });
  
-$(".cart-update").click(function() {
- 	if (confirm("수정하시겠습니까?") == true){    //확인
-     	form.submit();
-
- 	}else{   //취소
-     	return false;
-     	location.reload(true);
- 	}
-});
-
-$(".cart-delete").click(function() {
- 	if (confirm("삭제하시겠습니까?") == true){    //확인
-     	form.submit();
-
- 	}else{   //취소
- 		location.reload();
-     	return false;
- 	}
-});
-  
+	$(".cart-update").click(function() {
+	 	if (confirm("수정하시겠습니까?") == true){    //확인
+	     	form.submit();
+	
+	 	}else{   //취소
+	     	return false;
+	     	location.reload(true);
+	 	}
+	});
+	
+	$(".cart-delete").click(function() {
+	 	if (confirm("삭제하시겠습니까?") == true){    //확인
+	     	form.submit();
+	
+	 	}else{   //취소
+	 		location.reload();
+	     	return false;
+	 	}
+	});
+   
    
  
  </script>	

@@ -286,7 +286,7 @@
 	 if(amount>1){
 		 amount--;
 		 $("#amount").val(amount);
-		 totalPrice = amount * price;
+		 totalPrice = amount * ${dto.price};
 		 $("#totalPrice").val(totalPrice);
 	 }else {
 		 alert("1개 이상부터 구매하실 수 있습니다.");
@@ -305,7 +305,7 @@
 	var price= ${dto.price}; 
 	var result= parseInt(price)*parseInt(amount); 
 	totalPrice.value=result;
-	
+	console.log(result);
 	});	
 
 
