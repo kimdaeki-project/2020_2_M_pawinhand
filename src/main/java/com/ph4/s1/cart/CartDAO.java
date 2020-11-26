@@ -27,6 +27,10 @@ public class CartDAO {
 		return sqlSession.delete(NAMESPACE+"setCartDelete", cartDTO);
 	}
 	
+	public int setCartModify(CartVO cartDTO) throws Exception {
+		return sqlSession.update(NAMESPACE+"setCartModify", cartDTO);
+	}
+	
 	public int setCartUpdate(CartVO cartDTO) throws Exception {
 		 return sqlSession.update(NAMESPACE+"setCartUpdate", cartDTO);
 	}
@@ -34,4 +38,6 @@ public class CartDAO {
 	public int getCartCount(CartVO cartDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"getCartCount", cartDTO);
 	}
+	
+	
 }

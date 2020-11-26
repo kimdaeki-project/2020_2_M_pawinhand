@@ -37,9 +37,13 @@ public class CartController {
 	@PostMapping("cartInsert")
 	public ModelAndView setCartInsert(CartVO cartDTO, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		long Pnum = cartDTO.getProduct_num();
-		System.out.println(Pnum);
-		int result = cartService.setCartInsert(cartDTO);
+		int count = cartService.getCartCount(cartDTO);
+		System.out.println(count);
+		if(count==0) {
+			cartService.setCartInsert(cartDTO);
+		}else {
+			cartService.setCartModify(cartDTO);
+		}
 		mv.setViewName("redirect:./cartList");
 		return mv;
 	}
@@ -49,6 +53,26 @@ public class CartController {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("cartDelete");
 		int result = cartService.setCartDelete(cartDTO);
+		mv.setViewName("redirect:./cartList");
+		return mv;
+	}
+	
+	@GetMapping("cartModify")
+	public ModelAndView setCartModify(long num, HttpSession session) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		CartVO cartDTO = new CartVO();
+		cartDTO.setId(memberDTO.getId());
+		cartDTO.setCartNum(num);
+		mv.addObject("dto", cartDTO);
+		mv.setViewName("cart/cartModify");
+		return mv;
+	}
+	
+	@PostMapping("cartModify")
+	public ModelAndView setCartModify(CartVO cartDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = cartService.setCartModify(cartDTO);
 		mv.setViewName("redirect:./cartList");
 		return mv;
 	}
@@ -69,6 +93,7 @@ public class CartController {
 	public ModelAndView setCartUpdate(CartVO cartDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		int result = cartService.setCartUpdate(cartDTO);
+		System.out.println(result);
 		mv.setViewName("redirect:./cartList");
 		return mv;
 	}

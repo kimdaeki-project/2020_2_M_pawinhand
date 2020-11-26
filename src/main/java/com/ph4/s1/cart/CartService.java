@@ -25,6 +25,10 @@ public class CartService {
 		return cartDAO.setCartDelete(cartDTO);
 	}
 	
+	public int setCartModify(CartVO cartDTO) throws Exception {
+		return cartDAO.setCartModify(cartDTO);
+	}
+	
 	public int setCartUpdate(CartVO cartDTO) throws Exception {
 		return cartDAO.setCartUpdate(cartDTO);
 	}

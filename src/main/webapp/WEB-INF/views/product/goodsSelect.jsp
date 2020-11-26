@@ -274,7 +274,8 @@
 	$("#menu_list").on("click", "#qnaInsertbtn", function(){
 		var option = "width = 576, height = 500, top = 100, left = 200, location = no";
 		window.open("../productQna/productQnaInsert?product_num=${dto.product_num}","insert",option);
-	})
+	});
+
 	
 	
 	var amount=document.getElementById("amount").value; 
@@ -299,14 +300,14 @@
 	 $("#totalPrice").val(totalPrice);
  });
 	
-	
 	//totalPrice
 	$("#amount").change(function(){ 
 	var price= ${dto.price}; 
 	var result= parseInt(price)*parseInt(amount); 
 	totalPrice.value=result;
 	
-	});
+	});	
+
 
 </script>
 </body>

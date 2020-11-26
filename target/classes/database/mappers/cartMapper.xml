@@ -25,13 +25,18 @@
 </insert>
 
 <select id="getCartCount" resultType="int">
-	select count(*) form cart
+	select count(*) from cart
 	where id = #{id} and product_num= #{product_num}
 </select>
 
 <update id="setCartUpdate" parameterType="CartVO">
-	update cart set amount = amount + #{amount}, totalPrice = totalPrice + #{totalPrice} where id=#{id} and cartNum = #{cartNum} 
+	 update cart set amount = #{amount}, totalPrice = #{totalPrice} where id=#{id} and cartNum = #{cartNum}
 </update>
+
+<update id="setCartModify" parameterType="CartVO">
+	update cart set amount = amount + #{amount}, totalPrice = totalPrice + #{totalPrice} where id=#{id} and product_num = #{product_num}
+</update>
+
 
 <delete id="setCartDelete" parameterType="CartVO">
 	delete cart where cartNum = #{cartNum}
