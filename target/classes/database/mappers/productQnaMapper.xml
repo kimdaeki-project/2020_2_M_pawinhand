@@ -68,7 +68,7 @@
 		select count(qna_num) from productqna
 	</select>
 	
-	<select id="getOne_admin" parameterType="ProductQnaDTO" resultType="ProductQnaDTO" resultMap="getProductList">
+	<select id="getOne_admin" parameterType="ProductQnaOneDTO" resultType="ProductQnaOneDTO">
         select PQ.*, P.name, P.color, PQR.* 
         
       	from 

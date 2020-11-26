@@ -82,18 +82,27 @@
 		<hr>
 	<div id="ad-product-sel_all">	
 		<div id="ad-product-sel">
-			<p id="ad-product-sel_p1">${dto.productDTO.name} - ${dto.productDTO.color}</p>
+			<p id="ad-product-sel_p1">${dto.name} - ${dto.color}</p>
 			<hr width="40%">
 			<p id="ad-product-sel_p2">${dto.title}</p>
 			<p id="ad-product-sel_p3">${dto.id} <span>${dto.regDate}</span></p>
 			<div id="ad-product-sel_d1">
-				${dto.contents}
+				${dto.contents} ${dto.qnaReply_num} ${dto.qna_num_1}
 			</div>
 		</div>
 		
 		<a href="./admin_qnaList"><button class="btn btn-default ad-product-sel_btn" style="margin-right: 20%;">목록</button></a>
-		<a onclick="window.open('../productQna/productQnaReplyInsert?qna_num=${dto.qna_num}','insert','width = 576, height = 373.2, top = 100, left = 200, location = no');">
-		<button class="btn btn-default ad-product-sel_btn">답글</button></a>
+		
+		<c:choose>
+			<c:when test="${dto.qna_num_1 eq dto.qna_num}">
+				<button class="btn btn-default ad-product-sel_btn">답글완료</button>	
+			</c:when>
+			
+			<c:otherwise>
+				<a onclick="window.open('../productQna/productQnaReplyInsert?qna_num=${dto.qna_num}','insert','width = 576, height = 373.2, top = 100, left = 200, location = no');">
+				<button class="btn btn-default ad-product-sel_btn">답글</button></a>
+			</c:otherwise>
+		</c:choose>
 	</div>
 	</div>
 		

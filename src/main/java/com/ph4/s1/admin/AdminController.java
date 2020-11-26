@@ -15,6 +15,7 @@ import com.ph4.s1.store.product.ProductDTO;
 import com.ph4.s1.store.product.ProductPager;
 import com.ph4.s1.store.product.ProductService;
 import com.ph4.s1.store.product.productQna.ProductQnaDTO;
+import com.ph4.s1.store.product.productQna.ProductQnaOneDTO;
 import com.ph4.s1.store.product.productQna.ProductQnaService;
 import com.ph4.s1.store.product.review.ProductReviewDTO;
 import com.ph4.s1.store.product.review.ProductReviewService;
@@ -146,11 +147,11 @@ public class AdminController {
 	
 	
 	@GetMapping("admin_qnaSelect")
-	public ModelAndView getOne_admin(ProductQnaDTO productQnaDTO) throws Exception{
+	public ModelAndView getOne_admin(ProductQnaOneDTO productQnaOneDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		productQnaDTO = productQnaService.getOne_admin(productQnaDTO);
+		productQnaOneDTO = productQnaService.getOne_admin(productQnaOneDTO);
 		
-		mv.addObject("dto", productQnaDTO);
+		mv.addObject("dto", productQnaOneDTO);
 		mv.setViewName("admin/admin_qnaSelect");
 		
 		return mv;
