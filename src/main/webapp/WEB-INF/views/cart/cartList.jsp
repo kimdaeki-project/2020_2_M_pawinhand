@@ -39,36 +39,39 @@
 				  			<th>선택</th>
 				  		</tr>
 				  		
-						<c:forEach items="${lists}" var="dto">
+						<c:forEach items="${lists}" var="dto" varStatus="i">
 				  		<tr>
 				  			<td><input type='checkbox' onClick="itemSum()" class="chkbox" value="${dto.totalPrice}"/></td>
 				  			<td><img alt="cart image" src="${pageContext.request.contextPath}/resources/img/upload/product/${dto.fileName}" width="150px"></td>
 				  			<td>${dto.name}</td>
 				  			<td class="cart-item">
 					  			<div class="combo-box">
-						  			<button type="button" id="minus-button" aria-label="Add"></button>
-					                <input type="text" value="${dto.amount}" name="amount" id="amount" />
-					                <button type="button" id="plus-button" aria-label="Remove"></button>
+						  			<button type="button" id="minus-button" aria-label="Remove" class="minus-button" title="${i.index}"></button>
+					                <input type="text" value="${dto.amount}" name="amount" class="amount" id="amount${i.index}" />
+					                <button type="button" id="plus-button" aria-label="Add" class="plus-button" title="${i.index}"></button>
 					            </div>
 				  			</td>
 				  			<td class="option">${dto.color} / ${dto.weight}</td>
 				  			<td class="cart-item1 cart-price">
                            		<fmt:formatNumber type="number" maxFractionDigits="3" value="${dto.price}"/> 원
+                           		<input type="hidden" name="price" value="${dto.price}" id="price${i.index}" />
 				  			</td>
 				  			<td class="cart-item1 cart-totalprice">
-				  				<input type="text" value="${dto.totalPrice}" name="totalPrice" id="totalPrice" readonly/> 원
+				  				<input type="text" value="${dto.totalPrice}" name="totalPrice" id="totalPrice${i.index}" class="totalPrice" readonly/> 원
 				  			</td>
 				  			<td class="cart-item1"><fmt:formatNumber type="number" maxFractionDigits="3" value="3000"/> 원</td>
 				  			<td class="cart-item1">
 				  			<button type="submit" class="cart-delete" formaction="./cartDelete?cartNum=${dto.cartNum}" formmethod="get">삭제</button>
 				  			<button type="submit" class="cart-update" formaction="../cart/cartUpdate?cartNum=${dto.cartNum}" formmethod="post">수정</button>
 				  			</td>
+
+				  			
 				  		</tr>
 				  		<input type="hidden" name="id" value="${dto.id}"/>
 				  		<input type="hidden" name="cartNum" value="${dto.cartNum}"/>
 				  		<input type="hidden" name="product_num" value="${dto.product_num}"/>
-				  		<input type="hidden" value="${dto.price}" name="price" id="price" />
-				  		<input type="hidden" value="${dto.totalPrice}" name="totalPrice" id="totalPrice" />
+				  		
+						
 				  		</c:forEach>
 				  		
 				  	</table>
@@ -140,28 +143,7 @@
        $(".point").html("적립예상 포인트 : " + (sum-3000)*0.02 + "원");
     }     
  
- //btn
- var amount=document.getElementById("amount").value; 
- var totalPrice=document.getElementById("totalPrice").value;
- var price=document.getElementById("price").value;
- 
- $("#minus-button").click(function(){
-	 if(amount>1){
-		 amount--;
-		 $("#amount").val(amount);
-		 totalPrice = amount * price;
-		 $("#totalPrice").val(totalPrice);
-	 }else {
-		 alert("1개 이상부터 구매하실 수 있습니다.");
-	 }
- });
- 
- $("#plus-button").click(function(){
-	amount++;
-	 $("#amount").val(amount); 
-	 totalPrice = amount * price;
-	 $("#totalPrice").val(totalPrice);
- });
+
  
 	$(".cart-update").click(function() {
 	 	if (confirm("수정하시겠습니까?") == true){    //확인
@@ -184,7 +166,40 @@
 	 	}
 	});
 
-   
+            		
+	
+	
+	 
+	 $(".minus-button").click(function(){
+		 var val = $(this).attr("title");
+		 console.log(val);
+		 var amount = $("#amount"+ val).val();
+		 var price = $("#price" + val).val();
+		 var totalPrice = $("#totalPrice" + val).val();
+		 console.log(price);
+		 if(amount>1){
+			 amount--;
+			 totalPrice = amount * price;
+			 $("#amount"+ val).val(amount);
+			 $("#totalPrice" + val).val(totalPrice);
+		 }else {
+			 alert("1개 이상부터 구매하실 수 있습니다.");
+		 }
+	 });
+	 
+	 
+	 $(".plus-button").click(function(){
+		 var val = $(this).attr("title");
+		 console.log(val);
+		 var amount = $("#amount"+ val).val();
+		 var price = $("#price" + val).val();
+		 var totalPrice = $("#totalPrice" + val).val();
+		 amount++;
+		 totalPrice = amount * price;
+		 $("#amount"+ val).val(amount);
+		 $("#totalPrice" + val).val(totalPrice);
+	 });
+	 
    
  
 	</script>
