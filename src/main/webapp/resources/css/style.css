@@ -796,7 +796,6 @@ nav {
 .replyContents {
 	display: inline-block;
 	padding: 5px 0;
-	border-bottom:  1px #d3d3d3 solid;
 }
 
 .reply-title {
@@ -920,3 +919,182 @@ nav {
 	width: 60%;
 	text-align: right;
 }
+
+/***** lostList *****/
+.lost-list {
+	padding: 0;
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.lostList{
+	width : 270px;
+	height : 360px;
+	margin-bottom: 30px;
+	border: 1px gray solid;
+	cursor: pointer;
+}
+
+.state-link {
+	padding-left: 10px;
+}
+
+.state-link li{
+	margin-bottom: 10px;
+}
+
+
+.lost-header h1 {
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.lost-link {
+    text-decoration: none;
+	font-size: 1.1em;
+	font-weight: 300;
+	letter-spacing: 0.01em;
+	color: #0d0d0d;
+	margin-bottom: 10px;
+}
+
+.lost-link:hover {
+	color: #FDC033;
+} 
+
+.lostImage{
+	position: absolute;
+	width : 270px;
+	height : 270px;
+}
+
+.lost-detail{
+	display:block;
+	width: 250px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	position: relative;
+	bottom: 15px;
+	left: 10px;
+}
+
+.detailSpecies > h3,
+.shortInfo > h3 {
+	font-size: 0.9em;
+	margin: 0 10px 5px 0;
+	
+}
+
+.shortInfo > h3 {
+	font-weight: 400;
+}
+
+.lostMain {
+	display: flex;
+	
+}
+
+.lostSub > div > h3{
+	display : inline-block;
+	font-size: 0.8em;
+	font-weight: 300;
+}
+
+.dropdowns {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.drops {
+	margin: 0 auto;
+	border: 1px solid #FDC033;
+}
+
+.dropContents{
+	display: inline-block;
+	width: 800px;
+	height : 24px;
+}
+
+.dropdownmenu{
+	width: 850px;
+}
+
+.dropSearch{
+	display: inline-block;
+	font-size: 0.9em;
+	letter-spacing: 0.02em;
+	color: #F98C44;
+
+}
+
+.selectForm{
+	margin-left: 10px;
+}
+
+.lostProvince > input,.radio2 > input,
+.animalSpecies > input, .lostdate > input{
+	margin: 3px;
+}
+
+.lostProvinceTitle, .animalSpeciesTitle, .dates{
+	display: inline-block;
+	font-size: 1em;
+	margin-right: 5px;
+}
+
+.lostdate, .lostProvince, .animalSpecies{
+	display: inline-block;
+	margin-top : 10px;
+	font-size: 0.9em;
+	font-weight: 400;
+	
+}
+
+.state{
+	position: relative;
+	margin-right: 10px;
+	width : 270px;
+	height: 25px;
+	bottom: 25px;
+	text-align: center;
+	color: white;
+	font-size: 1em;
+	opacity: 0.7;
+	background-color: #fd7e14;
+}
+
+
+.lost-location {
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.writeIcon{
+	position: fixed;
+	right: 150px;
+	bottom: 20px;
+	cursor: pointer;
+}
+
+.writeIconfocus {
+       border-color: #28a745;
+       box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+   }
+   
+ /***** lost Select *****/
+ .ls-item {
+ 	display: flex;
+ 	margin-bottom: 10px;
+ }  
+ 
+  .ls-item span {
+  	margin-left: 15px;
+  	}
+ 
+ 
