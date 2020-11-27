@@ -69,7 +69,7 @@
 	</select>
 	
 	<select id="getOne_admin" parameterType="ProductQnaOneDTO" resultType="ProductQnaOneDTO">
-        select PQ.*, P.name, P.color, PQR.* 
+        select PQ.*, P.name, P.color, PQR.qnareply_num, PQR.qna_num qna_num_1, PQR.id id_1, PQR.contents contents_1, PQR.regdate regDate_1 
         
       	from 
       	productqna PQ left join product P

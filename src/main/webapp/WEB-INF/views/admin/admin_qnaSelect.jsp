@@ -24,11 +24,11 @@
 	font-weight: 400;
 }
 
-#ad-product-sel p{
+#mbPage-container p{
 	margin-left: 10px;
 }
 
-#ad-product-sel_p1{
+.ad-product-sel_p1{
 	color: #737373;
 	margin-bottom: -8px;
 }
@@ -42,12 +42,12 @@
 	margin-top: -10px;
 }
 
-#ad-product-sel_p3 span{
+#mbPage-container span{
 	font-size: 0.8em;
 	margin-left: 5px;
 }
 
-#ad-product-sel_d1{
+#ad-product-sel_d{
 	width: 80%;
 	border-top : 1px solid #d9d9d9;
 	border-bottom : 1px solid #d9d9d9;
@@ -61,6 +61,12 @@
 	font-weight: 500;
 	float: right;
 	margin: 10px 3px 0 0;
+}
+#ad-qnaSel-reply{
+	font-size: 0.9em;
+	font-weight: 400;
+	margin-left: 5px;
+	color: #737373;
 }
 
 
@@ -80,22 +86,23 @@
 	<div class="col-12 col-md-9 admin-tbl">
 		<h1>QnA</h1>
 		<hr>
-	<div id="ad-product-sel_all">	
+	<div>	
 		<div id="ad-product-sel">
-			<p id="ad-product-sel_p1">${dto.name} - ${dto.color}</p>
+			<p class="ad-product-sel_p1">${dto.name} - ${dto.color}</p>
 			<hr width="40%">
 			<p id="ad-product-sel_p2">${dto.title}</p>
 			<p id="ad-product-sel_p3">${dto.id} <span>${dto.regDate}</span></p>
-			<div id="ad-product-sel_d1">
-				${dto.contents} ${dto.qnaReply_num} ${dto.qna_num_1}
+			<div id="ad-product-sel_d">
+				${dto.contents}
 			</div>
 		</div>
 		
+		<div style="height: 50px;">
 		<a href="./admin_qnaList"><button class="btn btn-default ad-product-sel_btn" style="margin-right: 20%;">목록</button></a>
 		
 		<c:choose>
 			<c:when test="${dto.qna_num_1 eq dto.qna_num}">
-				<button class="btn btn-default ad-product-sel_btn">답글완료</button>	
+				<button class="btn btn-default ad-product-sel_btn" style="color: #737373;border-color: #737373">답변완료</button>	
 			</c:when>
 			
 			<c:otherwise>
@@ -103,9 +110,17 @@
 				<button class="btn btn-default ad-product-sel_btn">답글</button></a>
 			</c:otherwise>
 		</c:choose>
+		</div>
+		<c:if test="${dto.qna_num_1 eq dto.qna_num}">
+			<p class="ad-product-sel_p1">답변 <span style="color: #737373">${dto.regDate_1}</span></p> 
+			<hr width="60%">
+			
+			<div id="ad-qnaSel-reply">
+				${dto.contents_1}
+			</div>
+		</c:if>
 	</div>
 	</div>
-		
 	</div>
 </div>
 

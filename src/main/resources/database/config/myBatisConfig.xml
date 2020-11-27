@@ -30,6 +30,7 @@
       	<typeAlias type="com.ph4.s1.store.storeFile.StoreFileDTO" alias="StoreFileDTO"/>
       	
       	<typeAlias type="com.ph4.s1.store.product.review.ProductReviewDTO" alias="ProductReviewDTO"/>
+      	<typeAlias type="com.ph4.s1.store.product.review.ProductReviewOneDTO" alias="ProductReviewOneDTO"/>
       	<typeAlias type="com.ph4.s1.store.product.reviewFile.ReviewFileDTO" alias="ReviewFileDTO"/>
       	<typeAlias type="com.ph4.s1.store.product.review.ReviewPager" alias="ReviewPager"/>
       	
