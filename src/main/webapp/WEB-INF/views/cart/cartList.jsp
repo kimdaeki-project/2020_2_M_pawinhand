@@ -60,8 +60,8 @@
 				  			</td>
 				  			<td class="cart-item1"><fmt:formatNumber type="number" maxFractionDigits="3" value="3000"/> 원</td>
 				  			<td class="cart-item1">
-				  			<button class="cart-delete" formaction="./cartDelete?cartNum=${dto.cartNum}" formmethod="get">삭제</button>
-				  			<button class="cart-update" formaction="../cart/cartUpdate?cartNum=${dto.cartNum}" formmethod="post">수정</button>
+				  			<button type="submit" class="cart-delete" formaction="./cartDelete?cartNum=${dto.cartNum}" formmethod="get">삭제</button>
+				  			<button type="submit" class="cart-update" formaction="../cart/cartUpdate?cartNum=${dto.cartNum}" formmethod="post">수정</button>
 				  			</td>
 				  		</tr>
 				  		<input type="hidden" name="id" value="${dto.id}"/>
@@ -80,8 +80,7 @@
 					</c:choose>
 				</div>
 				<a href="${pageContext.request.contextPath}/product/goodsList" class="goods-link">&lt;쇼핑 계속하기</a>
-
-				
+			
 				<div class="c2">
 					<div class="price_sum">
 						<dl>
@@ -99,12 +98,12 @@
 							<dd id="sum">원</dd>
 						</dl>
 						</div>
-						<h3 class="point"></h3>
+						<h3 class="point">적립예상 포인트 : 0 원</h3>					
 				</div>
 			</div>
 		</div>
 	</div>
-<script>
+<script type="text/javascript">
 //전체체크
    $("#allCheck").click(function(){
  	  var chk = $("#allCheck").prop("checked");
@@ -134,6 +133,7 @@
             num++;
            }
        }
+
        $("#num").html(num+"개의 상품금액");
        $("#total_sum").html(sum+" 원");
        $("#sum").html(sum+3000+ " 원");
@@ -173,19 +173,21 @@
 	 	}
 	});
 	
+	
 	$(".cart-delete").click(function() {
 	 	if (confirm("삭제하시겠습니까?") == true){    //확인
 	     	form.submit();
 	
 	 	}else{   //취소
-	 		location.reload();
 	     	return false;
+	     	location.reload(true);
 	 	}
 	});
+
    
    
  
- </script>	
+	</script>
 	
 </body>
 </html>

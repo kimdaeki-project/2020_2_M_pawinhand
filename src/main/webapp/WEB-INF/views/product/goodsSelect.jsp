@@ -77,12 +77,6 @@
 		padding-top: 15px;
 	}
 	
-	.amount > span{
-		font-size: 1.1em;
-   		letter-spacing: 0.02em;
-    	color: #B4B4B4;
-    	font-weight: 300;
-	}
 </style>
 
 <title>Project</title>
@@ -132,8 +126,8 @@
 		<div class="col-12 col-md-6 sl goods-detail2">
 			<table class="goods-t">
 				<tr><th colspan="2" class="goods-sname" style="width:480px">${dto.name}</th></tr>
-				<tr class="goods-items"><th>정가</th><td><fmt:formatNumber type="number" maxFractionDigits="3" value="${dto.price}"/> 원</td></tr>
-				<tr class="goods-items"><th>판매가</th><td><fmt:formatNumber type="number" maxFractionDigits="3" value="${dto.price}"/> 원</td></tr>
+				<tr class="goods-items"><th>정가</th><td>${dto.price}원</td></tr>
+				<tr class="goods-items"><th>판매가</th><td>${dto.price}원</td></tr>
 				<tr class="goods-items"><th>구매제한</th><td>옵션당 최소 1개</td></tr>
 				<tr class="goods-items"><th>배송비</th><td>3,000원</td></tr>
 				<tr class="goods-items"><th>상품코드</th><td>${dto.product_num}</td></tr>
@@ -159,7 +153,7 @@
 				<button class="btn btn-default okbtn" formaction="../cart/cartInsert">장바구니</button>
 				<button class="btn btn-default nobtn"  formaction="../storePay/storePayMain">구매하기</button>
 			</div>
-			<input type="hidden" name="totalPrice" id="totalPrice" value="0">
+			<input type="hidden" name="totalPrice" id="totalPrice" value="${dto.price}">
 		</form>
 		
 		<c:if test="${member.id == 'admin'}">
@@ -303,8 +297,9 @@
 	//totalPrice
 	$("#amount").change(function(){ 
 	var price= ${dto.price}; 
+	document.getElementById("totalPrice").value=result;
 	var result= parseInt(price)*parseInt(amount); 
-	totalPrice.value=result;
+	document.getElementById("totalPrice").value=result;
 	console.log(result);
 	});	
 
