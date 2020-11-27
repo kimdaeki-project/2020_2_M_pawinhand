@@ -63,7 +63,6 @@ public class CartController {
 	public ModelAndView setCartDelete(CartVO cartDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("cartDelete");
-
 		int result = cartService.setCartDelete(cartDTO);
 		if(result>0) {
 			mv.addObject("msg" , "해당 상품 장바구니 삭제 성공");
