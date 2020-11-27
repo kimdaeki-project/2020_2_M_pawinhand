@@ -458,6 +458,7 @@
 	<input type="hidden" class="finalPrice" id="www" name="totalPrice">
 	<input type="hidden" class="finalPrice" name="total">
 	<input type="hidden" name="isPay" value="0">
+	<input type="hidden" id="fromInput" value="0">
 	<input type="hidden" id="addPoint" name="addPoint" value="0">
 	<input type="hidden" name="depositAccount" id="depositAccount" value="sh">
 	<div id="odDiv1">
@@ -667,7 +668,7 @@
 	});
 	
 	
-		
+	
 	
 	
 	//submit시 발생
@@ -679,15 +680,15 @@
 		var fullAddr = addr+exAddr+deAddr;
 		$("#fullAddr").val(fullAddr);
 		console.log(fullAddr);
-		
+	
 		
 		if($("#finalCheck").prop("checked")){
 
 			if(ch){
 				alert("신용카드 결제 페이지로 이동합니다.");
-				window.open("./stroePayment");      
-				alert(data);
-
+				 $("form").attr("action", "./storePayment");
+				//location.href="./storePayment";
+				
 			}else{
 				return true;
 			}
@@ -697,6 +698,7 @@
 			return false;
 		}
 	}
+
 	
 
 </script>
