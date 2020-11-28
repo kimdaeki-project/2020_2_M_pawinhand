@@ -29,6 +29,10 @@
 	where id = #{id} and product_num= #{product_num}
 </select>
 
+<select id="getOne" resultType="CartVO" parameterType="CartVO">
+	select * from cart where cartNum = #{cartNum}
+</select>
+
 <update id="setCartUpdate" parameterType="CartVO">
 	update cart set amount = #{amount}, totalPrice = #{totalPrice} where cartNum = #{cartNum}
 </update>

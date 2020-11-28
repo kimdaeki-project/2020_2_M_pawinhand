@@ -76,24 +76,24 @@ public class CartController {
 	}
 	
 	@GetMapping("cartUpdate")
-	public ModelAndView setCartUpdate(long num) throws Exception {
+	public ModelAndView setCartUpdate(CartVO cartDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		CartVO cartDTO = new CartVO();
-		cartDTO.setCartNum(num);
+		cartDTO = cartService.getOne(cartDTO);
 		mv.addObject("dto", cartDTO);
-		mv.setViewName("cart/cartUpdate");
+		mv.setViewName("/cart/cartUpdate");
 		return mv;
 	}
 	
 	@PostMapping("cartUpdate")
-	public ModelAndView setCartUpdate(CartVO cartDTO) throws Exception {
+	public ModelAndView setCartUpdate(CartVO cartDTO, String msg) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		int result = cartService.setCartUpdate(cartDTO);
 		if(result>0) {
-			mv.addObject("msg" , "장바구니 수량 수정 성공");
+			msg = "장바구니 수량 수정 성공";
 		}else {
-			mv.addObject("msg" , "장바구니 수량 수정 실패");
+			msg = "장바구니 수량 수정 실패";
 		}
+		mv.addObject("msg", msg);
 		mv.addObject("path", "./cartList");
 		mv.setViewName("common/result");
 		return mv;
@@ -117,7 +117,12 @@ public class CartController {
 		return mv;
 	}
 	
-	
+	@PostMapping("setAjaxUpdate")
+	public ModelAndView setAjaxUpdate(CartVO cartDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = cartService.setCartUpdate(cartDTO);
+		return mv;
+	}
 	
 	
 

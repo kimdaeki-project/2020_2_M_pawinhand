@@ -38,4 +38,8 @@ public class CartDAO {
 	public int setCartModify(CartVO cartDTO) throws Exception {
 		return sqlSession.update(NAMESPACE+"setCartModify", cartDTO);
 	}
+	
+	public CartVO getOne(CartVO cartDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getOne", cartDTO);
+	}
 }

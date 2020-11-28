@@ -29,6 +29,7 @@ a {
    color: #FDC033;
    font-size: 0.88em;
    font-weight: 500;
+   
 }
 
 .nobtn{
@@ -625,6 +626,24 @@ nav {
 	padding: 10px 25px;
 }
 
+.order_btn{
+   border: 1.5px solid #FDC033;
+   color: #FDC033;
+   font-size: 0.88em;
+   font-weight: 500;
+   float: right;
+   margin: 15px 0; 
+}
+
+.order_btn::after {
+   content: "";
+   display: block;
+   clear: right;
+}
+
+.ck {
+	visibility:hidden;
+}
 
 /***** board List *****/
  .c1 {
