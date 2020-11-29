@@ -209,10 +209,9 @@ public class MemberController {
 			msg = "회원 정보가 수정되었습니다.";
 			mv.setViewName("common/result");
 			mv.addObject("msg", msg);
-			mv.addObject("path", "../");
-		}else {
-		
+			mv.addObject("path", "./memberPage");
 		}
+		
 		return mv;
 	}
 	

@@ -21,7 +21,7 @@
 	}
 	.listbox{
 		width: 100%;
-		height: 230px;
+		height: 210px;
 		line-height: inherit;
 		border: 2px solid #a6a6a6;
 		border-radius: 0.15em;
@@ -32,16 +32,19 @@
 		cursor: pointer;
 	}
 	.list-contents{
-		font-size: 1.1em;
-		font-weight:400;
+		font-size: 0.98em;
+		font-weight: 400;
 		margin-left: 30px;
-		margin-bottom: 17px;
+		margin-bottom: 15px;
 	}
 	
 	.list-contents img{
 		margin-right: 5px;
 	}
 	
+	#sList-listbox-contents{
+		width: 80%;
+	}
 	.new{
 		float: right;
 	}
@@ -96,7 +99,8 @@
 		height: 210px;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		white-space: nowrap;		 
+		white-space: nowrap;
+		display: block;		 
 	}
 	
 
@@ -139,7 +143,7 @@
 			<div>
 				<c:choose>
 					<c:when test="${not empty dto.shelterFileDTO.fileName}">
-						<img src="../resources/upload/shelter/${dto.shelterFileDTO.fileName}" width="330px" height="210px">
+						<img src="../resources/upload/shelter/${dto.shelterFileDTO.fileName}" width="300px" height="190px">
 					</c:when>
 					<c:otherwise>사진없음</c:otherwise>
 				</c:choose>
@@ -149,29 +153,29 @@
 				<p class="list-contents">
 					<c:choose>
 						<c:when test="${dto.animal eq '개'}">
-							<img alt="" src="../resources/img/common/animal_dog.png" width="22px" height="22px">
+							<img alt="" src="../resources/img/common/animal_dog.png" width="20px" height="20px">
 						</c:when>
 						
 						<c:when test="${dto.animal eq '고양이'}">
-							<img alt="" src="../resources/img/common/animal_cat.png" width="22px" height="22px">
+							<img alt="" src="../resources/img/common/animal_cat.png" width="20px" height="20px">
 						</c:when>
 						
 						<c:otherwise>
-							<img alt="" src="../resources/img/common/animal_etc.png" width="22px" height="22px">
+							<img alt="" src="../resources/img/common/animal_etc.png" width="20px" height="20px">
 						</c:otherwise>
 					</c:choose>
 					
 					<c:choose>
 						<c:when test="${dto.sex eq '암컷'}">
-							<img alt="" src="../resources/img/common/animal_female.png" width="22px" height="22px">
+							<img alt="" src="../resources/img/common/animal_female.png" width="20px" height="20px">
 						</c:when>
 
 						<c:when test="${dto.sex eq '수컷'}">
-							<img alt="" src="../resources/img/common/animal_male.png" width="22px" height="22px">
+							<img alt="" src="../resources/img/common/animal_male.png" width="20px" height="20px">
 						</c:when>		
 
 						<c:otherwise>
-							<img alt="" src="../resources/img/common/animal_x.png" width="22px" height="22px">
+							<img alt="" src="../resources/img/common/animal_x.png" width="20px" height="20px">
 						</c:otherwise>				
 					</c:choose>
 				</p>

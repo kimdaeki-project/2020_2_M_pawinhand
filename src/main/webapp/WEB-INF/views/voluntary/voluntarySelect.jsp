@@ -163,9 +163,11 @@
 			<!-- <h3 id="num">글번호 : ${dto.num}</h3> -->
 		<div id="btnDiv">
 			<input type="button" value="봉사 신청 현황 보기" id="res" class="btn1">
-			<input type="button" value="수정하기" id="update" class="btn"> 
-			<input type="button" value="삭제하기" id="del" class="btn">
-			<input type="button" value="목록보기" id="golist" class="btn"> 
+			<c:if test="${member.id eq dto.writer}">
+				<input type="button" value="수정하기" id="update" class="btn"> 
+				<input type="button" value="삭제하기" id="del" class="btn">
+			</c:if> 
+			<input type="button" value="목록보기" id="golist" class="btn">
 		</div>
 	</div>
 
