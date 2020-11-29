@@ -275,6 +275,29 @@ nav {
 	text-align: center;
 }
 
+.gl {
+	display: flex;
+	flex-wrap: nowrap;
+	align-content: center;
+}
+
+.gl h1 {
+	font-size: 1.4em;
+	font-weight: 600;
+	text-align: left;
+	margin-right: 10px;
+}
+
+.g1 span {
+	font-size: 1.2em;
+	font-weight: 400;
+	margin: 0;
+}
+
+.gl hr{
+	margin: 0;
+}
+
 .goods-nav ul {
 	margin: 0 auto;
 }
@@ -296,7 +319,7 @@ nav {
 
 .goods {
 	width: 250px;
-	height: 430px;
+	height: 330px;
 }
 
 .goods a {
@@ -314,25 +337,36 @@ nav {
 }
 
 .goods-name {
-	margin-top: 10px;
+	margin-top: 5px;
 	text-align: center;
 	font-size: 0.9em;
-	font-weight: 500;
+	font-weight: 400;
 	width: 250px;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
 }
 
-.goods-name:hover {
+.goods-info dt {
+	font-weight: 400;
+	font-size: 0.9em;
+	text-align: left;
+}
+
+
+.goods-name .name:hover {
 	color: #FDC033;
 }
 
+
+
 .goods-info dd {
 	width: 250px;
-	height: 50px;
+	height: 20px;
 	font-size: 0.7em;
 	color: #B4B4B4;
+	padding: 0;
+	text-align: left;
 }
 
 /***** goodsSelect *****/
@@ -381,8 +415,8 @@ nav {
 }
 
 .amount > .combo-box button{
-	width: 35px;
- 	height: 35px;
+	width: 25px;
+ 	height: 25px;
 }
 
 

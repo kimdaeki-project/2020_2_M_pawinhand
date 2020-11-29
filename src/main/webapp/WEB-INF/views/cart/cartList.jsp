@@ -32,11 +32,11 @@
 				  			<th>이미지</th>
 				  			<th>이름</th>
 				  			<th>수량</th>
-				  			<th>선택</th>
-				  			<th>상품 옵션</th>
+				  			<th>옵션</th>
 				  			<th>상품 금액</th>
 				  			<th>합계 금액</th>
 				  			<th>배송비</th>
+				  			<th>선택</th>
 				  		</tr>
 				  		
 						<c:forEach items="${lists}" var="dto" varStatus="i">
@@ -45,29 +45,29 @@
 				  			<td><img alt="cart image" src="${pageContext.request.contextPath}/resources/img/upload/product/${dto.fileName}" width="150px"></td>
 				  			<td>${dto.name}</td>
 				  			<form id="cart-form">
-				  			<td class="cart-item">
-				  				<input type="hidden" value="${dto.cartNum}"  name="cartNum" id="cartNum${i.index}" />
-					  			<div class="combo-box">
-						  			<button type="button" id="minus-button" aria-label="Remove" class="minus-button" title="${i.index}"></button>
-					                <input type="text" value="${dto.amount}" name="amount" class="amount" id="amount${i.index}" />
-					                <button type="button" id="plus-button" aria-label="Add" class="plus-button" title="${i.index}"></button>
-					            </div>
-				  			</td>
-				  			<td class="option">${dto.color} / ${dto.weight}</td>
-				  			<td class="cart-item1 cart-price">
-                           		<fmt:formatNumber type="number" maxFractionDigits="3" value="${dto.price}"/> 원
-                           		<input type="hidden" name="price" value="${dto.price}" id="price${i.index}" />
-				  			</td>
-				  			<td class="cart-item1 cart-totalprice">
-				  				<input type="text" value="${dto.totalPrice}" name="totalPrice" id="totalPrice${i.index}" class="totalPrice" readonly/> 원
-				  			</td>
-				  			<td class="cart-item1"><fmt:formatNumber type="number" maxFractionDigits="3" value="3000"/> 원</td>
-				  			 <td>
-				  			 <button type="submit" class="cart-update nobtn btn" formaction="./cartUpdate" formmethod="post">변경</button>
-				  			 <button class="okbtn btn cart-delete" formaction="./cartDelete" formmethod="get" >삭제</button>
-				  			 </td>	  			
+					  			<td class="cart-item">
+					  				<input type="hidden" value="${dto.cartNum}"  name="cartNum" id="cartNum${i.index}" />
+						  			<div class="combo-box">
+							  			<button type="button" id="minus-button" aria-label="Remove" class="minus-button" title="${i.index}"></button>
+						                <input type="text" value="${dto.amount}" name="amount" class="amount" id="amount${i.index}" />
+						                <button type="button" id="plus-button" aria-label="Add" class="plus-button" title="${i.index}"></button>
+						            </div>
+					  			</td>
+					  			<td class="option">${dto.color} / ${dto.weight}</td>
+					  			<td class="cart-item1 cart-price">
+	                           		<fmt:formatNumber type="number" maxFractionDigits="3" value="${dto.price}"/> 원
+	                           		<input type="hidden" name="price" value="${dto.price}" id="price${i.index}" />
+					  			</td>
+					  			<td class="cart-item1 cart-totalprice">
+					  				<input type="text" value="${dto.totalPrice}" name="totalPrice" id="totalPrice${i.index}" class="totalPrice" readonly/> 원
+					  			</td>
+					  			<td class="cart-item1"><fmt:formatNumber type="number" maxFractionDigits="3" value="3000"/> 원</td>
+					  			<td>
+						  			<button type="submit" class="cart-update nobtn btn" formaction="./cartUpdate" formmethod="post">변경</button>
+						  			<button class="okbtn btn cart-delete" formaction="./cartDelete" formmethod="get" >삭제</button>
+					  			</td>	  			
 				  		</tr>
-				  		 </form>
+				  		 	</form>
 						 </c:forEach>
 						 
 				  		</table>
@@ -101,8 +101,7 @@
 							<dt>합계</dt>
 							<dd id="sum">원</dd>
 						</dl>
-						</div>
-						<h3 class="point">적립예상 포인트 : 0 원</h3>					
+						</div>				
 				</div>
 			</div>
 		</div>
@@ -141,8 +140,7 @@
        $("#num").html(num+"개의 상품금액");
        $("#total_sum").html(sum+" 원");
        $("#sum").html(sum+3000+ " 원");
-       $(".point").html("적립예상 포인트 : " + (sum-3000)*0.02 + "원");
-    }     
+       }     
  
 
 	 $(".minus-button").click(function(){
@@ -175,19 +173,7 @@
 		 $("#totalPrice" + val).val(totalPrice);
 	 });
 	 
-	 
-	
-	
-	/*$(".cart-delete").click(function() {
-	 	if (confirm("삭제하시겠습니까?") == true){    //확인
-	     	form.submit();
-	 	}else{   //취소
-	 		location.reload();
-	     	return false;
-	 	}
-	});
-*/
-		
+
 	//전체선택
 	var tt = "${cart}";
     if (tt == 'false') {

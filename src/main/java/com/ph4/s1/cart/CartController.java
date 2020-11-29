@@ -117,13 +117,7 @@ public class CartController {
 		return mv;
 	}
 	
-	@PostMapping("setAjaxUpdate")
-	public ModelAndView setAjaxUpdate(CartVO cartDTO) throws Exception {
-		ModelAndView mv = new ModelAndView();
-		int result = cartService.setCartUpdate(cartDTO);
-		return mv;
-	}
-	
+
 	
 
 }
