@@ -10,6 +10,7 @@
 
 </head>
 <body>
+
 	
 
 	<div id="map" style="width:570px;height:400px;">
@@ -44,15 +45,18 @@
 	            map: map,
 	            position: coords
 	        });
+	        
 
 	        // 인포윈도우로 장소에 대한 설명을 표시합니다
 	        var infowindow = new kakao.maps.InfoWindow({
-	            content: '<div style="width:150px;text-align:center;padding:6px 0;">${dto.center}</div>'
+	            content: "<div style='width:200px;text-align:center;padding:6px 0;'>${dto.center}<a href='https://map.kakao.com/link/to/,'><button style='font-size:0.7em;margin-left:5px;background-color:white;'>길찾기</button></a></div>"
+	       
 	        });
 	        infowindow.open(map, marker);
 
 	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 	        map.setCenter(coords);
+	        
 	    } 
 	});   
 	</script>
