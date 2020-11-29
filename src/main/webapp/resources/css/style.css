@@ -275,29 +275,6 @@ nav {
 	text-align: center;
 }
 
-.gl {
-	display: flex;
-	flex-wrap: nowrap;
-	align-content: center;
-}
-
-.gl h1 {
-	font-size: 1.4em;
-	font-weight: 600;
-	text-align: left;
-	margin-right: 10px;
-}
-
-.g1 span {
-	font-size: 1.2em;
-	font-weight: 400;
-	margin: 0;
-}
-
-.gl hr{
-	margin: 0;
-}
-
 .goods-nav ul {
 	margin: 0 auto;
 }
