@@ -67,7 +67,7 @@
 				name
 			</otherwise>
 		</choose>
-		like '%'||#{search}||'%') M)
+		like '%'||#{search}||'%') M order by member_type desc)
 		where R between #{startRow} and #{lastRow}
 	</select>
 	

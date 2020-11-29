@@ -17,6 +17,18 @@
 	#adminsel-points{
 		color: #404040;
 	}
+	.okbtn{
+      border: 1.5px solid #FDC033;
+      color: #FDC033;
+      font-size: 1em;
+      font-weight: 500;
+   }
+   
+   .nobtn{
+       border: 1px solid #d9d9d9;
+       margin-left: 3px;
+       font-size: 1.04em;
+   }
 </style>
 
 
@@ -50,8 +62,8 @@
 			</div>
 			
 			    <div class="member-form">
-			      <button type="submit" class="btn btn-warning" id="okbtn" style="font-weight: 700;color: white;">확인</button>
-			      <input type="button" class="btn btn-default" id="nobtn" value="취소" style="border: 1px solid #d9d9d9;margin-left: 3px;">
+			      <button type="submit" class="btn btn-default okbtn" >확인</button>
+			      <input type="button" class="btn btn-default nobtn" value="취소">
 			    </div>
 		
 		</div>
@@ -94,7 +106,7 @@
 
 	
 
-	$("#nobtn").click(function() {
+	$(".nobtn").click(function() {
 		if (confirm("이 페이지에서 나가시겠습니까?") == true){    //확인
  		location.href="./admin_memberList";
 

@@ -7,6 +7,24 @@
 <meta charset="UTF-8">
 <c:import url="../template/bootStrap.jsp"></c:import>
 <title>Insert title here</title>
+<style type="text/css">
+	.okbtn{
+      border: 1.5px solid #FDC033;
+      color: #FDC033;
+      font-size: 1em;
+      font-weight: 500;
+   }
+   
+   .nobtn{
+       border: 1px solid #d9d9d9;
+       margin-left: 3px;
+       font-size: 1.04em;
+   }
+   
+   #mPage-btn{
+   	margin-top: 30px;
+   }
+</style>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
@@ -36,10 +54,10 @@
 			      <label for="pw" class="pw-check-label">Password </label>
 			      <input type="password" class="form-control pw-check" id="pw" placeholder="Enter password" name="pw">
 			    </div>
-			    <div class="member-form">
-			      <button type="submit" class="btn btn-warning" id="okbtn" style="font-weight: 700;color: white;">
+			    <div class="member-form" id="mPage-btn">
+			      <button type="submit" class="btn btn-default okbtn">
 			      	확인</button>
-			      <button type="submit" class="btn btn-default" id="nobtn" style="border: 1px solid #d9d9d9;margin-left: 3px;">
+			      <button type="submit" class="btn btn-default nobtn">
 			      	취소</button>
 			    </div>
 		
@@ -54,7 +72,7 @@
 
 	
 
-	$("#okbtn").click(function() {
+	$(".okbtn").click(function() {
 		
 		var pw = $("#pw").val();
 		var member_pw = "${member.pw}";

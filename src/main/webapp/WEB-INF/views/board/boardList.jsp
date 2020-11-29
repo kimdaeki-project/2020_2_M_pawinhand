@@ -101,7 +101,20 @@
 		      </div>
 		  </form>
 		  </div>
-		  <img class="writeIcon" src="../resources/img/lost/write.png" tabindex=0 width="50" height="50" alt="">
+		  <c:choose>
+		  	<c:when test="${board eq 'notice'}">
+		  		<c:if test="${member.id eq 'admin'}">
+		  			<img class="writeIcon" src="../resources/img/lost/write.png" tabindex=0 width="50" height="50" alt="">
+		  		</c:if>
+		  	</c:when>
+		  	
+		  	<c:otherwise>
+		  		<c:if test="${not empty member}">
+		  			<img class="writeIcon" src="../resources/img/lost/write.png" tabindex=0 width="50" height="50" alt="">
+		  		</c:if>
+		  	</c:otherwise>
+		  </c:choose>
+		  
 	  </div>
 
 </div>

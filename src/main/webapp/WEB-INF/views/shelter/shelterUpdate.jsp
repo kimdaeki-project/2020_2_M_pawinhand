@@ -401,6 +401,7 @@
 	         hml += "<option value='말라뮤트'>말라뮤트</option>";
 	         hml += "<option value='말티즈'>말티즈</option>";
 	         hml += "<option value='믹스견'>믹스견</option>";
+	         hml += "<option value='진돗개'>진돗개</option>";
 	         hml += "<option value='푸들'>푸들</option>";
 	         hml += "</select>"
 	      }else if(animal == "고양이"){

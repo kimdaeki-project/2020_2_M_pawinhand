@@ -120,7 +120,7 @@
 				<td>${member.name}</td>
 				<td>${member.email}</td>
 				<td>${member.phone}</td>
-				<td>${member.address}</td>
+				<td>[${member.zipCode}] ${member.address} <br>${member.detailAddress} ${member.extraAddress}</td>
 				<td>${member.points}</td>
 			</tr>
 		  </c:when>

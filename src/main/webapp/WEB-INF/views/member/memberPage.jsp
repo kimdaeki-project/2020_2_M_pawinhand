@@ -48,6 +48,15 @@
 	color: black;
 	text-decoration: underline;
 }
+#mPage-table td{
+	color: #404040;
+	font-weight: 500;
+	font-size: 0.8em;
+}
+#mPage-tbl-con td{
+	font-weight: 400;
+}
+
 </style>
 </head>
 <body>
@@ -97,18 +106,18 @@
 					<div class="member-item2" style="margin-top: 70px;">
 						<h2>최근 주문 정보</h2>
 						
-						<table class="table">
+						<table class="table" id="mPage-table">
 							<tr style="text-align: center;">
-								<td width="25%" style="color: #404040;font-weight: 500;font-size: 0.8em;">날짜/주문번호</td>
-								<td width="30%" style="color: #404040;font-weight: 500;font-size: 0.8em;">상품명/옵션</td>
-								<td width="15%" style="color: #404040;font-weight: 500;font-size: 0.8em;">수량/상품금액</td>
-								<td width="15%" style="color: #404040;font-weight: 500;font-size: 0.8em;">주문상태</td>
-								<td width="15%" style="color: #404040;font-weight: 500;font-size: 0.8em;">확인/리뷰</td>
+								<td width="25%">날짜/주문번호</td>
+								<td width="30%">상품명/옵션</td>
+								<td width="15%">수량/상품금액</td>
+								<td width="15%">주문상태</td>
+								<td width="15%">확인/리뷰</td>
 							</tr>
 							
 							<c:if test="${list ne null}">
 								<c:forEach items="${list}" var="list" varStatus="vs">
-								<tr style="text-align: center;">
+								<tr style="text-align: center;" id="mPage-tbl-con">
 									<td class="numTd">
 										<a href="./member/viewOrderList?order_num=${list.order_num}" onclick="window.open(this.href,'vv','width=500,height=500,scrollbars=no'); return false;">
 										${list.order_num}</a></td>

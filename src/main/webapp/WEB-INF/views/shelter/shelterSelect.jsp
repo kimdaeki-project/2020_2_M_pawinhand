@@ -41,7 +41,8 @@
 	}
 	#shelter-sel-contents h3{
 		font-size: 1.3em;
-		margin-left: 30px;
+		font-weight: 400;
+		margin-left: 35px;
 	}
 </style>
 

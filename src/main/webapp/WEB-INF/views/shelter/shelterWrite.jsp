@@ -73,10 +73,6 @@
 		width: 12%;
 	}
 
-	.del {
-        color: red;
-        font-weight: bold;
-    }
     .shelter-menu {
         display: flex;
         flex-basis: 100%;
@@ -124,6 +120,11 @@
 		font-size: 0.88em;
 		font-weight: 500;
 		padding: 4px 10px;
+	}
+	#shelWr-file-del{
+		color: red;
+        font-weight: bold;
+        cursor: pointer;
 	}
 
 	
@@ -317,7 +318,7 @@
 	<div id ="f">
 		<div class="input-group">
        		<input id="files" type="file" class="file_input_textbox" name="files">
-       		<span class="input-group-addon del">X</span>
+       		<span class="input-group-addon del" id="shelWr-file-del">X</span>
     	</div>
 	</div>
 	</div>
@@ -388,6 +389,7 @@
 	         hml += "<option value='말라뮤트'>말라뮤트</option>";
 	         hml += "<option value='말티즈'>말티즈</option>";
 	         hml += "<option value='믹스견'>믹스견</option>";
+	         hml += "<option value='진돗개'>진돗개</option>";
 	         hml += "<option value='푸들'>푸들</option>";
 	         hml += "</select>"
 	      }else if(animal == "고양이"){
@@ -402,7 +404,7 @@
 	         hml += "<option value='먼치킨'>먼치킨</option>";
 	         hml += "</select>"
 	      }else if(animal == "기타"){
-	    	  hml += "<label for='품종' class='shelWr-label'>품종 </label> <input type='text' class='form-control' id='animal_kind' name='animal_kind'>";
+	    	  hml += "<label for='품종' class='shelWr-label'>품종 </label> <input type='text' class='form-control shelWr-input' id='animal_kind' name='animal_kind'>";
 	      }
 	
         $(".animal_kind_sel").html(hml);
