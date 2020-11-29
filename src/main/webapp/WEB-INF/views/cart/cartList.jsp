@@ -25,18 +25,18 @@
 							<h2>장바구니에 담겨있는 상품이 없습니다.</h2>
 						</c:when>
 					<c:otherwise>
-					<form id="cart-form">
+					
 					<table class="cart-table">
 						<tr>
 							<th class="ck"><input type='checkbox' name='allCheck' id="allCheck" checked/></th>
 				  			<th>이미지</th>
 				  			<th>이름</th>
 				  			<th>수량</th>
+				  			<th>선택</th>
 				  			<th>상품 옵션</th>
 				  			<th>상품 금액</th>
 				  			<th>합계 금액</th>
 				  			<th>배송비</th>
-				  			<th>선택</th>
 				  		</tr>
 				  		
 						<c:forEach items="${lists}" var="dto" varStatus="i">
@@ -44,7 +44,9 @@
 				  			<td class="ck"><input type='checkbox' onClick="itemSum()" class="chkbox" value="${dto.totalPrice}"/></td>
 				  			<td><img alt="cart image" src="${pageContext.request.contextPath}/resources/img/upload/product/${dto.fileName}" width="150px"></td>
 				  			<td>${dto.name}</td>
+				  			<form id="cart-form">
 				  			<td class="cart-item">
+				  				<input type="hidden" value="${dto.cartNum}"  name="cartNum" id="cartNum${i.index}" />
 					  			<div class="combo-box">
 						  			<button type="button" id="minus-button" aria-label="Remove" class="minus-button" title="${i.index}"></button>
 					                <input type="text" value="${dto.amount}" name="amount" class="amount" id="amount${i.index}" />
@@ -60,21 +62,23 @@
 				  				<input type="text" value="${dto.totalPrice}" name="totalPrice" id="totalPrice${i.index}" class="totalPrice" readonly/> 원
 				  			</td>
 				  			<td class="cart-item1"><fmt:formatNumber type="number" maxFractionDigits="3" value="3000"/> 원</td>
-				  			<td class="cart-item1">
-				  			<button class="okbtn btn cart-delete" formaction="../cart/cartDelete?cartNum=${dto.cartNum}" formmethod="get" >삭제</button>
-				  			<button class="cart-update nobtn btn" formaction="../cart/cartUpdate?cartNum=${dto.cartNum}" formmethod="post" >수정</button>
-				  			</td>
-
-				  			
+				  			 <td>
+				  			 <button type="submit" class="cart-update nobtn btn" formaction="./cartUpdate" formmethod="post">변경</button>
+				  			 <button class="okbtn btn cart-delete" formaction="./cartDelete" formmethod="get" >삭제</button>
+				  			 </td>	  			
 				  		</tr>
-				  		<input type="hidden" name="id" value="${dto.id}"/>
-				  		<input type="hidden" name="cartNum" value="${dto.cartNum}"/>
-				  		<input type="hidden" name="product_num" value="${dto.product_num}"/>
-						
+				  		 </form>
+						 </c:forEach>
+						 
+				  		</table>
+				  		<form id="order-form">
+				  		<c:forEach items="${lists}" var="dto" varStatus="i">
+				  		  <input type="hidden" value="${member.id}" name="id"/>
+						  <input type="hidden" value="${dto.amount}" name="amount" class="amount" id="amount${i.index}" />
+						  <input type="hidden" value="${dto.product_num}" name="product_num" />
 				  		</c:forEach>
-				  	</table>
-				  	<button formaction="../storePay/storePayMain" formmethod="post" class="order_btn btn">주문하기</button>				  
-				  	</form>
+				  		<button class="order_btn btn" formaction="../storePay/storePayMain" formmethod="post">주문하기</button>
+				  		</form>
 					</c:otherwise>
 					</c:choose>
 				</div>
@@ -172,16 +176,9 @@
 	 });
 	 
 	 
-	$(".cart-update").click(function() {
-	 	if (confirm("수정하시겠습니까?") == true){    //확인
-	     	form.submit();
-	 	}else{   //취소
-	     	return false;
-	     	location.reload(true);
-	 	}
-	});
 	
-	$(".cart-delete").click(function() {
+	
+	/*$(".cart-delete").click(function() {
 	 	if (confirm("삭제하시겠습니까?") == true){    //확인
 	     	form.submit();
 	 	}else{   //취소
@@ -189,7 +186,7 @@
 	     	return false;
 	 	}
 	});
-
+*/
 		
 	//전체선택
 	var tt = "${cart}";
@@ -200,7 +197,8 @@
         $(".chkbox").prop("checked", true);
         itemSum();
     }
-		
+	
+
 		
  
 	</script>
