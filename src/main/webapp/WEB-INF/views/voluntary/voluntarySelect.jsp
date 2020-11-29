@@ -191,8 +191,7 @@
 		});
 
 		$("#res").click(function() {
-							window.open('./calendar/reserveCalendar?num=${dto.num}','예약 현황',
-									'left=250px, width=700px,height=700px, scrollbars=yes, resizable=no');
+							window.open('./calendar/reserveCalendar?num=${dto.num}','예약 현황','left=250px, width=700px,height=700px, scrollbars=yes, resizable=no');
 						});
 
 		$("#golist").click(function() {
