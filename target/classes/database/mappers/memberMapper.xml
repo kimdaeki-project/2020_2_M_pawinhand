@@ -56,7 +56,7 @@
 		
 	<select id="getList" parameterType="Pager" resultType="MemberDTO">
 		select * from 
-		(select rownum R, M.* from 
+		(select rownum R, M.* from
 		(select * from (select * from member where not id='admin' order by name asc) where 
 		<choose>
 			<when test="kind == 'id'">
