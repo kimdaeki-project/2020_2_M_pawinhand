@@ -56,6 +56,13 @@
 	float: right;
 	margin: 10px 3px 0 0;
 }
+#pointbox{
+	margin: 10px 3px 0 0;
+	float: right;
+	width: 100px;
+	height: 33.4px;
+	border-radius: 1.5;
+}
 
 
 
@@ -63,7 +70,7 @@
 </style>
 
 </head>
-<body>
+<body onunload="Close_Event();">
 <c:import url="../template/header.jsp"></c:import>
 <div class="container" id="mbPage-container">
 	<div class="row mem_title">
@@ -76,7 +83,7 @@
 		<hr>
 	<div id="ad-product-sel_all">	
 		<div id="ad-product-sel">
-			<p id="ad-product-sel_p1">${dto.productDTO.name} - ${dto.productDTO.color}</p>
+			<p id="ad-product-sel_p1">${dto.name} - ${dto.color}</p>
 			<hr width="40%">
 			<p id="ad-product-sel_p3">작성자 : ${dto.id}</p>
 			<div id="ad-product-sel_d1">
@@ -85,8 +92,9 @@
 		</div>
 		
 		<a href="./admin_reviewList"><button class="btn btn-default ad-product-sel_btn" style="margin-right: 20%;">목록</button></a>
-		<a onclick="window.open('../productQna/productQnaReplyInsert?review_num=${dto.review_num}','insert','width = 576, height = 373.2, top = 100, left = 200, location = no');">
-		<button class="btn btn-default ad-product-sel_btn">답글</button></a>
+			<a onclick="window.open('../admin/admin_memberSelect_open?id=${dto.id}','insert','width = 576, height = 373.2, top = 100, left = 200, location = no');">
+			<input type="button" class="btn btn-default ad-product-sel_btn" value="적립금+"></a>
+			<input type="text" value="${dto.points}" id="pointbox">
 		
 	</div>
 	</div>
@@ -94,11 +102,26 @@
 	</div>
 </div>
 
+		
+		<div id="pointbtn_2">
+			<input type="button" style="border-color: #737373; color: #737373" class="btn btn-default ad-product-sel_btn" value="적립금 지급완료">
+		</div>
+
 
 <script type="text/javascript">
 
+	var pointbtn_2 = $("#pointbtn_2").html().trim();
+	
+
+	function button_change() {
+  		$("#pointbtn").html(pointbtn_2);
+	}
+
 
 </script>
+
+
+
 
 
 </body>

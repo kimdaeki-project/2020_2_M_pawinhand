@@ -41,7 +41,6 @@
 			<div class="member-item">
 			<input type="hidden" value="${member.member_type}" name="member_type" id="member_type">
 			<input type="hidden" value="${member.points}" name="points" id="points">
-			<input type="hidden" value="${member.id}" name="id" id="id">
 				<table>
 					<tr><th>아이디</th><td><input type="text" name="id" id="id" value="${member.id}" readonly="readonly"></td></tr>
 					<tr><th>비밀번호</th><td><input type="password" name="pw" id="pw"/></td></tr>
@@ -133,7 +132,6 @@
  		return false;
 		}
 	});
-	
 	
 	
 	

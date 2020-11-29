@@ -201,7 +201,7 @@
             <input type="text" id="sample6_postcode" placeholder="우편번호" name="zipCode">
             <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
             <input type="text" id="sample6_address" placeholder="주소" name="address" class="text"><br>
-            <input type="text" id="sample6_detailAddress" placeholder="상세주소" name="detailAddress" class="text" onkeyup="address()"><br>
+            <input type="text" id="sample6_detailAddress" placeholder="상세주소" name="detailAddress" class="text"><br>
             <input type="text" id="sample6_extraAddress" placeholder="참고항목" name="extraAddress" class="text">
             <input type="hidden" id="address" name="address">
          </div>
@@ -366,7 +366,7 @@
 	  // document.getElementById("address").value = document.getElementById("sample6_address").value + document.getElementById("sample6_detailAddress").value + document.getElementById("sample6_extraAddress").value;
 	   console.log(ch2);
 	   if(ch2.checked && ch3.checked){
-	   		alert("OK");
+		   console.log("ok");
 	   }else {
 	  		alert("필수 항목을 체크하세요");
 	   }
@@ -380,14 +380,6 @@
 //			document.getElementById("address").value = document.getElementById("sample6_address").value + document.getElementById("sample6_detailAddress").value + document.getElementById("sample6_extraAddress").value;
 //		}
 
-		$(function() {
-   			$("#sample6_detailAddress").on("keyup", function() {
-        	var str = $("input[name^='address']:visible").map(function() {
-            	return $(this).val();
-        	}).get().join(" ");
-       		$("#address").val(str);
-    	});
-	});
 		
 		$(function() {
    			$("#phone3").on("keyup", function() {

@@ -366,7 +366,7 @@
 	  // document.getElementById("address").value = document.getElementById("sample6_address").value + document.getElementById("sample6_detailAddress").value + document.getElementById("sample6_extraAddress").value;
 	   console.log(ch2);
 	   if(ch2.checked && ch3.checked){
-	   		alert("OK");
+		   console.log("ok");
 	   }else {
 	  		alert("필수 항목을 체크하세요");
 	   }
