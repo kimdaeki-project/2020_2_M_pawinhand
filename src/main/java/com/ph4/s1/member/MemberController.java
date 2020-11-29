@@ -158,13 +158,6 @@ public class MemberController {
 		return mv;
 	}
 	
-	@GetMapping("memberJoinForm_shelter")
-	public ModelAndView setMemberJoinForm_shelter()throws Exception{
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("member/memberJoinForm_shelter");
-		return mv;
-	}
-	
 	
 //----------------------------------------------------------------------------------------------------------
 	
@@ -181,7 +174,7 @@ public class MemberController {
 		memberDTO = memberService.getOne(memberDTO);
 		mv.setViewName("member/memberDeleteInfo");
 		return mv;
-}
+	}
 	
 	
 	@GetMapping("memberDelete")
