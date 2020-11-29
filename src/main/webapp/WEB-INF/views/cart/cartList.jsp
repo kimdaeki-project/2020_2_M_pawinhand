@@ -64,7 +64,7 @@
 				  			<button class="cart-update" formaction="../cart/cartUpdate?cartNum=${dto.cartNum}" formmethod="post">수정</button>
 				  			</td>
 				  		</tr>
-				  		<input type="hidden" name="id" value="${dto.id}"/>
+				  		<input type="hidden" name="id" value="${member.id}"/>
 				  		<input type="hidden" name="cartNum" value="${dto.cartNum}"/>
 				  		<input type="hidden" name="product_num" value="${dto.product_num}"/>
 				  		<input type="hidden" value="${dto.price}" name="price" id="price" />

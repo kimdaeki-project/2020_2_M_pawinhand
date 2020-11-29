@@ -142,6 +142,7 @@
 			</table>
 		
 		<form name="goodsSelect-frm" method="post">
+			<input type="hidden" name="id" value="${member.id}"/>
 			<input type="hidden" name="product_num" value="${dto.product_num}">
 			<input type="hidden" name="price" value="${dto.price}" id="price">
 			

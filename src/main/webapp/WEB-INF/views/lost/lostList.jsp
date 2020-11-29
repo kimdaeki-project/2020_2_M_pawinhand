@@ -149,21 +149,19 @@
 </body>
 
 <script type="text/javascript">
-function stateColor(){
-	var val = $(".state").attr("title");
-	console.log(val);
+$(".state").each(function(){
+    var val = $(this).attr("title");
+    if(val == "목격"){
+       $(this).css('background-color','#ffc107');
+    }else if(val == "보호"){
+       $(this).css('background-color','#28a745');
+    }else if(val == "실종"){
+       $(this).css('background-color','#fd7e14');
+    }else if(val == "완료"){
+       $(this).css('background-color','#007bff');
+    }
+ });
 
-	if(val == "목격"){
-		$(".state").css('background-color','#ffc107');
-	}else if(val == "보호"){
-		$(".state").css('background-color','#28a745');
-	}else if(val == "실종"){
-		$(".state").css('background-color','#fd7e14');
-	}else if(val == "완료"){
-		$(".state").css('background-color','#007bff');
-	}
-
-	}
 
 
 
