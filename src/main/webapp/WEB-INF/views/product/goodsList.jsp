@@ -43,7 +43,7 @@
 						<img style="width: 250px; height: 250px" alt="pet image" src="${pageContext.request.contextPath}/resources/img/upload/product/${dto.fileName}" width="250px" height="250px" />
 						<div class="goods-info">
 							<dl class="goods-name">
-								<dt class="name">${dto.name}</dt>
+								<dt class="name">${dto.name} [${dto.color}]</dt>
 								<dt>${dto.price}원</dt>
 								<dd>${dto.descriptions}</dd>
 							</dl>

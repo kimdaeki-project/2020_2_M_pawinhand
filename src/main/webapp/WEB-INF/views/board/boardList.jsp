@@ -117,7 +117,6 @@
 </div>
 </div>
 
-<c:import url="../template/footer.jsp"></c:import>	
 <script type="text/javascript">
 	var type = '${pager.type}';
 	var kind = '${pager.kind}';

@@ -143,7 +143,7 @@
         left join product P 
         on OD.product_num = P.product_num
         
-        where O.order_num = 1)AOL)
+        where O.order_num = OD.order_num)AOL)
         where R between #{startRow} and #{lastRow}
 	</select>
 	
