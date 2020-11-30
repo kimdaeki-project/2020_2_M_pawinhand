@@ -265,7 +265,6 @@
 	    
 	    $("#result").on("click", ".c1", function(){
 	    	curPage = $(this).attr("title");
-	    	alert(curPage);
 	    	getList();
 	    });
 	    
