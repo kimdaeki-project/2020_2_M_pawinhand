@@ -182,7 +182,7 @@
 			</div>
 		</div>
 	</div>
-
+<c:import url="../template/footer.jsp"></c:import>	
 	<script type="text/javascript">
 			$("#wrbtn").click(function() {
 				location.href="./voluntaryWrite";

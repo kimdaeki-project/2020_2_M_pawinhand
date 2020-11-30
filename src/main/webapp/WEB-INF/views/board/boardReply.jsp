@@ -14,7 +14,7 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <div class="container">
-  <h2>${board} reply Form</h2>
+  <h2>${name} 답글 </h2>
   <form id="frm" action="./${board}Reply" method="post" enctype="multipart/form-data">
   	<input type="hidden" name="num" value="${param.num}">
     <div class="form-group">
@@ -24,7 +24,7 @@
     
     <div class="form-group">
       <label for="writer">Writer:</label>
-      <input type="text" class="form-control" id="writer" name="writer">
+      <input type="text" class="form-control" id="writer" name="writer" value="${member.id}" readonly> 
     </div> 
     
      <div class="form-group">
@@ -32,7 +32,7 @@
       <textarea class="form-control" rows="20" cols="30" id="contents" name="contents"></textarea>
     </div>
  
- 	<input type="button" value="FileAdd" id="fileAdd" class="btn btn-info">
+ 	<input type="button" value="FileAdd" id="fileAdd" class="btn nobtn">
 
 	<div id="files">
 
@@ -41,7 +41,7 @@
  
  	<div class="form-group">
  	<label></label>
-    <button type="submit" class="btn btn-warning form-control">Write</button>
+    <button type="submit" class="btn okbtn form-control">Write</button>
     </div>
   </form>
   
@@ -53,6 +53,8 @@
   </div>
   
 </div>
+
+<c:import url="../template/footer.jsp"></c:import>
 <script type="text/javascript">
 	var count=0;
 	 $('#contents').summernote({
@@ -125,8 +127,6 @@
 		}
 	});
 </script>
-
-
 
 
 </body>

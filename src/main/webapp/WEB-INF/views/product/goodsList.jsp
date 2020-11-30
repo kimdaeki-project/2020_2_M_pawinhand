@@ -58,7 +58,7 @@
 				</div>
 			</c:if>
 		</div>
-		
+	<c:import url="../template/footer.jsp"></c:import>	
 <script type="text/javascript">
 	$("#writeBtn").click(function(){
 		location.href = "./goodsWrite";

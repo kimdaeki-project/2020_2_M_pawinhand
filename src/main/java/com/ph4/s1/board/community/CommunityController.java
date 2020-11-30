@@ -50,6 +50,7 @@ public class CommunityController {
 			mv.setViewName("board/boardSelect");
 			mv.addObject("dto", boardDTO);
 			mv.addObject("board", "community");
+			
 		}else {
 			mv.setViewName("common/result");
 			mv.addObject("msg", "No Data");
@@ -70,7 +71,7 @@ public class CommunityController {
 		mv.addObject("dto", communityDTO);
 		mv.setViewName("board/boardUpdate");
 		mv.addObject("board", "community");
-		
+		mv.addObject("name", "커뮤니티");
 		return mv;
 	}
 	
@@ -115,6 +116,7 @@ public class CommunityController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("board", "community");
 		mv.setViewName("board/boardWrite");
+		mv.addObject("name", "커뮤니티");
 		return mv;
 	}
 	

@@ -93,13 +93,24 @@
 		color : gray;
 	}
 	
+	.lostselect-btn {
+		margin-top: 20px;
+	}
+	
 	#lostDelete{
-		color : blue;
-		margin-right: 5px;
+		border: 1px solid #d9d9d9;
+		color: #FDC033;
+   		margin-left: 3px;
+   		font-size: 0.9em;
+   		padding: 5px 10px;
 	}
 	
 	#lostUpdate{
-		color : blue;
+		border: 1.5px solid #FDC033;
+ 	    color: #FDC033;
+  		font-size: 0.88em;
+  		font-weight: 500;
+  		padding: 5px 10px;
 	}
 	
 	.replyId{
@@ -161,6 +172,7 @@
 		<div class="state_select" title="${dto.state}">${dto.state}</div>
 		<span>${dto.detailSpecies}</span>
 		<span>성  별 : ${dto.gender} / 나 이 : ${dto.age} / ${dto.color} </span>
+		
 	</div>
   <div id="demo" class="carousel slide" data-ride="carousel">
 
@@ -246,11 +258,13 @@
 	  <input type="hidden" value="${member.id}" name="id">
 	  <button class="btn primary">댓글</button>
 	</form>
-	
 	<c:if test="${member.id == 'admin' || member.id == dto.id}">
-		<a id="lostDelete" href="./lostDelete?num=${dto.num}">글삭제</a>
-		<a id="lostUpdate">글수정</a>
+	<div class="lostselect-btn">
+			<a id="lostDelete" href="./lostDelete?num=${dto.num}">글삭제</a>
+			<a id="lostUpdate">글수정</a>
+	</div>		
 	</c:if>
+	
 </div>
 </div>
 	</div>
@@ -303,6 +317,9 @@
 			$(".state_select").css('color','#fff');
 		}
 	</script>
+	
+
 </div>
+	<c:import url="../template/footer.jsp"></c:import>	
 </body>
 </html>

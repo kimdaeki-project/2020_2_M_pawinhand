@@ -48,6 +48,8 @@
 			sysdate+1
 			</otherwise>
 		</choose>
+		order by num desc
+		
     </select>
     
 </mapper>
