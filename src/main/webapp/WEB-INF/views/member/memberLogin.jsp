@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<script type="text/javascript">
-		Kakao.init('');
+		Kakao.init('c3634279808958d1374853f4a2a98764');
 		Kakao.isInitialized();
 	</script>
 
