@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<script type="text/javascript">
-		Kakao.init('c3634279808958d1374853f4a2a98764');
+		Kakao.init('13965da875a27f02babdacea095081f7');
 		Kakao.isInitialized();
 	</script>
 
@@ -52,7 +52,7 @@
 <script type="text/javascript">
 	var naverLogin = new naver.LoginWithNaverId(
 		{
-			clientId: "",
+			clientId: "LDUFicSz7QRtitxoY9rM",
 			callbackUrl: "http://localhost/s1/member/naverLogin",
 			isPopup: false, /* 팝업을 통한 연동처리 여부 */
 			loginButton: {color: "green", type: 3, height: 49} /* 로그인 버튼의 타입을 지정 */
