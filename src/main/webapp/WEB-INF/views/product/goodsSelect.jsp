@@ -137,6 +137,7 @@
 			</table>
 		
 		<form name="goodsSelect-frm" method="post">
+			<input type="hidden" name="id" value="${member.id}"/>
 			<input type="hidden" name="product_num" value="${dto.product_num}">
 			<input type="hidden" name="price" value="${dto.price}" id="price">
 			<input type="hidden" name="id" value="${member.id}" id="id">
@@ -235,7 +236,6 @@
 	$("#menu_list").on("click", ".c1", function(){
     	curPage = $(this).attr("title");
     	var table = $("#tableName").val();
-    	alert(table);
     	if(table == 'review'){
     		reviewList();
     	}else{
