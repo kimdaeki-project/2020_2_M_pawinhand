@@ -158,6 +158,13 @@ public class MemberController {
 		return mv;
 	}
 	
+	   @GetMapping("memberJoinForm_shelter")
+	   public ModelAndView setMemberJoinForm_shelter()throws Exception{
+	      ModelAndView mv = new ModelAndView();
+	      mv.setViewName("member/memberJoinForm_shelter");
+	      return mv;
+	   }
+	
 	
 //----------------------------------------------------------------------------------------------------------
 	

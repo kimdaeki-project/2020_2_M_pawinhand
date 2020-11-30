@@ -24,7 +24,7 @@
 .admin-tbl td {
 	color: #404040;
 	font-weight: 400;
-	font-size: 0.75em;
+	font-size: 0.7em;
 	}
 	
 #cname td {
@@ -107,11 +107,13 @@
 				<td>no</td>
 				<td>상품명</td>
 				<td>주문자</td>
-				<td>배송지</td>
+				<td style="width: 170px;">배송지</td>
 				<td>수량</td>
-				<td>총 주문금액</td>
+				<td>주문금액</td>
 				<td>주문일</td>
 			</tr>
+			
+			<input type="hidden" value="${dto.order_num}" name="order_num">
 			
 			<c:forEach items="${list}" var="dto" varStatus="vs">
 			<tr class="admin-ml-tr">

@@ -217,7 +217,7 @@
   </div>
 
   
-
+<c:import url="../template/footer.jsp"></c:import>	
  <!-- **********Script*********************************************************************************** -->
  
  <script type="text/javascript">
