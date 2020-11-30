@@ -43,8 +43,6 @@
 	  			<td>${dto.writer}</td>
 	  			<td>${dto.regDate}</td>
 	  			<td>${dto.hit}</td>
-	  			
-	  			
 	  		</tr>
 	  		
 	  		
@@ -101,11 +99,25 @@
 		      </div>
 		  </form>
 		  </div>
-		  <img class="writeIcon" src="../resources/img/lost/write.png" tabindex=0 width="50" height="50" alt="">
+		  
+		  <c:choose>
+				<c:when test="${board eq 'notice'}">
+			 		 <c:if test="${member.id == 'admin'}">
+			  		<img class="writeIcon" src="../resources/img/lost/write.png" tabindex=0 width="50" height="50" alt="">
+			 		 </c:if>
+		  		</c:when>
+		  		<c:otherwise>
+		  			<c:if test="${member != null}">
+		  			<img class="writeIcon" src="../resources/img/lost/write.png" tabindex=0 width="50" height="50" alt="">
+		 		 	</c:if>
+		  		</c:otherwise>
+		  </c:choose>
 	  </div>
 
 </div>
 </div>
+
+<c:import url="../template/footer.jsp"></c:import>	
 <script type="text/javascript">
 	var type = '${pager.type}';
 	var kind = '${pager.kind}';
@@ -141,5 +153,6 @@
 		$(this).removeClass("writeIconfocus");
 	});
 </script>
+
 </body>
 </html>

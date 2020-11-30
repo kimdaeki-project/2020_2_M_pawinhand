@@ -42,7 +42,7 @@ public class NoticeController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("board/boardWrite");
 		mv.addObject("board", "notice");
-		
+		mv.addObject("name", "공지사항");
 		return mv;
 	}
 	
@@ -117,7 +117,7 @@ public class NoticeController {
 		mv.addObject("dto", boardDTO);
 		mv.setViewName("board/boardUpdate");
 		mv.addObject("board", "notice");
-		
+		mv.addObject("name", "공지사항");
 		return mv;
 		
 	}

@@ -22,7 +22,7 @@
 <c:import url="../template/header.jsp"></c:import>
 <div class="container">
 	<div class="col-12">
-	<h1 class="board-title">${board} Write Form</h1>
+	<h1 class="bw-title">${name} 글쓰기</h1>
 	<div class="board-write">
 	  <form id="frm" action="./${board}Write" method="post" enctype="multipart/form-data">
 	  
@@ -42,11 +42,9 @@
 	      <input type="text" class="form-control" value="${dto.title}" id="title" name="title">
 	    </div>
 	    
-		
-	    
 	    <div class="bw-item">
 	      <label for="writer">작성자:</label>
-	      <input type="text" class="form-control"  value="${member.id}" id="writer" name="writer">
+	      <input type="text" class="form-control"  value="${member.id}" id="writer" name="writer" readonly="readonly">
 	    </div> 
 	    
 	     <div class="bw-item">
@@ -54,28 +52,30 @@
 	      <textarea class="form-control" rows="20" cols="40" id="contents" name="contents" required="required">
 	      ${dto.contents}</textarea>
 	    </div>
-	    
-		<input type="button" value="FileAdd" id="fileAdd" class="btn btn-info">
-	
+	    <c:if test="${board ne 'community'}">
+		<input type="button" value="FileAdd" id="fileAdd" class="btn nobtn">
+	 	
 		<div id="files">
 	
 		</div>  
-	 
+		  </c:if>
 	 	<div class="bw-item">
 	 	<label></label>
-	    <button type="submit" class="btn btn-warning form-control">Write</button>
+	    <button type="submit" class="btn form-control okbtn">Write</button>
 	    </div>
 	  </form>
-	  
+	
 	  <div id="f">
 	  	  <div class="input-group">
 	        <input id="files" type="file" class="form-control" name="files">
 	        <span class="input-group-addon del">DEL</span>
 	      </div>
 	  </div>
+	 
   	</div>
   </div>
 </div>
+<c:import url="../template/footer.jsp"></c:import>
 <script type="text/javascript">
 	var count=0;
 	 $('#contents').summernote({
@@ -149,7 +149,6 @@
 		}
 	});
 </script>
-
 
 </body>
 </html>
