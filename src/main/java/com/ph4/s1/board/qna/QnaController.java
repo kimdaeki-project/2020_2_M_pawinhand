@@ -65,6 +65,7 @@ public class QnaController {
 	@PostMapping("qnaReply")
 	public ModelAndView setReply(BoardDTO boardDTO, MultipartFile[] files, HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
 		int result = qnaService.setReply(boardDTO, files, session);
 		
 		String message = "답글작성을 하지 못하였습니다";
@@ -75,7 +76,6 @@ public class QnaController {
 		
 		mv.addObject("msg", message);
 		mv.addObject("path", "./qnaList");
-		
 		mv.setViewName("common/result");
 		
 		return mv;
@@ -86,6 +86,7 @@ public class QnaController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("board/boardReply");
 		mv.addObject("board", "qna");
+		mv.addObject("name", "QNA");
 		return mv;
 	}
 	
@@ -102,6 +103,7 @@ public class QnaController {
 				mv.addObject("files", files);
 			}
 			mv.addObject("board", "qna");
+			mv.addObject("name", "QNA");
 		}else {
 			mv.setViewName("common/result");
 			mv.addObject("msg", "No Data");
@@ -120,6 +122,7 @@ public class QnaController {
 		
 		mv.addObject("dto", boardDTO);
 		mv.addObject("board", "qna");
+		mv.addObject("name", "QNA");
 		mv.setViewName("board/boardUpdate");
 		
 		return mv;
@@ -165,6 +168,7 @@ public class QnaController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("board/boardWrite");
 		mv.addObject("board", "qna");
+		mv.addObject("name", "QNA");
 		return mv;
 	}
 	

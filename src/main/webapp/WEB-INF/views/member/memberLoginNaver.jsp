@@ -43,7 +43,6 @@
 				var birthday = naverLogin.user.getBirthday();			
 				var uniqId = naverLogin.user.getId();
 				var age = naverLogin.user.getAge();
-				alert(uniqId);
 				$.post("./naverLogin",{id:uniqId},function(data){
 		        	 
 		        })

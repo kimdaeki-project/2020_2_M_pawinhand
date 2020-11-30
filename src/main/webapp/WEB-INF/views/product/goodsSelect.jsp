@@ -236,7 +236,6 @@
 	$("#menu_list").on("click", ".c1", function(){
     	curPage = $(this).attr("title");
     	var table = $("#tableName").val();
-    	alert(table);
     	if(table == 'review'){
     		reviewList();
     	}else{

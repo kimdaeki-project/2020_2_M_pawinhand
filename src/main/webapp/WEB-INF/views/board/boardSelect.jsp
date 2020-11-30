@@ -48,36 +48,41 @@
 				<input type="button" value="목록" id="list" class="button btn btn-light">
 				<c:choose>
 					<c:when test="${board eq 'qna'}">
+					<c:if test="${member.id == 'admin'}">
 					<a href="./${board}Reply?num=${dto.num}" class="button btn btn-light">답글</a>
+					</c:if>
 					</c:when>
 					<c:when test="${board eq 'community'}">
 					<a href="./${board}Reply?num=${dto.num}"></a>
+					
 					</c:when>
 					<c:otherwise></c:otherwise>
 				</c:choose>
-				<input type="button" title="${dto.num}" value="갱신" id="update" class="button btn btn-light">
-				<input type="button" title="${dto.num}" value="삭제" id="del" class="button btn btn-light">
+				<c:if test="${member.id == dto.writer}">
+				<input type="button" title="${dto.num}" value="갱신" id="update" class="button btn okbtn">
+				<input type="button" title="${dto.num}" value="삭제" id="del" class="button btn nobtn">
+				</c:if>
 		</div>
 			
 		
-		<c:if test="${board eq 'community'}">
+		
 			<div class="community-reply">
-				<h1>댓글 (${replyCount})</h1>
+				<h1>댓글</h1>
 			<div id="result">
 			
 			</div>
 			<form action="../boardReply/boardReplyInsert" method="post">
 			  <input type="text" placeholder="댓글을 입력하세요." name="contents">
 			  <input type="hidden" value="${dto.num}" name="cmn_num">
-			  <input type="hidden" value="${dto.writer}" name="writer">
+			  <input type="hidden" value="${member.id}" name="writer">
 			  <button class="btn btn-light">댓글</button>
 			</form>
 			</div>
-		</c:if>
 		
 	</div>
 
 </div>
+
 <script type="text/javascript">
 
 	//댓글
@@ -125,5 +130,6 @@
 	
 	
 </script>
+
 </body>
 </html>

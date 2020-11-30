@@ -22,8 +22,7 @@
 	}
 	.main{
 	 	width: 1000px;
-	 	height : 1200px;
-	 	margin: 100px auto 0px;
+	 	margin: 20px auto;
 	 }
 	
 </style>
@@ -32,7 +31,7 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <div class="main">
-
+<h1 class="bw-title">${name} 글쓰기</h1>
   <form id="frm" action="./${board}Update" method="post" enctype="multipart/form-data">
     <input type="hidden" name="num" value="${dto.num}">
     <div class="form-group">
@@ -62,25 +61,26 @@
       <textarea class="form-control" rows="20" cols="30" id="contents" name="contents" required="required">${dto.contents}</textarea>
     </div>
     
-	<input type="button" value="FileAdd" id="fileAdd" class="btn btn-info">
+	<input type="button" value="FileAdd" id="fileAdd" class="btn nobtn">
 
 	<div id="files">
 
 	</div>  
  	<div class="form-group">
  	<label></label>
-    <button type="submit" class="btn btn-warning form-control">작성</button>
+    <button type="submit" class="btn form-control okbtn">작성</button>
     </div>
   </form>
-  
+  <c:if test="${board ne 'community'}">
   <div id="f">
   	  <div class="input-group">
         <input id="files" type="file" class="form-control" name="files">
         <span class="input-group-addon del">DEL</span>
       </div>
   </div>
-  
+  </c:if>
 </div>
+<c:import url="../template/footer.jsp"></c:import>
 <script type="text/javascript">
 	var count=0;
 	 $('#contents').summernote({
@@ -153,7 +153,6 @@
 	
 	
 </script>
-
 
 </body>
 </html>
