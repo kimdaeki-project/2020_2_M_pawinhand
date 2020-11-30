@@ -8,6 +8,7 @@ import org.w3c.dom.ls.LSInput;
 
 import com.ph4.s1.member.MemberDTO;
 import com.ph4.s1.store.product.ProductDTO;
+import com.ph4.s1.util.Pager;
 
 @Service
 public class StorePayService {
@@ -224,4 +225,11 @@ public class StorePayService {
 		
 		return ar;
 	} 
+	
+	public List<OrderListAdminDTO> getOrderList_admin(Pager pager) throws Exception{
+		pager.makeRow();
+		pager.setTotalCount(storePayDAO.getCount_admin(pager));
+		pager.makePage();
+		return storePayDAO.getOrderList_admin(pager);
+	}
 }

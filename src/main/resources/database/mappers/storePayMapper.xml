@@ -126,4 +126,29 @@
 		select * from depositInfo where order_num=#{order_num}
 	</select>
 	
+	
+	<!-- ************ admin ************ -->
+	
+	<select id="getOrderList_admin" parameterType="Pager" resultType="OrderListAdminDTO">
+    select * from
+        (select rownum R, AOL.* from
+        (select O.*, OD.num num_1, OD.order_num order_num_1, OD.id, 
+        OD.product_num product_num_1, OD.name name_1, OD.amount amount_1, 
+        OD.ptotal ptotal,  P.color, P.weight
+        
+      	from 
+      	orderlist O left join orderdetail OD
+        on O.order_num = OD.order_num 
+        
+        left join product P 
+        on OD.product_num = P.product_num
+        
+        where O.order_num = 1)AOL)
+        where R between #{startRow} and #{lastRow}
+	</select>
+	
+	<select id="getCount_admin" parameterType="Pager" resultType="Long">
+		select count(order_num) from orderlist
+	</select>
+	
 </mapper>

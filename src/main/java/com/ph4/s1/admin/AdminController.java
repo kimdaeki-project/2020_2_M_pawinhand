@@ -11,6 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ph4.s1.member.MemberDTO;
 import com.ph4.s1.member.MemberService;
+import com.ph4.s1.store.pay.OrderListAdminDTO;
+import com.ph4.s1.store.pay.OrderListDTO;
+import com.ph4.s1.store.pay.StorePayService;
 import com.ph4.s1.store.product.ProductDTO;
 import com.ph4.s1.store.product.ProductPager;
 import com.ph4.s1.store.product.ProductService;
@@ -35,6 +38,8 @@ public class AdminController {
 	private ProductQnaService productQnaService;
 	@Autowired
 	private ProductReviewService productReviewService;
+	@Autowired
+	private StorePayService storePayService;
 	
 	
 	@GetMapping("adminPage")
@@ -211,6 +216,19 @@ public class AdminController {
 	}
 	
 	
+//--------------------------------------------------------------------------------------------
+	
+	@GetMapping("admin_orderList")
+	public ModelAndView getOrderList_admin(Pager pager) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<OrderListAdminDTO> ar = storePayService.getOrderList_admin(pager);
+		
+		mv.addObject("list", ar);
+		mv.addObject("pager", pager);
+		mv.setViewName("admin/admin_orderList");
+		
+		return mv;
+	}
 	
 
 }

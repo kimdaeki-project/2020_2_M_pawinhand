@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ph4.s1.member.MemberDTO;
 import com.ph4.s1.store.product.ProductDTO;
+import com.ph4.s1.util.Pager;
 
 @Repository
 public class StorePayDAO {
@@ -78,4 +79,13 @@ public class StorePayDAO {
 	public List<OrderDetailDTO> setMypage(String id) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"setMyPage", id);
 	}
+	
+	public List<OrderListAdminDTO> getOrderList_admin(Pager pager) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getOrderList_admin", pager);
+	}
+	
+	public long getCount_admin(Pager pager) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getCount_admin", pager);
+	}
+
 }
